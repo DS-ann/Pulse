@@ -308,36 +308,6 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                               ),
                             );
                           }),
-                          
-                          // Rich Results
-                          if ((search.results['songs'] ?? []).isNotEmpty) ...[
-                            const Divider(height: 1, color: AppColors.glassBorder),
-                            ...search.results['songs']!.take(5).map((song) {
-                              return SongTile(
-                                song: song,
-                                isPlaying: audio.currentSong?.videoId == song.videoId,
-                                onTap: () {
-                                  ref.read(searchProvider.notifier).hideSuggestions();
-                                  _handlePlay(song);
-                                },
-                                onLongPress: () {
-                                  ref.read(searchProvider.notifier).hideSuggestions();
-                                  _showMenu(song);
-                                },
-                                trailing: GestureDetector(
-                                  onTap: () {
-                                    ref.read(searchProvider.notifier).hideSuggestions();
-                                    _showMenu(song);
-                                  },
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: Icon(LucideIcons.moreVertical,
-                                        size: 18, color: AppColors.textSecondary),
-                                  ),
-                                ),
-                              );
-                            }),
-                          ],
                         ],
                       ),
                     ),

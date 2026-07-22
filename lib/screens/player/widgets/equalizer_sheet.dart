@@ -14,10 +14,11 @@ class EqualizerSheet extends ConsumerStatefulWidget {
 }
 
 List<double>? _cachedGains;
+String _globalActivePreset = 'Custom';
 
 class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
   AndroidEqualizer? _equalizer;
-  String _activePreset = 'Custom';
+  late String _activePreset;
 
   final Map<String, List<double>> _presets = {
     // ── Standard ──
@@ -48,7 +49,10 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
 
   void _applyPreset(String presetName, AndroidEqualizerParameters params) {
     if (presetName == 'Custom') return;
-    setState(() => _activePreset = presetName);
+    setState(() {
+      _activePreset = presetName;
+      _globalActivePreset = presetName;
+    });
     
     final values = _presets[presetName]!;
     for (int i = 0; i < params.bands.length; i++) {
@@ -69,6 +73,7 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
   @override
   void initState() {
     super.initState();
+    _activePreset = _globalActivePreset;
     // In just_audio, AndroidEqualizer is supported mainly on Android.
     if (Platform.isAndroid) {
       _equalizer = ref.read(audioHandlerProvider).equalizer;
@@ -270,7 +275,10 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
                       max: params.maxDecibels,
                       onChanged: (value) {
                         if (_activePreset != 'Custom') {
-                          setState(() => _activePreset = 'Custom');
+                          setState(() {
+                            _activePreset = 'Custom';
+                            _globalActivePreset = 'Custom';
+                          });
                         }
                         band.setGain(value);
                       },

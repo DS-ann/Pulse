@@ -222,6 +222,8 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                               final isEnabled = snapshot.data ?? false;
                               return IconButton(
                                 onPressed: () {
+                                  // Hide keyboard if it was open on the underlying screen
+                                  FocusManager.instance.primaryFocus?.unfocus();
                                   showModalBottomSheet(
                                     context: context,
                                     backgroundColor: Colors.transparent,
