@@ -30,7 +30,9 @@ void main() async {
     // If AudioService fails (e.g. missing AudioServiceActivity),
     // create a standalone handler so the app still launches.
     debugPrint('[Pulse] AudioService.init failed: $e');
-    audioHandler = PulseAudioHandler(AudioPlayer());
+    final fallbackEq = AndroidEqualizer();
+    final fallbackPlayer = AudioPlayer(audioPipeline: AudioPipeline(androidAudioEffects: [fallbackEq]));
+    audioHandler = PulseAudioHandler(fallbackPlayer, equalizer: fallbackEq);
   }
 
   // Immersive dark status bar
@@ -119,4 +121,5 @@ class _PulseAppState extends ConsumerState<PulseApp> {
     );
   }
 }
+
 

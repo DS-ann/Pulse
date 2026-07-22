@@ -292,14 +292,26 @@ class DownloadNotifier extends Notifier<DownloadState> {
       );
 
       if (contextPlaylist != null) {
-        await _db.addTrackToPlaylist('__pl__${contextPlaylist.id}', contextPlaylist.name, videoId);
+        int idx = contextPlaylist.songs.indexWhere((s) => s.videoId == videoId || s.id == videoId);
+        await _db.addTrackToPlaylist(
+          '__pl__${contextPlaylist.id}', 
+          contextPlaylist.name, 
+          videoId,
+          position: idx != -1 ? idx : null,
+        );
       }
 
       try {
         final onlinePlaylists = ref.read(playlistProvider);
         for (final pl in onlinePlaylists.playlists) {
-          if (pl.songs.any((s) => s.videoId == videoId || s.id == videoId)) {
-            await _db.addTrackToPlaylist('__pl__${pl.id}', pl.name, videoId);
+          int idx = pl.songs.indexWhere((s) => s.videoId == videoId || s.id == videoId);
+          if (idx != -1) {
+            await _db.addTrackToPlaylist(
+              '__pl__${pl.id}', 
+              pl.name, 
+              videoId,
+              position: idx,
+            );
           }
         }
       } catch (e) {

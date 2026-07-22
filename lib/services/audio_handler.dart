@@ -11,6 +11,7 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 /// On Android, this runs as a foreground service; on iOS, it uses the MPNowPlayingInfoCenter.
 class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
   AudioPlayer _activePlayer;
+  final AndroidEqualizer? equalizer;
 
   /// Second player used exclusively during crossfade transitions.
   AudioPlayer? _crossfadePlayer;
@@ -49,7 +50,7 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
     await super.customAction(name, extras);
   }
 
-  PulseAudioHandler(this._activePlayer) {
+  PulseAudioHandler(this._activePlayer, {this.equalizer}) {
     _initListeners();
   }
 
@@ -273,9 +274,12 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
 /// Initialize the audio_service handler as a singleton.
 /// Must be called once in main() before runApp().
 Future<PulseAudioHandler> initAudioService() async {
-  final player = AudioPlayer();
+  final equalizer = AndroidEqualizer();
+  final player = AudioPlayer(
+    audioPipeline: AudioPipeline(androidAudioEffects: [equalizer]),
+  );
   return await AudioService.init(
-    builder: () => PulseAudioHandler(player),
+    builder: () => PulseAudioHandler(player, equalizer: equalizer),
     config: const AudioServiceConfig(
       androidNotificationChannelId: 'com.pulse.music.channel',
       androidNotificationChannelName: 'Pulse Music',

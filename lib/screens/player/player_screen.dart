@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:go_router/go_router.dart';
+import '../../providers/player_overlay_provider.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
@@ -17,6 +18,8 @@ import '../../providers/audio_provider.dart' hide RepeatMode;
 import '../../providers/audio_provider.dart' as ap show RepeatMode;
 import '../../providers/playlist_provider.dart';
 import '../../providers/download_provider.dart';
+import '../../providers/player_overlay_provider.dart';
+import 'widgets/equalizer_sheet.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/song_tile.dart';
@@ -174,7 +177,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        onPressed: () => context.pop(),
+                        onPressed: () => ref.read(playerOverlayProvider.notifier).state = false,
                         icon: const Icon(LucideIcons.chevronDown, size: 28),
                       ),
                       Column(
@@ -207,7 +210,34 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(width: 48),
+                      Builder(
+                        builder: (context) {
+                          final equalizer = ref.watch(audioHandlerProvider).equalizer;
+                          if (equalizer == null) {
+                            return const SizedBox(width: 48); // Fallback for non-Android
+                          }
+                          return StreamBuilder<bool>(
+                            stream: equalizer.enabledStream,
+                            builder: (context, snapshot) {
+                              final isEnabled = snapshot.data ?? false;
+                              return IconButton(
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+                                    builder: (context) => const EqualizerSheet(),
+                                  );
+                                },
+                                icon: Icon(
+                                  LucideIcons.sliders, 
+                                  size: 22,
+                                  color: isEnabled ? Theme.of(context).colorScheme.primary : AppColors.textPrimary,
+                                ),
+                              );
+                            },
+                          );
+                        }
+                      ),
                     ],
                   ),
                 ),

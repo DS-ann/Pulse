@@ -236,6 +236,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                             onChanged: (q) {
                               ref.read(searchProvider.notifier).onQueryChanged(q);
                             },
+                            onSubmitted: (_) {
+                              ref.read(searchProvider.notifier).hideSuggestions();
+                            },
                           ),
                         ),
                         if (search.query.isNotEmpty)
@@ -276,34 +279,66 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: search.suggestions.map((s) {
-                          return InkWell(
-                            onTap: () {
-                              _controller.text = s;
-                              _controller.selection = TextSelection.fromPosition(
-                                TextPosition(offset: s.length),
-                              );
-                              ref.read(searchProvider.notifier).selectSuggestion(s);
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 14, vertical: 10),
-                              child: Row(
-                                children: [
-                                  const Icon(LucideIcons.search,
-                                      size: 14, color: AppColors.textSecondary),
-                                  const SizedBox(width: 10),
-                                  Expanded(
-                                    child: Text(s,
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: const TextStyle(fontSize: 14)),
-                                  ),
-                                ],
+                        children: [
+                          ...search.suggestions.map((s) {
+                            return InkWell(
+                              onTap: () {
+                                _controller.text = s;
+                                _controller.selection = TextSelection.fromPosition(
+                                  TextPosition(offset: s.length),
+                                );
+                                ref.read(searchProvider.notifier).selectSuggestion(s);
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 14, vertical: 10),
+                                child: Row(
+                                  children: [
+                                    const Icon(LucideIcons.search,
+                                        size: 14, color: AppColors.textSecondary),
+                                    const SizedBox(width: 10),
+                                    Expanded(
+                                      child: Text(s,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(fontSize: 14)),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          );
-                        }).toList(),
+                            );
+                          }),
+                          
+                          // Rich Results
+                          if ((search.results['songs'] ?? []).isNotEmpty) ...[
+                            const Divider(height: 1, color: AppColors.glassBorder),
+                            ...search.results['songs']!.take(5).map((song) {
+                              return SongTile(
+                                song: song,
+                                isPlaying: audio.currentSong?.videoId == song.videoId,
+                                onTap: () {
+                                  ref.read(searchProvider.notifier).hideSuggestions();
+                                  _handlePlay(song);
+                                },
+                                onLongPress: () {
+                                  ref.read(searchProvider.notifier).hideSuggestions();
+                                  _showMenu(song);
+                                },
+                                trailing: GestureDetector(
+                                  onTap: () {
+                                    ref.read(searchProvider.notifier).hideSuggestions();
+                                    _showMenu(song);
+                                  },
+                                  child: const Padding(
+                                    padding: EdgeInsets.all(8),
+                                    child: Icon(LucideIcons.moreVertical,
+                                        size: 18, color: AppColors.textSecondary),
+                                  ),
+                                ),
+                              );
+                            }),
+                          ],
+                        ],
                       ),
                     ),
                 ],

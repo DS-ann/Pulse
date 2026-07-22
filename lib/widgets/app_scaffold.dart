@@ -8,9 +8,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../core/theme/app_colors.dart';
 import '../screens/offline/offline_screen.dart';
+import '../screens/player/player_screen.dart';
 import 'mini_player.dart';
 import '../providers/update_provider.dart';
 import '../providers/auth_provider.dart';
+import '../providers/player_overlay_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -228,7 +230,9 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
       }
     }
 
-    return Scaffold(
+    final showPlayer = ref.watch(playerOverlayProvider);
+
+    final scaffold = Scaffold(
       extendBody: true,
       body: widget.child,
       bottomNavigationBar: Column(
@@ -268,7 +272,6 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
                 ],
                 stops: [0.0, 0.25, 0.5, 0.8, 1.0],
               ),
-
             ),
             child: SafeArea(
               top: false,
@@ -315,6 +318,26 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
           ),
         ],
       ),
+    );
+
+    // Overlay the full-screen player on top of everything when visible.
+    // Being inside ShellRoute gives PlayerScreen full access to GoRouter,
+    // Navigator, Overlay, and Material — fixing all context errors.
+    if (!showPlayer) return scaffold;
+
+    return Stack(
+      children: [
+        scaffold,
+        BackButtonListener(
+          onBackButtonPressed: () async {
+            ref.read(playerOverlayProvider.notifier).state = false;
+            return true; // consumed — GoRouter does not see this press
+          },
+          child: _PlayerOverlayAnimation(
+            onClose: () => ref.read(playerOverlayProvider.notifier).state = false,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -428,6 +451,49 @@ class _ProfileBadge extends ConsumerWidget {
             },
           )
       ],
+    );
+  }
+}
+
+/// Animated scale+fade entry for the player overlay.
+class _PlayerOverlayAnimation extends StatefulWidget {
+  final VoidCallback onClose;
+  const _PlayerOverlayAnimation({required this.onClose});
+
+  @override
+  State<_PlayerOverlayAnimation> createState() => _PlayerOverlayAnimationState();
+}
+
+class _PlayerOverlayAnimationState extends State<_PlayerOverlayAnimation>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _ctrl;
+  late final Animation<double> _scale;
+  late final Animation<double> _fade;
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 250));
+    _scale = CurvedAnimation(parent: _ctrl, curve: Curves.easeInOutCubic, reverseCurve: Curves.easeOutCubic);
+    _fade  = CurvedAnimation(parent: _ctrl, curve: Curves.easeIn,         reverseCurve: Curves.easeIn);
+    _ctrl.forward();
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ScaleTransition(
+      alignment: const Alignment(0.0, 0.85),
+      scale: _scale,
+      child: FadeTransition(
+        opacity: _fade,
+        child: const PlayerScreen(),
+      ),
     );
   }
 }

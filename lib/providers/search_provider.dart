@@ -99,7 +99,7 @@ class SearchNotifier extends Notifier<SearchState> {
   }
 
   /// Called when user types in the search field.
-  void onQueryChanged(String q) {
+  void onQueryChanged(String q, {bool fetchSuggestions = true}) {
     _searchTimer?.cancel();
     _suggestTimer?.cancel();
 
@@ -117,7 +117,7 @@ class SearchNotifier extends Notifier<SearchState> {
     state = state.copyWith(
       query: q,
       isSearching: true,
-      showSuggestions: true,
+      showSuggestions: fetchSuggestions ? true : false,
     );
 
     // Restore cached results instantly (mirrors sessionStorage in PWA)
@@ -125,25 +125,26 @@ class SearchNotifier extends Notifier<SearchState> {
       state = state.copyWith(
         results: _resultCache[q]!,
         isSearching: false,
-        showSuggestions: false,
+        showSuggestions: fetchSuggestions ? state.showSuggestions : false,
       );
       return;
     }
 
     // Suggestions (200ms debounce)
-    _suggestTimer = Timer(const Duration(milliseconds: 200), () async {
-      try {
-        final sugg = await _musicApi.getSuggestions(q);
-        if (state.query == q) {
-          state = state.copyWith(suggestions: sugg.take(8).toList());
-        }
-      } catch (_) {}
-    });
+    if (fetchSuggestions) {
+      _suggestTimer = Timer(const Duration(milliseconds: 200), () async {
+        try {
+          final sugg = await _musicApi.getSuggestions(q);
+          if (state.query == q) {
+            state = state.copyWith(suggestions: sugg.take(5).toList());
+          }
+        } catch (_) {}
+      });
+    }
 
     // Search (550ms debounce)
     _searchTimer = Timer(const Duration(milliseconds: 550), () async {
       try {
-        state = state.copyWith(showSuggestions: false);
         final data = await _musicApi.searchAll(q);
         if (state.query == q) {
           final newResults = {
@@ -170,7 +171,12 @@ class SearchNotifier extends Notifier<SearchState> {
       suggestions: const [],
       showSuggestions: false,
     );
-    onQueryChanged(suggestion);
+    onQueryChanged(suggestion, fetchSuggestions: false);
+  }
+
+  /// Hide suggestions manually
+  void hideSuggestions() {
+    state = state.copyWith(showSuggestions: false);
   }
 
   /// Clear query and results.

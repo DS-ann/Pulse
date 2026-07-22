@@ -219,6 +219,7 @@ class PlaylistNotifier extends Notifier<PlaylistState> {
             '__pl__$playlistId',
             playlistName,
             song.videoId,
+            position: currentSongs.length, // Appended to the end
           );
         }
       } catch (e) {

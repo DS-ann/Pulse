@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../core/theme/app_colors.dart';
 
@@ -20,7 +21,8 @@ class _PlayingBarsState extends State<PlayingBars>
 
   static const _barCount = 3;
   static const _delays = [0.0, 0.15, 0.3]; // Matches CSS animation-delay
-  static const _heights = [0.6, 1.0, 0.7]; // Matches CSS height percentages
+  late final List<double> _currentPeaks;
+  final _random = math.Random();
 
   @override
   void initState() {
@@ -28,12 +30,22 @@ class _PlayingBarsState extends State<PlayingBars>
     _controllers = List.generate(_barCount, (i) {
       return AnimationController(
         vsync: this,
-        duration: const Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 450),
       );
     });
 
+    _currentPeaks = [0.6, 1.0, 0.7]; // Initial peaks
+
     // Start each bar with its specific delay
     for (int i = 0; i < _barCount; i++) {
+      _controllers[i].addStatusListener((status) {
+        if (status == AnimationStatus.dismissed) {
+          // Generate a new random peak when the bar hits the bottom
+          // Range from 0.1 (barely moves) to 1.0 (max height) for extreme visual randomness
+          _currentPeaks[i] = 0.1 + (_random.nextDouble() * 0.9);
+        }
+      });
+
       Future.delayed(Duration(milliseconds: (_delays[i] * 1000).toInt()), () {
         if (mounted && !widget.isPaused) _controllers[i].repeat(reverse: true);
       });
@@ -76,14 +88,20 @@ class _PlayingBarsState extends State<PlayingBars>
           return AnimatedBuilder(
             animation: _controllers[i],
             builder: (_, __) {
-              final scale = 0.5 + (_controllers[i].value * 0.5);
+              final scale = 0.2 + (CurvedAnimation(parent: _controllers[i], curve: Curves.easeInOutCubic).value * 0.8 * _currentPeaks[i]);
               return Container(
                 width: 3,
-                height: widget.height * _heights[i] * scale,
+                height: widget.height,
                 margin: const EdgeInsets.symmetric(horizontal: 1),
-                decoration: BoxDecoration(
-                  color: barColor,
-                  borderRadius: BorderRadius.circular(2),
+                child: Transform.scale(
+                  scaleY: scale,
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: barColor,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
                 ),
               );
             },

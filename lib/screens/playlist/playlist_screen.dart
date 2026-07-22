@@ -171,7 +171,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
 
     return Scaffold(
       extendBody: true,
-      body: SafeArea(bottom: false,
+        body: SafeArea(bottom: false,
         child: GestureDetector(
           onTap: () => setState(() => _showSortDropdown = false),
           child: Column(

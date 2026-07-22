@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'settings_provider.dart';
+import 'package:flutter/material.dart';
 import '../core/constants/app_constants.dart';
 
 // ── Auth State ──────────────────────────────────────────────────────────────
@@ -77,16 +80,48 @@ class AuthNotifier extends Notifier<AuthState> {
       return;
     }
 
-    // Sync Firestore profile (mirrors lines 16-39 of AuthContext.jsx)
     String? displayName = firebaseUser.displayName;
     String? photoURL = firebaseUser.photoURL;
 
+    // 1. INSTANT LOCAL CACHE LOAD
     try {
-      final ref = _db.collection('users').doc(firebaseUser.uid);
-      final snap = await ref.get();
+      final prefs = await SharedPreferences.getInstance();
+      final cachedName = prefs.getString('cached_displayName_${firebaseUser.uid}');
+      final cachedPhoto = prefs.getString('cached_photoURL_${firebaseUser.uid}');
+      final cachedColor = prefs.getInt('cached_accentColor_${firebaseUser.uid}');
+
+      if (cachedName != null) displayName = cachedName;
+      if (cachedPhoto != null) photoURL = cachedPhoto;
+      if (cachedColor != null) {
+        ref.read(settingsProvider.notifier).setAccentColor(Color(cachedColor), syncToFirestore: false);
+      }
+    } catch (e) {
+      debugPrint('[Auth] Cache read error: $e');
+    }
+
+    // Instantly update state so UI renders immediately
+    state = AuthState(
+      user: firebaseUser,
+      displayName: displayName ?? 'Pulse User',
+      photoURL: (photoURL == null || photoURL.isEmpty) ? 'assets/avatars/4.jpeg' : photoURL,
+      loading: false,
+    );
+
+    // 2. BACKGROUND FIRESTORE SYNC
+    // Fire and forget (don't block the UI)
+    _syncFirestoreProfile(firebaseUser, displayName, photoURL);
+  }
+
+  Future<void> _syncFirestoreProfile(User firebaseUser, String? currentName, String? currentPhoto) async {
+    String? displayName = currentName;
+    String? photoURL = currentPhoto;
+
+    try {
+      final docRef = _db.collection('users').doc(firebaseUser.uid);
+      final snap = await docRef.get(const GetOptions(source: Source.serverAndCache));
 
       if (!snap.exists) {
-        await ref.set({
+        await docRef.set({
           'uid': firebaseUser.uid,
           'displayName': firebaseUser.displayName ?? 'Pulse User',
           'email': firebaseUser.email,
@@ -118,19 +153,29 @@ class AuthNotifier extends Notifier<AuthState> {
         }
 
         if (needsRepair) {
-          await ref.set(repairUpdates, SetOptions(merge: true));
+          await docRef.set(repairUpdates, SetOptions(merge: true));
         }
 
         // Prefer Firestore profile data over Firebase Auth data
         if (data['displayName'] != null) displayName = data['displayName'];
         if (data['photoURL'] != null) photoURL = data['photoURL'];
+        
+        final prefs = await SharedPreferences.getInstance();
+        if (displayName != null) prefs.setString('cached_displayName_${firebaseUser.uid}', displayName!);
+        if (photoURL != null) prefs.setString('cached_photoURL_${firebaseUser.uid}', photoURL!);
+
+        if (data['accentColorInt'] != null) {
+          final colorInt = data['accentColorInt'] as int;
+          prefs.setInt('cached_accentColor_${firebaseUser.uid}', colorInt);
+          ref.read(settingsProvider.notifier).setAccentColor(Color(colorInt), syncToFirestore: false);
+        }
       }
     } catch (e) {
-      // Firestore sync failed — still allow auth to succeed
-      // ignore: avoid_print
+      // Firestore sync failed — ignore silently in background
       debugPrint('[Auth] Firestore sync error: $e');
     }
 
+    // Update state again if background sync found new data
     state = AuthState(
       user: firebaseUser,
       displayName: displayName ?? 'Pulse User',
@@ -215,12 +260,13 @@ class AuthNotifier extends Notifier<AuthState> {
     
     if (supportChannelUpdates.isNotEmpty) {
       try {
-        await _db.collection('support_channels').doc(user.uid).set(
-          supportChannelUpdates, 
-          SetOptions(merge: true),
+        await _db.collection('support_channels').doc(user.uid).update(
+          supportChannelUpdates,
         );
       } catch (e) {
-        debugPrint('[LiveSync] Failed to update support_channels: $e');
+        // This will throw if the document doesn't exist (i.e. user never started a chat).
+        // That's exactly what we want, so we just log it and move on.
+        debugPrint('[LiveSync] Skipped or failed to update support_channels: $e');
       }
     }
 

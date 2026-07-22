@@ -349,9 +349,9 @@ class AudioNotifier extends Notifier<AudioState> {
     );
 
     // ── Proactive queue fetch (non-blocking) ──
-    // Refetch when queue has <= 7 songs remaining so the queue never runs dry.
+    // Refetch when queue has <= 9 songs remaining so it fetches suggestions.
     // Done early so it fetches in parallel with the slow stream extraction below.
-    if (state.queue.length <= 7) {
+    if (state.queue.length <= 9) {
       _fetchWatchNext(normalizedSong.videoId);
     }
 
@@ -561,20 +561,16 @@ class AudioNotifier extends Notifier<AudioState> {
   }
 
   /// Play a song from a specific index in the queue.
-  /// Removes all songs up to that index from the queue and adds them to history.
+  /// Removes only that song from the queue and plays it.
   void playFromQueue(int index) {
     if (index < 0 || index >= state.queue.length) return;
 
     final selectedSong = state.queue[index];
-    final songsBefore = state.queue.sublist(0, index);
-    final newQueue = state.queue.sublist(index + 1);
-
-    // Add skipped songs to history in reverse order so the most recently skipped is first
-    final newHistory = [...songsBefore.reversed, ...state.history];
+    final updatedQueue = List<Song>.from(state.queue);
+    updatedQueue.removeAt(index);
 
     state = state.copyWith(
-      queue: newQueue,
-      history: newHistory.length > 50 ? newHistory.sublist(0, 50) : newHistory,
+      queue: updatedQueue,
     );
 
     playSong(selectedSong);

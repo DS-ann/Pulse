@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'auth_provider.dart';
 
 // ── Settings State ──────────────────────────────────────────────────────────
 
@@ -84,20 +86,36 @@ class SettingsNotifier extends Notifier<SettingsState> {
     _save();
   }
 
-  void setAccentColor(Color color) {
+  void setAccentColor(Color color, {bool syncToFirestore = true}) {
     state = state.copyWith(accentColor: color);
-    _save();
+    _save(syncToFirestore: syncToFirestore);
   }
 
   // ── Persist ──
 
-  Future<void> _save() async {
+  Future<void> _save({bool syncToFirestore = true}) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('pulse_streaming_quality', _toBackend(state.streamingQuality));
     await prefs.setString('pulse_download_quality', _toBackend(state.downloadQuality));
     await prefs.setInt('pulse_crossfade', state.crossfadeDuration);
     await prefs.setBool('pulse_data_saver', state.dataSaverMode);
     await prefs.setInt('pulse_accent_color_int', state.accentColor.toARGB32());
+
+    if (syncToFirestore) {
+      final authState = ref.read(authProvider);
+      if (authState.user != null) {
+        try {
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(authState.user!.uid)
+              .update({
+            'accentColorInt': state.accentColor.toARGB32(),
+          });
+        } catch (e) {
+          debugPrint('Failed to sync accent color to Firestore: $e');
+        }
+      }
+    }
   }
 
   // ── Quality string mapping ──

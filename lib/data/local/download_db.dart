@@ -209,8 +209,9 @@ class DownloadDb {
   Future<void> addTrackToPlaylist(
     String playlistId,
     String playlistName,
-    String videoId,
-  ) async {
+    String videoId, {
+    int? position,
+  }) async {
     final db = await database;
 
     // Ensure playlist exists
@@ -224,21 +225,25 @@ class DownloadDb {
       conflictAlgorithm: ConflictAlgorithm.ignore,
     );
 
-    // Get next position
-    final countResult = await db.rawQuery(
-      'SELECT COUNT(*) as count FROM playlist_tracks WHERE playlistId = ?',
-      [playlistId],
-    );
-    final position = (countResult.first['count'] as int?) ?? 0;
+    int insertPosition = position ?? 0;
+    if (position == null) {
+      // Get next position using MAX to avoid collisions
+      final countResult = await db.rawQuery(
+        'SELECT MAX(position) as maxPos FROM playlist_tracks WHERE playlistId = ?',
+        [playlistId],
+      );
+      final maxPos = (countResult.first['maxPos'] as int?) ?? -1;
+      insertPosition = maxPos + 1;
+    }
 
     await db.insert(
       'playlist_tracks',
       {
         'playlistId': playlistId,
         'videoId': videoId,
-        'position': position,
+        'position': insertPosition,
       },
-      conflictAlgorithm: ConflictAlgorithm.ignore,
+      conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 

@@ -8,6 +8,7 @@ import '../core/theme/app_colors.dart';
 import '../core/utils/thumbnail_utils.dart';
 import '../providers/audio_provider.dart';
 import '../providers/playlist_provider.dart';
+import '../providers/player_overlay_provider.dart';
 
 /// Mini player bar — port of Player.jsx.
 /// Fixed at the bottom, shows cover art, marquee title, controls, and progress line.
@@ -34,7 +35,9 @@ class MiniPlayer extends ConsumerWidget {
         ref.read(playlistProvider.notifier).isLiked(song.videoId);
 
     return GestureDetector(
-      onTap: () => context.push('/player'),
+      onTap: () {
+        ref.read(playerOverlayProvider.notifier).state = true;
+      },
       child: SizedBox(
         height: 68,
         child: Stack(
