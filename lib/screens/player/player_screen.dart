@@ -18,7 +18,7 @@ import '../../providers/audio_provider.dart' hide RepeatMode;
 import '../../providers/audio_provider.dart' as ap show RepeatMode;
 import '../../providers/playlist_provider.dart';
 import '../../providers/download_provider.dart';
-import '../../providers/player_overlay_provider.dart';
+import '../../providers/settings_provider.dart';
 import 'widgets/equalizer_sheet.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/song_action_sheet.dart';
@@ -40,6 +40,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
   // FIX 1: ValueNotifier instead of setState for sheet extent
   // Prevents full Scaffold rebuild on every drag pixel
   final _sheetExtentNotifier = ValueNotifier<double>(0.08);
+  final _sheetController = DraggableScrollableController();
 
   // Lyrics
   String _lyricsState = 'idle'; // idle | loading | loaded | error | not-found
@@ -59,6 +60,14 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
     super.initState();
     // FIX 6: Listen to scroll events to detect user interaction
     _lyricsScrollController.addListener(_onLyricsScroll);
+
+    _sheetExtentNotifier.addListener(() {
+      final isOpen = _sheetExtentNotifier.value > 0.12;
+      if (ref.read(playerQueueOpenProvider) != isOpen) {
+        Future.microtask(() => ref.read(playerQueueOpenProvider.notifier).state = isOpen);
+      }
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final song = ref.read(audioProvider).currentSong;
       if (song != null) {
@@ -82,6 +91,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
   @override
   void dispose() {
     _sheetExtentNotifier.dispose();
+    _sheetController.dispose();
     _lyricsScrollController.dispose();
     _scrollIdleTimer?.cancel();
     super.dispose();
@@ -159,11 +169,19 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
               final fade = (1.0 - (sheetExtent - 0.11) / 0.29).clamp(0.4, 1.0);
               final scale = (1.0 - ((sheetExtent - 0.11) / 0.29) * 0.1).clamp(0.9, 1.0);
               return SafeArea(
-                child: Opacity(
-                  opacity: fade,
-                  child: Transform.scale(
-                    scale: scale,
-                    child: child,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
+                  onTap: () {
+                    if (_sheetExtentNotifier.value > 0.11) {
+                      _sheetController.animateTo(0.11, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+                    }
+                  },
+                  child: Opacity(
+                    opacity: fade,
+                    child: Transform.scale(
+                      scale: scale,
+                      child: child,
+                    ),
                   ),
                 ),
               );
@@ -171,76 +189,75 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
             child: Column(
               children: [
                 // ── Header ──
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () => ref.read(playerOverlayProvider.notifier).state = false,
-                        icon: const Icon(LucideIcons.chevronDown, size: 28),
-                      ),
-                      Column(
-                        children: [
-                          Text('PULSE',
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w800,
-                                  color: Theme.of(context).colorScheme.primary, letterSpacing: 2)),
-                          GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () => launchUrl(
-                              Uri.parse('https://itsashutoshpathak.vercel.app/'),
-                              mode: LaunchMode.externalApplication,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Text('Made with \u2764\ufe0f by ',
-                                      style: TextStyle(
-                                          fontSize: 9, color: AppColors.textSecondary)),
-                                  Text('Ashutosh Pathak',
-                                      style: TextStyle(
-                                          fontSize: 9, fontWeight: FontWeight.bold,
-                                          color: Theme.of(context).colorScheme.primary)),
-                                ],
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onVerticalDragUpdate: (details) {
+                    if (details.primaryDelta! > 5) { // Downward swipe threshold
+                      ref.read(playerOverlayProvider.notifier).state = false;
+                    }
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          onPressed: () => ref.read(playerOverlayProvider.notifier).state = false,
+                          icon: const Icon(LucideIcons.chevronDown, size: 28),
+                        ),
+                        Column(
+                          children: [
+                            Text('PULSE',
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w800,
+                                    color: Theme.of(context).colorScheme.primary, letterSpacing: 2)),
+                            GestureDetector(
+                              behavior: HitTestBehavior.opaque,
+                              onTap: () => launchUrl(
+                                Uri.parse('https://itsashutoshpathak.vercel.app/'),
+                                mode: LaunchMode.externalApplication,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Text('Made with \u2764\ufe0f by ',
+                                        style: TextStyle(
+                                            fontSize: 9, color: AppColors.textSecondary)),
+                                    Text('Ashutosh Pathak',
+                                        style: TextStyle(
+                                            fontSize: 9, fontWeight: FontWeight.bold,
+                                            color: Theme.of(context).colorScheme.primary)),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Builder(
-                        builder: (context) {
-                          final equalizer = ref.watch(audioHandlerProvider).equalizer;
-                          if (equalizer == null) {
-                            return const SizedBox(width: 48); // Fallback for non-Android
+                          ],
+                        ),
+                        Builder(
+                          builder: (context) {
+                            final isEnabled = ref.watch(settingsProvider).equalizerEnabled;
+                            return IconButton(
+                              onPressed: () {
+                                // Hide keyboard if it was open on the underlying screen
+                                FocusManager.instance.primaryFocus?.unfocus();
+                                showModalBottomSheet(useRootNavigator: true, 
+                                  context: context,
+                                  backgroundColor: Colors.transparent,
+                                  builder: (context) => const EqualizerSheet(),
+                                );
+                              },
+                              icon: Icon(
+                                LucideIcons.sliders, 
+                                size: 22,
+                                color: isEnabled ? Theme.of(context).colorScheme.primary : AppColors.textPrimary,
+                              ),
+                            );
                           }
-                          return StreamBuilder<bool>(
-                            stream: equalizer.enabledStream,
-                            builder: (context, snapshot) {
-                              final isEnabled = snapshot.data ?? false;
-                              return IconButton(
-                                onPressed: () {
-                                  // Hide keyboard if it was open on the underlying screen
-                                  FocusManager.instance.primaryFocus?.unfocus();
-                                  showModalBottomSheet(
-                                    context: context,
-                                    backgroundColor: Colors.transparent,
-                                    builder: (context) => const EqualizerSheet(),
-                                  );
-                                },
-                                icon: Icon(
-                                  LucideIcons.sliders, 
-                                  size: 22,
-                                  color: isEnabled ? Theme.of(context).colorScheme.primary : AppColors.textPrimary,
-                                ),
-                              );
-                            },
-                          );
-                        }
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
 
@@ -342,7 +359,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                               ),
                               const SizedBox(width: 12),
                               GestureDetector(
-                                onTap: () => showModalBottomSheet(
+                                onTap: () => showModalBottomSheet(useRootNavigator: true, 
                                   context: context,
                                   backgroundColor: Colors.transparent,
                                   isScrollControlled: true,
@@ -436,6 +453,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
               return true;
             },
             child: DraggableScrollableSheet(
+              controller: _sheetController,
               initialChildSize: 0.11,
               minChildSize: 0.11,
               maxChildSize: 0.4,
@@ -637,23 +655,43 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
             automaticallyImplyLeading: false,
             backgroundColor: AppColors.background,
             toolbarHeight: 60,
-            flexibleSpace: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const SizedBox(height: 12),
-                Container(
-                  width: 40, height: 4,
-                  decoration: BoxDecoration(
-                    color: Colors.white24,
-                    borderRadius: BorderRadius.circular(2),
-                  ),
+            flexibleSpace: GestureDetector(
+              onTap: () {
+                _sheetController.animateTo(0.4, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+              },
+              onVerticalDragUpdate: (details) {
+                // Adjust the sheet size directly based on drag
+                final newSize = _sheetController.size - details.primaryDelta! / MediaQuery.of(context).size.height;
+                _sheetController.jumpTo(newSize.clamp(0.11, 0.4));
+              },
+              onVerticalDragEnd: (details) {
+                if (details.primaryVelocity! < -300 || _sheetController.size > 0.2) {
+                  _sheetController.animateTo(0.4, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+                } else {
+                  _sheetController.animateTo(0.11, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+                }
+              },
+              child: Container(
+                color: Colors.transparent, // required to catch gestures
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 12),
+                    Container(
+                      width: 40, height: 4,
+                      decoration: BoxDecoration(
+                        color: Colors.white24,
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Center(
+                      child: Text('Up Next',
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: accent)),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 12),
-                Center(
-                  child: Text('Up Next',
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: accent)),
-                ),
-              ],
+              ),
             ),
           ),
           SliverToBoxAdapter(
@@ -711,7 +749,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                         child: SongTile(
                           song: s,
                           onTap: () => ref.read(audioProvider.notifier).playFromQueue(i),
-                          onLongPress: () => showModalBottomSheet(
+                          onLongPress: () => showModalBottomSheet(useRootNavigator: true, 
                             context: context,
                             backgroundColor: Colors.transparent,
                             isScrollControlled: true,

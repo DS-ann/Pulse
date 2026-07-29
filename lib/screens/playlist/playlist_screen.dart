@@ -578,7 +578,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
     final isOffline = widget.playlistId.startsWith('__pl__') || widget.playlistId == '__downloads__';
     final isDownloadsPlaylist = widget.playlistId == '__downloads__';
 
-    showModalBottomSheet(
+    showModalBottomSheet(useRootNavigator: true, 
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,

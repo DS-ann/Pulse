@@ -46,7 +46,7 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
         );
         
         // Show the bottom sheet!
-        showModalBottomSheet(
+        showModalBottomSheet(useRootNavigator: true, 
           context: context,
           isScrollControlled: true,
           backgroundColor: Colors.transparent,

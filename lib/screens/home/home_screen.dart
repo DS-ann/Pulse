@@ -331,7 +331,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   void _showMenu(Song song) {
-    showModalBottomSheet(
+    showModalBottomSheet(useRootNavigator: true, 
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,

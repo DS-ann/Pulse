@@ -471,10 +471,10 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
   }
 
   void _showPlaylistMenu(Playlist pl) {
-    showModalBottomSheet(
+    showModalBottomSheet(useRootNavigator: true, 
       context: context,
       backgroundColor: Colors.transparent,
-      builder: (_) => GlassContainer(
+      builder: (ctx) => GlassContainer(
         borderRadius: 24, blur: 24,
         padding: const EdgeInsets.fromLTRB(0, 12, 0, 24),
         child: SafeArea(
@@ -492,7 +492,7 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pop(ctx);
                     if (pl.name == 'Liked Songs') {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -520,14 +520,10 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    Navigator.pop(context);
-                    // Open edit songs modal with buffered copy
-                    final songs = (pl.songs as List<dynamic>)
-                        .map((s) => s is Song ? s : Song.fromJson(s as Map<String, dynamic>))
-                        .toList();
+                    Navigator.pop(ctx);
                     setState(() {
                       _editSongsPlaylist = pl;
-                      _editSongsList = List<Song>.from(songs);
+                      _editSongsList = List<Song>.from(pl.songs);
                       _showEditSongsModal = true;
                     });
                   },
@@ -544,7 +540,7 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pop(ctx);
                     if (pl.name == 'Liked Songs') {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

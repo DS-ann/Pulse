@@ -335,7 +335,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
               ),
               // Menu
               GestureDetector(
-                onTap: () => showModalBottomSheet(
+                onTap: () => showModalBottomSheet(useRootNavigator: true, 
                   context: context,
                   backgroundColor: Colors.transparent,
                   isScrollControlled: true,

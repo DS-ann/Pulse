@@ -818,7 +818,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   }
 
   void _showAvatarPicker(BuildContext context, String? currentAvatar, Function(String) onSelect) {
-    showModalBottomSheet(
+    showModalBottomSheet(useRootNavigator: true, 
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,

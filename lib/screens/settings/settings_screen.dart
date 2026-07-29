@@ -144,7 +144,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       divisions: 12,
                       onChanged: (v) =>
                           ref.read(settingsProvider.notifier)
-                              .setCrossfade(v.toInt()),
+                              .setCrossfade(v.toInt(), syncToFirestore: false),
+                      onChangeEnd: (v) =>
+                          ref.read(settingsProvider.notifier)
+                              .setCrossfade(v.toInt(), syncToFirestore: true),
                     ),
                   ),
                 ],

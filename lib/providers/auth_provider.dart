@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -152,8 +151,40 @@ class AuthNotifier extends Notifier<AuthState> {
           needsRepair = true;
         }
 
+        // Cleanup old settings fields from the root document
+        // Includes old field names from previous app versions
+        final ghostFields = [
+          // Current name variants
+          'accentColorInt',
+          'crossfadeDuration',
+          'equalizerEnabled',
+          'equalizerPreset',
+          'equalizerGains',
+          'equalizerPreAmp',
+          'dataSaverMode',
+          'streamingQuality',
+          'downloadQuality',
+          // Old field names from previous versions
+          'eqEnabled',
+          'eqPreset',
+          'eqCustomGains',
+          'eqGains',
+          'eqPreAmp',
+          'crossfade',
+          'crossfadeSeconds',
+          'accentColor',
+          'dataSaver',
+        ];
+        
+        for (final field in ghostFields) {
+          if (data.containsKey(field)) {
+            repairUpdates[field] = FieldValue.delete();
+            needsRepair = true;
+          }
+        }
+
         if (needsRepair) {
-          await docRef.set(repairUpdates, SetOptions(merge: true));
+          await docRef.update(repairUpdates);
         }
 
         // Prefer Firestore profile data over Firebase Auth data
@@ -161,14 +192,66 @@ class AuthNotifier extends Notifier<AuthState> {
         if (data['photoURL'] != null) photoURL = data['photoURL'];
         
         final prefs = await SharedPreferences.getInstance();
-        if (displayName != null) prefs.setString('cached_displayName_${firebaseUser.uid}', displayName!);
-        if (photoURL != null) prefs.setString('cached_photoURL_${firebaseUser.uid}', photoURL!);
+        if (displayName != null) prefs.setString('cached_displayName_${firebaseUser.uid}', displayName);
+        if (photoURL != null) prefs.setString('cached_photoURL_${firebaseUser.uid}', photoURL);
+      }
 
-        if (data['accentColorInt'] != null) {
-          final colorInt = data['accentColorInt'] as int;
-          prefs.setInt('cached_accentColor_${firebaseUser.uid}', colorInt);
-          ref.read(settingsProvider.notifier).setAccentColor(Color(colorInt), syncToFirestore: false);
+      // Fetch user settings from subcollection
+      try {
+        DocumentSnapshot<Map<String, dynamic>> settingsSnap = await _db
+            .collection('users')
+            .doc(firebaseUser.uid)
+            .collection('settings')
+            .doc('preferences')
+            .get(const GetOptions(source: Source.server));
+
+        // Migration fallback 1: the recent typo 'preference'
+        if (!settingsSnap.exists) {
+          settingsSnap = await _db
+              .collection('users')
+              .doc(firebaseUser.uid)
+              .collection('settings')
+              .doc('preference')
+              .get(const GetOptions(source: Source.server));
         }
+
+        // Migration fallback 2: the very old 'settings_preference/app_settings'
+        if (!settingsSnap.exists) {
+          settingsSnap = await _db
+              .collection('users')
+              .doc(firebaseUser.uid)
+              .collection('settings_preference')
+              .doc('app_settings')
+              .get(const GetOptions(source: Source.server));
+        }
+
+        if (settingsSnap.exists && settingsSnap.data() != null) {
+          // updateFromBackend sets _firestoreLoaded=true and persists everything
+          ref.read(settingsProvider.notifier).updateFromBackend(settingsSnap.data()!);
+
+          // One-time migration: clean up the legacy string-format accentColor field
+          // that shouldn't live in the settings doc.
+          final settingsData = settingsSnap.data()!;
+          if (settingsData.containsKey('accentColor')) {
+            _db
+                .collection('users')
+                .doc(firebaseUser.uid)
+                .collection('settings')
+                .doc('preferences')
+                .update({'accentColor': FieldValue.delete()})
+                .catchError((_) {});
+          }
+        } else {
+          // No settings found anywhere (new user).
+          // We MUST mark firestore as loaded so the app knows it can safely start
+          // pushing the default local settings up to Firestore.
+          ref.read(settingsProvider.notifier).markFirestoreLoaded();
+        }
+      } catch (e) {
+        debugPrint('[Auth] Firestore settings sync error: $e');
+        // Firestore fetch failed — fall back to disk so the user still sees
+        // their locally cached settings instead of the in-memory defaults.
+        ref.read(settingsProvider.notifier).loadFromDiskFallback();
       }
     } catch (e) {
       // Firestore sync failed — ignore silently in background

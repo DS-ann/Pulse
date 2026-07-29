@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart' show SnackBar, Text, Colors, debugPrint, TextStyle, SnackBarBehavior, RoundedRectangleBorder, BorderRadius;
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:just_audio/just_audio.dart';
+import 'package:media_kit/media_kit.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import '../data/api/music_api.dart';
 import '../data/models/song.dart';
@@ -89,9 +89,9 @@ class AudioNotifier extends Notifier<AudioState> {
   final _musicApi = MusicApi();
 
   StreamSubscription<Duration>? _positionSub;
-  StreamSubscription<Duration?>? _durationSub;
-  StreamSubscription<PlayerState>? _playerStateSub;
-  StreamSubscription<PlaybackEvent>? _eventSub;
+  StreamSubscription<Duration>? _durationSub;
+  StreamSubscription<bool>? _playingSub;
+  StreamSubscription<bool>? _bufferingSub;
 
   /// Incremented on each new song load to cancel stale async operations.
   /// Mirrors `loadGenRef` in AudioContext.jsx (line 43).
@@ -137,6 +137,14 @@ class AudioNotifier extends Notifier<AudioState> {
       }
     });
 
+    // Sync EQ settings to the audio handler
+    ref.listen(settingsProvider, (previous, next) {
+      if (!_isInitialized) return;
+      if (previous?.equalizerEnabled != next.equalizerEnabled || previous?.equalizerGains != next.equalizerGains || previous?.equalizerPreAmp != next.equalizerPreAmp) {
+         _handler.setEqualizerState(enabled: next.equalizerEnabled, gains: next.equalizerGains, preAmp: next.equalizerPreAmp);
+      }
+    });
+
     // Initialization is deferred — must call initialize() after handler is ready.
     return const AudioState();
   }
@@ -150,6 +158,10 @@ class AudioNotifier extends Notifier<AudioState> {
       primaryPlayer: _handler.primaryPlayer,
       crossfadePlayer: _handler.crossfadePlayer,
     );
+
+    // Apply initial EQ state
+    final settings = ref.read(settingsProvider);
+    _handler.setEqualizerState(enabled: settings.equalizerEnabled, gains: settings.equalizerGains, preAmp: settings.equalizerPreAmp);
 
     // Wire up handler callbacks for lock screen controls
     _handler.onTrackEnded = _onTrackEnded;
@@ -171,51 +183,61 @@ class AudioNotifier extends Notifier<AudioState> {
     // Listen to the primary player's streams
     _attachPlayerListeners(_handler.primaryPlayer);
   }
-
-  void _attachPlayerListeners(AudioPlayer player) {
+  void _attachPlayerListeners(Player player) {
     _positionSub?.cancel();
     _durationSub?.cancel();
-    _playerStateSub?.cancel();
-    _eventSub?.cancel();
+    _playingSub?.cancel();
+    _bufferingSub?.cancel();
 
-    // Position updates (replaces onTimeUpdate in AudioContext.jsx line 187)
-    _positionSub = player.positionStream.listen((position) {
-      state = state.copyWith(progress: position);
+    // Sync immediate states from the player (in case streams already emitted)
+    state = state.copyWith(
+      progress: player.state.position,
+      duration: player.state.duration,
+      isPlaying: player.state.playing,
+      isLoading: player.state.buffering,
+    );
+    if (player.state.duration != Duration.zero) {
+      _updateMediaItemDuration(player.state.duration);
+    }
 
-      final dur = player.duration;
-      final posSeconds = position.inSeconds;
+      // Position updates
+      _positionSub = player.stream.position.listen((position) {
+        state = state.copyWith(progress: position);
 
-      // Eagerly preload the next song after 1 second of playback to ensure instant skips
-      if (!_hasEagerPreloaded && posSeconds >= 1 && state.repeatMode != RepeatMode.one) {
-        _hasEagerPreloaded = true;
-        _preloadNextSong();
-      }
+        final dur = player.state.duration;
+        final posSeconds = position.inSeconds;
 
-      // ── Crossfade trigger (mirrors timeupdate handler, lines 194-213) ──
-      final settings = ref.read(settingsProvider);
-      final fadeSeconds = settings.crossfadeDuration;
-
-      if (fadeSeconds > 0 && dur != null && dur.inSeconds > 0 && state.repeatMode != RepeatMode.one) {
-        final timeLeftMs = dur.inMilliseconds - position.inMilliseconds;
-        final timeLeftSeconds = timeLeftMs / 1000.0;
-
-        // 1. Preload next song's URL 15 seconds before the crossfade starts (fallback if eager preload missed)
-        if (!_hasEagerPreloaded && timeLeftSeconds <= (fadeSeconds + 15) && timeLeftSeconds > fadeSeconds) {
+        // Eagerly preload the next song after 1 second of playback to ensure instant skips
+        if (!_hasEagerPreloaded && posSeconds >= 1) {
           _hasEagerPreloaded = true;
           _preloadNextSong();
         }
 
-        // 2. Trigger crossfade
-        if (!_crossfadeEngine.isCrossfading &&
-            !_isCrossfadePending &&
-            timeLeftSeconds <= fadeSeconds &&
-            timeLeftSeconds > 0) {
-          _triggerCrossfade(fadeSeconds);
+        // ── Crossfade trigger (mirrors timeupdate handler, lines 194-213) ──
+        final settings = ref.read(settingsProvider);
+        final fadeSeconds = settings.crossfadeDuration;
+
+        if (fadeSeconds > 0 && dur.inSeconds > 0) {
+          final timeLeftMs = dur.inMilliseconds - position.inMilliseconds;
+          final timeLeftSeconds = timeLeftMs / 1000.0;
+
+          // 1. Preload next song's URL 15 seconds before the crossfade starts (fallback if eager preload missed)
+          if (!_hasEagerPreloaded && timeLeftSeconds <= (fadeSeconds + 15) && timeLeftSeconds > fadeSeconds) {
+            _hasEagerPreloaded = true;
+            _preloadNextSong();
+          }
+
+          // 2. Trigger crossfade
+          if (!_crossfadeEngine.isCrossfading &&
+              !_isCrossfadePending &&
+              timeLeftSeconds <= fadeSeconds &&
+              timeLeftSeconds > 0) {
+            _triggerCrossfade(fadeSeconds);
+          }
         }
-      }
 
       // ── Stats tracking (mirrors lines 216-223) ──
-      if (!_statsThresholdReached && dur != null && dur.inSeconds > 0) {
+      if (!_statsThresholdReached && dur.inSeconds > 0) {
         if (posSeconds > 30 || posSeconds > dur.inSeconds / 2) {
           _reportStats();
           _statsThresholdReached = true;
@@ -223,24 +245,19 @@ class AudioNotifier extends Notifier<AudioState> {
       }
     });
 
-    // Duration updates (replaces onLoadedMetadata, line 239)
-    _durationSub = player.durationStream.listen((duration) {
-      if (duration != null) {
-        state = state.copyWith(duration: duration);
-        _updateMediaItemDuration(duration);
-      }
+    // Duration updates
+    _durationSub = player.stream.duration.listen((duration) {
+      state = state.copyWith(duration: duration);
+      _updateMediaItemDuration(duration);
     });
 
-    // Player state updates (replaces onPlay/onPause/onPlaying, lines 262-270)
-    _playerStateSub = player.playerStateStream.listen((playerState) {
-      final playing = playerState.playing;
+    // Player state updates
+    _playingSub = player.stream.playing.listen((playing) {
       state = state.copyWith(
         isPlaying: playing,
-        isLoading: playerState.processingState == ProcessingState.loading ||
-            playerState.processingState == ProcessingState.buffering,
       );
 
-      // Wake lock management (replaces lines 300-337)
+      // Wake lock management
       if (playing) {
         WakelockPlus.enable();
       } else {
@@ -248,9 +265,15 @@ class AudioNotifier extends Notifier<AudioState> {
       }
     });
 
-    // Event stream listener was here, but removed because PulseAudioHandler
-    // already listens to playbackEventStream and invokes onTrackEnded,
-    // which is mapped to _onTrackEnded() in initialize().
+    _bufferingSub = player.stream.buffering.listen((buffering) {
+      // Ignore spurious buffering:false emitted by player.stop() during URL extraction.
+      if (!buffering && state.isLoading && !player.state.playing && player.state.position.inSeconds == 0) {
+        return;
+      }
+      state = state.copyWith(
+        isLoading: buffering,
+      );
+    });
   }
 
   /// Called when a track finishes playing (not via crossfade).
@@ -372,14 +395,14 @@ class AudioNotifier extends Notifier<AudioState> {
         _attachPlayerListeners(newPrimary);
         _handler.setPrimaryPlayer(newPrimary);
         // Player is already loaded — just play
-        newPrimary.setVolume(1.0);
+        newPrimary.setVolume(100.0);
         await newPrimary.play();
         if (isStale()) return;
         // Sync real duration now that player is active
         state = state.copyWith(
           isLoading: false,
-          duration: newPrimary.duration ?? Duration.zero,
-          progress: newPrimary.position,
+          duration: newPrimary.state.duration,
+          progress: newPrimary.state.position,
         );
         _consecutiveFailures = 0;
         return;
@@ -392,15 +415,19 @@ class AudioNotifier extends Notifier<AudioState> {
     try {
       final player = _crossfadeEngine.primaryPlayer;
 
-      // Stop current playback, reset volume
+      // Stop current playback
       await player.stop();
-      player.setVolume(1.0);
+
+      // Apply the current EQ state NOW — this is the most reliable moment:
+      // the old audio pipeline is torn down, the new one hasn't started yet.
+      // Await ensures af is set in MPV's state before player.open() builds the new pipeline.
+      await _handler.applyCurrentFilter(player);
 
       // ── OFFLINE PATH (mirrors lines 708-713) ──
       if (offlineFilePath != null) {
-        await player.setFilePath(offlineFilePath);
+        await player.setVolume(100.0);
+        await player.open(Media(offlineFilePath));
         if (isStale()) return;
-        await player.play();
         return;
       }
 
@@ -414,9 +441,9 @@ class AudioNotifier extends Notifier<AudioState> {
               await downloads.getFilePath(normalizedSong.videoId);
           if (isStale()) return;
           if (localPath != null) {
-            await player.setFilePath(localPath);
+            await player.setVolume(100.0);
+            await player.open(Media(localPath));
             if (isStale()) return;
-            await player.play();
             return;
           }
         }
@@ -439,13 +466,14 @@ class AudioNotifier extends Notifier<AudioState> {
         const Duration(seconds: 20),
         onTimeout: () => throw TimeoutException('Stream extraction timed out. Check internet connection.'),
       );
+      
+      await player.setVolume(100.0);
+      await player.open(Media(
+        streamUrl,
+        httpHeaders: const {},
+      ));
+
       if (isStale()) return;
-      await player.setUrl(streamUrl).timeout(
-        const Duration(seconds: 15),
-        onTimeout: () => throw TimeoutException('Player failed to load stream. Try again.'),
-      );
-      if (isStale()) return;
-      await player.play();
       _consecutiveFailures = 0; // Reset on success
 
       // (Queue fetching was moved to the top of the method for parallel execution)
@@ -690,10 +718,10 @@ class AudioNotifier extends Notifier<AudioState> {
     });
     
     // Natively loop the current track if RepeatMode.one
-    _crossfadeEngine.primaryPlayer.setLoopMode(
-        next == RepeatMode.one ? LoopMode.one : LoopMode.off);
-    _crossfadeEngine.crossfadePlayer.setLoopMode(
-        next == RepeatMode.one ? LoopMode.one : LoopMode.off);
+    _crossfadeEngine.primaryPlayer.setPlaylistMode(
+        next == RepeatMode.one ? PlaylistMode.single : PlaylistMode.none);
+    _crossfadeEngine.crossfadePlayer.setPlaylistMode(
+        next == RepeatMode.one ? PlaylistMode.single : PlaylistMode.none);
   }
 
   // ── Playback controls ──────────────────────────────────────────────────────
@@ -702,7 +730,7 @@ class AudioNotifier extends Notifier<AudioState> {
   void togglePlay() {
     if (state.currentSong == null) return;
     final player = _crossfadeEngine.primaryPlayer;
-    if (player.playing) {
+    if (player.state.playing) {
       player.pause();
     } else {
       player.play();
@@ -719,7 +747,9 @@ class AudioNotifier extends Notifier<AudioState> {
   Future<void> _preloadNextSong() async {
 
     Song? nextSong;
-    if (state.queue.isNotEmpty) {
+    if (state.repeatMode == RepeatMode.one) {
+      nextSong = state.currentSong;
+    } else if (state.queue.isNotEmpty) {
       nextSong = state.queue.first;
     } else if (state.repeatMode == RepeatMode.all && state.baseQueue.isNotEmpty) {
       nextSong = (state.isShuffled ? ([...state.baseQueue]..shuffle()) : state.baseQueue).first;
@@ -775,7 +805,10 @@ class AudioNotifier extends Notifier<AudioState> {
     Song? nextSong;
     List<Song> remainingQueue = state.queue;
 
-    if (state.queue.isNotEmpty) {
+    if (state.repeatMode == RepeatMode.one) {
+      nextSong = state.currentSong;
+      remainingQueue = state.queue;
+    } else if (state.queue.isNotEmpty) {
       nextSong = state.queue.first;
       remainingQueue = state.queue.sublist(1);
     } else if (state.repeatMode == RepeatMode.all &&
@@ -887,8 +920,8 @@ class AudioNotifier extends Notifier<AudioState> {
       clearContextPlaylistId: nextSong.playlistId == '__suggested__',
       isPlaying: true,
       queue: remainingQueue ?? state.queue,
-      duration: songBPlayer.duration ?? Duration.zero,
-      progress: songBPlayer.position,
+      duration: songBPlayer.state.duration,
+      progress: songBPlayer.state.position,
     );
 
     // 4. Update notification artwork/title and liked state.
@@ -900,7 +933,7 @@ class AudioNotifier extends Notifier<AudioState> {
   /// Called by CrossfadeEngine when the crossfade volume ramp completes and
   /// players are swapped. All metadata and listeners were already moved to
   /// Song B at the midpoint, so this just does final cleanup.
-  void _onCrossfadeSwapComplete(AudioPlayer newPrimary) {
+  void _onCrossfadeSwapComplete(Player newPrimary) {
     // Re-attach to the now-official primary player (same object as crossfadePlayer
     // at midpoint, but engine has swapped references — safe to re-attach).
     _attachPlayerListeners(newPrimary);
@@ -1040,8 +1073,8 @@ class AudioNotifier extends Notifier<AudioState> {
   void _dispose() {
     _positionSub?.cancel();
     _durationSub?.cancel();
-    _playerStateSub?.cancel();
-    _eventSub?.cancel();
+    _playingSub?.cancel();
+    _bufferingSub?.cancel();
     _crossfadeEngine.dispose();
     _handler.dispose();
     WakelockPlus.disable();

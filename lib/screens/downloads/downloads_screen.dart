@@ -496,10 +496,10 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
   }
 
   void _showPlaylistMenu(Playlist pl) {
-    showModalBottomSheet(
+    showModalBottomSheet(useRootNavigator: true, 
       context: context,
       backgroundColor: Colors.transparent,
-      builder: (_) => GlassContainer(
+      builder: (ctx) => GlassContainer(
         borderRadius: 24, blur: 24,
         padding: const EdgeInsets.fromLTRB(0, 12, 0, 24),
         child: SafeArea(
@@ -517,7 +517,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pop(ctx);
                     if (pl.id == '__downloads__') {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -544,11 +544,15 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
               Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                    final songs = (pl.songs as List<dynamic>)
-                        .map((s) => s is Song ? s : Song.fromJson(s as Map<String, dynamic>))
-                        .toList();
+                  onTap: () async {
+                    Navigator.pop(ctx);
+                    List<Song> songs;
+                    if (pl.id == '__downloads__') {
+                      songs = pl.songs;
+                    } else {
+                      // Fetch lazy-loaded tracks from the database
+                      songs = await ref.read(downloadProvider.notifier).getPlaylistTracks(pl.id);
+                    }
                     setState(() {
                       _editSongsPlaylist = pl;
                       _editSongsList = List<Song>.from(songs);
@@ -568,7 +572,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                 color: Colors.transparent,
                 child: InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pop(ctx);
                     setState(() { _editingPlaylist = pl; _showDeleteModal = true; });
                   },
                   child: const Padding(
@@ -758,9 +762,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                                 onPressed: () async {
                                   if (_editSongsPlaylist != null) {
                                     if (_editSongsPlaylist!.id == '__downloads__') {
-                                      final originalSongs = (_editSongsPlaylist!.songs as List<dynamic>)
-                                          .map((s) => s is Song ? s : Song.fromJson(s as Map<String, dynamic>))
-                                          .toList();
+                                      final originalSongs = _editSongsPlaylist!.songs;
                                       final newIds = _editSongsList.map((s) => s.videoId).toSet();
                                       final removedSongs = originalSongs.where((s) => !newIds.contains(s.videoId)).toList();
                                       for (final rs in removedSongs) {

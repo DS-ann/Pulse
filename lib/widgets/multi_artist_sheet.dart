@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -6,18 +7,19 @@ import '../core/theme/app_colors.dart';
 import '../core/utils/thumbnail_utils.dart';
 import '../data/api/music_api.dart';
 import '../data/models/song.dart';
+import '../providers/player_overlay_provider.dart';
 import 'glass_container.dart';
 
-class MultiArtistSheet extends StatefulWidget {
+class MultiArtistSheet extends ConsumerStatefulWidget {
   final List<String> artistNames;
 
   const MultiArtistSheet({super.key, required this.artistNames});
 
   @override
-  State<MultiArtistSheet> createState() => _MultiArtistSheetState();
+  ConsumerState<MultiArtistSheet> createState() => _MultiArtistSheetState();
 }
 
-class _MultiArtistSheetState extends State<MultiArtistSheet> {
+class _MultiArtistSheetState extends ConsumerState<MultiArtistSheet> {
   final _musicApi = MusicApi();
   List<Song?> _resolvedArtists = [];
   bool _isLoading = true;
@@ -118,6 +120,7 @@ class _MultiArtistSheetState extends State<MultiArtistSheet> {
                       child: InkWell(
                         onTap: () {
                           Navigator.pop(context);
+                          ref.read(playerOverlayProvider.notifier).state = false;
                           final router = GoRouter.of(context);
                           final t = DateTime.now().millisecondsSinceEpoch;
                           WidgetsBinding.instance.addPostFrameCallback((_) {

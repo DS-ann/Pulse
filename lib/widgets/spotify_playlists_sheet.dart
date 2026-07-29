@@ -6,6 +6,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 import '../services/spotify_parser.dart';
 import '../core/theme/app_colors.dart';
 import '../providers/import_provider.dart';
+import 'glass_container.dart';
 
 class SpotifyPlaylistsSheet extends ConsumerStatefulWidget {
   final String clientId;
@@ -68,16 +69,15 @@ class _SpotifyPlaylistsSheetState extends ConsumerState<SpotifyPlaylistsSheet> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 0.55;
-    final accent = Theme.of(context).colorScheme.primary;
 
-    return Container(
-      height: height,
-      decoration: BoxDecoration(
-        color: AppColors.background.withValues(alpha: 0.95),
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-      ),
-      child: Column(
-        children: [
+    return GlassContainer(
+      borderRadius: 24,
+      blur: 24,
+      padding: EdgeInsets.zero,
+      child: SizedBox(
+        height: height,
+        child: Column(
+          children: [
           const SizedBox(height: 12),
           Container(
             width: 40,
@@ -146,6 +146,7 @@ class _SpotifyPlaylistsSheetState extends ConsumerState<SpotifyPlaylistsSheet> {
           ),
         ],
       ),
-    );
-  }
+    ),
+  );
+}
 }

@@ -6,6 +6,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../core/theme/app_colors.dart';
 import '../screens/offline/offline_screen.dart';
 import '../screens/player/player_screen.dart';
@@ -13,6 +14,7 @@ import 'mini_player.dart';
 import '../providers/update_provider.dart';
 import '../providers/auth_provider.dart';
 import '../providers/player_overlay_provider.dart';
+import '../providers/audio_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -31,6 +33,9 @@ class AppScaffold extends ConsumerStatefulWidget {
 class _AppScaffoldState extends ConsumerState<AppScaffold> {
   bool _isOffline = false;
   late final StreamSubscription<List<ConnectivityResult>> _connectivitySub;
+
+  final PanelController _panelController = PanelController();
+  double _panelPosition = 0.0;
 
   @override
   void initState() {
@@ -232,86 +237,171 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
 
     final showPlayer = ref.watch(playerOverlayProvider);
 
+    ref.listen(playerOverlayProvider, (previous, next) {
+      if (_panelController.isAttached) {
+        if (next) {
+          _panelController.open();
+        } else {
+          _panelController.close();
+        }
+      }
+    });
+
+    final bottomPadding = MediaQuery.of(context).padding.bottom;
+    final bottomNavHeight = 60.0 + bottomPadding;
+    final miniPlayerHeight = 68.0;
+
+    final audio = ref.watch(audioProvider);
+
     final scaffold = Scaffold(
       extendBody: true,
+      bottomNavigationBar: SizedBox(
+        height: bottomNavHeight + (audio.currentSong != null ? miniPlayerHeight : 0),
+      ),
       body: widget.child,
-      bottomNavigationBar: Column(
-        mainAxisSize: MainAxisSize.min,
+    );
+
+    // The bottom navigation bar widget
+    final bottomNavWidget = Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          colors: [
+            Color(0xFF000000),
+            Color(0xF5000000),
+            Color(0xE0000000),
+            Color(0x80000000),
+            Color(0x00000000),
+          ],
+          stops: [0.0, 0.25, 0.5, 0.8, 1.0],
+        ),
+      ),
+      child: SafeArea(
+        top: false,
+        child: SizedBox(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _NavItem(
+                icon: LucideIcons.home,
+                label: 'Home',
+                isActive: currentIndex == 0,
+                onTap: () => context.go('/'),
+              ),
+              _NavItem(
+                icon: LucideIcons.library,
+                label: 'Library',
+                isActive: currentIndex == 1,
+                onTap: () => context.go('/library'),
+              ),
+              _NavItem(
+                icon: LucideIcons.search,
+                label: 'Search',
+                isActive: currentIndex == 2,
+                onTap: () => context.go('/search'),
+              ),
+              _NavItem(
+                icon: LucideIcons.settings,
+                label: 'Settings',
+                isActive: currentIndex == 3,
+                onTap: () => context.go('/settings'),
+              ),
+              _NavItem(
+                icon: LucideIcons.user,
+                customIcon: profileIcon != null ? _ProfileBadge(child: profileIcon) : null,
+                label: 'Profile',
+                isActive: currentIndex == 4,
+                onTap: () => context.go('/profile'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+    final isQueueOpen = ref.watch(playerQueueOpenProvider);
+
+    return PopScope(
+      canPop: !showPlayer,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+          ref.read(playerOverlayProvider.notifier).state = false;
+        }
+      },
+      child: Stack(
         children: [
-          // ── Mini Player ──
-          Container(
-            margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.55),
-                  blurRadius: 22,
-                  offset: const Offset(0, 6),
+          // 1. SlidingUpPanel
+          SlidingUpPanel(
+            controller: _panelController,
+            minHeight: miniPlayerHeight + bottomNavHeight,
+            maxHeight: MediaQuery.of(context).size.height,
+            color: Colors.transparent, // Crucial for non-box look
+            boxShadow: const [],
+            isDraggable: !isQueueOpen && _panelPosition < 1.0,
+            onPanelSlide: (position) {
+              setState(() {
+                _panelPosition = position;
+              });
+            },
+            onPanelClosed: () {
+              if (ref.read(playerOverlayProvider)) {
+                ref.read(playerOverlayProvider.notifier).state = false;
+              }
+            },
+            onPanelOpened: () {
+              if (!ref.read(playerOverlayProvider)) {
+                ref.read(playerOverlayProvider.notifier).state = true;
+              }
+            },
+            collapsed: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withValues(alpha: 0.2),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(18),
+                    child: const Material(
+                      type: MaterialType.transparency,
+                      child: MiniPlayer(),
+                    ),
+                  ),
                 ),
+                SizedBox(height: bottomNavHeight), // Space reserved for the real bottom nav
               ],
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(18),
-              child: const MiniPlayer(),
-            ),
+            panelBuilder: (sc) {
+              return Opacity(
+                opacity: _panelPosition,
+                child: const PlayerScreen(),
+              );
+            },
+            body: scaffold,
           ),
 
-          // ── Bottom Navigation ──
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                colors: [
-                  Color(0xFF000000),
-                  Color(0xF5000000),
-                  Color(0xE0000000),
-                  Color(0x80000000),
-                  Color(0x00000000),
-                ],
-                stops: [0.0, 0.25, 0.5, 0.8, 1.0],
-              ),
-            ),
-            child: SafeArea(
-              top: false,
-              child: SizedBox(
-                height: 60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    _NavItem(
-                      icon: LucideIcons.home,
-                      label: 'Home',
-                      isActive: currentIndex == 0,
-                      onTap: () => context.go('/'),
-                    ),
-                    _NavItem(
-                      icon: LucideIcons.library,
-                      label: 'Library',
-                      isActive: currentIndex == 1,
-                      onTap: () => context.go('/library'),
-                    ),
-                    _NavItem(
-                      icon: LucideIcons.search,
-                      label: 'Search',
-                      isActive: currentIndex == 2,
-                      onTap: () => context.go('/search'),
-                    ),
-                    _NavItem(
-                      icon: LucideIcons.settings,
-                      label: 'Settings',
-                      isActive: currentIndex == 3,
-                      onTap: () => context.go('/settings'),
-                    ),
-                    _NavItem(
-                      icon: LucideIcons.user,
-                      customIcon: profileIcon != null ? _ProfileBadge(child: profileIcon) : null,
-                      label: 'Profile',
-                      isActive: currentIndex == 4,
-                      onTap: () => context.go('/profile'),
-                    ),
-                  ],
+          // 2. Bottom Navigation Bar on top of the panel stack
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: IgnorePointer(
+              ignoring: _panelPosition > 0.0,
+              child: Transform.translate(
+                offset: Offset(0, _panelPosition * bottomNavHeight),
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: bottomNavWidget,
                 ),
               ),
             ),
@@ -319,29 +409,8 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
         ],
       ),
     );
-
-    // Overlay the full-screen player on top of everything when visible.
-    // Being inside ShellRoute gives PlayerScreen full access to GoRouter,
-    // Navigator, Overlay, and Material — fixing all context errors.
-    if (!showPlayer) return scaffold;
-
-    return Stack(
-      children: [
-        scaffold,
-        BackButtonListener(
-          onBackButtonPressed: () async {
-            ref.read(playerOverlayProvider.notifier).state = false;
-            return true; // consumed — GoRouter does not see this press
-          },
-          child: _PlayerOverlayAnimation(
-            onClose: () => ref.read(playerOverlayProvider.notifier).state = false,
-          ),
-        ),
-      ],
-    );
   }
 }
-
 class _NavItem extends StatelessWidget {
   final IconData icon;
   final Widget? customIcon;
@@ -455,45 +524,3 @@ class _ProfileBadge extends ConsumerWidget {
   }
 }
 
-/// Animated scale+fade entry for the player overlay.
-class _PlayerOverlayAnimation extends StatefulWidget {
-  final VoidCallback onClose;
-  const _PlayerOverlayAnimation({required this.onClose});
-
-  @override
-  State<_PlayerOverlayAnimation> createState() => _PlayerOverlayAnimationState();
-}
-
-class _PlayerOverlayAnimationState extends State<_PlayerOverlayAnimation>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _ctrl;
-  late final Animation<double> _scale;
-  late final Animation<double> _fade;
-
-  @override
-  void initState() {
-    super.initState();
-    _ctrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 250));
-    _scale = CurvedAnimation(parent: _ctrl, curve: Curves.easeInOutCubic, reverseCurve: Curves.easeOutCubic);
-    _fade  = CurvedAnimation(parent: _ctrl, curve: Curves.easeIn,         reverseCurve: Curves.easeIn);
-    _ctrl.forward();
-  }
-
-  @override
-  void dispose() {
-    _ctrl.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ScaleTransition(
-      alignment: const Alignment(0.0, 0.85),
-      scale: _scale,
-      child: FadeTransition(
-        opacity: _fade,
-        child: const PlayerScreen(),
-      ),
-    );
-  }
-}

@@ -24,8 +24,8 @@ dependencies:
   google_sign_in: ^6.2.2
 
   # Audio
-  just_audio: ^0.9.43
   audio_service: ^0.18.17
+  audio_session: ^0.1.25
 
   # Networking
   dio: ^5.7.0
@@ -58,6 +58,10 @@ dependencies:
   speech_to_text: ^7.4.0
   flutter_cache_manager: ^3.4.1
   firebase_analytics: ^11.6.0
+  media_kit: ^1.2.6
+  media_kit_libs_audio: ^1.0.7
+  http: ^1.6.0
+  sliding_up_panel: ^2.0.0+1
                                  # v2.5.3 is the last version with built-in Dart JSEngine
 
 dev_dependencies:

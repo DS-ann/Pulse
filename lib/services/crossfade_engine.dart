@@ -1,25 +1,20 @@
 import 'dart:async';
-import 'package:just_audio/just_audio.dart';
+import 'package:media_kit/media_kit.dart';
 
 /// Dual-player crossfade engine — replaces the Web Audio GainNode crossfade
 /// from AudioContext.jsx (lines 455-633).
 ///
-/// Web Audio API used `GainNode.linearRampToValueAtTime()` on the audio thread.
-/// Flutter's just_audio doesn't expose Web Audio, so we use software volume
-/// interpolation via `Timer.periodic(50ms)`. The result is functionally identical
-/// but uses CPU instead of the audio thread.
-///
 /// Architecture:
-///   - Primary player: currently audible track, volume at 1.0
+///   - Primary player: currently audible track, volume at 100.0
 ///   - Crossfade player: next track, starts at volume 0.0
-///   - During crossfade: primary ramps 1.0→0.0, crossfade ramps 0.0→1.0
+///   - During crossfade: primary ramps 100.0→0.0, crossfade ramps 0.0→100.0
 ///   - On completion: crossfade player becomes the new primary
 class CrossfadeEngine {
   /// The two audio players used for crossfading.
-  AudioPlayer _primaryPlayer;
-  AudioPlayer _crossfadePlayer;
+  Player _primaryPlayer;
+  Player _crossfadePlayer;
 
-  /// Timer for the volume interpolation (replaces setInterval in JS fallback).
+  /// Timer for the volume interpolation.
   Timer? _rampTimer;
 
   /// Whether a crossfade is currently in progress.
@@ -27,21 +22,21 @@ class CrossfadeEngine {
 
   /// Callback: crossfade completed, players have been swapped.
   /// The caller should update state (currentSong, queue, etc.).
-  void Function(AudioPlayer newPrimary)? onSwapComplete;
+  void Function(Player newPrimary)? onSwapComplete;
 
   /// Callback: crossfade is at the 50% volume midpoint.
   /// The caller should update song metadata here for the best UX.
   void Function()? onMidpointReached;
 
   CrossfadeEngine({
-    required AudioPlayer primaryPlayer,
-    required AudioPlayer crossfadePlayer,
+    required Player primaryPlayer,
+    required Player crossfadePlayer,
   })  : _primaryPlayer = primaryPlayer,
         _crossfadePlayer = crossfadePlayer;
 
   bool get isCrossfading => _isCrossfading;
-  AudioPlayer get primaryPlayer => _primaryPlayer;
-  AudioPlayer get crossfadePlayer => _crossfadePlayer;
+  Player get primaryPlayer => _primaryPlayer;
+  Player get crossfadePlayer => _crossfadePlayer;
 
   /// Whether the crossfade player is pre-buffered.
   bool _isPrepared = false;
@@ -64,9 +59,12 @@ class CrossfadeEngine {
       await _crossfadePlayer.setVolume(0.0);
 
       if (localFilePath != null) {
-        await _crossfadePlayer.setFilePath(localFilePath);
+        await _crossfadePlayer.open(Media(localFilePath), play: false);
       } else {
-        await _crossfadePlayer.setUrl(nextUrl!, headers: headers);
+        await _crossfadePlayer.open(
+          Media(nextUrl!, httpHeaders: headers ?? {}), 
+          play: false,
+        );
       }
       
       _isPrepared = true;
@@ -78,13 +76,6 @@ class CrossfadeEngine {
   }
 
   /// Start a crossfade transition.
-  /// If not prepared, it will prepare inline (which may cause a delay).
-  ///
-  /// [fadeDuration] is in seconds (matches `crossfadeDurationRef.current` in React).
-  /// [headers] are passed through for auth-token-bearing stream URLs.
-  /// [localFilePath] is used for offline playback instead of [nextUrl].
-  ///
-  /// This mirrors `_startCrossfade()` in AudioContext.jsx (line 456).
   Future<bool> startCrossfade({
     required int fadeDuration,
     String? nextUrl,
@@ -98,26 +89,25 @@ class CrossfadeEngine {
     _isCrossfading = true;
 
     try {
-      // 1. Prepare secondary player if not already prepared
       if (!_isPrepared) {
         await _crossfadePlayer.stop();
         await _crossfadePlayer.setVolume(0.0);
 
         if (localFilePath != null) {
-          await _crossfadePlayer.setFilePath(localFilePath);
+          await _crossfadePlayer.open(Media(localFilePath), play: false);
         } else {
-          await _crossfadePlayer.setUrl(nextUrl!, headers: headers);
+          await _crossfadePlayer.open(
+            Media(nextUrl!, httpHeaders: headers ?? {}), 
+            play: false,
+          );
         }
       }
 
-      // 2. Start playing secondary at 0 volume (do not await, play() blocks until track ends!)
-      _crossfadePlayer.play();
+      await _crossfadePlayer.play();
 
-      // Begin the volume ramp
       final fadeMs = fadeDuration * 1000;
       final startTime = DateTime.now().millisecondsSinceEpoch;
 
-      // 50ms interval matches the setInterval(50) fallback in AudioContext.jsx line 615
       _rampTimer?.cancel();
       _rampTimer = Timer.periodic(const Duration(milliseconds: 50), (timer) {
         if (!_isCrossfading) {
@@ -128,11 +118,10 @@ class CrossfadeEngine {
         final elapsed = DateTime.now().millisecondsSinceEpoch - startTime;
         final progress = (elapsed / fadeMs).clamp(0.0, 1.0);
 
-        // Primary fades out, crossfade fades in (linear ramp)
-        _primaryPlayer.setVolume(1.0 - progress);
-        _crossfadePlayer.setVolume(progress);
+        // Primary fades out, crossfade fades in (linear ramp, scaled 0-100)
+        _primaryPlayer.setVolume((1.0 - progress) * 100.0);
+        _crossfadePlayer.setVolume(progress * 100.0);
 
-        // Fire midpoint callback once at the 50% mark
         if (!_midpointFired && progress >= 0.5) {
           _midpointFired = true;
           onMidpointReached?.call();
@@ -149,7 +138,6 @@ class CrossfadeEngine {
 
       return true;
     } catch (e) {
-      // Crossfade failed — caller should fall back to normal transition
       _isCrossfading = false;
       _isPrepared = false;
       _rampTimer?.cancel();
@@ -159,29 +147,26 @@ class CrossfadeEngine {
   }
 
   /// Apply the fade-out volume to the primary player during crossfade.
-  /// Called from timeupdate-equivalent (position stream listener) to smoothly
-  /// fade out current track. Mirrors AudioContext.jsx lines 202-213.
   void applyFadeOutVolume(double timeLeftSeconds, int fadeDuration) {
     if (!_isCrossfading) return;
     if (fadeDuration <= 0) return;
     final vol = (timeLeftSeconds / fadeDuration).clamp(0.0, 1.0);
-    _primaryPlayer.setVolume(vol);
+    _primaryPlayer.setVolume(vol * 100.0);
   }
 
   /// Complete the crossfade: swap audio players, reset state.
-  /// Mirrors `_completeCrossfadeSwap()` in AudioContext.jsx (lines 407-453).
   void _completeCrossfadeSwap() {
     final oldPrimary = _primaryPlayer;
 
-    // Stop the old primary — it has faded to 0
+    // media_kit does not deadlock on stop() with audio filters!
     oldPrimary.stop();
 
     // Swap: crossfade becomes primary
     _primaryPlayer = _crossfadePlayer;
     _crossfadePlayer = oldPrimary;
 
-    // Reset new primary volume to 1.0
-    _primaryPlayer.setVolume(1.0);
+    // Reset new primary volume to 100.0
+    _primaryPlayer.setVolume(100.0);
 
     _isCrossfading = false;
     _isPrepared = false;
@@ -191,32 +176,25 @@ class CrossfadeEngine {
   }
 
   /// Instantly promotes the pre-buffered crossfade player to primary without
-  /// any volume ramp. Used for manual skips when the next song is already buffered,
-  /// making the transition essentially zero-latency.
-  ///
-  /// Returns the new primary [AudioPlayer] on success, or null if the crossfade
-  /// player was not prepared (caller should fall back to normal setUrl path).
-  Future<AudioPlayer?> instantSwap() async {
+  /// any volume ramp. Used for manual skips when the next song is already buffered.
+  Future<Player?> instantSwap() async {
     if (!_isPrepared || _isCrossfading) return null;
 
     final oldPrimary = _primaryPlayer;
 
-    // Swap player references
     _primaryPlayer = _crossfadePlayer;
     _crossfadePlayer = oldPrimary;
 
     _isPrepared = false;
     _midpointFired = false;
 
-    // Stop and reset the old primary (now the crossfade slot)
-    oldPrimary.stop();
-    oldPrimary.setVolume(1.0);
+    await oldPrimary.stop();
+    await oldPrimary.setVolume(100.0);
 
     return _primaryPlayer;
   }
 
   /// Cancel an in-progress crossfade (e.g., user manually plays a different song).
-  /// Mirrors the cancel logic in AudioContext.jsx playSong() lines 667-674.
   void cancelCrossfade() {
     if (!_isCrossfading) {
       _isPrepared = false;
@@ -229,12 +207,9 @@ class CrossfadeEngine {
     _isPrepared = false;
     _midpointFired = false;
 
-    // Stop and reset the crossfade player
     _crossfadePlayer.stop();
-    _crossfadePlayer.setVolume(1.0);
-
-    // Restore primary volume
-    _primaryPlayer.setVolume(1.0);
+    _crossfadePlayer.setVolume(100.0);
+    _primaryPlayer.setVolume(100.0);
   }
 
   /// Dispose both players and cancel any active timers.

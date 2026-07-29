@@ -128,6 +128,11 @@ class AppTheme {
         ),
       ),
 
+      // ── SnackBar ──
+      snackBarTheme: const SnackBarThemeData(
+        behavior: SnackBarBehavior.floating,
+      ),
+
       // Disable Material splash for a cleaner iOS-like feel
       splashFactory: NoSplash.splashFactory,
       highlightColor: Colors.transparent,

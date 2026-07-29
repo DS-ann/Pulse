@@ -11,6 +11,7 @@ import '../data/models/song.dart';
 import '../data/models/playlist.dart';
 import '../providers/audio_provider.dart';
 import '../providers/download_provider.dart';
+import '../providers/player_overlay_provider.dart';
 import 'glass_container.dart';
 import 'add_to_playlist_sheet.dart';
 import 'multi_artist_sheet.dart';
@@ -267,6 +268,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
       if (albumId != null && albumId.length > 11) {
         if (mounted) {
           Navigator.pop(context);
+          ref.read(playerOverlayProvider.notifier).state = false;
           // Delay push to next frame — prevents Navigator key-reservation assertion
           WidgetsBinding.instance.addPostFrameCallback(
               (_) => router.push('/playlist/$albumId?t=$t'));
@@ -278,6 +280,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
         final bid = await _musicApi.resolveAlbum(widget.song.album);
         if (mounted) {
           Navigator.pop(context);
+          ref.read(playerOverlayProvider.notifier).state = false;
           WidgetsBinding.instance.addPostFrameCallback((_) {
             if (bid != null) {
               router.push('/playlist/$bid?t=$t');
@@ -294,6 +297,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
         Navigator.pop(context);
         final name = widget.song.album;
         if (name.isNotEmpty) {
+          ref.read(playerOverlayProvider.notifier).state = false;
           final t = DateTime.now().millisecondsSinceEpoch;
           WidgetsBinding.instance.addPostFrameCallback(
               (_) => router.push('/search?q=${Uri.encodeComponent(name)}&t=$t'));
@@ -340,6 +344,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
       if (artistId != null && artistId.isNotEmpty) {
         if (mounted) {
           Navigator.pop(context);
+          ref.read(playerOverlayProvider.notifier).state = false;
           // Delay push to next frame — prevents Navigator key-reservation assertion
           WidgetsBinding.instance.addPostFrameCallback(
               (_) => router.push('/artist/$artistId?t=$t'));
@@ -356,6 +361,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
       final bid = await _musicApi.resolveArtist(name);
       if (mounted) {
         Navigator.pop(context);
+        ref.read(playerOverlayProvider.notifier).state = false;
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (bid != null) {
             router.push('/artist/$bid?t=$t');
@@ -367,6 +373,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
     } catch (_) {
       if (mounted) {
         Navigator.pop(context);
+        ref.read(playerOverlayProvider.notifier).state = false;
         final name = widget.song.artist.isNotEmpty ? widget.song.artist : widget.song.title;
         final t = DateTime.now().millisecondsSinceEpoch;
         WidgetsBinding.instance.addPostFrameCallback(

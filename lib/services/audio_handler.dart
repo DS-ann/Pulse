@@ -1,24 +1,35 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:audio_service/audio_service.dart';
-import 'package:just_audio/just_audio.dart';
+import 'package:media_kit/media_kit.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
+import 'package:audio_session/audio_session.dart';
 
-/// Custom [BaseAudioHandler] for Pulse — bridges `just_audio` with `audio_service`
+/// Custom [BaseAudioHandler] for Pulse — bridges `media_kit` with `audio_service`
 /// to provide background playback and lock screen / notification controls.
-///
-/// This replaces the Media Session API integration from AudioContext.jsx (lines 339-401).
-/// On Android, this runs as a foreground service; on iOS, it uses the MPNowPlayingInfoCenter.
 class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
-  AudioPlayer _activePlayer;
-  final AndroidEqualizer? equalizer;
-
+  Player _activePlayer;
+  
   /// Second player used exclusively during crossfade transitions.
-  AudioPlayer? _crossfadePlayer;
+  Player? _crossfadePlayer;
 
-  StreamSubscription<PlaybackEvent>? _eventSub;
+  AudioSession? _session;
+
+  StreamSubscription<bool>? _playingSub;
+  StreamSubscription<bool>? _bufferingSub;
+  StreamSubscription<bool>? _completedSub;
   StreamSubscription<Duration>? _positionSub;
-  StreamSubscription<PlayerState>? _stateSub;
+
+  bool _isPlaying = false;
+  bool _isBuffering = false;
+  Duration _position = Duration.zero;
+  Duration _bufferedPosition = Duration.zero;
+
+  /// Equalizer state
+  bool _eqEnabled = false;
+  List<double> _eqGains = List.filled(10, 0.0);
+  double _eqPreAmp = 0.0;
 
   /// Callback invoked when the current track naturally ends (not crossfaded).
   /// The audio provider listens to this to trigger playNext().
@@ -39,7 +50,7 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
   /// Update the liked state and refresh the notification controls.
   void updateLikedState(bool liked) {
     _isLiked = liked;
-    _broadcastState(_activePlayer.playerState);
+    _broadcastState();
   }
 
   @override
@@ -50,53 +61,110 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
     await super.customAction(name, extras);
   }
 
-  PulseAudioHandler(this._activePlayer, {this.equalizer}) {
+  PulseAudioHandler(this._activePlayer) {
+    _applyOptimizations(_activePlayer);
+    _activePlayer.setVolume(100.0);
     _initListeners();
+    _initAudioSession();
+  }
+
+  void _applyOptimizations(Player player) {
+    final platform = player.platform;
+    if (platform is NativePlayer) {
+      platform.setProperty('cache-pause', 'no');
+      platform.setProperty('demuxer-readahead-secs', '60');
+      platform.setProperty('network-timeout', '3');
+      // NOTE: We do NOT pre-load any af filter here.
+      // Applying a lavfi filter at player creation (before media opens) can
+      // break the audio pipeline if the required FFmpeg filter is not available
+      // in the bundled media_kit_libs_audio build on the device.
+      // The EQ filter is applied on-demand only when the user enables EQ.
+    }
+  }
+
+  Future<void> _initAudioSession() async {
+    _session = await AudioSession.instance;
+    await _session!.configure(const AudioSessionConfiguration.music());
+    _session!.interruptionEventStream.listen((event) {
+      if (event.begin) {
+        switch (event.type) {
+          case AudioInterruptionType.pause:
+          case AudioInterruptionType.unknown:
+            pause();
+            break;
+          case AudioInterruptionType.duck:
+            _activePlayer.setVolume(20.0);
+            if (_crossfadePlayer != null) {
+              _crossfadePlayer!.setVolume(20.0);
+            }
+            break;
+        }
+      } else {
+        switch (event.type) {
+          case AudioInterruptionType.duck:
+            _activePlayer.setVolume(100.0);
+            if (_crossfadePlayer != null) {
+              _crossfadePlayer!.setVolume(100.0);
+            }
+            break;
+          case AudioInterruptionType.pause:
+            play();
+            break;
+          case AudioInterruptionType.unknown:
+            break;
+        }
+      }
+    });
   }
 
   void _initListeners() {
-    _stateSub?.cancel();
+    _playingSub?.cancel();
+    _bufferingSub?.cancel();
+    _completedSub?.cancel();
     _positionSub?.cancel();
-    _eventSub?.cancel();
 
-    // Broadcast playback state changes to the OS (lock screen, notification).
-    _stateSub = _activePlayer.playerStateStream.listen((playerState) {
-      _broadcastState(playerState);
+    _playingSub = _activePlayer.stream.playing.listen((playing) {
+      _isPlaying = playing;
+      _broadcastState();
     });
 
-    // Broadcast position updates (for seek bar on lock screen).
-    _positionSub = _activePlayer.positionStream.listen((position) {
-      // Position is already available via _activePlayer.position — the OS reads it
-      // from the broadcast state, which we update on every state change.
+    _bufferingSub = _activePlayer.stream.buffering.listen((buffering) {
+      _isBuffering = buffering;
+      _broadcastState();
     });
 
-    // Listen for completion to trigger playNext.
-    _eventSub = _activePlayer.playbackEventStream.listen((event) {
-      // Track ended naturally
-      if (event.processingState == ProcessingState.completed) {
+    _positionSub = _activePlayer.stream.position.listen((position) {
+      _position = position;
+      _bufferedPosition = _activePlayer.state.buffer;
+      
+      // Update AudioService periodically to keep notification panel in sync
+      if (_isPlaying && position.inSeconds % 2 == 0) {
+        _broadcastState();
+      }
+    });
+
+    _completedSub = _activePlayer.stream.completed.listen((completed) {
+      if (completed) {
         onTrackEnded?.call();
       }
     });
   }
 
   /// Update the OS media notification with current song metadata.
-  /// Replaces navigator.mediaSession.metadata = new MediaMetadata({...})
-  /// from AudioContext.jsx lines 360-365.
   @override
   Future<void> updateMediaItem(MediaItem item) async {
     mediaItem.add(item);
   }
 
   /// Set the audio source URL and begin playback.
-  /// [headers] can include auth tokens for the backend stream proxy.
   Future<void> playUrl(String url, {Map<String, String>? headers}) async {
-    await _activePlayer.setUrl(url, headers: headers);
+    await _activePlayer.open(Media(url, httpHeaders: headers ?? {}));
     await _activePlayer.play();
   }
 
   /// Set audio source from a local file path (offline playback).
   Future<void> playFile(String path) async {
-    await _activePlayer.setFilePath(path);
+    await _activePlayer.open(Media(path));
     await _activePlayer.play();
   }
 
@@ -116,6 +184,9 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
 
   @override
   Future<void> play() async {
+    if (_session != null) {
+      await _session!.setActive(true);
+    }
     await _activePlayer.play();
   }
 
@@ -127,12 +198,17 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
   @override
   Future<void> stop() async {
     await _activePlayer.stop();
+    if (_session != null) {
+      await _session!.setActive(false);
+    }
     await super.stop();
   }
 
   @override
   Future<void> seek(Duration position) async {
     await _activePlayer.seek(position);
+    _position = position;
+    _broadcastState();
   }
 
   @override
@@ -154,50 +230,137 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
     if (!playbackState.value.playing) {
       await stop();
     } else {
-      // Just stop playback which will clear notifications and release resources.
       await stop();
     }
   }
 
   @override
   Future<void> setRepeatMode(AudioServiceRepeatMode repeatMode) async {
-    // Repeat is managed by the audio provider, not the player directly.
-    // We still report it to the OS via the inherited BehaviorSubject.
     await super.setRepeatMode(repeatMode);
   }
 
   @override
   Future<void> setShuffleMode(AudioServiceShuffleMode shuffleMode) async {
-    // Shuffle is managed by the audio provider.
     await super.setShuffleMode(shuffleMode);
   }
 
   // ── Crossfade support ──
 
   /// Get the primary player (used by CrossfadeEngine for volume control).
-  AudioPlayer get primaryPlayer => _activePlayer;
+  Player get primaryPlayer => _activePlayer;
 
   /// The crossfade player — lazily created when crossfade starts.
-  AudioPlayer get crossfadePlayer {
-    _crossfadePlayer ??= AudioPlayer();
+  Player get crossfadePlayer {
+    if (_crossfadePlayer == null) {
+      _crossfadePlayer = Player(configuration: const PlayerConfiguration(bufferSize: 4194304));
+      _applyOptimizations(_crossfadePlayer!);
+      // If EQ is currently active, apply the lavfi filter to the new player immediately
+      if (_eqEnabled) {
+        _applyFilter(_crossfadePlayer!, _buildFilterString());
+      }
+    }
     return _crossfadePlayer!;
   }
 
   /// After crossfade completes, promote the crossfade player to primary.
-  void setPrimaryPlayer(AudioPlayer newPrimary) {
+  void setPrimaryPlayer(Player newPrimary) {
+    if (_crossfadePlayer != null && newPrimary == _crossfadePlayer) {
+      _crossfadePlayer = _activePlayer;
+    }
     _activePlayer = newPrimary;
     _initListeners();
-    // Trigger an immediate broadcast with the new primary's state
-    _broadcastState(_activePlayer.playerState);
+    _broadcastState();
+    // Re-apply current EQ state immediately to the new primary (no debounce needed — this is a player swap)
+    final filterStr = _eqEnabled ? _buildFilterString() : _flatEqFilter;
+    _applyFilter(_activePlayer, filterStr);
+    // Reset the recycled old-primary (now the crossfade player) back to the flat
+    // filter so it is clean for the next crossfade. Without this, stale EQ state
+    // from the previous song leaks into the next crossfade buffer.
+    if (_crossfadePlayer != null) {
+      _applyFilter(_crossfadePlayer!, _flatEqFilter);
+    }
+  }
+
+  // ── Equalizer logic ─────────────────────────────────────────────────────────
+
+  // The bypass state — empty string means MPV uses its default audio path
+  // with no filter chain. This is the safest possible state and works on all
+  // devices regardless of what FFmpeg filters are bundled in media_kit_libs_audio.
+  static const String _flatEqFilter = '';
+
+
+  /// Generation counter — incremented on every setEqualizerState call.
+  /// In-flight operations check this to abort if superseded by a newer call.
+  int _eqApplyGeneration = 0;
+
+  /// Update EQ state and schedule a debounced, race-safe application.
+  Future<void> setEqualizerState({required bool enabled, required List<double> gains, double preAmp = 0.0}) async {
+    _eqEnabled = enabled;
+    _eqGains = List<double>.from(gains);
+    _eqPreAmp = preAmp;
+
+    final thisGen = ++_eqApplyGeneration;
+
+    // Debounce: absorbs rapid changes (e.g. dragging a slider, loading a preset
+    // which fires setEqualizerGains + setEqualizerPreAmp in quick succession).
+    // This means toggling EQ or switching presets quickly fires only ONE apply.
+    await Future.delayed(const Duration(milliseconds: 150));
+    if (thisGen != _eqApplyGeneration) return; // Superseded — abort
+
+    await applyCurrentFilter(_activePlayer);
+    if (_crossfadePlayer != null) {
+      applyCurrentFilter(_crossfadePlayer!); // fire-and-forget, no seek on crossfade
+    }
+  }
+
+  /// Apply the current EQ state to [player] NOW.
+  /// Returns a Future so callers can await completion before seeking.
+  /// Call AFTER player.stop() and BEFORE player.open() for guaranteed effect.
+  Future<void> applyCurrentFilter(Player player) {
+    final filterStr = _eqEnabled ? _buildFilterString() : '';
+    return _applyFilter(player, filterStr);
+  }
+
+  /// Send a filter string to a player's mpv instance.
+  /// Returns the Future so callers can await MPV acknowledgement.
+  Future<void> _applyFilter(Player player, String filterStr) {
+    final platform = player.platform;
+    if (platform is! NativePlayer) return Future.value();
+    return platform.setProperty('af', filterStr).onError((e, _) {
+      debugPrint('[EQ] setProperty(af) failed: $e');
+    });
+  }
+
+  /// Build the active lavfi filter string from current EQ state.
+  /// Clamps all values to safe ranges and guards against NaN/Infinity.
+  String _buildFilterString() {
+    const frequencies = [31.25, 62.5, 125.0, 250.0, 500.0, 1000.0, 2000.0, 4000.0, 8000.0, 16000.0];
+    final sb = StringBuffer();
+
+    // Use raw MPV filter syntax. MPV will automatically bridge 'equalizer' to libavfilter.
+    
+    for (int i = 0; i < _eqGains.length && i < frequencies.length; i++) {
+      if (i > 0) sb.write(',');
+      // Guard: NaN or Infinity would produce invalid mpv filter syntax → clamp to 0
+      final raw = _eqGains[i];
+      final g = (raw.isNaN || raw.isInfinite) ? 0.0 : raw.clamp(-15.0, 15.0);
+      sb.write('equalizer=f=${frequencies[i]}:g=${g.toStringAsFixed(4)}');
+    }
+
+    return sb.toString();
   }
 
   // ── Internal ──
 
-  /// Map the just_audio PlayerState → audio_service PlaybackState and broadcast.
-  /// This is what makes the lock screen controls + seek bar work.
-  void _broadcastState(PlayerState playerState) {
-    final playing = playerState.playing;
-    final processingState = _mapProcessingState(playerState.processingState);
+  void _broadcastState() {
+    AudioProcessingState processingState;
+    if (_isBuffering) {
+      processingState = AudioProcessingState.buffering;
+    } else if (_isPlaying) {
+      processingState = AudioProcessingState.ready;
+    } else {
+      processingState = AudioProcessingState.ready;
+    }
 
     final likeIcon = _isLiked ? 'drawable/ic_favorite' : 'drawable/ic_favorite_outline';
     final likeLabel = _isLiked ? 'Unlike' : 'Like';
@@ -209,7 +372,7 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
           label: 'Previous',
           action: MediaAction.skipToPrevious,
         ),
-        if (playing)
+        if (_isPlaying)
           const MediaControl(
             androidIcon: 'drawable/ic_pause_circle_fill',
             label: 'Pause',
@@ -239,47 +402,29 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
       },
       androidCompactActionIndices: const [0, 1, 2],
       processingState: processingState,
-      playing: playing,
-      updatePosition: _activePlayer.position,
-      bufferedPosition: _activePlayer.bufferedPosition,
-      speed: _activePlayer.speed,
+      playing: _isPlaying,
+      updatePosition: _position,
+      bufferedPosition: _bufferedPosition,
+      speed: _activePlayer.state.rate,
     ));
-  }
-
-  AudioProcessingState _mapProcessingState(ProcessingState state) {
-    switch (state) {
-      case ProcessingState.idle:
-        return AudioProcessingState.idle;
-      case ProcessingState.loading:
-        return AudioProcessingState.loading;
-      case ProcessingState.buffering:
-        return AudioProcessingState.buffering;
-      case ProcessingState.ready:
-        return AudioProcessingState.ready;
-      case ProcessingState.completed:
-        return AudioProcessingState.completed;
-    }
   }
 
   /// Dispose all resources.
   Future<void> dispose() async {
-    await _eventSub?.cancel();
+    await _playingSub?.cancel();
+    await _bufferingSub?.cancel();
+    await _completedSub?.cancel();
     await _positionSub?.cancel();
-    await _stateSub?.cancel();
     await _activePlayer.dispose();
     await _crossfadePlayer?.dispose();
   }
 }
 
 /// Initialize the audio_service handler as a singleton.
-/// Must be called once in main() before runApp().
 Future<PulseAudioHandler> initAudioService() async {
-  final equalizer = AndroidEqualizer();
-  final player = AudioPlayer(
-    audioPipeline: AudioPipeline(androidAudioEffects: [equalizer]),
-  );
+  final player = Player(configuration: const PlayerConfiguration(bufferSize: 4194304));
   return await AudioService.init(
-    builder: () => PulseAudioHandler(player, equalizer: equalizer),
+    builder: () => PulseAudioHandler(player),
     config: const AudioServiceConfig(
       androidNotificationChannelId: 'com.pulse.music.channel',
       androidNotificationChannelName: 'Pulse Music',

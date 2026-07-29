@@ -701,7 +701,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   }
 
   void _showMenu(Song song) {
-    showModalBottomSheet(
+    showModalBottomSheet(useRootNavigator: true, 
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,

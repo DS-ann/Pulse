@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:just_audio/just_audio.dart';
+import 'package:media_kit/media_kit.dart';
 import 'firebase_options.dart';
 import 'core/theme/app_theme.dart';
 import 'core/routes/app_router.dart';
@@ -20,6 +20,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  
+  // Initialize media_kit
+  MediaKit.ensureInitialized();
 
   // Initialize audio_service for background playback + lock screen controls.
   // This creates the Android foreground service / iOS audio session.
@@ -30,9 +33,8 @@ void main() async {
     // If AudioService fails (e.g. missing AudioServiceActivity),
     // create a standalone handler so the app still launches.
     debugPrint('[Pulse] AudioService.init failed: $e');
-    final fallbackEq = AndroidEqualizer();
-    final fallbackPlayer = AudioPlayer(audioPipeline: AudioPipeline(androidAudioEffects: [fallbackEq]));
-    audioHandler = PulseAudioHandler(fallbackPlayer, equalizer: fallbackEq);
+    final fallbackPlayer = Player(configuration: const PlayerConfiguration(bufferSize: 4194304));
+    audioHandler = PulseAudioHandler(fallbackPlayer);
   }
 
   // Immersive dark status bar
@@ -93,10 +95,8 @@ class _PulseAppState extends ConsumerState<PulseApp> {
     final settings = ref.watch(settingsProvider);
     final accentColor = settings.accentColor;
 
-    // Trigger initial settings load from disk on auth
-    ref.listen(authProvider, (prev, next) {
-      // Nothing needed here — settings load from disk automatically on startup.
-    });
+
+
 
     // Show loading while Firebase auth resolves
     if (auth.loading) {

@@ -1,9 +1,9 @@
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'auth_provider.dart';
 
 // ── Settings State ──────────────────────────────────────────────────────────
 
@@ -14,12 +14,22 @@ class SettingsState {
   final bool dataSaverMode;
   final Color accentColor;
 
+  // ── Equalizer Settings ──
+  final bool equalizerEnabled;
+  final String equalizerPreset;
+  final List<double> equalizerGains;
+  final double equalizerPreAmp;
+
   const SettingsState({
     this.streamingQuality = 'high',
     this.downloadQuality = 'high',
     this.crossfadeDuration = 9,
     this.dataSaverMode = false,
     this.accentColor = const Color(0xFF865AA4),
+    this.equalizerEnabled = false,
+    this.equalizerPreset = 'Custom',
+    this.equalizerGains = const [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    this.equalizerPreAmp = 0.0,
   });
 
   SettingsState copyWith({
@@ -28,6 +38,10 @@ class SettingsState {
     int? crossfadeDuration,
     bool? dataSaverMode,
     Color? accentColor,
+    bool? equalizerEnabled,
+    String? equalizerPreset,
+    List<double>? equalizerGains,
+    double? equalizerPreAmp,
   }) {
     return SettingsState(
       streamingQuality: streamingQuality ?? this.streamingQuality,
@@ -35,86 +49,260 @@ class SettingsState {
       crossfadeDuration: crossfadeDuration ?? this.crossfadeDuration,
       dataSaverMode: dataSaverMode ?? this.dataSaverMode,
       accentColor: accentColor ?? this.accentColor,
+      equalizerEnabled: equalizerEnabled ?? this.equalizerEnabled,
+      equalizerPreset: equalizerPreset ?? this.equalizerPreset,
+      equalizerGains: equalizerGains ?? this.equalizerGains,
+      equalizerPreAmp: equalizerPreAmp ?? this.equalizerPreAmp,
     );
   }
 }
 
 // ── Settings Provider ───────────────────────────────────────────────────────
 
-/// Settings stored entirely in SharedPreferences — no backend required.
-/// Each setting is saved immediately on change and restored on app launch.
 class SettingsNotifier extends Notifier<SettingsState> {
+  /// True once we have received real data from Firestore.
+  /// Prevents the local disk-load from overwriting cloud data.
+  bool _firestoreLoaded = false;
+
+  /// Debounce timer for Firestore writes — prevents hammering the DB
+  /// while the user is dragging a slider.
+  Timer? _firestoreDebounce;
+
   @override
   SettingsState build() {
-    // Load from disk asynchronously after first build
+    ref.onDispose(() => _firestoreDebounce?.cancel());
+    // Load from disk asynchronously. If Firestore data arrives first
+    // (_firestoreLoaded == true), _loadFromDisk() will exit early.
     Future.microtask(_loadFromDisk);
     return const SettingsState();
   }
 
-  // ── Load ──
+  // ── Load from local disk (SharedPreferences) ──
 
   Future<void> _loadFromDisk() async {
+    // If Firestore already populated state, never overwrite with stale local data.
+    if (_firestoreLoaded) return;
+
     final prefs = await SharedPreferences.getInstance();
+
+    // Parse equalizer gains
+    final gainsStr = prefs.getString('pulse_eq_gains');
+    List<double> loadedGains = List.filled(10, 0.0);
+    if (gainsStr != null && gainsStr.isNotEmpty) {
+      try {
+        final parts = gainsStr.split(',');
+        for (int i = 0; i < parts.length && i < 10; i++) {
+          loadedGains[i] = double.parse(parts[i]);
+        }
+      } catch (_) {}
+    }
+
+    // Guard again: Firestore may have arrived while we were awaiting prefs.
+    if (_firestoreLoaded) return;
+
     state = state.copyWith(
       streamingQuality: _toFrontend(prefs.getString('pulse_streaming_quality') ?? 'high'),
       downloadQuality: _toFrontend(prefs.getString('pulse_download_quality') ?? 'high'),
       crossfadeDuration: prefs.getInt('pulse_crossfade') ?? 9,
       dataSaverMode: prefs.getBool('pulse_data_saver') ?? false,
       accentColor: Color(prefs.getInt('pulse_accent_color_int') ?? 0xFF865AA4),
+      equalizerEnabled: prefs.getBool('pulse_eq_enabled') ?? false,
+      equalizerPreset: prefs.getString('pulse_eq_preset') ?? 'Custom',
+      equalizerGains: loadedGains,
+      equalizerPreAmp: prefs.getDouble('pulse_eq_preamp') ?? 0.0,
     );
   }
 
-  // ── Setters (each saves immediately) ──
+  // ── Load from Firestore (called by auth_provider on login) ──
+
+  /// Applies settings fetched from Firestore and locks out the disk loader.
+  /// Supports both current and legacy field names transparently.
+  void updateFromBackend(Map<String, dynamic> data) {
+    // Mark Firestore as loaded FIRST — prevents _loadFromDisk from overwriting.
+    _firestoreLoaded = true;
+
+    // Parse equalizer gains — support both old and new field names
+    List<double>? parsedGains;
+    final rawGains = data['equalizerGains'] ?? data['eqCustomGains'] ?? data['eqGains'];
+    if (rawGains != null) {
+      try {
+        final list = rawGains as List;
+        parsedGains = list.map((e) => (e as num).toDouble()).toList();
+        // Pad or trim to exactly 10 bands
+        while (parsedGains.length < 10) { parsedGains.add(0.0); }
+        if (parsedGains.length > 10) parsedGains = parsedGains.sublist(0, 10);
+      } catch (_) {}
+    }
+
+    // Support both old and new field names
+    final eqEnabled = data['equalizerEnabled'] ?? data['eqEnabled'];
+    final eqPreset  = data['equalizerPreset']  ?? data['eqPreset'];
+    final eqPreAmp  = data['equalizerPreAmp']  ?? data['eqPreAmp'];
+
+    // Resolve accent color — new format: accentColorInt (int)
+    //                        old format: accentColor (hex string e.g. "#865AA4")
+    Color? resolvedAccentColor;
+    if (data['accentColorInt'] != null) {
+      resolvedAccentColor = Color(data['accentColorInt'] as int);
+    } else if (data['accentColor'] is String) {
+      try {
+        final hex = (data['accentColor'] as String).replaceFirst('#', '');
+        resolvedAccentColor = Color(int.parse('FF$hex', radix: 16));
+      } catch (_) {}
+    }
+
+    state = state.copyWith(
+      streamingQuality: data['streamingQuality'] != null ? _toFrontend(data['streamingQuality'] as String) : null,
+      downloadQuality:  data['downloadQuality']  != null ? _toFrontend(data['downloadQuality']  as String) : null,
+      crossfadeDuration: (data['crossfadeDuration'] as num?)?.toInt(),
+      dataSaverMode:    data['dataSaverMode'] as bool?,
+      accentColor:      resolvedAccentColor,
+      equalizerEnabled: eqEnabled as bool?,
+      equalizerPreset:  eqPreset  as String?,
+      equalizerGains:   parsedGains,
+      equalizerPreAmp:  eqPreAmp  != null ? (eqPreAmp as num).toDouble() : null,
+    );
+
+    // Persist locally so the app works offline on subsequent launches.
+    // No Firestore write — data came FROM Firestore.
+    _persistToDisk();
+  }
+
+  /// Called when the auth provider determines there is NO cloud data yet (new user).
+  /// Unlocks local changes so they can be written up to Firestore.
+  void markFirestoreLoaded() {
+    _firestoreLoaded = true;
+    _scheduleFsWrite(); // Push current defaults to the cloud immediately
+  }
+
+  /// Called when the Firestore settings fetch fails (network error, permission error, etc.).
+  /// Ensures the disk cache is still applied instead of the app showing default/stale settings.
+  /// Does NOT write to Firestore — that's only done after a successful cloud round-trip.
+  Future<void> loadFromDiskFallback() async {
+    // Only run if Firestore hasn't successfully loaded yet in this session.
+    if (!_firestoreLoaded) {
+      await _loadFromDisk();
+    }
+  }
+
+  // ── Setters ──
 
   void setStreamingQuality(String quality) {
     state = state.copyWith(streamingQuality: quality);
-    _save();
+    _persistToDisk();
+    _scheduleFsWrite();
   }
 
   void setDownloadQuality(String quality) {
     state = state.copyWith(downloadQuality: quality);
-    _save();
+    _persistToDisk();
+    _scheduleFsWrite();
   }
 
-  void setCrossfade(int seconds) {
+  void setCrossfade(int seconds, {bool syncToFirestore = true}) {
     state = state.copyWith(crossfadeDuration: seconds.clamp(0, 12));
-    _save();
+    _persistToDisk();
+    if (syncToFirestore) _scheduleFsWrite();
   }
 
   void setDataSaver(bool enabled) {
     state = state.copyWith(dataSaverMode: enabled);
-    _save();
+    _persistToDisk();
+    _scheduleFsWrite();
   }
 
   void setAccentColor(Color color, {bool syncToFirestore = true}) {
     state = state.copyWith(accentColor: color);
-    _save(syncToFirestore: syncToFirestore);
+    _persistToDisk();
+    if (syncToFirestore) _scheduleFsWrite();
   }
 
-  // ── Persist ──
+  void setEqualizerEnabled(bool enabled) {
+    state = state.copyWith(equalizerEnabled: enabled);
+    _persistToDisk();
+    _scheduleFsWrite();
+  }
 
-  Future<void> _save({bool syncToFirestore = true}) async {
+  void setEqualizerPreset(String preset) {
+    state = state.copyWith(equalizerPreset: preset);
+    _persistToDisk();
+    _scheduleFsWrite();
+  }
+
+  void setEqualizerGains(List<double> gains, {bool syncToFirestore = true}) {
+    state = state.copyWith(equalizerGains: List<double>.from(gains));
+    _persistToDisk();
+    if (syncToFirestore) _scheduleFsWrite();
+  }
+
+  void setEqualizerPreAmp(double preAmp, {bool syncToFirestore = true}) {
+    state = state.copyWith(equalizerPreAmp: preAmp);
+    _persistToDisk();
+    if (syncToFirestore) _scheduleFsWrite();
+  }
+
+  /// Apply a named preset atomically: updates preset name, gains, and pre-amp
+  /// in a single state change, triggering exactly one disk write and one
+  /// debounced Firestore write (instead of three separate writes).
+  void setEqualizerPresetWithValues(String preset, List<double> gains, double preAmp) {
+    state = state.copyWith(
+      equalizerPreset: preset,
+      equalizerGains: List<double>.from(gains),
+      equalizerPreAmp: preAmp,
+    );
+    _persistToDisk();
+    _scheduleFsWrite();
+  }
+
+  // ── Persist to SharedPreferences (always immediate, always offline-safe) ──
+
+  Future<void> _persistToDisk() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('pulse_streaming_quality', _toBackend(state.streamingQuality));
-    await prefs.setString('pulse_download_quality', _toBackend(state.downloadQuality));
-    await prefs.setInt('pulse_crossfade', state.crossfadeDuration);
-    await prefs.setBool('pulse_data_saver', state.dataSaverMode);
-    await prefs.setInt('pulse_accent_color_int', state.accentColor.toARGB32());
+    await prefs.setString('pulse_download_quality',  _toBackend(state.downloadQuality));
+    await prefs.setInt('pulse_crossfade',            state.crossfadeDuration);
+    await prefs.setBool('pulse_data_saver',          state.dataSaverMode);
+    await prefs.setInt('pulse_accent_color_int',     state.accentColor.toARGB32());
+    await prefs.setBool('pulse_eq_enabled',          state.equalizerEnabled);
+    await prefs.setString('pulse_eq_preset',         state.equalizerPreset);
+    await prefs.setString('pulse_eq_gains',          state.equalizerGains.join(','));
+    await prefs.setDouble('pulse_eq_preamp',         state.equalizerPreAmp);
+  }
 
-    if (syncToFirestore) {
-      final authState = ref.read(authProvider);
-      if (authState.user != null) {
-        try {
-          await FirebaseFirestore.instance
-              .collection('users')
-              .doc(authState.user!.uid)
-              .update({
-            'accentColorInt': state.accentColor.toARGB32(),
-          });
-        } catch (e) {
-          debugPrint('Failed to sync accent color to Firestore: $e');
-        }
-      }
+  // ── Debounced Firestore write ──
+  // Waits 1 second after the last change before writing to Firestore.
+  // Prevents hammering the DB while the user drags a slider.
+
+  void _scheduleFsWrite() {
+    _firestoreDebounce?.cancel();
+    _firestoreDebounce = Timer(const Duration(seconds: 1), _writeToFirestore);
+  }
+
+  Future<void> _writeToFirestore() async {
+    // Use FirebaseAuth directly — never rely on ref.read(authProvider).user
+    // which can be transiently null during startup race conditions.
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null) return;
+
+    try {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('settings')
+          .doc('preferences')
+          .set({
+        'accentColorInt':    state.accentColor.toARGB32(),
+        'streamingQuality':  _toBackend(state.streamingQuality),
+        'downloadQuality':   _toBackend(state.downloadQuality),
+        'crossfadeDuration': state.crossfadeDuration,
+        'dataSaverMode':     state.dataSaverMode,
+        'equalizerEnabled':  state.equalizerEnabled,
+        'equalizerPreset':   state.equalizerPreset,
+        'equalizerGains':    state.equalizerGains,
+        'equalizerPreAmp':   state.equalizerPreAmp,
+      }, SetOptions(merge: true));
+    } catch (e) {
+      debugPrint('[Settings] Firestore write failed: $e');
     }
   }
 
@@ -122,14 +310,14 @@ class SettingsNotifier extends Notifier<SettingsState> {
 
   static String _toBackend(String q) => switch (q) {
     'automatic' => 'auto',
-    'normal' => 'medium',
-    _ => q,
+    'normal'    => 'medium',
+    _           => q,
   };
 
   static String _toFrontend(String q) => switch (q) {
-    'auto' => 'automatic',
+    'auto'   => 'automatic',
     'medium' => 'normal',
-    _ => q,
+    _        => q,
   };
 }
 
