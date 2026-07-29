@@ -20,8 +20,8 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
   // Exact dB maps requested by the user, avoiding the previous percentage formulas
   final Map<String, List<double>> _presets = {
     // ── Standard ──
-    'Flat':     [0.0, 0.0, 0.0, 0.0,  0.0,  0.0, 0.0, 0.0, 0.0, 0.0],
-    'Perfect':  [3.0, 4.0, 2.0, 0.0, -1.0, -1.0, 0.0, 1.0, 3.0, 4.0],
+    'Perfect':  [3.5, 4.0, 2.0, -1.5, -0.5, 1.0, 2.0, 3.5, 2.5, 1.5],
+    'U-Curve':  [3.0, 4.0, 2.0, 0.0, -1.0, -1.0, 0.0, 1.0, 3.0, 4.0],
     'V-Shape':  [4.0, 5.0, 3.0, 0.0, -2.0, -3.0, -1.0, 2.0, 4.0, 5.0],
 
     // ── Genre-Based ──
@@ -47,8 +47,8 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
   };
 
   final Map<String, double> _preAmps = {
-    'Flat':     0.0,
-    'Perfect':  -4.0,
+    'Perfect':  -3.0,
+    'U-Curve':  -4.0,
     'V-Shape':  -4.5,
     'Acoustic':      -2.0,
     'Classical':     -2.5,
@@ -77,7 +77,15 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
   }
 
   void _applyPreset(String presetName) {
-    if (presetName == 'Custom') return;
+    if (presetName == 'Custom') {
+      final settings = ref.read(settingsProvider);
+      ref.read(settingsProvider.notifier).setEqualizerPresetWithValues(
+        'Custom',
+        settings.equalizerCustomGains,
+        settings.equalizerCustomPreAmp,
+      );
+      return;
+    }
     final values = _presets[presetName]!;
     final preAmp = _preAmps[presetName] ?? 0.0;
     // Use the atomic method: one state update → one disk write → one Firestore write
