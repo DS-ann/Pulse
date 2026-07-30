@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/PULSE.png" alt="Pulse Banner" width="100%">
+</p>
+
 # Pulse
 
 Pulse is a premium music streaming application built with Flutter, powered by YouTube Music. It offers a seamless, immersive listening experience with features like background playback, crossfading, offline downloads, and cloud synchronization via Firebase.
