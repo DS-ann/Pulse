@@ -183,25 +183,29 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
     super.dispose();
   }
 
-  static int _currentIndex(BuildContext context) {
+  int _lastKnownIndex = 0;
+
+  int _calculateSelectedIndex(BuildContext context) {
     final location = GoRouterState.of(context).uri.toString();
-    if (location == '/') return 0;
-    if (location.startsWith('/library')) return 1;
-    if (location.startsWith('/search')) return 2;
-    if (location.startsWith('/settings')) return 3;
-    if (location.startsWith('/profile')) return 4;
-    return 0;
+    if (location == '/') return _lastKnownIndex = 0;
+    if (location.startsWith('/library') || location.startsWith('/downloads') || location.startsWith('/downloading')) return _lastKnownIndex = 1;
+    if (location.startsWith('/search')) return _lastKnownIndex = 2;
+    if (location.startsWith('/settings')) return _lastKnownIndex = 3;
+    if (location.startsWith('/profile')) return _lastKnownIndex = 4;
+    return _lastKnownIndex;
   }
 
   @override
   Widget build(BuildContext context) {
-    final currentIndex = _currentIndex(context);
+    final currentIndex = _calculateSelectedIndex(context);
 
     final location = GoRouterState.of(context).uri.toString();
     // Show offline screen when no connectivity, unless on offline-capable pages
     final isOfflinePlaylist = location.startsWith('/playlist/__pl__') ||
         location.startsWith('/playlist/__downloads__');
-    if (_isOffline && !location.startsWith('/downloads') && !isOfflinePlaylist) {
+    final isDownloadsRoute = location.startsWith('/downloads');
+        
+    if (_isOffline && !isDownloadsRoute && !isOfflinePlaylist) {
       return const OfflineScreen();
     }
 

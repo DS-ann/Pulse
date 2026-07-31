@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
+import 'dart:async';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:go_router/go_router.dart';
+import '../offline/offline_screen.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/thumbnail_utils.dart';
@@ -17,20 +20,30 @@ import '../../providers/import_provider.dart';
 import '../../providers/download_provider.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/playing_bars.dart';
+import 'downloads_screen.dart';
+import 'downloading_screen.dart';
 
 /// Library screen — port of Library.jsx.
 /// Shows user playlists with sort, grid/list toggle, FAB for create/import.
-class LibraryScreen extends ConsumerStatefulWidget {
-  const LibraryScreen({super.key});
+class PlaylistsScreen extends ConsumerStatefulWidget {
+  final int initialTabIndex;
+  const PlaylistsScreen({super.key, this.initialTabIndex = 0});
 
   @override
-  ConsumerState<LibraryScreen> createState() => _LibraryScreenState();
+  ConsumerState<PlaylistsScreen> createState() => _PlaylistsScreenState();
 }
 
-class _LibraryScreenState extends ConsumerState<LibraryScreen> {
+class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
+  late int _currentIndex;
+  late final PageController _pageController;
+  final ScrollController _chipsScrollController = ScrollController();
+
   String _sortKey = 'recent';
   String _sortOrder = 'desc';
   bool _gridView = false;
+  String _dlSortKey = 'recent';
+  String _dlSortOrder = 'desc';
+  bool _dlGridView = false;
   bool _showSortDropdown = false;
   bool _showAddOptions = false;
   bool _showCreateModal = false;
@@ -51,11 +64,41 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
   Playlist? _editSongsPlaylist;
   List<Song> _editSongsList = [];
 
+  bool _isOffline = false;
+  StreamSubscription<List<ConnectivityResult>>? _connectivitySub;
+
   @override
   void initState() {
     super.initState();
+    _currentIndex = widget.initialTabIndex;
+    _pageController = PageController(initialPage: _currentIndex);
     _loadPrefs();
+
+    Connectivity().checkConnectivity().then((result) {
+      if (mounted) {
+        setState(() => _isOffline = result.isEmpty || !result.any((r) => r == ConnectivityResult.wifi || r == ConnectivityResult.mobile || r == ConnectivityResult.ethernet));
+      }
+    });
+
+    _connectivitySub = Connectivity().onConnectivityChanged.listen((result) {
+      if (mounted) {
+        setState(() => _isOffline = result.isEmpty || !result.any((r) => r == ConnectivityResult.wifi || r == ConnectivityResult.mobile || r == ConnectivityResult.ethernet));
+      }
+    });
+
+    if (_currentIndex != 0) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_chipsScrollController.hasClients) {
+          double offset = 0;
+          if (_currentIndex == 1) offset = 80;
+          else if (_currentIndex == 2) offset = _chipsScrollController.position.maxScrollExtent;
+          _chipsScrollController.jumpTo(offset);
+        }
+      });
+    }
   }
+
+  bool _prefsLoaded = false;
 
   Future<void> _loadPrefs() async {
     final prefs = await SharedPreferences.getInstance();
@@ -64,6 +107,10 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
       _gridView = prefs.getBool('pulse_lib_view_mode_grid') ?? false;
       _sortKey = prefs.getString('pulse_lib_sort_key') ?? 'recent';
       _sortOrder = prefs.getString('pulse_lib_sort_order') ?? 'desc';
+      _dlGridView = prefs.getBool('pulse_dl_view_mode_grid') ?? false;
+      _dlSortKey = prefs.getString('pulse_dl_sort_key') ?? 'recent';
+      _dlSortOrder = prefs.getString('pulse_dl_sort_order') ?? 'desc';
+      _prefsLoaded = true;
     });
   }
 
@@ -72,18 +119,26 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
     await prefs.setBool('pulse_lib_view_mode_grid', _gridView);
     await prefs.setString('pulse_lib_sort_key', _sortKey);
     await prefs.setString('pulse_lib_sort_order', _sortOrder);
+    await prefs.setBool('pulse_dl_view_mode_grid', _dlGridView);
+    await prefs.setString('pulse_dl_sort_key', _dlSortKey);
+    await prefs.setString('pulse_dl_sort_order', _dlSortOrder);
   }
 
   @override
   void dispose() {
+    _connectivitySub?.cancel();
     _createController.dispose();
     _renameController.dispose();
     _importUrlController.dispose();
+    _pageController.dispose();
+    _chipsScrollController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    if (!_prefsLoaded) return const Scaffold(backgroundColor: Colors.transparent);
+
     ref.listen(importProvider, (previous, current) {
       if (previous == null) return;
       for (final key in current.keys) {
@@ -113,6 +168,8 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
     final totalProgress = activeCount > 0 
         ? downloadState.activeDownloads.values.map((v) => v.progress).reduce((a, b) => a + b) / activeCount 
         : 0.0;
+    
+    final hasActive = downloadState.activeDownloads.values.any((d) => !d.isPaused);
 
     // Sort
     final sorted = _sortPlaylists(playlists);
@@ -128,6 +185,7 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,48 +194,161 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
                               style: Theme.of(context).textTheme.headlineLarge),
                           Row(
                             children: [
-                              // Sort button
-                              _SortButton(
-                                sortKey: _sortKey,
-                                sortOrder: _sortOrder,
-                                onTap: () => setState(() =>
-                                    _showSortDropdown = !_showSortDropdown),
-                              ),
-                              const SizedBox(width: 8),
-                              // Downloads button
-                              GestureDetector(
-                                onTap: () => context.push('/downloads'),
-                                child: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  child: const Icon(LucideIcons.hardDrive,
-                                      size: 18, color: AppColors.textSecondary),
+                              if (_currentIndex == 0 || _currentIndex == 1) ...[
+                                // Sort button
+                                _SortButton(
+                                  sortKey: _currentIndex == 0 ? _sortKey : _dlSortKey,
+                                  sortOrder: _currentIndex == 0 ? _sortOrder : _dlSortOrder,
+                                  onTap: () => setState(() =>
+                                      _showSortDropdown = !_showSortDropdown),
                                 ),
-                              ),
-                              GestureDetector(
-                                onTap: () => context.push('/downloading'),
-                                child: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  child: const Icon(LucideIcons.download, size: 18, color: AppColors.textSecondary),
-                                ),
-                              ),
-                              const SizedBox(width: 4),
-                              // View toggle
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() => _gridView = !_gridView);
-                                  _savePrefs();
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Icon(
-                                    _gridView ? LucideIcons.list : LucideIcons.layoutGrid,
-                                    size: 18, color: AppColors.textSecondary,
+                                const SizedBox(width: 8),
+                                // View toggle
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      if (_currentIndex == 0) {
+                                        _gridView = !_gridView;
+                                      } else {
+                                        _dlGridView = !_dlGridView;
+                                      }
+                                    });
+                                    _savePrefs();
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    child: Icon(
+                                      (_currentIndex == 0 ? _gridView : _dlGridView) ? LucideIcons.list : LucideIcons.layoutGrid,
+                                      size: 18, color: AppColors.textSecondary,
+                                    ),
                                   ),
                                 ),
-                              ),
+                              ] else ...[
+                                // Pause / Resume All for Downloading Tab
+                                GestureDetector(
+                                  onTap: () {
+                                    if (hasActive) {
+                                      ref.read(downloadProvider.notifier).pauseAll();
+                                    } else {
+                                      ref.read(downloadProvider.notifier).resumeAll();
+                                    }
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: AppColors.surface,
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(
+                                          hasActive ? LucideIcons.pause : LucideIcons.play,
+                                          size: 16, color: AppColors.textSecondary,
+                                        ),
+                                        const SizedBox(width: 8),
+                                        Text(
+                                          hasActive ? 'Pause all' : 'Resume all',
+                                          style: const TextStyle(
+                                            fontSize: 13, 
+                                            fontWeight: FontWeight.w500,
+                                            color: AppColors.textSecondary,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ],
                           ),
                         ],
+                      ),
+                      const SizedBox(height: 16),
+                      // Navigation Chips
+                      SingleChildScrollView(
+                        controller: _chipsScrollController,
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            // Playlists
+                            GestureDetector(
+                              onTap: () => _pageController.animateToPage(0, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                                decoration: BoxDecoration(
+                                  color: _currentIndex == 0 ? accent.withValues(alpha: 0.15) : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(color: Colors.transparent, width: 1),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(LucideIcons.listMusic, size: 16, color: _currentIndex == 0 ? accent : AppColors.textSecondary),
+                                    const SizedBox(width: 6),
+                                    Text('Playlists', style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 0 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 0 ? accent : AppColors.textSecondary)),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            // Downloads
+                            GestureDetector(
+                              onTap: () => _pageController.animateToPage(1, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                                decoration: BoxDecoration(
+                                  color: _currentIndex == 1 ? accent.withValues(alpha: 0.15) : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(color: Colors.transparent, width: 1),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(LucideIcons.hardDrive, size: 16, color: _currentIndex == 1 ? accent : AppColors.textSecondary),
+                                    const SizedBox(width: 6),
+                                    Text('Downloads', style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 1 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 1 ? accent : AppColors.textSecondary)),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            // Downloading
+                            GestureDetector(
+                              onTap: () => _pageController.animateToPage(2, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                                decoration: BoxDecoration(
+                                  color: _currentIndex == 2 ? accent.withValues(alpha: 0.15) : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(color: Colors.transparent, width: 1),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(LucideIcons.download, size: 16, color: _currentIndex == 2 ? accent : AppColors.textSecondary),
+                                    const SizedBox(width: 6),
+                                    Text('Downloading', style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 2 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 2 ? accent : AppColors.textSecondary)),
+                                    if (activeCount > 0) ...[
+                                      const SizedBox(width: 6),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                        decoration: BoxDecoration(
+                                          color: AppColors.surface,
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          '$activeCount',
+                                          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+                                        ),
+                                      ),
+                                    ],
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -284,21 +455,53 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
                     ),
                   ),
 
-                // ── Playlist list ──
+                // ── Tab Content ──
                 Expanded(
-                  child: sorted.isEmpty
-                      ? _buildEmptyState()
-                      : _gridView
-                          ? _buildGridView(sorted)
-                          : _buildListView(sorted),
+                  child: PageView(
+                    controller: _pageController,
+                    onPageChanged: (index) {
+                      if (_isOffline && index != 1) {
+                        if (index == 0) context.go('/library');
+                        if (index == 2) context.go('/downloading');
+                        return;
+                      }
+                      setState(() {
+                        _currentIndex = index;
+                        _showSortDropdown = false;
+                      });
+                      if (_chipsScrollController.hasClients) {
+                        double offset = 0;
+                        if (index == 1) offset = 80;
+                        else if (index == 2) offset = _chipsScrollController.position.maxScrollExtent;
+                        _chipsScrollController.animateTo(offset, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+                      }
+                    },
+                    children: [
+                      // Page 0: Playlists
+                      sorted.isEmpty
+                          ? _buildEmptyState()
+                          : _gridView
+                              ? _buildGridView(sorted)
+                              : _buildListView(sorted),
+                      // Page 1: Downloads
+                      DownloadsScreen(
+                        sortKey: _dlSortKey,
+                        sortOrder: _dlSortOrder,
+                        gridView: _dlGridView,
+                      ),
+                      // Page 2: Downloading
+                      const DownloadingScreen(),
+                    ],
+                  ),
                 ),
               ],
             ),
 
             // ── FAB ──
-            Positioned(
-              bottom: 160, right: 20,
-              child: GestureDetector(
+            if (_currentIndex == 0)
+              Positioned(
+                bottom: 160, right: 20,
+                child: GestureDetector(
                 onTap: () => setState(() => _showAddOptions = !_showAddOptions),
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
@@ -378,13 +581,13 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         _SortOption(
-                          label: 'Recently Added', isActive: _sortKey == 'recent',
-                          sortOrder: _sortOrder,
+                          label: 'Recently Added', isActive: (_currentIndex == 0 ? _sortKey : _dlSortKey) == 'recent',
+                          sortOrder: _currentIndex == 0 ? _sortOrder : _dlSortOrder,
                           onTap: () => _handleSort('recent'),
                         ),
                         _SortOption(
-                          label: 'Alphabetical', isActive: _sortKey == 'alpha',
-                          sortOrder: _sortOrder,
+                          label: 'Alphabetical', isActive: (_currentIndex == 0 ? _sortKey : _dlSortKey) == 'alpha',
+                          sortOrder: _currentIndex == 0 ? _sortOrder : _dlSortOrder,
                           onTap: () => _handleSort('alpha'),
                         ),
                       ],
@@ -418,10 +621,18 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen> {
   }
 
   void _handleSort(String key) {
-    if (_sortKey == key) {
-      setState(() => _sortOrder = _sortOrder == 'asc' ? 'desc' : 'asc');
+    if (_currentIndex == 0) {
+      if (_sortKey == key) {
+        setState(() => _sortOrder = _sortOrder == 'asc' ? 'desc' : 'asc');
+      } else {
+        setState(() { _sortKey = key; _sortOrder = 'desc'; });
+      }
     } else {
-      setState(() { _sortKey = key; _sortOrder = 'desc'; });
+      if (_dlSortKey == key) {
+        setState(() => _dlSortOrder = _dlSortOrder == 'asc' ? 'desc' : 'asc');
+      } else {
+        setState(() { _dlSortKey = key; _dlSortOrder = 'desc'; });
+      }
     }
     setState(() => _showSortDropdown = false);
     _savePrefs();

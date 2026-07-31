@@ -169,7 +169,7 @@ class _OfflineScreenState extends State<OfflineScreen>
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),
                     ),
-                    icon: const Icon(LucideIcons.download, size: 18),
+                    icon: const Icon(LucideIcons.hardDrive, size: 18),
                     label: const Text('Go to Downloads'),
                   ),
                 ),

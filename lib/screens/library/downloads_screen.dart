@@ -17,7 +17,16 @@ import '../../widgets/playing_bars.dart';
 /// Downloads screen — port of Downloads.jsx.
 /// Shows all offline songs, play/delete per-song, clear all.
 class DownloadsScreen extends ConsumerStatefulWidget {
-  const DownloadsScreen({super.key});
+  final String sortKey;
+  final String sortOrder;
+  final bool gridView;
+
+  const DownloadsScreen({
+    super.key,
+    required this.sortKey,
+    required this.sortOrder,
+    required this.gridView,
+  });
 
   @override
   ConsumerState<DownloadsScreen> createState() => _DownloadsScreenState();
@@ -38,34 +47,18 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
   List<Song> _editSongsList = [];
   final TextEditingController _renameController = TextEditingController();
 
-  String _sortKey = 'recent';
-  String _sortOrder = 'desc';
-  bool _gridView = false;
-  bool _showSortDropdown = false;
-
   @override
   void initState() {
     super.initState();
-    _loadPrefs();
     _loadSongs();
   }
 
-  Future<void> _loadPrefs() async {
-    final prefs = await SharedPreferences.getInstance();
-    if (!mounted) return;
-    setState(() {
-      _gridView = prefs.getBool('pulse_dl_view_mode_grid') ?? false;
-      _sortKey = prefs.getString('pulse_dl_sort_key') ?? 'recent';
-      _sortOrder = prefs.getString('pulse_dl_sort_order') ?? 'desc';
-    });
-    _applySorting();
-  }
-
-  Future<void> _savePrefs() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('pulse_dl_view_mode_grid', _gridView);
-    await prefs.setString('pulse_dl_sort_key', _sortKey);
-    await prefs.setString('pulse_dl_sort_order', _sortOrder);
+  @override
+  void didUpdateWidget(DownloadsScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.sortKey != widget.sortKey || oldWidget.sortOrder != widget.sortOrder) {
+      _applySorting();
+    }
   }
 
   Future<void> _loadSongs() async {
@@ -100,9 +93,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
   Future<void> _clearAll() async {
     await ref.read(downloadProvider.notifier).clearAll();
     setState(() { _songs = []; _showClearConfirm = false; });
-  }
-
-  void _applySorting() {
+  }  void _applySorting() {
     var playlists = List<Playlist>.from(_baseOfflinePlaylists);
     
     Playlist? downloadsPlaylist;
@@ -111,13 +102,13 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
       downloadsPlaylist = playlists.removeAt(dlIdx);
     }
 
-    if (_sortKey == 'alpha') {
+    if (widget.sortKey == 'alpha') {
       playlists.sort((a, b) {
         final cmp = a.name.toLowerCase().compareTo(b.name.toLowerCase());
-        return _sortOrder == 'desc' ? cmp : -cmp;
+        return widget.sortOrder == 'desc' ? cmp : -cmp;
       });
     } else {
-      if (_sortOrder == 'asc') {
+      if (widget.sortOrder == 'asc') {
         playlists = playlists.reversed.toList();
       }
     }
@@ -128,17 +119,6 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
         ...playlists,
       ];
     });
-  }
-
-  void _handleSort(String key) {
-    if (_sortKey == key) {
-      setState(() => _sortOrder = _sortOrder == 'asc' ? 'desc' : 'asc');
-    } else {
-      setState(() { _sortKey = key; _sortOrder = 'desc'; });
-    }
-    setState(() => _showSortDropdown = false);
-    _applySorting();
-    _savePrefs();
   }
 
   String _formatSize(int bytes) {
@@ -156,50 +136,10 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
     final downloads = ref.watch(downloadProvider);
     final accent = Theme.of(context).colorScheme.primary;
 
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
+    return Stack(
+      children: [
+        Column(
           children: [
-            Column(
-              children: [
-                // ── Header ──
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Downloads',
-                          style: Theme.of(context).textTheme.headlineLarge),
-                      Row(
-                        children: [
-                          // Sort button
-                          _SortButton(
-                            sortKey: _sortKey,
-                            sortOrder: _sortOrder,
-                            onTapMenu: () => setState(() =>
-                                _showSortDropdown = !_showSortDropdown),
-                            onTapToggle: () => _handleSort(_sortKey),
-                          ),
-                          const SizedBox(width: 4),
-                          // View toggle
-                          GestureDetector(
-                            onTap: () {
-                              setState(() => _gridView = !_gridView);
-                              _savePrefs();
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(8),
-                              child: Icon(
-                                _gridView ? LucideIcons.list : LucideIcons.layoutGrid,
-                                size: 18, color: AppColors.textSecondary,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
 
                 // ── Stats and Actions ──
                 Padding(
@@ -219,7 +159,6 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                 ),
 
                 // ── Offline Playlists ──
-                // if (_offlinePlaylists.isNotEmpty) _buildOfflinePlaylists(),
 
 
 
@@ -247,7 +186,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                                 ],
                               ),
                             )
-                          : _gridView
+                          : widget.gridView
                               ? _buildGridView(audio)
                               : _buildListView(audio),
                 ),
@@ -263,33 +202,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
             // ── Edit Songs Modal ──
             if (_showEditSongsModal) Positioned.fill(child: _buildEditSongsModal(accent)),
 
-            // ── Sort Dropdown Overlay ──
-            if (_showSortDropdown)
-              Positioned(
-                top: 60,
-                right: 20,
-                child: GlassContainer(
-                  borderRadius: 12,
-                  child: SizedBox(
-                    width: 170,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        _SortOption(
-                          label: 'Recently Added', isActive: _sortKey == 'recent',
-                          sortOrder: _sortOrder,
-                          onTap: () => _handleSort('recent'),
-                        ),
-                        _SortOption(
-                          label: 'Alphabetical', isActive: _sortKey == 'alpha',
-                          sortOrder: _sortOrder,
-                          onTap: () => _handleSort('alpha'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+
 
             // ── Clear All Confirmation ──
             if (_showClearConfirm)
@@ -343,8 +256,6 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                 ),
               ),
           ],
-        ),
-      ),
     );
   }
 
@@ -674,7 +585,9 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
                 Text(
-                  'Are you sure you want to delete "${_editingPlaylist?.name}"? This playlist will be lost forever.',
+                  _editingPlaylist?.id == '__downloads__'
+                      ? 'Are you sure you want to delete this? You will lose all downloaded songs and playlists forever.'
+                      : 'Are you sure you want to delete "${_editingPlaylist?.name}"? This playlist will be lost forever.',
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
                 ),
@@ -924,32 +837,6 @@ class _SortButton extends StatelessWidget {
   }
 }
 
-class _SortOption extends StatelessWidget {
-  final String label; final bool isActive; final String sortOrder; final VoidCallback onTap;
-  const _SortOption({
-    required this.label, required this.isActive, required this.sortOrder, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(label, style: TextStyle(
-                fontSize: 14, fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
-                color: isActive ? Theme.of(context).colorScheme.primary : AppColors.textPrimary)),
-            if (isActive)
-              Icon(sortOrder == 'asc' ? LucideIcons.arrowUp : LucideIcons.arrowDown,
-                  size: 14, color: Theme.of(context).colorScheme.primary),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class _QuadCover extends StatelessWidget {
   final List<Song> songs;

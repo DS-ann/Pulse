@@ -343,6 +343,18 @@ class DownloadNotifier extends Notifier<DownloadState> {
     }
   }
 
+  void pauseAll() {
+    for (final videoId in state.activeDownloads.keys.toList()) {
+      pauseDownload(videoId);
+    }
+  }
+
+  void resumeAll() {
+    for (final videoId in state.activeDownloads.keys.toList()) {
+      resumeDownload(videoId);
+    }
+  }
+
   Future<void> cancelAndRemoveDownload(String videoId) async {
     _queue.removeWhere((t) => t.song.videoId == videoId);
     if (state.activeDownloads.containsKey(videoId)) {
@@ -376,11 +388,17 @@ class DownloadNotifier extends Notifier<DownloadState> {
   }
 
   Future<void> clearAll() async {
-    if (state.activeDownloads.isNotEmpty) return;
+    for (var dl in state.activeDownloads.values) {
+      dl.cancelToken?.cancel();
+    }
     final appDir = await getApplicationDocumentsDirectory();
     final downloadDir = Directory(p.join(appDir.path, 'downloads'));
     if (await downloadDir.exists()) {
-      await downloadDir.delete(recursive: true);
+      try {
+        await downloadDir.delete(recursive: true);
+      } catch (e) {
+        debugPrint('Error deleting downloads directory: $e');
+      }
     }
     await _db.clearAll();
     state = const DownloadState();

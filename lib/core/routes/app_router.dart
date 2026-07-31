@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../screens/home/home_screen.dart';
 import '../../screens/search/search_screen.dart';
-import '../../screens/library/library_screen.dart';
+import '../../screens/library/playlists_screen.dart';
 import '../../screens/player/player_screen.dart';
 import '../../screens/playlist/playlist_screen.dart';
 import '../../screens/artist/artist_screen.dart';
-import '../../screens/downloads/downloads_screen.dart';
-import '../../screens/library/downloading_screen.dart';
 import '../../screens/settings/settings_screen.dart';
 import '../../screens/profile/profile_screen.dart';
 import '../../screens/import/import_screen.dart';
@@ -129,7 +127,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             name: 'Library',
             path: '/library',
-            builder: (context, state) => const LibraryScreen(),
+            builder: (context, state) => const PlaylistsScreen(),
           ),
           GoRoute(
             name: 'Search',
@@ -149,12 +147,12 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             name: 'Downloads',
             path: '/downloads',
-            builder: (context, state) => const DownloadsScreen(),
+            builder: (context, state) => const PlaylistsScreen(initialTabIndex: 1),
           ),
           GoRoute(
             name: 'Downloading',
             path: '/downloading',
-            builder: (context, state) => const DownloadingScreen(),
+            builder: (context, state) => const PlaylistsScreen(initialTabIndex: 2),
           ),
           GoRoute(
             name: 'Playlist',
