@@ -29,7 +29,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   final _nameC = TextEditingController();
 
   // Stats
-  String _activeTimeframe = 'week';
+  String _activeTimeframe = 'day';
   final _musicApi = MusicApi();
 
   @override
@@ -221,8 +221,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             const SizedBox(height: 16),
 
             // Main stats row
-            Row(
-              children: [
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
                 // Listening Time
                 Expanded(
                   flex: 3,
@@ -289,6 +291,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 ),
               ],
             ),
+          ),
 
             const SizedBox(height: 12),
 
