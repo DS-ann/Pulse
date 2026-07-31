@@ -786,7 +786,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: IconButton(
-                  onPressed: () => context.pop(),
+                  onPressed: () => ref.read(playerOverlayProvider.notifier).state = false,
                   icon: const Icon(LucideIcons.chevronDown, size: 28),
                 ),
               ),
@@ -803,7 +803,10 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                         style: TextStyle(color: AppColors.textSecondary)),
                     const SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: () => context.go('/'),
+                      onPressed: () {
+                        ref.read(playerOverlayProvider.notifier).state = false;
+                        context.go('/');
+                      },
                       child: const Text('Go Home'),
                     ),
                   ],

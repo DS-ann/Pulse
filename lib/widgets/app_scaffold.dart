@@ -335,11 +335,11 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
           // 1. SlidingUpPanel
           SlidingUpPanel(
             controller: _panelController,
-            minHeight: miniPlayerHeight + bottomNavHeight,
+            minHeight: audio.currentSong != null ? (miniPlayerHeight + bottomNavHeight) : 0.0,
             maxHeight: MediaQuery.of(context).size.height,
             color: Colors.transparent, // Crucial for non-box look
             boxShadow: const [],
-            isDraggable: !isQueueOpen && _panelPosition < 1.0,
+            isDraggable: audio.currentSong != null && !isQueueOpen && _panelPosition < 1.0,
             onPanelSlide: (position) {
               setState(() {
                 _panelPosition = position;
@@ -355,32 +355,34 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
                 ref.read(playerOverlayProvider.notifier).state = true;
               }
             },
-            collapsed: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.2),
-                        blurRadius: 10,
-                        offset: const Offset(0, 4),
+            collapsed: audio.currentSong == null
+                ? const SizedBox.shrink()
+                : Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.2),
+                              blurRadius: 10,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(18),
+                          child: const Material(
+                            type: MaterialType.transparency,
+                            child: MiniPlayer(),
+                          ),
+                        ),
                       ),
+                      SizedBox(height: bottomNavHeight), // Space reserved for the real bottom nav
                     ],
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(18),
-                    child: const Material(
-                      type: MaterialType.transparency,
-                      child: MiniPlayer(),
-                    ),
-                  ),
-                ),
-                SizedBox(height: bottomNavHeight), // Space reserved for the real bottom nav
-              ],
-            ),
             panelBuilder: (sc) {
               return Opacity(
                 opacity: _panelPosition,
