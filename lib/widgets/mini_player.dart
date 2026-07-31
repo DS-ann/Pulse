@@ -97,23 +97,11 @@ class MiniPlayer extends ConsumerWidget {
                         // Marquee title
                         SizedBox(
                           height: 18,
-                          child: ClipRect(
-                            child: ShaderMask(
-                              shaderCallback: (rect) => const LinearGradient(
-                                colors: [
-                                  Colors.transparent, Colors.white,
-                                  Colors.white, Colors.transparent,
-                                ],
-                                stops: [0.0, 0.05, 0.95, 1.0],
-                              ).createShader(rect),
-                              blendMode: BlendMode.dstIn,
-                              child: _MarqueeText(
-                                text: song.title,
-                                style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600,
-                                  color: accent,
-                                ),
-                              ),
+                          child: _MarqueeText(
+                            text: song.title,
+                            style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w600,
+                              color: accent,
                             ),
                           ),
                         ),
@@ -281,11 +269,9 @@ class _MarqueeTextState extends State<_MarqueeText>
 
   @override
   Widget build(BuildContext context) {
-    // Check if word count is <= 2
-    final wordCount = widget.text.trim().split(RegExp(r'\s+')).length;
-    
-    if (wordCount <= 2) {
-      // Text has 2 words or fewer, no need for marquee
+    // Check if text length is <= 15 characters
+    if (widget.text.length <= 15) {
+      // Text has 15 characters or fewer, no need for marquee
       return Text(
         widget.text, 
         style: widget.style, 
@@ -295,17 +281,29 @@ class _MarqueeTextState extends State<_MarqueeText>
     }
 
     // Text has more than 2 words, animate marquee
-    return SingleChildScrollView(
-      controller: _controller,
-      scrollDirection: Axis.horizontal,
-      physics: const NeverScrollableScrollPhysics(),
-      child: Row(
-        children: [
-          Text(widget.text, style: widget.style),
-          const SizedBox(width: 40),
-          Text(widget.text, style: widget.style),
-          const SizedBox(width: 40),
-        ],
+    return ClipRect(
+      child: ShaderMask(
+        shaderCallback: (rect) => const LinearGradient(
+          colors: [
+            Colors.transparent, Colors.white,
+            Colors.white, Colors.transparent,
+          ],
+          stops: [0.0, 0.05, 0.95, 1.0],
+        ).createShader(rect),
+        blendMode: BlendMode.dstIn,
+        child: SingleChildScrollView(
+          controller: _controller,
+          scrollDirection: Axis.horizontal,
+          physics: const NeverScrollableScrollPhysics(),
+          child: Row(
+            children: [
+              Text(widget.text, style: widget.style),
+              const SizedBox(width: 40),
+              Text(widget.text, style: widget.style),
+              const SizedBox(width: 40),
+            ],
+          ),
+        ),
       ),
     );
   }
