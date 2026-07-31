@@ -456,7 +456,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
               controller: _sheetController,
               initialChildSize: 0.11,
               minChildSize: 0.11,
-              maxChildSize: 0.4,
+              maxChildSize: 0.415,
               snap: true,
               builder: (context, scrollController) {
                 return ValueListenableBuilder<double>(
@@ -637,141 +637,165 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
     final visibleQueue = queue.length > _queueWindowSize
         ? queue.sublist(0, _queueWindowSize)
         : queue;
-    final hiddenCount = queue.length - visibleQueue.length;
+
+    final openFraction = ((sheetExtent - 0.11) / 0.305).clamp(0.0, 1.0);
+    final double blurValue = openFraction * 24.0;
 
     return Container(
       clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        color: AppColors.background.withValues(alpha: 0.95),
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+      decoration: const BoxDecoration(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
-      child: CustomScrollView(
-        controller: scrollController,
-        slivers: [
-          SliverAppBar(
-            primary: false,
-            pinned: true,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            backgroundColor: AppColors.background,
-            toolbarHeight: 60,
-            flexibleSpace: GestureDetector(
-              onTap: () {
-                _sheetController.animateTo(0.4, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
-              },
-              onVerticalDragUpdate: (details) {
-                // Adjust the sheet size directly based on drag
-                final newSize = _sheetController.size - details.primaryDelta! / MediaQuery.of(context).size.height;
-                _sheetController.jumpTo(newSize.clamp(0.11, 0.4));
-              },
-              onVerticalDragEnd: (details) {
-                if (details.primaryVelocity! < -300 || _sheetController.size > 0.2) {
-                  _sheetController.animateTo(0.4, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
-                } else {
-                  _sheetController.animateTo(0.11, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
-                }
-              },
-              child: Container(
-                color: Colors.transparent, // required to catch gestures
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 12),
-                    Container(
-                      width: 40, height: 4,
-                      decoration: BoxDecoration(
-                        color: Colors.white24,
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Center(
-                      child: Text('Up Next',
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: accent)),
-                    ),
-                  ],
-                ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(
+            sigmaX: blurValue > 0.0 ? blurValue : 0.001,
+            sigmaY: blurValue > 0.0 ? blurValue : 0.001,
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              color: const Color(0xFF0F0F0F).withValues(alpha: openFraction * 0.24),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+              border: Border.all(
+                color: Colors.white.withValues(alpha: openFraction * 0.12),
+                width: 1,
               ),
             ),
-          ),
-          SliverToBoxAdapter(
-            child: Opacity(
-              opacity: ((sheetExtent - 0.11) / 0.12).clamp(0.0, 1.0),
-              child: queue.isEmpty
-                ? const Padding(
-                    padding: EdgeInsets.only(top: 32),
-                    child: Center(
-                      child: Text('No tracks in queue',
-                          style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+            child: Column(
+              children: [
+                // ── Static Header & Drag Handle ──
+                GestureDetector(
+                  onTap: () {
+                    _sheetController.animateTo(0.415, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+                  },
+                  onVerticalDragUpdate: (details) {
+                    final newSize = _sheetController.size - details.primaryDelta! / MediaQuery.of(context).size.height;
+                    _sheetController.jumpTo(newSize.clamp(0.11, 0.415));
+                  },
+                  onVerticalDragEnd: (details) {
+                    if (details.primaryVelocity! < -300 || _sheetController.size > 0.2) {
+                      _sheetController.animateTo(0.415, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+                    } else {
+                      _sheetController.animateTo(0.11, duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+                    }
+                  },
+                  child: Container(
+                    color: Colors.transparent, // catches gestures
+                    width: double.infinity,
+                    padding: const EdgeInsets.only(top: 12, bottom: 12),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 40, height: 4,
+                          decoration: BoxDecoration(
+                            color: Colors.white24,
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Center(
+                          child: Text(
+                            'Up Next',
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: accent),
+                          ),
+                        ),
+                      ],
                     ),
-                  )
-                : Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                    ReorderableListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    padding: const EdgeInsets.only(top: 16),
-                    itemCount: visibleQueue.length,
-                    onReorder: (oldIndex, newIndex) {
-                      ref.read(audioProvider.notifier).reorderQueue(oldIndex, newIndex);
-                    },
-                    itemBuilder: (_, i) {
-                      final s = visibleQueue[i];
-                      return Dismissible(
-                        key: ValueKey('${s.id}_$i'),
-                        direction: DismissDirection.horizontal,
-                        onDismissed: (_) {
-                          ref.read(audioProvider.notifier).removeFromQueue(i);
-                        },
-                        background: ClipRect(
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
-                            child: Container(
-                              color: Colors.red.withValues(alpha: 0.1),
-                              alignment: Alignment.centerLeft,
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
-                              child: const Icon(LucideIcons.trash2, color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        secondaryBackground: ClipRect(
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
-                            child: Container(
-                              color: Colors.red.withValues(alpha: 0.1),
-                              alignment: Alignment.centerRight,
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
-                              child: const Icon(LucideIcons.trash2, color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        child: SongTile(
-                          song: s,
-                          onTap: () => ref.read(audioProvider.notifier).playFromQueue(i),
-                          onLongPress: () => showModalBottomSheet(useRootNavigator: true, 
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            isScrollControlled: true,
-                            builder: (_) => SongActionSheet(song: s),
-                          ),
-                          trailing: ReorderableDragStartListener(
-                            index: i,
-                            child: const Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Icon(LucideIcons.equal,
-                                  size: 20, color: AppColors.textSecondary),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
                   ),
-                    const SizedBox(height: 32),
-                  ]),
+                ),
+
+                // ── Scrollable Queue List ──
+                Expanded(
+                  child: CustomScrollView(
+                    controller: scrollController,
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: Opacity(
+                          opacity: ((sheetExtent - 0.11) / 0.12).clamp(0.0, 1.0),
+                          child: queue.isEmpty
+                            ? const Padding(
+                                padding: EdgeInsets.only(top: 32),
+                                child: Center(
+                                  child: Text('No tracks in queue',
+                                      style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                                ),
+                              )
+                            : Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                ReorderableListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                padding: const EdgeInsets.only(top: 16),
+                                itemCount: visibleQueue.length,
+                                onReorder: (oldIndex, newIndex) {
+                                  ref.read(audioProvider.notifier).reorderQueue(oldIndex, newIndex);
+                                },
+                                itemBuilder: (_, i) {
+                                  final s = visibleQueue[i];
+                                  return Dismissible(
+                                    key: ValueKey('${s.id}_$i'),
+                                    direction: DismissDirection.horizontal,
+                                    onDismissed: (_) {
+                                      ref.read(audioProvider.notifier).removeFromQueue(i);
+                                    },
+                                    background: ClipRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+                                        child: Container(
+                                          color: Colors.red.withValues(alpha: 0.1),
+                                          alignment: Alignment.centerLeft,
+                                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                                          child: const Icon(LucideIcons.trash2, color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                    secondaryBackground: ClipRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+                                        child: Container(
+                                          color: Colors.red.withValues(alpha: 0.1),
+                                          alignment: Alignment.centerRight,
+                                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                                          child: const Icon(LucideIcons.trash2, color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                    child: SongTile(
+                                      song: s,
+                                      onTap: () => ref.read(audioProvider.notifier).playFromQueue(i),
+                                      onLongPress: () => showModalBottomSheet(useRootNavigator: true, 
+                                        context: context,
+                                        backgroundColor: Colors.transparent,
+                                        isScrollControlled: true,
+                                        builder: (_) => SongActionSheet(song: s),
+                                      ),
+                                      trailing: ReorderableDragStartListener(
+                                        index: i,
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Icon(LucideIcons.equal,
+                                              size: 20, color: AppColors.textSecondary),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                                const SizedBox(height: 32),
+                              ]),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
