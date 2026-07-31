@@ -18,9 +18,7 @@ class SettingsState {
   final bool equalizerEnabled;
   final String equalizerPreset;
   final List<double> equalizerGains;
-  final double equalizerPreAmp;
   final List<double> equalizerCustomGains;
-  final double equalizerCustomPreAmp;
 
   const SettingsState({
     this.streamingQuality = 'high',
@@ -31,9 +29,7 @@ class SettingsState {
     this.equalizerEnabled = false,
     this.equalizerPreset = 'Custom',
     this.equalizerGains = const [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    this.equalizerPreAmp = 0.0,
     this.equalizerCustomGains = const [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    this.equalizerCustomPreAmp = 0.0,
   });
 
   SettingsState copyWith({
@@ -45,9 +41,7 @@ class SettingsState {
     bool? equalizerEnabled,
     String? equalizerPreset,
     List<double>? equalizerGains,
-    double? equalizerPreAmp,
     List<double>? equalizerCustomGains,
-    double? equalizerCustomPreAmp,
   }) {
     return SettingsState(
       streamingQuality: streamingQuality ?? this.streamingQuality,
@@ -58,9 +52,7 @@ class SettingsState {
       equalizerEnabled: equalizerEnabled ?? this.equalizerEnabled,
       equalizerPreset: equalizerPreset ?? this.equalizerPreset,
       equalizerGains: equalizerGains ?? this.equalizerGains,
-      equalizerPreAmp: equalizerPreAmp ?? this.equalizerPreAmp,
       equalizerCustomGains: equalizerCustomGains ?? this.equalizerCustomGains,
-      equalizerCustomPreAmp: equalizerCustomPreAmp ?? this.equalizerCustomPreAmp,
     );
   }
 }
@@ -130,9 +122,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
       equalizerEnabled: prefs.getBool('pulse_eq_enabled') ?? false,
       equalizerPreset: prefs.getString('pulse_eq_preset') ?? 'Custom',
       equalizerGains: loadedGains,
-      equalizerPreAmp: prefs.getDouble('pulse_eq_preamp') ?? 0.0,
       equalizerCustomGains: loadedCustomGains,
-      equalizerCustomPreAmp: prefs.getDouble('pulse_eq_custom_preamp') ?? prefs.getDouble('pulse_eq_preamp') ?? 0.0,
     );
   }
 
@@ -171,8 +161,6 @@ class SettingsNotifier extends Notifier<SettingsState> {
     // Support both old and new field names
     final eqEnabled = data['equalizerEnabled'] ?? data['eqEnabled'];
     final eqPreset  = data['equalizerPreset']  ?? data['eqPreset'];
-    final eqPreAmp  = data['equalizerPreAmp']  ?? data['eqPreAmp'];
-    final eqCustomPreAmp = data['equalizerCustomPreAmp'];
 
     // Resolve accent color — new format: accentColorInt (int)
     //                        old format: accentColor (hex string e.g. "#865AA4")
@@ -195,9 +183,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
       equalizerEnabled: eqEnabled as bool?,
       equalizerPreset:  eqPreset  as String?,
       equalizerGains:   parsedGains,
-      equalizerPreAmp:  eqPreAmp  != null ? (eqPreAmp as num).toDouble() : null,
       equalizerCustomGains: parsedCustomGains,
-      equalizerCustomPreAmp: eqCustomPreAmp != null ? (eqCustomPreAmp as num).toDouble() : null,
     );
 
     // Persist locally so the app works offline on subsequent launches.
@@ -276,25 +262,15 @@ class SettingsNotifier extends Notifier<SettingsState> {
     if (syncToFirestore) _scheduleFsWrite();
   }
 
-  void setEqualizerPreAmp(double preAmp, {bool syncToFirestore = true}) {
-    state = state.copyWith(
-      equalizerPreAmp: preAmp,
-      equalizerCustomPreAmp: state.equalizerPreset == 'Custom' ? preAmp : null,
-    );
-    _persistToDisk();
-    if (syncToFirestore) _scheduleFsWrite();
-  }
 
   /// Apply a named preset atomically: updates preset name, gains, and pre-amp
   /// in a single state change, triggering exactly one disk write and one
   /// debounced Firestore write (instead of three separate writes).
-  void setEqualizerPresetWithValues(String preset, List<double> gains, double preAmp) {
+  void setEqualizerPresetWithValues(String preset, List<double> gains) {
     state = state.copyWith(
       equalizerPreset: preset,
       equalizerGains: List<double>.from(gains),
-      equalizerPreAmp: preAmp,
       equalizerCustomGains: preset == 'Custom' ? List<double>.from(gains) : null,
-      equalizerCustomPreAmp: preset == 'Custom' ? preAmp : null,
     );
     _persistToDisk();
     _scheduleFsWrite();
@@ -312,9 +288,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
     await prefs.setBool('pulse_eq_enabled',          state.equalizerEnabled);
     await prefs.setString('pulse_eq_preset',         state.equalizerPreset);
     await prefs.setString('pulse_eq_gains',          state.equalizerGains.join(','));
-    await prefs.setDouble('pulse_eq_preamp',         state.equalizerPreAmp);
     await prefs.setString('pulse_eq_custom_gains',   state.equalizerCustomGains.join(','));
-    await prefs.setDouble('pulse_eq_custom_preamp',  state.equalizerCustomPreAmp);
   }
 
   // ── Debounced Firestore write ──
@@ -347,9 +321,12 @@ class SettingsNotifier extends Notifier<SettingsState> {
         'equalizerEnabled':      state.equalizerEnabled,
         'equalizerPreset':       state.equalizerPreset,
         'equalizerGains':        state.equalizerGains,
-        'equalizerPreAmp':       state.equalizerPreAmp,
         'equalizerCustomGains':  state.equalizerCustomGains,
-        'equalizerCustomPreAmp': state.equalizerCustomPreAmp,
+        // Purge legacy ghost fields from the database
+        'equalizerPreAmp':       FieldValue.delete(),
+        'equalizerCustomPreAmp': FieldValue.delete(),
+        'eqPreAmp':              FieldValue.delete(),
+        'eqCustomPreAmp':        FieldValue.delete(),
       }, SetOptions(merge: true));
     } catch (e) {
       debugPrint('[Settings] Firestore write failed: $e');

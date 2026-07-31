@@ -28,7 +28,7 @@ class AdminChatScreen extends ConsumerStatefulWidget {
 class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
   final _messageController = TextEditingController();
   final _scrollController = ScrollController();
-  bool _isSending = false;
+
   late final Stream<QuerySnapshot> _chatStream;
 
   @override
@@ -72,7 +72,7 @@ class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
 
   Future<void> _sendReply(String text) async {
     if (text.trim().isEmpty) return;
-    setState(() => _isSending = true);
+
 
     final auth = ref.read(authProvider);
     final adminUser = auth.user;
@@ -115,7 +115,7 @@ class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
         );
       }
     } finally {
-      if (mounted) setState(() => _isSending = false);
+
     }
   }
 

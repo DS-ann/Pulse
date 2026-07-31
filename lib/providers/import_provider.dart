@@ -8,15 +8,6 @@ import '../data/models/song.dart';
 import '../services/spotify_parser.dart';
 import 'playlist_provider.dart';
 
-// ── User-Agent pool ─────────────────────────────────────────────────────────
-const _userAgents = [
-  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15',
-  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0',
-  'Mozilla/5.0 (X11; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0',
-  'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.82 Mobile Safari/537.36',
-];
-
 // ── ImportTask model ─────────────────────────────────────────────────────────
 class ImportTask {
   final String id;
@@ -177,9 +168,6 @@ class ImportNotifier extends StateNotifier<Map<String, ImportTask>> {
       status: 'matching',
     );
 
-    // Pick a random UA for this session
-    final ua = _userAgents[_rng.nextInt(_userAgents.length)];
-
     // ── Create empty playlist immediately (incremental save) ────────────────
     final playlistId = await ref.read(playlistProvider.notifier).createPlaylist(
       name: playlist.name,
@@ -226,7 +214,7 @@ class ImportNotifier extends StateNotifier<Map<String, ImportTask>> {
             // Backoff between generic retries: 2s, 4s
             await Future.delayed(Duration(seconds: pow(2, attempt + 1).toInt()));
           }
-        } catch (_) {
+        } catch (e) {
           if (attempt < 2) {
             await Future.delayed(Duration(seconds: pow(2, attempt + 1).toInt()));
           }

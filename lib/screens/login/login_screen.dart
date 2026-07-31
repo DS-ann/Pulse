@@ -194,7 +194,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         }
                         try {
                           await ref.read(authProvider.notifier).resetPassword(email);
-                          if (mounted) {
+                          if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                 content: Text('Password reset email sent! Check your inbox.'),

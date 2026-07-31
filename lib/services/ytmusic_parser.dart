@@ -195,16 +195,6 @@ class YtMusicParser {
     return null;
   }
 
-  /// Helper to extract continuation from a contents array's last item
-  static String? _extractContinuationFromContents(List<dynamic>? contents) {
-    if (contents == null || contents.isEmpty) return null;
-    final lastItem = contents.last;
-    if (lastItem is Map && lastItem.containsKey('continuationItemRenderer')) {
-      final renderer = lastItem['continuationItemRenderer'];
-      return renderer?['continuationEndpoint']?['continuationCommand']?['token'] as String?;
-    }
-    return null;
-  }
 
   /// Extracts the continuation token from a playlist or playlist continuation response.
   static String? extractPlaylistContinuation(Map<String, dynamic> data) {

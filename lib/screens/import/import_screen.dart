@@ -5,9 +5,9 @@ import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
-import '../../providers/import_provider.dart';
+
 import '../../services/spotify_auth_service.dart';
-import '../../services/spotify_embed_scraper.dart';
+
 import '../../widgets/glass_container.dart';
 import '../../widgets/spotify_playlists_sheet.dart';
 

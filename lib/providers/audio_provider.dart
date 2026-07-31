@@ -140,8 +140,8 @@ class AudioNotifier extends Notifier<AudioState> {
     // Sync EQ settings to the audio handler
     ref.listen(settingsProvider, (previous, next) {
       if (!_isInitialized) return;
-      if (previous?.equalizerEnabled != next.equalizerEnabled || previous?.equalizerGains != next.equalizerGains || previous?.equalizerPreAmp != next.equalizerPreAmp) {
-         _handler.setEqualizerState(enabled: next.equalizerEnabled, gains: next.equalizerGains, preAmp: next.equalizerPreAmp);
+      if (previous?.equalizerEnabled != next.equalizerEnabled || previous?.equalizerGains != next.equalizerGains) {
+         _handler.setEqualizerState(enabled: next.equalizerEnabled, gains: next.equalizerGains);
       }
     });
 
@@ -161,7 +161,7 @@ class AudioNotifier extends Notifier<AudioState> {
 
     // Apply initial EQ state
     final settings = ref.read(settingsProvider);
-    _handler.setEqualizerState(enabled: settings.equalizerEnabled, gains: settings.equalizerGains, preAmp: settings.equalizerPreAmp);
+    _handler.setEqualizerState(enabled: settings.equalizerEnabled, gains: settings.equalizerGains);
 
     // Wire up handler callbacks for lock screen controls
     _handler.onTrackEnded = _onTrackEnded;

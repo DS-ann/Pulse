@@ -6,11 +6,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:go_router/go_router.dart';
-import '../offline/offline_screen.dart';
+
 import 'package:lucide_icons/lucide_icons.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/thumbnail_utils.dart';
-import '../../widgets/spotify_playlists_sheet.dart';
+
 import '../../widgets/spotify_choice_modal.dart';
 import '../../data/models/playlist.dart';
 import '../../data/models/song.dart';
@@ -90,8 +90,11 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (_chipsScrollController.hasClients) {
           double offset = 0;
-          if (_currentIndex == 1) offset = 80;
-          else if (_currentIndex == 2) offset = _chipsScrollController.position.maxScrollExtent;
+          if (_currentIndex == 1) {
+            offset = 80;
+          } else if (_currentIndex == 2) {
+            offset = _chipsScrollController.position.maxScrollExtent;
+          }
           _chipsScrollController.jumpTo(offset);
         }
       });
@@ -165,9 +168,6 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
     final accent = Theme.of(context).colorScheme.primary;
 
     final activeCount = downloadState.activeDownloads.length;
-    final totalProgress = activeCount > 0 
-        ? downloadState.activeDownloads.values.map((v) => v.progress).reduce((a, b) => a + b) / activeCount 
-        : 0.0;
     
     final hasActive = downloadState.activeDownloads.values.any((d) => !d.isPaused);
 
@@ -471,8 +471,11 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                       });
                       if (_chipsScrollController.hasClients) {
                         double offset = 0;
-                        if (index == 1) offset = 80;
-                        else if (index == 2) offset = _chipsScrollController.position.maxScrollExtent;
+                        if (index == 1) {
+                          offset = 80;
+                        } else if (index == 2) {
+                          offset = _chipsScrollController.position.maxScrollExtent;
+                        }
                         _chipsScrollController.animateTo(offset, duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
                       }
                     },
@@ -1030,7 +1033,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
   Widget _buildImportModal(Color accent) {
     final isYtm = _selectedImportSource == 'ytmusic';
     final isPulse = _selectedImportSource == 'pulse';
-    final isSpotify = _selectedImportSource == 'spotify';
+
     return GestureDetector(
       onTap: () => setState(() => _showImportModal = false),
       child: Container(

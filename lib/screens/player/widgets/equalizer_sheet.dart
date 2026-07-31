@@ -46,28 +46,6 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
     'Small Speakers':  [-3.0, -2.0,  1.0,  2.0, 1.0, 2.0,  4.0,  4.0,  2.0,  1.0],
   };
 
-  final Map<String, double> _preAmps = {
-    'Perfect':  -3.0,
-    'U-Curve':  -4.0,
-    'V-Shape':  -4.5,
-    'Acoustic':      -2.0,
-    'Classical':     -2.5,
-    'Dance':         -5.0,
-    'Electronic':    -4.5,
-    'Hip-Hop':       -5.0,
-    'Jazz':          -2.5,
-    'Latin':         -3.0,
-    'Pop':           -2.0,
-    'R&B':           -3.0,
-    'Rock':          -3.5,
-    'Bass Booster':  -7.0,
-    'Bass Reducer':   0.0,
-    'Treble Booster':-4.5,
-    'Treble Reducer': 0.0,
-    'Vocal Booster': -3.5,
-    'Piano':         -2.5,
-    'Small Speakers':-3.0,
-  };
 
   String _formatFrequency(double hz) {
     if (hz >= 1000) {
@@ -82,14 +60,12 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
       ref.read(settingsProvider.notifier).setEqualizerPresetWithValues(
         'Custom',
         settings.equalizerCustomGains,
-        settings.equalizerCustomPreAmp,
       );
       return;
     }
     final values = _presets[presetName]!;
-    final preAmp = _preAmps[presetName] ?? 0.0;
     // Use the atomic method: one state update → one disk write → one Firestore write
-    ref.read(settingsProvider.notifier).setEqualizerPresetWithValues(presetName, values, preAmp);
+    ref.read(settingsProvider.notifier).setEqualizerPresetWithValues(presetName, values);
   }
 
   @override
@@ -98,7 +74,7 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
     final isEnabled = settings.equalizerEnabled;
     final activePreset = settings.equalizerPreset;
     final gains = settings.equalizerGains;
-    final preAmp = settings.equalizerPreAmp;
+
 
     return GlassContainer(
       borderRadius: 24,
@@ -181,13 +157,9 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 24.0),
-                    itemCount: _frequencies.length + 1,
+                    itemCount: _frequencies.length,
                     itemBuilder: (context, index) {
-                      if (index == 0) {
-                        // Pre-Amp Slider
-                        return _buildPreAmpSlider(preAmp);
-                      }
-                      return _buildBandSlider(index - 1, gains[index - 1]);
+                      return _buildBandSlider(index, gains[index]);
                     },
                   ),
                 ),
@@ -200,59 +172,6 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
   );
 }
 
-  Widget _buildPreAmpSlider(double currentGain) {
-    return Container(
-      width: 60,
-      margin: const EdgeInsets.symmetric(horizontal: 4.0),
-      child: Column(
-        children: [
-          // DB Label
-          Text(
-            '${currentGain > 0 ? '+' : ''}${currentGain.toStringAsFixed(1)}',
-            style: const TextStyle(fontSize: 10, color: AppColors.textSecondary),
-          ),
-          const SizedBox(height: 12),
-          // Slider
-          Expanded(
-            child: RotatedBox(
-              quarterTurns: 3,
-              child: SliderTheme(
-                data: SliderThemeData(
-                  trackHeight: 4,
-                  thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 6),
-                  overlayShape: const RoundSliderOverlayShape(overlayRadius: 14),
-                  activeTrackColor: Colors.redAccent,
-                  inactiveTrackColor: AppColors.surface,
-                  thumbColor: Colors.redAccent,
-                ),
-                child: Slider(
-                  value: currentGain.clamp(-15.0, 15.0),
-                  min: -15.0,
-                  max: 15.0,
-                  onChanged: (value) {
-                    final settings = ref.read(settingsProvider.notifier);
-                    if (ref.read(settingsProvider).equalizerPreset != 'Custom') {
-                      settings.setEqualizerPreset('Custom');
-                    }
-                    settings.setEqualizerPreAmp(value, syncToFirestore: false);
-                  },
-                  onChangeEnd: (value) {
-                    ref.read(settingsProvider.notifier).setEqualizerPreAmp(value, syncToFirestore: true);
-                  },
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 12),
-          // Frequency Label
-          const Text(
-            'PRE',
-            style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget _buildBandSlider(int index, double currentGain) {
     return Container(

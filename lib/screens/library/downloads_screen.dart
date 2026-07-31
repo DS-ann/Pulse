@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/thumbnail_utils.dart';
@@ -788,54 +788,6 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
 
 // ── Helper widgets ──
 
-class _SortButton extends StatelessWidget {
-  final String sortKey;
-  final String sortOrder;
-  final VoidCallback onTapMenu;
-  final VoidCallback onTapToggle;
-
-  const _SortButton({
-    required this.sortKey, required this.sortOrder, required this.onTapMenu, required this.onTapToggle});
-
-  @override
-  Widget build(BuildContext context) {
-    final label = sortKey == 'alpha' ? 'A-Z' : 'Recent';
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: AppColors.surface,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          GestureDetector(
-            onTap: onTapMenu,
-            behavior: HitTestBehavior.opaque,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 12, top: 8, bottom: 8, right: 4),
-              child: Row(
-                children: [
-                  const Icon(LucideIcons.arrowUpDown, size: 16, color: AppColors.textSecondary),
-                  const SizedBox(width: 8),
-                  Text(label, style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
-                ],
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: onTapToggle,
-            behavior: HitTestBehavior.opaque,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 4, top: 8, bottom: 8, right: 12),
-              child: Icon(sortOrder == 'asc' ? LucideIcons.arrowUp : LucideIcons.arrowDown,
-                  size: 14, color: AppColors.textSecondary),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 
 class _QuadCover extends StatelessWidget {

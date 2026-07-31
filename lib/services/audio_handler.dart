@@ -29,7 +29,6 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
   /// Equalizer state
   bool _eqEnabled = false;
   List<double> _eqGains = List.filled(10, 0.0);
-  double _eqPreAmp = 0.0;
 
   /// Callback invoked when the current track naturally ends (not crossfaded).
   /// The audio provider listens to this to trigger playNext().
@@ -294,11 +293,9 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
   int _eqApplyGeneration = 0;
 
   /// Update EQ state and schedule a debounced, race-safe application.
-  Future<void> setEqualizerState({required bool enabled, required List<double> gains, double preAmp = 0.0}) async {
+  Future<void> setEqualizerState({required bool enabled, required List<double> gains}) async {
     _eqEnabled = enabled;
     _eqGains = List<double>.from(gains);
-    _eqPreAmp = preAmp;
-
     final thisGen = ++_eqApplyGeneration;
 
     // Debounce: absorbs rapid changes (e.g. dragging a slider, loading a preset

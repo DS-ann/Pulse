@@ -18,7 +18,7 @@ class CommunicationScreen extends ConsumerStatefulWidget {
 class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
   final _messageController = TextEditingController();
   final _scrollController = ScrollController();
-  bool _isSending = false;
+
   
   late final Stream<QuerySnapshot> _adminStream;
   late final Stream<QuerySnapshot> _userStream;
@@ -106,7 +106,7 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
   // ── Regular User: Send Feedback ──
   Future<void> _sendFeedback(String text) async {
     if (text.trim().isEmpty) return;
-    setState(() => _isSending = true);
+
 
     final auth = ref.read(authProvider);
     final user = auth.user;
@@ -153,7 +153,7 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
         );
       }
     } finally {
-      if (mounted) setState(() => _isSending = false);
+
     }
   }
 
