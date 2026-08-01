@@ -28,8 +28,9 @@ class DownloadingScreen extends ConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(LucideIcons.download, size: 48, color: AppColors.textSecondary),
-            SizedBox(height: 16),
+            Icon(LucideIcons.download, size: 48, 
+                 color: AppColors.textSecondary.withValues(alpha: 0.3)),
+            const SizedBox(height: 16),
             Text(
               'No active downloads',
               style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
