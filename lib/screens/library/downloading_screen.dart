@@ -24,14 +24,14 @@ class DownloadingScreen extends ConsumerWidget {
     final accent = Theme.of(context).colorScheme.primary;
 
     if (activeDownloads.isEmpty) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(LucideIcons.download, size: 48, 
                  color: AppColors.textSecondary.withValues(alpha: 0.3)),
             const SizedBox(height: 16),
-            Text(
+            const Text(
               'No active downloads',
               style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
             ),
