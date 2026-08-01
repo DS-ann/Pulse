@@ -289,9 +289,42 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
             }
           });
         }
-      } else {
-        if (mounted) Navigator.pop(context);
+        return;
       }
+      
+      // Fallback for missing album data in Feed/History sections
+      if (widget.song.title.isNotEmpty) {
+        final query = '${widget.song.title} ${widget.song.artist}'.trim();
+        final searchResults = await _musicApi.searchSongs(query);
+        if (searchResults.isNotEmpty) {
+          final first = searchResults.first;
+          if (first.albumBrowseId != null && first.albumBrowseId!.length > 11) {
+            if (mounted) {
+              Navigator.pop(context);
+              ref.read(playerOverlayProvider.notifier).state = false;
+              WidgetsBinding.instance.addPostFrameCallback(
+                  (_) => router.push('/playlist/${first.albumBrowseId}?t=$t'));
+            }
+            return;
+          } else if (first.album.isNotEmpty) {
+            final bid = await _musicApi.resolveAlbum(first.album);
+            if (mounted) {
+              Navigator.pop(context);
+              ref.read(playerOverlayProvider.notifier).state = false;
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (bid != null) {
+                  router.push('/playlist/$bid?t=$t');
+                } else {
+                  router.push('/search?q=${Uri.encodeComponent(first.album)}&t=$t');
+                }
+              });
+            }
+            return;
+          }
+        }
+      }
+
+      if (mounted) Navigator.pop(context);
     } catch (_) {
       if (mounted) {
         Navigator.pop(context);

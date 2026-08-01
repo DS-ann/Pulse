@@ -263,6 +263,7 @@ class YtMusicParser {
           // Subtitle runs look like: ["Song", " • ", "Arijit Singh"(+browse), " • ", "Album"(+browse), " • ", "3:45"]
           // We must NOT just join all runs — that produces dirty "Song • Arijit Singh • 3:45" strings.
           String artist = '';
+          String album = '';
           String? artistBrowseId;
           String? albumBrowseId;
           final subRuns = renderer['subtitle']?['runs'] as List? ?? [];
@@ -283,6 +284,7 @@ class YtMusicParser {
             } else if (eff == 1) {
               // Album part — skip durations and years
               if (!RegExp(r'^\d+:\d+$').hasMatch(text) && !RegExp(r'^\d{4}$').hasMatch(text)) {
+                if (text.isNotEmpty) album += (album.isEmpty ? '' : ' ') + text;
                 if (runBrowse != null && albumBrowseId == null) albumBrowseId = runBrowse;
               }
             }
@@ -292,6 +294,7 @@ class YtMusicParser {
             videoId: videoId ?? '',
             title: _getText(renderer['title']) ?? '',
             artist: artist.isNotEmpty ? artist : (_getText(renderer['subtitle']) ?? ''),
+            album: album,
             thumbnail: _extractThumb(renderer),
             browseId: browseId,
             artistBrowseId: artistBrowseId,

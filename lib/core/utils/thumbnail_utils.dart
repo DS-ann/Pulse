@@ -21,12 +21,12 @@ class ThumbnailUtils {
       if (result.contains('googleusercontent.com') ||
           result.contains('ggpht.com')) {
         var newUrl = result.replaceFirstMapped(
-          RegExp(r'=w\d+-h\d+'),
+          RegExp(r'[-=]w\d+-h\d+'),
           (m) => '=w$size-h$size',
         );
         if (newUrl == result) {
           newUrl = result.replaceFirstMapped(
-            RegExp(r'=s\d+'),
+            RegExp(r'[-=]s\d+'),
             (m) => '=s$size',
           );
         }
@@ -41,15 +41,6 @@ class ThumbnailUtils {
         }
         
         return newUrl;
-      }
-
-      // Handle i.ytimg.com thumbnails
-      if (result.contains('i.ytimg.com')) {
-        if (result.contains('maxresdefault')) return result;
-        if (result.contains('hqdefault')) {
-          return result.replaceFirst('hqdefault', 'mqdefault');
-        }
-        return result;
       }
 
       // Handle YouTube Music thumbnails with /vi/ path

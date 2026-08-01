@@ -521,9 +521,9 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text('Made with ❤️ by ',
+                          const Text('Made with ❤️ by ',
                               style: TextStyle(fontSize: 12,
-                                  color: AppColors.textSecondary.withValues(alpha: 0.7))),
+                                  color: AppColors.textSecondary)),
                           Text('Ashutosh Pathak',
                               style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold,
                                   color: accent)),
