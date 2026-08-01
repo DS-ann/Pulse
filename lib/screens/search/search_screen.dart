@@ -151,6 +151,8 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       return;
     }
 
+    if (!mounted) return;
+
     setState(() => _isShazamListening = true);
 
     // Show the bottom sheet without awaiting it, so we can run our logic concurrently
@@ -165,13 +167,15 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       },
     ).then((_) {
       _shazamSheetContext = null;
-      if (mounted && _isShazamListening)
+      if (mounted && _isShazamListening) {
         setState(() => _isShazamListening = false);
+      }
     });
 
     try {
       final result = await _shazamService.recognizeNearbySong();
 
+      if (!mounted) return;
       _dismissShazamSheet();
 
       if (result != null && result.containsKey('track') && mounted) {

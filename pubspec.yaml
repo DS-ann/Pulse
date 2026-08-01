@@ -66,6 +66,7 @@ dependencies:
   record: ^6.2.1
   rust_lib_pulse:
     path: rust_builder
+  uuid: ^4.6.0
                                  # v2.5.3 is the last version with built-in Dart JSEngine
 
 dev_dependencies:
