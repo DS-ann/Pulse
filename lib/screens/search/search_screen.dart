@@ -15,6 +15,7 @@ import '../../widgets/glass_container.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+import '../../services/shazam_service.dart';
 
 /// Search screen — port of Search.jsx.
 /// Debounced search with autocomplete, top result card, songs/artists/albums/playlists.
@@ -34,6 +35,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   final _speechToText = SpeechToText();
   bool _isListening = false;
   BuildContext? _listeningSheetContext;
+
+  bool _isShazamListening = false;
+  BuildContext? _shazamSheetContext;
+  final _shazamService = ShazamService();
 
   @override
   void initState() {
@@ -75,6 +80,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
   @override
   void dispose() {
+    _shazamService.dispose();
     _controller.dispose();
     _focusNode.dispose();
     super.dispose();
@@ -110,6 +116,112 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     }
   }
 
+  void _dismissShazamSheet() {
+    _shazamService.cancel();
+    if (mounted) setState(() => _isShazamListening = false);
+    if (_shazamSheetContext != null) {
+      Navigator.of(_shazamSheetContext!).pop();
+      _shazamSheetContext = null;
+    }
+  }
+
+  Future<void> _toggleShazamSearch() async {
+    if (_isShazamListening) {
+      _dismissShazamSheet();
+      return;
+    }
+
+    final status = await Permission.microphone.request();
+    if (status != PermissionStatus.granted) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text(
+              'Microphone permission required for sound recognition',
+              style: TextStyle(color: Colors.white),
+            ),
+            backgroundColor: Colors.black,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        );
+      }
+      return;
+    }
+
+    setState(() => _isShazamListening = true);
+
+    // Show the bottom sheet without awaiting it, so we can run our logic concurrently
+    showModalBottomSheet(
+      context: context,
+      useRootNavigator: true,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (ctx) {
+        _shazamSheetContext = ctx;
+        return _ShazamSearchSheet(onCancel: _dismissShazamSheet);
+      },
+    ).then((_) {
+      _shazamSheetContext = null;
+      if (mounted && _isShazamListening)
+        setState(() => _isShazamListening = false);
+    });
+
+    try {
+      final result = await _shazamService.recognizeNearbySong();
+
+      _dismissShazamSheet();
+
+      if (result != null && result.containsKey('track') && mounted) {
+        final track = result['track'];
+        final title = track['title'] ?? 'Unknown Song';
+        final subtitle = track['subtitle'] ?? 'Unknown Artist';
+
+        // Put the result into the search bar and trigger a search
+        _controller.text = '$title $subtitle';
+        _controller.selection = TextSelection.fromPosition(
+          TextPosition(offset: _controller.text.length),
+        );
+        ref.read(searchProvider.notifier).onQueryChanged(_controller.text);
+        ref.read(searchProvider.notifier).hideSuggestions();
+      } else if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text(
+              'No song detected.',
+              style: TextStyle(color: Colors.white),
+            ),
+            backgroundColor: Colors.black,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        );
+      }
+    } catch (e) {
+      _dismissShazamSheet();
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Error: ${e.toString().replaceAll('Exception: ', '')}',
+              style: const TextStyle(color: Colors.white),
+            ),
+            backgroundColor: Colors.red.shade900,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            duration: const Duration(seconds: 4),
+          ),
+        );
+      }
+    }
+  }
+
   Future<void> _toggleVoiceSearch() async {
     if (_isListening) {
       _dismissListeningSheet();
@@ -121,10 +233,15 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text('Microphone permission required for voice search', style: TextStyle(color: Colors.white)),
+            content: const Text(
+              'Microphone permission required for voice search',
+              style: TextStyle(color: Colors.white),
+            ),
             backgroundColor: Colors.black,
             behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         );
       }
@@ -142,10 +259,15 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text('Speech recognition not available', style: TextStyle(color: Colors.white)),
+            content: const Text(
+              'Speech recognition not available',
+              style: TextStyle(color: Colors.white),
+            ),
             backgroundColor: Colors.black,
             behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         );
       }
@@ -154,13 +276,15 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
     setState(() => _isListening = true);
     _speechToText.listen(
-      listenOptions: SpeechListenOptions(pauseFor: const Duration(seconds: 3)),
+      listenOptions: SpeechListenOptions(pauseFor: const Duration(seconds: 1)),
       onResult: (result) {
         _controller.text = result.recognizedWords;
         _controller.selection = TextSelection.fromPosition(
           TextPosition(offset: _controller.text.length),
         );
-        ref.read(searchProvider.notifier).onQueryChanged(result.recognizedWords);
+        ref
+            .read(searchProvider.notifier)
+            .onQueryChanged(result.recognizedWords);
         if (result.finalResult) {
           _dismissListeningSheet();
         }
@@ -193,144 +317,213 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
     return Scaffold(
       extendBody: true,
-      body: SafeArea(bottom: false,
+      body: SafeArea(
+        bottom: false,
         child: Stack(
           children: [
             Column(
               children: [
                 // ── Search bar ──
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-              child: Column(
-                children: [
-                  // Search input
-                  Container(
-                    height: 46,
-                    decoration: BoxDecoration(
-                      color: AppColors.glassBackground,
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(color: AppColors.glassBorder),
-                    ),
-                    child: Row(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 14),
-                          child: Icon(LucideIcons.search,
-                              size: 18, color: AppColors.textSecondary),
-                        ),
-                        Expanded(
-                          child: TextField(
-                            controller: _controller,
-                            focusNode: _focusNode,
-                            autofocus: false,
-                            style: const TextStyle(fontSize: 15),
-                            decoration: const InputDecoration(
-                              hintText: 'Songs, artists, albums, playlists…',
-                              hintStyle: TextStyle(
-                                  color: AppColors.textSecondary,
-                                  fontSize: 14),
-                              border: InputBorder.none,
-                              contentPadding:
-                                  EdgeInsets.symmetric(horizontal: 12),
-                            ),
-                            onChanged: (q) {
-                              ref.read(searchProvider.notifier).onQueryChanged(q);
-                            },
-                            onSubmitted: (_) {
-                              ref.read(searchProvider.notifier).hideSuggestions();
-                            },
-                          ),
-                        ),
-                        if (search.query.isNotEmpty)
-                          GestureDetector(
-                            onTap: () {
-                              _controller.clear();
-                              ref.read(searchProvider.notifier).clearQuery();
-                            },
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              child: Icon(LucideIcons.x,
-                                  size: 18, color: AppColors.textSecondary),
-                            ),
-                          ),
-                        GestureDetector(
-                          onTap: _toggleVoiceSearch,
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 14, left: 4),
-                            child: Icon(
-                              _isListening ? LucideIcons.mic : LucideIcons.mic,
-                              size: 18,
-                              color: _isListening ? accent : AppColors.textSecondary,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // Suggestions dropdown
-                  if (search.showSuggestions && search.suggestions.isNotEmpty && search.query.isNotEmpty)
-                    Container(
-                      margin: const EdgeInsets.only(top: 4),
-                      decoration: BoxDecoration(
-                        color: AppColors.glassBackground,
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: AppColors.glassBorder),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+                  child: Column(
+                    children: [
+                      Row(
                         children: [
-                          ...search.suggestions.map((s) {
-                            return InkWell(
-                              onTap: () {
-                                _controller.text = s;
-                                _controller.selection = TextSelection.fromPosition(
-                                  TextPosition(offset: s.length),
-                                );
-                                ref.read(searchProvider.notifier).selectSuggestion(s);
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 14, vertical: 10),
-                                child: Row(
-                                  children: [
-                                    const Icon(LucideIcons.search,
-                                        size: 14, color: AppColors.textSecondary),
-                                    const SizedBox(width: 10),
-                                    Expanded(
-                                      child: Text(s,
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: const TextStyle(fontSize: 14)),
-                                    ),
-                                  ],
+                          Expanded(
+                            child: Container(
+                              height: 46,
+                              decoration: BoxDecoration(
+                                color: AppColors.glassBackground,
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: AppColors.glassBorder,
                                 ),
                               ),
-                            );
-                          }),
+                              child: Row(
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(left: 14),
+                                    child: Icon(
+                                      LucideIcons.search,
+                                      size: 18,
+                                      color: AppColors.textSecondary,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: TextField(
+                                      controller: _controller,
+                                      focusNode: _focusNode,
+                                      autofocus: false,
+                                      style: const TextStyle(fontSize: 15),
+                                      decoration: const InputDecoration(
+                                        hintText:
+                                            'Songs, artists, albums, playlists…',
+                                        hintStyle: TextStyle(
+                                          color: AppColors.textSecondary,
+                                          fontSize: 14,
+                                        ),
+                                        border: InputBorder.none,
+                                        contentPadding: EdgeInsets.symmetric(
+                                          horizontal: 12,
+                                        ),
+                                      ),
+                                      onChanged: (q) {
+                                        ref
+                                            .read(searchProvider.notifier)
+                                            .onQueryChanged(q);
+                                      },
+                                      onSubmitted: (_) {
+                                        ref
+                                            .read(searchProvider.notifier)
+                                            .hideSuggestions();
+                                      },
+                                    ),
+                                  ),
+                                  if (search.query.isNotEmpty)
+                                    GestureDetector(
+                                      onTap: () {
+                                        _controller.clear();
+                                        ref
+                                            .read(searchProvider.notifier)
+                                            .clearQuery();
+                                      },
+                                      child: const Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 10,
+                                        ),
+                                        child: Icon(
+                                          LucideIcons.x,
+                                          size: 18,
+                                          color: AppColors.textSecondary,
+                                        ),
+                                      ),
+                                    ),
+                                  GestureDetector(
+                                    onTap: _toggleVoiceSearch,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                        right: 14,
+                                        left: 4,
+                                      ),
+                                      child: Icon(
+                                        _isListening
+                                            ? LucideIcons.mic
+                                            : LucideIcons.mic,
+                                        size: 18,
+                                        color: _isListening
+                                            ? accent
+                                            : AppColors.textSecondary,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          GestureDetector(
+                            onTap: _toggleShazamSearch,
+                            child: Container(
+                              width: 46,
+                              height: 46,
+                              decoration: BoxDecoration(
+                                color: AppColors.glassBackground,
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: AppColors.glassBorder,
+                                ),
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  'assets/logo.png',
+                                  width: 30,
+                                  height: 30,
+                                  color: _isShazamListening
+                                      ? accent
+                                      : AppColors.textSecondary,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
-                    ),
-                ],
-              ),
-            ),
 
-            const SizedBox(height: 8),
+                      // Suggestions dropdown
+                      if (search.showSuggestions &&
+                          search.suggestions.isNotEmpty &&
+                          search.query.isNotEmpty)
+                        Container(
+                          margin: const EdgeInsets.only(top: 4),
+                          decoration: BoxDecoration(
+                            color: AppColors.glassBackground,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: AppColors.glassBorder),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ...search.suggestions.map((s) {
+                                return InkWell(
+                                  onTap: () {
+                                    _controller.text = s;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(
+                                          TextPosition(offset: s.length),
+                                        );
+                                    ref
+                                        .read(searchProvider.notifier)
+                                        .selectSuggestion(s);
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 14,
+                                      vertical: 10,
+                                    ),
+                                    child: Row(
+                                      children: [
+                                        const Icon(
+                                          LucideIcons.search,
+                                          size: 14,
+                                          color: AppColors.textSecondary,
+                                        ),
+                                        const SizedBox(width: 10),
+                                        Expanded(
+                                          child: Text(
+                                            s,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
 
-            // ── Content ──
-            Expanded(
-              child: search.query.isEmpty
-                  ? _buildRecentSearches(search, audio)
-                  : search.isSearching
+                const SizedBox(height: 8),
+
+                // ── Content ──
+                Expanded(
+                  child: search.query.isEmpty
+                      ? _buildRecentSearches(search, audio)
+                      : search.isSearching
                       ? _buildSkeletons()
                       : search.hasResults
-                          ? _buildResults(search, audio, accent)
-                          : _buildNoResults(search.query),
+                      ? _buildResults(search, audio, accent)
+                      : _buildNoResults(search.query),
+                ),
+              ],
             ),
-          ],
-        ),
-        
-
           ],
         ),
       ),
@@ -347,8 +540,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           children: [
             Icon(LucideIcons.search, size: 36, color: AppColors.textSecondary),
             const SizedBox(height: 12),
-            const Text('Your recent searches appear here',
-                style: TextStyle(color: AppColors.textSecondary)),
+            const Text(
+              'Your recent searches appear here',
+              style: TextStyle(color: AppColors.textSecondary),
+            ),
           ],
         ),
       );
@@ -363,17 +558,24 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Recent Searches',
-                  style: TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w700,
-                      color: AppColors.textPrimary)),
+              const Text(
+                'Recent Searches',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.textPrimary,
+                ),
+              ),
               GestureDetector(
                 onTap: () => ref.read(searchProvider.notifier).clearHistory(),
-                child: const Text('Clear all',
-                    style: TextStyle(
-                        fontSize: 13,
-                        color: AppColors.textSecondary,
-                        fontWeight: FontWeight.w500)),
+                child: const Text(
+                  'Clear all',
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: AppColors.textSecondary,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
             ],
           ),
@@ -397,8 +599,11 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                   onTap: () => _showMenu(song),
                   child: const Padding(
                     padding: EdgeInsets.all(8),
-                    child: Icon(LucideIcons.moreVertical,
-                        size: 18, color: AppColors.textSecondary),
+                    child: Icon(
+                      LucideIcons.moreVertical,
+                      size: 18,
+                      color: AppColors.textSecondary,
+                    ),
                   ),
                 ),
               );
@@ -414,13 +619,21 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(LucideIcons.music, size: 36, color: AppColors.textSecondary),
+          const Icon(
+            LucideIcons.music,
+            size: 36,
+            color: AppColors.textSecondary,
+          ),
           const SizedBox(height: 12),
-          Text('No results for "$query"',
-              style: const TextStyle(color: AppColors.textSecondary)),
+          Text(
+            'No results for "$query"',
+            style: const TextStyle(color: AppColors.textSecondary),
+          ),
           const SizedBox(height: 4),
-          const Text('Try different keywords',
-              style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+          const Text(
+            'Try different keywords',
+            style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+          ),
         ],
       ),
     );
@@ -429,25 +642,28 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   Widget _buildSkeletons() {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      children: List.generate(6, (_) => const Padding(
-        padding: EdgeInsets.only(bottom: 12),
-        child: Row(
-          children: [
-            SkeletonLoader(width: 48, height: 48, borderRadius: 8),
-            SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SkeletonLoader(width: 160, height: 14, borderRadius: 4),
-                  SizedBox(height: 6),
-                  SkeletonLoader(width: 100, height: 10, borderRadius: 4),
-                ],
+      children: List.generate(
+        6,
+        (_) => const Padding(
+          padding: EdgeInsets.only(bottom: 12),
+          child: Row(
+            children: [
+              SkeletonLoader(width: 48, height: 48, borderRadius: 8),
+              SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SkeletonLoader(width: 160, height: 14, borderRadius: 4),
+                    SizedBox(height: 6),
+                    SkeletonLoader(width: 100, height: 10, borderRadius: 4),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 
@@ -456,7 +672,11 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     final artists = search.results['artists'] ?? [];
     final albums = search.results['albums'] ?? [];
     final playlists = search.results['playlists'] ?? [];
-    final topResult = songs.isNotEmpty ? songs.first : albums.isNotEmpty ? albums.first : null;
+    final topResult = songs.isNotEmpty
+        ? songs.first
+        : albums.isNotEmpty
+        ? albums.first
+        : null;
 
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 0),
@@ -471,20 +691,25 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
         // Songs
         if (songs.isNotEmpty) ...[
           _sectionLabel('Songs'),
-          ...songs.map((song) => SongTile(
-            song: song,
-            isPlaying: audio.currentSong?.videoId == song.videoId,
-            onTap: () => _handlePlay(song),
-            onLongPress: () => _showMenu(song),
-            trailing: GestureDetector(
-              onTap: () => _showMenu(song),
-              child: const Padding(
-                padding: EdgeInsets.all(8),
-                child: Icon(LucideIcons.moreVertical,
-                    size: 18, color: AppColors.textSecondary),
+          ...songs.map(
+            (song) => SongTile(
+              song: song,
+              isPlaying: audio.currentSong?.videoId == song.videoId,
+              onTap: () => _handlePlay(song),
+              onLongPress: () => _showMenu(song),
+              trailing: GestureDetector(
+                onTap: () => _showMenu(song),
+                child: const Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Icon(
+                    LucideIcons.moreVertical,
+                    size: 18,
+                    color: AppColors.textSecondary,
+                  ),
+                ),
               ),
             ),
-          )),
+          ),
           const SizedBox(height: 16),
         ],
 
@@ -514,7 +739,8 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               itemCount: albums.length,
               separatorBuilder: (_, __) => const SizedBox(width: 14),
-              itemBuilder: (_, i) => _buildCollectionCard(albums[i], LucideIcons.disc),
+              itemBuilder: (_, i) =>
+                  _buildCollectionCard(albums[i], LucideIcons.disc),
             ),
           ),
           const SizedBox(height: 16),
@@ -530,7 +756,8 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               itemCount: playlists.length,
               separatorBuilder: (_, __) => const SizedBox(width: 14),
-              itemBuilder: (_, i) => _buildCollectionCard(playlists[i], LucideIcons.radio),
+              itemBuilder: (_, i) =>
+                  _buildCollectionCard(playlists[i], LucideIcons.radio),
             ),
           ),
         ],
@@ -543,10 +770,14 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   Widget _sectionLabel(String text) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 8),
-      child: Text(text,
-          style: const TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w700,
-              color: AppColors.textPrimary)),
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w700,
+          color: AppColors.textPrimary,
+        ),
+      ),
     );
   }
 
@@ -565,12 +796,19 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(16),
+              ),
               child: SizedBox(
-                height: 160, width: double.infinity,
+                height: 160,
+                width: double.infinity,
                 child: thumb.isNotEmpty
-                    ? CachedNetworkImage(imageUrl: thumb, fit: BoxFit.cover,
-                        errorWidget: (_, __, ___) => Container(color: AppColors.surface))
+                    ? CachedNetworkImage(
+                        imageUrl: thumb,
+                        fit: BoxFit.cover,
+                        errorWidget: (_, __, ___) =>
+                            Container(color: AppColors.surface),
+                      )
                     : Container(color: AppColors.surface),
               ),
             ),
@@ -582,28 +820,42 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(song.title, maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w700)),
+                        Text(
+                          song.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                         const SizedBox(height: 2),
-                        Text('${song.artist}${song.album.isNotEmpty ? ' · ${song.album}' : ''}',
-                            maxLines: 1, overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                                fontSize: 13, color: AppColors.textSecondary)),
+                        Text(
+                          '${song.artist}${song.album.isNotEmpty ? ' · ${song.album}' : ''}',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            color: AppColors.textSecondary,
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   Container(
-                    width: 44, height: 44,
+                    width: 44,
+                    height: 44,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      gradient: LinearGradient(colors: [
-                        accent, AppColors.computeSecondary(accent),
-                      ]),
+                      gradient: LinearGradient(
+                        colors: [accent, AppColors.computeSecondary(accent)],
+                      ),
                     ),
-                    child: const Icon(Icons.play_arrow_rounded,
-                        size: 28, color: AppColors.background),
+                    child: const Icon(
+                      Icons.play_arrow_rounded,
+                      size: 28,
+                      color: AppColors.background,
+                    ),
                   ),
                 ],
               ),
@@ -630,18 +882,30 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               radius: 36,
               backgroundColor: AppColors.surface,
               backgroundImage: thumb.isNotEmpty
-                  ? CachedNetworkImageProvider(thumb) : null,
+                  ? CachedNetworkImageProvider(thumb)
+                  : null,
               child: thumb.isEmpty
-                  ? Text(name[0].toUpperCase(),
-                      style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700))
+                  ? Text(
+                      name[0].toUpperCase(),
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    )
                   : null,
             ),
             const SizedBox(height: 6),
-            Text(name, maxLines: 1, overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
-            const Text('Artist',
-                style: TextStyle(fontSize: 10, color: AppColors.textSecondary)),
+            Text(
+              name,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            ),
+            const Text(
+              'Artist',
+              style: TextStyle(fontSize: 10, color: AppColors.textSecondary),
+            ),
           ],
         ),
       ),
@@ -665,15 +929,20 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               child: Stack(
                 children: [
                   SizedBox(
-                    width: 130, height: 130,
+                    width: 130,
+                    height: 130,
                     child: thumb.isNotEmpty
-                        ? CachedNetworkImage(imageUrl: thumb, fit: BoxFit.cover,
+                        ? CachedNetworkImage(
+                            imageUrl: thumb,
+                            fit: BoxFit.cover,
                             errorWidget: (_, __, ___) =>
-                                Container(color: AppColors.surface))
+                                Container(color: AppColors.surface),
+                          )
                         : Container(color: AppColors.surface),
                   ),
                   Positioned(
-                    right: 6, bottom: 6,
+                    right: 6,
+                    bottom: 6,
                     child: Container(
                       padding: const EdgeInsets.all(6),
                       decoration: const BoxDecoration(
@@ -687,12 +956,20 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               ),
             ),
             const SizedBox(height: 6),
-            Text(item.title, maxLines: 1, overflow: TextOverflow.ellipsis,
-                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+            Text(
+              item.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            ),
             Text(
               '${item.artist}${item.year != null ? ' · ${item.year}' : ''}',
-              maxLines: 1, overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 11,
+                color: AppColors.textSecondary,
+              ),
             ),
           ],
         ),
@@ -701,7 +978,8 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   }
 
   void _showMenu(Song song) {
-    showModalBottomSheet(useRootNavigator: true, 
+    showModalBottomSheet(
+      useRootNavigator: true,
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
@@ -719,7 +997,8 @@ class _VoiceSearchSheet extends StatefulWidget {
   State<_VoiceSearchSheet> createState() => _VoiceSearchSheetState();
 }
 
-class _VoiceSearchSheetState extends State<_VoiceSearchSheet> with SingleTickerProviderStateMixin {
+class _VoiceSearchSheetState extends State<_VoiceSearchSheet>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
   late Animation<double> _fadeAnimation;
@@ -732,13 +1011,15 @@ class _VoiceSearchSheetState extends State<_VoiceSearchSheet> with SingleTickerP
       duration: const Duration(milliseconds: 1500),
     )..repeat();
 
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 1.8).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.8,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
-    _fadeAnimation = Tween<double>(begin: 0.4, end: 0.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
-    );
+    _fadeAnimation = Tween<double>(
+      begin: 0.4,
+      end: 0.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
   }
 
   @override
@@ -830,7 +1111,156 @@ class _VoiceSearchSheetState extends State<_VoiceSearchSheet> with SingleTickerP
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
-                      side: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
+                      side: BorderSide(
+                        color: Colors.white.withValues(alpha: 0.12),
+                      ),
+                    ),
+                  ),
+                  onPressed: widget.onCancel,
+                  child: const Text('Cancel', style: TextStyle(fontSize: 15)),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ShazamSearchSheet extends StatefulWidget {
+  final VoidCallback onCancel;
+
+  const _ShazamSearchSheet({required this.onCancel});
+
+  @override
+  State<_ShazamSearchSheet> createState() => _ShazamSearchSheetState();
+}
+
+class _ShazamSearchSheetState extends State<_ShazamSearchSheet>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+  late Animation<double> _fadeAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    )..repeat();
+
+    _scaleAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.8,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
+
+    _fadeAnimation = Tween<double>(
+      begin: 0.4,
+      end: 0.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final accent = Theme.of(context).colorScheme.primary;
+
+    return GlassContainer(
+      borderRadius: 24,
+      blur: 24,
+      padding: const EdgeInsets.fromLTRB(0, 12, 0, 0),
+      child: SafeArea(
+        top: false,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Handle
+            Container(
+              width: 36,
+              height: 4,
+              margin: const EdgeInsets.only(bottom: 28),
+              decoration: BoxDecoration(
+                color: Colors.white24,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            // Disc icon with pulsing animation
+            SizedBox(
+              height: 120,
+              width: 120,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  // Pulsing ripple
+                  AnimatedBuilder(
+                    animation: _controller,
+                    builder: (context, child) {
+                      return Transform.scale(
+                        scale: _scaleAnimation.value,
+                        child: Opacity(
+                          opacity: _fadeAnimation.value,
+                          child: Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: accent,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  // Static inner disc icon
+                  Container(
+                    width: 80,
+                    height: 80,
+                    decoration: BoxDecoration(
+                      color: accent.withValues(alpha: 0.15),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Image.asset(
+                        'assets/logo.png',
+                        width: 40,
+                        height: 40,
+                        color: accent,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Identifying...',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Listening for a song...',
+              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+            ),
+            const SizedBox(height: 32),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+              child: SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(
+                        color: Colors.white.withValues(alpha: 0.12),
+                      ),
                     ),
                   ),
                   onPressed: widget.onCancel,

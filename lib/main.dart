@@ -12,15 +12,22 @@ import 'providers/audio_provider.dart';
 import 'services/audio_handler.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'package:pulse/src/rust/frb_generated.dart';
+
 /// Global key for showing snackbars from anywhere (e.g. Providers)
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  try {
+    await RustLib.init();
+  } catch (e) {
+    debugPrint('RustLib init failed: $e');
+  }
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  
+
   // Initialize media_kit
   MediaKit.ensureInitialized();
 
@@ -78,7 +85,7 @@ class _PulseAppState extends ConsumerState<PulseApp> {
         final handler = ref.read(audioHandlerProvider);
         ref.read(audioProvider.notifier).initialize(handler);
         _audioInitialized = true;
-        
+
         // Request notification permission for Android 13+ lock screen / media controls
         // Safely done here so it doesn't block background headless launches
         Permission.notification.request();
@@ -121,5 +128,3 @@ class _PulseAppState extends ConsumerState<PulseApp> {
     );
   }
 }
-
-

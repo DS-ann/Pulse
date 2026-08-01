@@ -29,6 +29,17 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        externalNativeBuild {
+            cmake {
+                cppFlags += ""
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path = file("CMakeLists.txt")
+        }
     }
 
     buildTypes {
