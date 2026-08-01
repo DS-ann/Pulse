@@ -187,11 +187,15 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
         ref.read(searchProvider.notifier).onQueryChanged(_controller.text);
         ref.read(searchProvider.notifier).hideSuggestions();
       } else if (mounted) {
+        final errorMsg = result != null && result.containsKey('error') 
+            ? 'Error: ${result['error']}' 
+            : 'No song detected.';
+        
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text(
-              'No song detected.',
-              style: TextStyle(color: Colors.white),
+            content: Text(
+              errorMsg,
+              style: const TextStyle(color: Colors.white),
             ),
             backgroundColor: Colors.black,
             behavior: SnackBarBehavior.floating,
@@ -276,7 +280,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
     setState(() => _isListening = true);
     _speechToText.listen(
-      listenOptions: SpeechListenOptions(pauseFor: const Duration(seconds: 1)),
+      listenOptions: SpeechListenOptions(pauseFor: const Duration(seconds: 3)),
       onResult: (result) {
         _controller.text = result.recognizedWords;
         _controller.selection = TextSelection.fromPosition(
