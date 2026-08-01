@@ -105,6 +105,6 @@ class ShazamService {
   }
 
   void dispose() {
-    _audioRecorder.dispose();
+    _audioRecorder?.dispose();
   }
 }
