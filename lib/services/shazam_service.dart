@@ -5,19 +5,21 @@ import 'package:pulse/services/shazam_api.dart';
 import 'package:pulse/src/rust/api/simple.dart';
 
 class ShazamService {
-  final _audioRecorder = AudioRecorder();
+  AudioRecorder? _audioRecorder;
   bool _isCancelled = false;
 
   void cancel() {
     _isCancelled = true;
-    _audioRecorder.stop();
+    _audioRecorder?.stop();
   }
 
   Future<Map<String, dynamic>?> recognizeNearbySong() async {
     _isCancelled = false;
+    _audioRecorder = AudioRecorder();
+    
     try {
       // 1. Check Permissions
-      if (!await _audioRecorder.hasPermission()) {
+      if (!await _audioRecorder!.hasPermission()) {
         throw Exception('Microphone permission not granted');
       }
 
@@ -33,7 +35,7 @@ class ShazamService {
         if (_isCancelled) break;
 
         // 3. Start recording 16kHz Mono WAV
-        await _audioRecorder.start(
+        await _audioRecorder!.start(
           const RecordConfig(
             encoder: AudioEncoder.wav,
             sampleRate: 16000,
@@ -48,7 +50,7 @@ class ShazamService {
           await Future.delayed(const Duration(seconds: 1));
         }
         
-        await _audioRecorder.stop();
+        await _audioRecorder!.stop();
         
         if (_isCancelled) break;
 
@@ -77,10 +79,15 @@ class ShazamService {
           // If we found a track, clean up and return early!
           if (lastResult != null && lastResult['track'] != null) {
             await file.delete();
+            _audioRecorder?.dispose();
             return lastResult;
           }
         } catch (e) {
           print('Attempt $attempt failed: $e');
+          if (attempt == 3) {
+            _audioRecorder?.dispose();
+            return {'error': e.toString()};
+          }
         }
 
         // Clean up temp file before next loop
@@ -90,6 +97,7 @@ class ShazamService {
       }
 
       // If we got here, all 3 attempts failed to find a track
+      _audioRecorder?.dispose();
       return lastResult;
     } catch (e) {
       throw Exception('Shazam Recognition Failed: $e');
