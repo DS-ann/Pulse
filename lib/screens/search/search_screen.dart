@@ -280,7 +280,6 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
     setState(() => _isListening = true);
     _speechToText.listen(
-      listenOptions: SpeechListenOptions(pauseFor: const Duration(seconds: 1)),
       onResult: (result) {
         _controller.text = result.recognizedWords;
         _controller.selection = TextSelection.fromPosition(
