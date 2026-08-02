@@ -292,13 +292,15 @@ class DownloadDb {
   }
 
   /// Get tracks for an offline playlist.
-  Future<List<Song>> getPlaylistTracks(String playlistId) async {
+  Future<List<Song>> getPlaylistTracks(String playlistId, {int? limit}) async {
     final db = await database;
+    final limitClause = limit != null ? 'LIMIT $limit' : '';
     final rows = await db.rawQuery('''
       SELECT dt.* FROM downloaded_tracks dt
       INNER JOIN playlist_tracks pt ON dt.videoId = pt.videoId
       WHERE pt.playlistId = ?
       ORDER BY pt.position ASC
+      $limitClause
     ''', [playlistId]);
 
     return rows
@@ -319,31 +321,32 @@ class DownloadDb {
   Future<List<Playlist>> getAllOfflinePlaylists() async {
     final db = await database;
     
-    // Fetch playlists and only the thumbnail of the first track
+    // Fetch playlists
     final rows = await db.rawQuery('''
       SELECT 
         op.id as playlistId, op.name as playlistName, op.createdAt,
-        (SELECT COUNT(*) FROM playlist_tracks WHERE playlistId = op.id) as trackCount,
-        (SELECT dt.thumbnail 
-         FROM playlist_tracks pt 
-         JOIN downloaded_tracks dt ON pt.videoId = dt.videoId 
-         WHERE pt.playlistId = op.id 
-         ORDER BY pt.position ASC 
-         LIMIT 1) as thumbnail
+        (SELECT COUNT(*) FROM playlist_tracks WHERE playlistId = op.id) as trackCount
       FROM offline_playlists op
       ORDER BY op.createdAt DESC
     ''');
     
-    return rows.map((row) {
-      return Playlist(
-        id: row['playlistId'] as String,
+    final playlists = <Playlist>[];
+    for (final row in rows) {
+      final id = row['playlistId'] as String;
+      // Fetch tracks to provide thumbnails for the QuadCover collage
+      final tracks = await getPlaylistTracks(id, limit: 4);
+      
+      playlists.add(Playlist(
+        id: id,
         name: row['playlistName'] as String,
         type: 'OFFLINE_PLAYLIST',
-        songs: [], // Lazy loaded
+        songs: tracks, // Provide up to 4 songs for the collage
         totalTracks: row['trackCount'] as int?,
-        thumbnail: row['thumbnail'] as String?,
-      );
-    }).toList();
+        thumbnail: tracks.isNotEmpty ? tracks.first.thumbnail : null,
+      ));
+    }
+    
+    return playlists;
   }
 
   // ── Lyrics Cache ──
