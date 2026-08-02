@@ -9,10 +9,33 @@ import '../../services/ytmusic_api.dart';
 import '../../services/stream_extractor.dart';
 import '../../services/ytmusic_parser.dart';
 import 'package:dio/dio.dart';
+import 'dart:async';
 
 /// Music API service — now acts as a bridge to the client-side YtMusicApi.
 class MusicApi {
   final YtMusicApi _api = YtMusicApi();
+
+  static bool _isFetchingLyrics = false;
+  static final List<Completer<void>> _lyricsQueue = [];
+
+  Future<void> _acquireLyricsLock() async {
+    if (!_isFetchingLyrics) {
+      _isFetchingLyrics = true;
+      return;
+    }
+    final completer = Completer<void>();
+    _lyricsQueue.add(completer);
+    await completer.future;
+  }
+
+  void _releaseLyricsLock() {
+    if (_lyricsQueue.isNotEmpty) {
+      final next = _lyricsQueue.removeAt(0);
+      next.complete();
+    } else {
+      _isFetchingLyrics = false;
+    }
+  }
 
   /// Get home feed sections.
   Future<List<HomeSection>> getHome() async {
@@ -115,8 +138,12 @@ class MusicApi {
         return Lyrics.fromJson(cached);
       }
 
-      final dio = Dio(BaseOptions(
-        connectTimeout: const Duration(seconds: 20),
+      await _acquireLyricsLock();
+      try {
+        await Future.delayed(const Duration(milliseconds: 1500));
+
+        final dio = Dio(BaseOptions(
+          connectTimeout: const Duration(seconds: 20),
         receiveTimeout: const Duration(seconds: 300),
       ));
       
@@ -213,6 +240,9 @@ class MusicApi {
       }
 
       return null;
+      } finally {
+        _releaseLyricsLock();
+      }
     } catch (_) {
       return null;
     }

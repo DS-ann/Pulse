@@ -102,7 +102,8 @@ class DownloadNotifier extends Notifier<DownloadState> {
 
   final List<_DownloadTask> _queue = [];
   int _activeTaskCount = 0;
-  static const int _maxConcurrent = 5;
+  static const int _maxConcurrent = 3;
+  static DateTime? _queueBackoffUntil;
 
   Future<void> _refreshCounts() async {
     final count = await _db.getDownloadCount();
@@ -132,18 +133,30 @@ class DownloadNotifier extends Notifier<DownloadState> {
   Future<void> _processQueue() async {
     if (_queue.isEmpty || _activeTaskCount >= _maxConcurrent) return;
 
+    if (_queueBackoffUntil != null) {
+      if (DateTime.now().isBefore(_queueBackoffUntil!)) {
+        final delay = _queueBackoffUntil!.difference(DateTime.now());
+        Future.delayed(delay, _processQueue);
+        return;
+      } else {
+        _queueBackoffUntil = null;
+      }
+    }
+
     final task = _queue.removeAt(0);
     _activeTaskCount++;
     
     try {
-      await _executeDownload(task.song, task.cancelToken, contextPlaylist: task.contextPlaylist);
+      await _executeDownload(task.song, task.cancelToken, contextPlaylist: task.contextPlaylist, retryCount: task.retryCount);
+      // Small delay between successful downloads to prevent sudden bursting
+      await Future.delayed(const Duration(seconds: 2));
     } finally {
       _activeTaskCount--;
       _processQueue();
     }
   }
 
-  Future<void> _executeDownload(Song song, CancelToken cancelToken, {Playlist? contextPlaylist}) async {
+  Future<void> _executeDownload(Song song, CancelToken cancelToken, {Playlist? contextPlaylist, int retryCount = 0}) async {
     final videoId = song.videoId;
 
     if (await _db.isDownloaded(videoId)) {
@@ -219,7 +232,8 @@ class DownloadNotifier extends Notifier<DownloadState> {
       int currentBytes = downloadedBytes;
 
       try {
-        await for (final chunk in response.data!.stream) {
+        // Add a 15-second timeout so the stream doesn't hang indefinitely
+        await for (final chunk in response.data!.stream.timeout(const Duration(seconds: 15))) {
           if (cancelToken.isCancelled) {
             await sink.close();
             return; // Paused/Cancelled
@@ -250,9 +264,10 @@ class DownloadNotifier extends Notifier<DownloadState> {
           final largeThumb = ThumbnailUtils.getHighRes(song.thumbnail, size: 500);
           final res = await Dio(BaseOptions(
             connectTimeout: const Duration(seconds: 20),
-            receiveTimeout: const Duration(seconds: 300),
+            receiveTimeout: const Duration(seconds: 60),
           )).get<List<int>>(
             largeThumb,
+            cancelToken: cancelToken,
             options: Options(responseType: ResponseType.bytes),
           );
           if (res.data != null) {
@@ -322,7 +337,31 @@ class DownloadNotifier extends Notifier<DownloadState> {
       await _refreshCounts();
     } catch (e) {
       if (cancelToken.isCancelled) return;
-      _markError(videoId, e.toString());
+      final errorStr = e.toString().toLowerCase();
+      
+      if (errorStr.contains('416')) {
+        debugPrint('[Download] 416 Range Not Satisfiable, corrupt tmp file. Deleting for fresh retry.');
+        final tempPath = p.join(await getApplicationDocumentsDirectory().then((d) => p.join(d.path, 'downloads')), '$videoId.tmp');
+        final tempFile = File(tempPath);
+        if (await tempFile.exists()) await tempFile.delete();
+      } else if (errorStr.contains('403') || errorStr.contains('429') || errorStr.contains('rate') || errorStr.contains('too many')) {
+        debugPrint('[Download] Rate limit detected, backing off for 30s');
+        _queueBackoffUntil = DateTime.now().add(const Duration(seconds: 30));
+      }
+      
+      if (retryCount < 3) {
+        debugPrint('[Download] Failed, retrying ${retryCount + 1}/3 for $videoId');
+        final newToken = CancelToken();
+        _updateProgress(videoId, 0.0, song: song, cancelToken: newToken, isPaused: false, clearError: true);
+        _queue.add(_DownloadTask(
+          song: song, 
+          contextPlaylist: contextPlaylist, 
+          cancelToken: newToken, 
+          retryCount: retryCount + 1
+        ));
+      } else {
+        _markError(videoId, e.toString());
+      }
     }
   }
 
@@ -388,6 +427,7 @@ class DownloadNotifier extends Notifier<DownloadState> {
   }
 
   Future<void> clearAll() async {
+    _queue.clear();
     for (var dl in state.activeDownloads.values) {
       dl.cancelToken?.cancel();
     }
@@ -411,7 +451,7 @@ class DownloadNotifier extends Notifier<DownloadState> {
   Future<void> updateOfflinePlaylistSongs(String playlistId, List<String> videoIds) => _db.updateOfflinePlaylistSongs(playlistId, videoIds);
   Future<void> deleteOfflinePlaylist(String playlistId) => _db.deleteOfflinePlaylist(playlistId);
 
-  void _updateProgress(String videoId, double progress, {Song? song, int receivedBytes = 0, int totalBytes = 0, CancelToken? cancelToken, bool? isPaused}) {
+  void _updateProgress(String videoId, double progress, {Song? song, int receivedBytes = 0, int totalBytes = 0, CancelToken? cancelToken, bool? isPaused, bool clearError = false}) {
     final updated = Map<String, DownloadProgress>.from(state.activeDownloads);
     final existing = updated[videoId];
     updated[videoId] = DownloadProgress(
@@ -422,6 +462,7 @@ class DownloadNotifier extends Notifier<DownloadState> {
       totalBytes: totalBytes > 0 ? totalBytes : (existing?.totalBytes ?? 0),
       cancelToken: cancelToken ?? existing?.cancelToken,
       isPaused: isPaused ?? existing?.isPaused ?? false,
+      error: clearError ? null : existing?.error,
     );
     state = state.copyWith(activeDownloads: updated);
   }
@@ -450,8 +491,9 @@ class _DownloadTask {
   final Song song;
   final Playlist? contextPlaylist;
   final CancelToken cancelToken;
+  final int retryCount;
 
-  _DownloadTask({required this.song, this.contextPlaylist, required this.cancelToken});
+  _DownloadTask({required this.song, this.contextPlaylist, required this.cancelToken, this.retryCount = 0});
 }
 
 final downloadProvider = NotifierProvider<DownloadNotifier, DownloadState>(
