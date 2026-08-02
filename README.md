@@ -37,10 +37,10 @@ The name "Pulse" reflects its core philosophy: an alive, dynamic, and responsive
 </details>
 
 ### Why Pulse?
-🌍 **Massive Catalog** — Access a vast library for streaming, including rare tracks, live performances, covers, and remixes.
-🎧 **Premium Listening Experience** — Stream high-quality audio uninterrupted in the background without any ads.
-🔄 **Cross-device Syncing** — Sign in with your Gmail account to securely sync your liked songs, custom playlists, recently played history, and listening stats across all your devices using Firebase.
-✨ **Uncompromised Aesthetics** — Built with modern design principles: glassmorphism, dynamic accent colors, smooth micro-animations, and a completely clutter-free environment.
+- 🌍 **Massive Catalog** — Access a vast library for streaming, including rare tracks, live performances, covers, and remixes.
+- 🎧 **Premium Listening Experience** — Stream high-quality audio uninterrupted in the background without any ads.
+- 🔄 **Cross-device Syncing** — Sign in with your Gmail account to securely sync your liked songs, custom playlists, recently played history, and listening stats across all your devices using Firebase.
+- ✨ **Uncompromised Aesthetics** — Built with modern design principles: glassmorphism, dynamic accent colors, smooth micro-animations, and a completely clutter-free environment.
 
 ## 📸 Screenshots
 
@@ -70,34 +70,34 @@ The name "Pulse" reflects its core philosophy: an alive, dynamic, and responsive
 ## 🚀 Key Features
 
 ### Audio & Playback
-✨ **Advanced Audio Engine:** High-quality playback powered by `media_kit` and `audio_service`, featuring seamless background play, native lock screen controls, and gapless playback.
-✨ **Custom Crossfade Engine:** Smooth, DJ-style transitions between tracks via a bespoke crossfade implementation.
-✨ **Live Lyrics:** Real-time synced lyrics powered by **LRCLIB**, featuring a custom fallback mechanism to handle messy metadata.
-✨ **Network Dropout Resilience:** Automatically skips unplayable tracks without freezing the app when losing signal.
+- ✨ **Advanced Audio Engine:** High-quality playback powered by `media_kit` and `audio_service`, featuring seamless background play, native lock screen controls, and gapless playback.
+- ✨ **Custom Crossfade Engine:** Smooth, DJ-style transitions between tracks via a bespoke crossfade implementation.
+- ✨ **Live Lyrics:** Real-time synced lyrics powered by **LRCLIB**, featuring a custom fallback mechanism to handle messy metadata.
+- ✨ **Network Dropout Resilience:** Automatically skips unplayable tracks without freezing the app when losing signal.
 
 ### Discovery & Library Management
-✨ **Audio Recognition:** Instantly identify songs playing around you using the device microphone. Powered by a high-performance native **Rust** backend (`flutter_rust_bridge`).
-✨ **Voice Search:** Hands-free, snappy voice searching with optimized speech-to-text integration.
-✨ **Advanced Playlist Integration:** Seamlessly import your custom playlists directly from your favorite platforms. Features a dedicated UI for selecting which playlists to migrate.
-✨ **Modern Library Layout:** Smooth, tabbed layout with interactive swiping for organizing Playlists, Downloads, and active Downloading queues.
+- ✨ **Audio Recognition:** Instantly identify songs playing around you using the device microphone. Powered by a high-performance native **Rust** backend (`flutter_rust_bridge`).
+- ✨ **Voice Search:** Hands-free, snappy voice searching with optimized speech-to-text integration.
+- ✨ **Advanced Playlist Integration:** Seamlessly import your custom playlists directly from your favorite platforms. Features a dedicated UI for selecting which playlists to migrate.
+- ✨ **Modern Library Layout:** Smooth, tabbed layout with interactive swiping for organizing Playlists, Downloads, and active Downloading queues.
 
 ### Offline Capabilities
-✅ **Robust Offline Caching:** Cache your favorite tracks and lyrics locally for 100% offline listening using local storage (`sqflite`). Features auto-healing and smart retries for reliable, uninterrupted caching.
-✅ **Dynamic Collages:** Auto-generated 4-cover art collages for offline playlists.
+- ✅ **Robust Offline Caching:** Cache your favorite tracks and lyrics locally for 100% offline listening using local storage (`sqflite`). Features auto-healing and smart retries for reliable, uninterrupted caching.
+- ✅ **Dynamic Collages:** Auto-generated 4-cover art collages for offline playlists.
 
 ### Social & Personalization
-✨ **Listening Stats & Analytics:** Keep track of your music habits year-round. Pulse actively tracks your total listening time (lifetime and daily average), top artists, and top songs, syncing securely to your profile.
-✨ **Personalized Home Feed:** A dynamic, locally-synced home screen that automatically adapts to your listening history with custom "Speed Dial" and "Recently Played" rows.
-✨ **Custom Accent Colors:** Fully personalize your experience by selecting a custom accent color theme that perfectly matches your vibe.
-✨ **In-App Communication System:** Built-in broadcast and chat screens for receiving announcements and updates directly from the admin team.
+- ✨ **Listening Stats & Analytics:** Keep track of your music habits year-round. Pulse actively tracks your total listening time (lifetime and daily average), top artists, and top songs, syncing securely to your profile.
+- ✨ **Personalized Home Feed:** A dynamic, locally-synced home screen that automatically adapts to your listening history with custom "Speed Dial" and "Recently Played" rows.
+- ✨ **Custom Accent Colors:** Fully personalize your experience by selecting a custom accent color theme that perfectly matches your vibe.
+- ✨ **In-App Communication System:** Built-in broadcast and chat screens for receiving announcements and updates directly from the admin team.
 
 ### UI / UX
-✨ **Glassmorphic Design:** A sleek, dark-themed user interface utilizing Material Design, glassmorphic player elements (`GlassContainer`), dynamic accent colors extracted from album art, and immersive system UI overlays.
-✨ **Rich Interactive Elements:** Features animated audio bars (`PlayingBars`), marquee text in the `MiniPlayer`, and elegant bottom sheets for multi-artist tracks and song actions.
+- ✨ **Glassmorphic Design:** A sleek, dark-themed user interface utilizing Material Design, glassmorphic player elements (`GlassContainer`), dynamic accent colors extracted from album art, and immersive system UI overlays.
+- ✨ **Rich Interactive Elements:** Features animated audio bars (`PlayingBars`), marquee text in the `MiniPlayer`, and elegant bottom sheets for multi-artist tracks and song actions.
 
 ### Architecture & System
-✅ **Over-The-Air (OTA) Updates:** Built-in update provider that checks Firebase for new app releases and seamlessly prompts the user to upgrade.
-✅ **Cloud Synchronization:** Bi-directional syncing of your playlists, favorites, and settings across devices using Firebase Firestore and Authentication.
+- ✅ **Over-The-Air (OTA) Updates:** Built-in update provider that checks Firebase for new app releases and seamlessly prompts the user to upgrade.
+- ✅ **Cloud Synchronization:** Bi-directional syncing of your playlists, favorites, and settings across devices using Firebase Firestore and Authentication.
 
 ## ⚙️ How it Works
 
