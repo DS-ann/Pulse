@@ -6,6 +6,7 @@ import '../../core/theme/app_colors.dart';
 import '../../providers/settings_provider.dart';
 import '../../widgets/glass_container.dart';
 import '../../core/constants/app_constants.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Settings screen — pixel-perfect port of Settings.jsx.
 /// Streaming/download quality, crossfade slider, data saver, accent color picker.
@@ -68,18 +69,18 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           padding: const EdgeInsets.fromLTRB(20, 16, 20, 200),
           children: [
             // ── Header ──
-            Text('Settings',
+            Text(AppLocalizations.of(context)!.settingsTitle,
                 style: Theme.of(context).textTheme.headlineLarge),
             const SizedBox(height: 24),
 
             // ── Streaming Quality ──
-            _sectionTitle(LucideIcons.volume2, 'Streaming Quality'),
+            _sectionTitle(LucideIcons.volume2, AppLocalizations.of(context)!.settingsStreamingQuality),
             const SizedBox(height: 8),
             GlassContainer(
               borderRadius: 14,
               child: Column(
                 children: ['automatic', 'low', 'normal', 'high'].map((q) =>
-                  _qualityItem(q, settings.streamingQuality, accent, () =>
+                  _qualityItem(context, q, settings.streamingQuality, accent, () =>
                     ref.read(settingsProvider.notifier).setStreamingQuality(q)),
                 ).toList(),
               ),
@@ -88,13 +89,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // ── Download Quality ──
-            _sectionTitle(LucideIcons.download, 'Download Quality'),
+            _sectionTitle(LucideIcons.download, AppLocalizations.of(context)!.settingsDownloadQuality),
             const SizedBox(height: 8),
             GlassContainer(
               borderRadius: 14,
               child: Column(
                 children: ['automatic', 'low', 'normal', 'high'].map((q) =>
-                  _qualityItem(q, settings.downloadQuality, accent, () =>
+                  _qualityItem(context, q, settings.downloadQuality, accent, () =>
                     ref.read(settingsProvider.notifier).setDownloadQuality(q)),
                 ).toList(),
               ),
@@ -103,7 +104,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // ── Playback ──
-            _sectionTitle(LucideIcons.music, 'Playback'),
+            _sectionTitle(LucideIcons.music, AppLocalizations.of(context)!.settingsPlayback),
             const SizedBox(height: 8),
             GlassContainer(
               borderRadius: 14,
@@ -114,13 +115,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Crossfade', style: TextStyle(
+                          Text(AppLocalizations.of(context)!.settingsCrossfade, style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w600)),
-                          SizedBox(height: 2),
-                          Text('Overlap tracks for gapless transitions',
+                          const SizedBox(height: 2),
+                          Text(AppLocalizations.of(context)!.settingsCrossfadeDesc,
                               style: TextStyle(fontSize: 11,
                                   color: AppColors.textSecondary)),
                         ],
@@ -157,7 +158,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // ── Data Usage ──
-            _sectionTitle(LucideIcons.smartphone, 'Data Usage'),
+            _sectionTitle(LucideIcons.smartphone, AppLocalizations.of(context)!.settingsDataUsage),
             const SizedBox(height: 8),
             GlassContainer(
               borderRadius: 14,
@@ -165,13 +166,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Data Saver', style: TextStyle(
+                      Text(AppLocalizations.of(context)!.settingsDataSaver, style: const TextStyle(
                           fontSize: 14, fontWeight: FontWeight.w600)),
-                      SizedBox(height: 2),
-                      Text('Stream at lower quality over cellular',
+                      const SizedBox(height: 2),
+                      Text(AppLocalizations.of(context)!.settingsDataSaverDesc,
                           style: TextStyle(fontSize: 11,
                               color: AppColors.textSecondary)),
                     ],
@@ -189,7 +190,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             const SizedBox(height: 24),
 
             // ── Appearance ──
-            _sectionTitle(LucideIcons.palette, 'Appearance'),
+            _sectionTitle(LucideIcons.palette, AppLocalizations.of(context)!.settingsAppearance),
             const SizedBox(height: 8),
             GlassContainer(
               borderRadius: 14,
@@ -207,7 +208,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('Custom Accent',
+                              Text(AppLocalizations.of(context)!.settingsCustomAccent,
                                   style: TextStyle(fontSize: 14,
                                       fontWeight: FontWeight.w600)),
                               Text(
@@ -263,10 +264,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     ),
                     const SizedBox(height: 12),
                     // Saturation
-                    _miniSlider('Saturation', _sat, (v) => _updateColor(_hue, v, _val)),
+                    _miniSlider(AppLocalizations.of(context)!.settingsSaturation, _sat, (v) => _updateColor(_hue, v, _val)),
                     const SizedBox(height: 8),
                     // Brightness
-                    _miniSlider('Brightness', _val, (v) => _updateColor(_hue, _sat, v)),
+                    _miniSlider(AppLocalizations.of(context)!.settingsBrightness, _val, (v) => _updateColor(_hue, _sat, v)),
                     const SizedBox(height: 12),
                     // Reset
                     Align(
@@ -280,8 +281,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                             borderRadius: BorderRadius.circular(20),
                             color: AppColors.surface,
                           ),
-                          child: const Text('Reset Default',
-                              style: TextStyle(fontSize: 11,
+                          child: Text(AppLocalizations.of(context)!.settingsResetDefault,
+                              style: const TextStyle(fontSize: 11,
                                   color: AppColors.textSecondary)),
                         ),
                       ),
@@ -302,7 +303,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   const Text('Pulse', style: TextStyle(
                       fontSize: 18, fontWeight: FontWeight.w700)),
                   const SizedBox(height: 2),
-                  Text('Version $kAppVersion',
+                  Text(AppLocalizations.of(context)!.profileVersion(kAppVersion),
                       style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                   const SizedBox(height: 4),
                   GestureDetector(
@@ -316,10 +317,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Text('Made with ❤️ by ',
-                              style: TextStyle(fontSize: 11,
+                          Text(AppLocalizations.of(context)!.profileMadeWithHeartBy,
+                              style: const TextStyle(fontSize: 11,
                                   color: AppColors.textSecondary)),
-                          Text('Ashutosh Pathak',
+                          Text(AppLocalizations.of(context)!.profileAuthorName,
                               style: TextStyle(fontSize: 11, color: accent)),
                         ],
                       ),
@@ -347,8 +348,17 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   }
 
   Widget _qualityItem(
-      String quality, String active, Color accent, VoidCallback onTap) {
+      BuildContext context, String quality, String active, Color accent, VoidCallback onTap) {
     final isActive = quality == active;
+    
+    String label = quality;
+    switch(quality) {
+      case 'automatic': label = AppLocalizations.of(context)!.settingsQualityAutomatic; break;
+      case 'low': label = AppLocalizations.of(context)!.settingsQualityLow; break;
+      case 'normal': label = AppLocalizations.of(context)!.settingsQualityNormal; break;
+      case 'high': label = AppLocalizations.of(context)!.settingsQualityHigh; break;
+    }
+    
     return InkWell(
       onTap: onTap,
       child: Padding(
@@ -356,7 +366,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(quality[0].toUpperCase() + quality.substring(1),
+            Text(label,
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: isActive ? FontWeight.w600 : FontWeight.w500)),

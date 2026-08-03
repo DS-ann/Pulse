@@ -14,6 +14,7 @@ import '../data/models/playlist.dart';
 import 'playlist_provider.dart';
 import 'settings_provider.dart';
 import '../services/stream_extractor.dart';
+import '../core/utils/error_mapper.dart';
 
 // ── Download State ──────────────────────────────────────────────────────────
 
@@ -360,7 +361,7 @@ class DownloadNotifier extends Notifier<DownloadState> {
           retryCount: retryCount + 1
         ));
       } else {
-        _markError(videoId, e.toString());
+        _markError(videoId, ErrorMapper.getLocalizedErrorBackground(e));
       }
     }
   }

@@ -5,6 +5,9 @@ import 'package:audio_service/audio_service.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:audio_session/audio_session.dart';
+import 'package:flutter/widgets.dart' show Locale;
+import 'package:pulse/l10n/app_localizations.dart';
+import '../main.dart' show scaffoldMessengerKey;
 
 /// Custom [BaseAudioHandler] for Pulse — bridges `media_kit` with `audio_service`
 /// to provide background playback and lock screen / notification controls.
@@ -358,32 +361,39 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
     } else {
       processingState = AudioProcessingState.ready;
     }
+    AppLocalizations l10n;
+    final ctx = scaffoldMessengerKey.currentContext;
+    if (ctx != null) {
+      l10n = AppLocalizations.of(ctx)!;
+    } else {
+      l10n = lookupAppLocalizations(const Locale('en'));
+    }
 
     final likeIcon = _isLiked ? 'drawable/ic_favorite' : 'drawable/ic_favorite_outline';
-    final likeLabel = _isLiked ? 'Unlike' : 'Like';
+    final likeLabel = _isLiked ? l10n.audioControlUnlike : l10n.audioControlLike;
 
     playbackState.add(PlaybackState(
       controls: [
-        const MediaControl(
+        MediaControl(
           androidIcon: 'drawable/ic_skip_previous',
-          label: 'Previous',
+          label: l10n.audioControlPrevious,
           action: MediaAction.skipToPrevious,
         ),
         if (_isPlaying)
-          const MediaControl(
+          MediaControl(
             androidIcon: 'drawable/ic_pause_circle_fill',
-            label: 'Pause',
+            label: l10n.audioControlPause,
             action: MediaAction.pause,
           )
         else
-          const MediaControl(
+          MediaControl(
             androidIcon: 'drawable/ic_play_circle_fill',
-            label: 'Play',
+            label: l10n.audioControlPlay,
             action: MediaAction.play,
           ),
-        const MediaControl(
+        MediaControl(
           androidIcon: 'drawable/ic_skip_next',
-          label: 'Next',
+          label: l10n.audioControlNext,
           action: MediaAction.skipToNext,
         ),
         MediaControl.custom(

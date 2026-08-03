@@ -17,6 +17,7 @@ import '../providers/player_overlay_provider.dart';
 import '../providers/audio_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// App scaffold — the persistent shell with bottom nav + mini player.
 /// Equivalent to Layout.jsx in the React app.
@@ -127,8 +128,8 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
                       ),
                     ),
                     const SizedBox(height: 18),
-                    const Text(
-                      'Update Available',
+                    Text(
+                      AppLocalizations.of(context)!.appUpdateAvailable,
                       style: TextStyle(
                         fontSize: 19,
                         fontWeight: FontWeight.bold,
@@ -137,7 +138,7 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'Version ${info.latestVersion} is here! Update now to get the latest features.',
+                      AppLocalizations.of(context)!.appUpdateDesc(info.latestVersion),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 13,
@@ -161,8 +162,8 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
                         ),
                         elevation: 0,
                       ),
-                      child: const Text(
-                        'Download Update',
+                      child: Text(
+                        AppLocalizations.of(context)!.appUpdateDownload,
                         style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -290,32 +291,32 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
             children: [
               _NavItem(
                 icon: LucideIcons.home,
-                label: 'Home',
+                label: AppLocalizations.of(context)!.navHome,
                 isActive: currentIndex == 0,
                 onTap: () => context.go('/'),
               ),
               _NavItem(
                 icon: LucideIcons.library,
-                label: 'Library',
+                label: AppLocalizations.of(context)!.navLibrary,
                 isActive: currentIndex == 1,
                 onTap: () => context.go('/library'),
               ),
               _NavItem(
                 icon: LucideIcons.search,
-                label: 'Search',
+                label: AppLocalizations.of(context)!.navSearch,
                 isActive: currentIndex == 2,
                 onTap: () => context.go('/search'),
               ),
               _NavItem(
                 icon: LucideIcons.settings,
-                label: 'Settings',
+                label: AppLocalizations.of(context)!.navSettings,
                 isActive: currentIndex == 3,
                 onTap: () => context.go('/settings'),
               ),
               _NavItem(
                 icon: LucideIcons.user,
                 customIcon: profileIcon != null ? _ProfileBadge(child: profileIcon) : null,
-                label: 'Profile',
+                label: AppLocalizations.of(context)!.navProfile,
                 isActive: currentIndex == 4,
                 onTap: () => context.go('/profile'),
               ),

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import '../../core/theme/app_colors.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Offline screen — port of OfflineScreen.jsx.
 /// Shows animated glowing rings around Pulse logo, retry button, and go to downloads.
@@ -46,7 +47,7 @@ class _OfflineScreenState extends State<OfflineScreen>
     if (!isOnline) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Still offline. Please check your connection.', style: TextStyle(color: Colors.white)),
+          content: Text(AppLocalizations.of(context)!.offlineStillOffline, style: const TextStyle(color: Colors.white)),
           behavior: SnackBarBehavior.floating,
           backgroundColor: Colors.black,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -115,15 +116,15 @@ class _OfflineScreenState extends State<OfflineScreen>
                 const SizedBox(height: 20),
 
                 // ── Title ──
-                const Text("You're Offline",
-                    style: TextStyle(
+                Text(AppLocalizations.of(context)!.offlineTitle,
+                    style: const TextStyle(
                         fontSize: 24, fontWeight: FontWeight.w700,
                         color: AppColors.textPrimary)),
                 const SizedBox(height: 8),
-                const Text(
-                  'No internet connection found.\nCheck your network and try again.',
+                Text(
+                  AppLocalizations.of(context)!.offlineSubtitle,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 14, color: AppColors.textSecondary,
                       height: 1.5),
                 ),
@@ -151,7 +152,7 @@ class _OfflineScreenState extends State<OfflineScreen>
                             ),
                           )
                         : const Icon(LucideIcons.refreshCw, size: 18),
-                    label: Text(_isChecking ? 'Checking...' : 'Retry'),
+                    label: Text(_isChecking ? AppLocalizations.of(context)!.offlineChecking : AppLocalizations.of(context)!.offlineRetry),
                   ),
                 ),
 
@@ -170,7 +171,7 @@ class _OfflineScreenState extends State<OfflineScreen>
                           borderRadius: BorderRadius.circular(12)),
                     ),
                     icon: const Icon(LucideIcons.hardDrive, size: 18),
-                    label: const Text('Go to Downloads'),
+                    label: Text(AppLocalizations.of(context)!.offlineGoToDownloads),
                   ),
                 ),
               ],

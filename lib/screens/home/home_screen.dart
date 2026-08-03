@@ -16,6 +16,7 @@ import '../../widgets/glass_container.dart';
 import '../../widgets/skeleton_loader.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/playing_bars.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Home screen — port of Home.jsx.
 /// Shows greeting, recent playlists grid, and horizontal-scrolling song sections.
@@ -41,11 +42,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     await ref.read(statsProvider.notifier).loadStats('week', force: true);
   }
 
-  String _greeting() {
+  String _greeting(BuildContext context) {
     final hour = DateTime.now().hour;
-    if (hour < 12) return 'Good morning,';
-    if (hour < 18) return 'Good afternoon,';
-    return 'Good evening,';
+    if (hour < 12) return AppLocalizations.of(context)!.homeGreetingMorning;
+    if (hour < 18) return AppLocalizations.of(context)!.homeGreetingAfternoon;
+    return AppLocalizations.of(context)!.homeGreetingEvening;
   }
 
   @override
@@ -56,7 +57,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final audio = ref.watch(audioProvider);
     final homeState = ref.watch(homeProvider);
     final accent = Theme.of(context).colorScheme.primary;
-    final firstName = (auth.displayName ?? 'Member').split(' ').first;
+    final firstName = (auth.displayName ?? AppLocalizations.of(context)!.homeMember).split(' ').first;
     
     final stats = ref.watch(statsProvider);
     final speedDialSongs = stats.topSongs.map((s) => Song.fromJson(s)).toList();
@@ -78,7 +79,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
               // ── Recent Playlists ──
               if (playlists.where((p) => ((p.songs as List<dynamic>?) ?? []).isNotEmpty).isNotEmpty) ...[
-                Text('Recent Playlists',
+                Text(AppLocalizations.of(context)!.homeRecentPlaylists,
                     style: Theme.of(context).textTheme.titleLarge),
                 const SizedBox(height: 12),
                 _buildRecentPlaylistsGrid(playlists, audio),
@@ -88,7 +89,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               // ── Recently Played ──
               if (recentlyPlayedSongs.isNotEmpty) ...[
                 _buildSection(
-                  HomeSection(title: 'Recently played', items: recentlyPlayedSongs),
+                  HomeSection(title: AppLocalizations.of(context)!.homeRecentlyPlayed, items: recentlyPlayedSongs),
                   audio,
                 ),
               ],
@@ -96,7 +97,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               // ── Speed dial ──
               if (speedDialSongs.isNotEmpty) ...[
                 _buildSection(
-                  HomeSection(title: 'Speed dial', items: speedDialSongs.take(15).toList()),
+                  HomeSection(title: AppLocalizations.of(context)!.homeSpeedDial, items: speedDialSongs.take(15).toList()),
                   audio,
                 ),
               ],
@@ -134,7 +135,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(_greeting(),
+            Text(_greeting(context),
                 style: const TextStyle(
                     fontSize: 16, fontWeight: FontWeight.w500,
                     color: AppColors.textSecondary)),
@@ -164,12 +165,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           children: [
             const Icon(LucideIcons.radio, size: 48, color: AppColors.textSecondary),
             const SizedBox(height: 16),
-            const Text('No content available',
-                style: TextStyle(fontSize: 18, color: AppColors.textSecondary)),
+            Text(AppLocalizations.of(context)!.homeNoContent,
+                style: const TextStyle(fontSize: 18, color: AppColors.textSecondary)),
             const SizedBox(height: 8),
             TextButton(
               onPressed: _loadHome,
-              child: const Text('Refresh'),
+              child: Text(AppLocalizations.of(context)!.homeRefresh),
             ),
           ],
         ),
@@ -380,8 +381,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         padding: const EdgeInsets.symmetric(vertical: 48),
         child: Column(
           children: [
-            const Text("Couldn't load music feed.",
-                style: TextStyle(color: AppColors.textSecondary)),
+            Text(AppLocalizations.of(context)!.homeLoadError,
+                style: const TextStyle(color: AppColors.textSecondary)),
             const SizedBox(height: 12),
             OutlinedButton(
               onPressed: _loadHome,
@@ -390,7 +391,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
               ),
-              child: const Text('Retry', style: TextStyle(fontSize: 13)),
+              child: Text(AppLocalizations.of(context)!.homeRetry, style: const TextStyle(fontSize: 13)),
             ),
           ],
         ),

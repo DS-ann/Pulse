@@ -10,6 +10,8 @@ import '../../services/spotify_auth_service.dart';
 
 import '../../widgets/glass_container.dart';
 import '../../widgets/spotify_playlists_sheet.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 /// Import Playlist screen — port of ImportPlaylist.jsx.
 /// Paste YT Music URLs to import playlists.
@@ -38,7 +40,7 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text('Successfully Connected to Spotify!', style: TextStyle(color: Colors.white)),
+            content: Text(AppLocalizations.of(context)!.importSuccess, style: const TextStyle(color: Colors.white)),
             backgroundColor: Colors.black,
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -57,7 +59,7 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Failed to connect: $e', style: const TextStyle(color: Colors.white)),
+            content: Text(AppLocalizations.of(context)!.importFailed(ErrorMapper.getLocalizedError(context, e)), style: const TextStyle(color: Colors.white)),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -86,8 +88,8 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
                   constraints: const BoxConstraints(),
                 ),
                 const SizedBox(width: 12),
-                const Text('Connect Spotify',
-                    style: TextStyle(
+                Text(AppLocalizations.of(context)!.importTitle,
+                    style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.w700)),
               ],
             ),
@@ -105,18 +107,18 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
                     children: [
                       Image.asset('assets/spotify.logo.png', width: 20, height: 20),
                       const SizedBox(width: 8),
-                      const Text('Setup Spotify Integration',
-                          style: TextStyle(fontSize: 15,
+                      Text(AppLocalizations.of(context)!.importSetupTitle,
+                          style: const TextStyle(fontSize: 15,
                               fontWeight: FontWeight.w600)),
                     ],
                   ),
                   const SizedBox(height: 8),
-                  const Text(
-                    'To bypass Spotify\'s strict rate limits and import all your playlists instantly, you must use your own free developer key. Follow these simple steps:',
-                    style: TextStyle(fontSize: 13, color: AppColors.textSecondary, height: 1.5),
+                  Text(
+                    AppLocalizations.of(context)!.importSetupDesc,
+                    style: const TextStyle(fontSize: 13, color: AppColors.textSecondary, height: 1.5),
                   ),
                   const SizedBox(height: 16),
-                  _buildStep(context, '1', 'Open the Spotify Developer Dashboard.', 
+                  _buildStep(context, '1', AppLocalizations.of(context)!.importStep1, 
                     action: TextButton(
                       onPressed: () => launchUrl(Uri.parse('https://developer.spotify.com/dashboard'), mode: LaunchMode.externalApplication),
                       style: TextButton.styleFrom(
@@ -128,9 +130,9 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
                       child: Text('developer.spotify.com', style: TextStyle(color: accent, decoration: TextDecoration.underline)),
                     )
                   ),
-                  _buildStep(context, '2', 'Log in and click "Create app".'),
-                  _buildStep(context, '3', 'Fill in any App Name and Description.'),
-                  _buildStep(context, '4', 'Under "Redirect URIs", paste the following exact URL:',
+                  _buildStep(context, '2', AppLocalizations.of(context)!.importStep2),
+                  _buildStep(context, '3', AppLocalizations.of(context)!.importStep3),
+                  _buildStep(context, '4', AppLocalizations.of(context)!.importStep4,
                     action: Container(
                       margin: const EdgeInsets.only(top: 8),
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -146,7 +148,7 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
                               Clipboard.setData(ClipboardData(text: 'pulse://spotify-callback'));
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: const Text('Redirect URI Copied!', style: TextStyle(color: Colors.white)),
+                                  content: Text(AppLocalizations.of(context)!.importRedirectCopied, style: const TextStyle(color: Colors.white)),
                                   backgroundColor: accent,
                                   duration: const Duration(seconds: 2),
                                   behavior: SnackBarBehavior.floating,
@@ -163,7 +165,7 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
                       ),
                     )
                   ),
-                  _buildStep(context, '5', 'Save the app, copy your "Client ID" from settings, and paste it below.'),
+                  _buildStep(context, '5', AppLocalizations.of(context)!.importStep5),
                   
                   Container(
                     margin: const EdgeInsets.only(top: 8, left: 32, bottom: 4),
@@ -180,7 +182,7 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
                         const SizedBox(width: 8),
                         Expanded(
                           child: Text(
-                            'Important: The Spotify account used to create this developer app must have an active Premium subscription.',
+                            AppLocalizations.of(context)!.importImportant,
                             style: TextStyle(fontSize: 12, color: accent, height: 1.4, fontWeight: FontWeight.w500),
                           ),
                         ),
@@ -211,9 +213,9 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
                     child: TextField(
                       controller: _clientIdC,
                       style: const TextStyle(fontSize: 13),
-                      decoration: const InputDecoration(
-                        hintText: 'Paste your Spotify Client ID here...',
-                        hintStyle: TextStyle(fontSize: 12,
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)!.importClientIdHint,
+                        hintStyle: const TextStyle(fontSize: 12,
                             color: AppColors.textSecondary),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(horizontal: 12),
@@ -237,8 +239,8 @@ class _ImportScreenState extends ConsumerState<ImportScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12)),
                 ),
-                child: const Text('Connect & Load Library',
-                    style: TextStyle(
+                child: Text(AppLocalizations.of(context)!.importConnectButton,
+                    style: const TextStyle(
                         color: Colors.black, fontSize: 14, fontWeight: FontWeight.w600)),
               ),
             ),

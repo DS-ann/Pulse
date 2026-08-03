@@ -22,6 +22,7 @@ import '../../widgets/glass_container.dart';
 import '../../widgets/playing_bars.dart';
 import 'downloads_screen.dart';
 import 'downloading_screen.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Library screen — port of Library.jsx.
 /// Shows user playlists with sort, grid/list toggle, FAB for create/import.
@@ -190,7 +191,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Library',
+                          Text(AppLocalizations.of(context)!.libraryTitle,
                               style: Theme.of(context).textTheme.headlineLarge),
                           Row(
                             children: [
@@ -248,7 +249,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                         ),
                                         const SizedBox(width: 8),
                                         Text(
-                                          hasActive ? 'Pause all' : 'Resume all',
+                                          hasActive ? AppLocalizations.of(context)!.libraryPauseAll : AppLocalizations.of(context)!.libraryResumeAll,
                                           style: const TextStyle(
                                             fontSize: 13, 
                                             fontWeight: FontWeight.w500,
@@ -286,7 +287,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                   children: [
                                     Icon(LucideIcons.listMusic, size: 16, color: _currentIndex == 0 ? accent : AppColors.textSecondary),
                                     const SizedBox(width: 6),
-                                    Text('Playlists', style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 0 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 0 ? accent : AppColors.textSecondary)),
+                                    Text(AppLocalizations.of(context)!.libraryTabPlaylists, style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 0 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 0 ? accent : AppColors.textSecondary)),
                                   ],
                                 ),
                               ),
@@ -307,7 +308,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                   children: [
                                     Icon(LucideIcons.hardDrive, size: 16, color: _currentIndex == 1 ? accent : AppColors.textSecondary),
                                     const SizedBox(width: 6),
-                                    Text('Downloads', style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 1 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 1 ? accent : AppColors.textSecondary)),
+                                    Text(AppLocalizations.of(context)!.libraryTabDownloads, style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 1 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 1 ? accent : AppColors.textSecondary)),
                                   ],
                                 ),
                               ),
@@ -328,7 +329,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                   children: [
                                     Icon(LucideIcons.download, size: 16, color: _currentIndex == 2 ? accent : AppColors.textSecondary),
                                     const SizedBox(width: 6),
-                                    Text('Downloading', style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 2 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 2 ? accent : AppColors.textSecondary)),
+                                    Text(AppLocalizations.of(context)!.libraryTabDownloading, style: TextStyle(fontSize: 14, fontWeight: _currentIndex == 2 ? FontWeight.w600 : FontWeight.w500, color: _currentIndex == 2 ? accent : AppColors.textSecondary)),
                                     if (activeCount > 0) ...[
                                       const SizedBox(width: 6),
                                       Container(
@@ -394,10 +395,8 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                         // Title
                                         Text(
                                           task.status == 'done'
-                                              ? 'Imported  ${task.name}'
-                                              : task.status == 'queued'
-                                                  ? task.name
-                                                  : task.name,
+                                              ? AppLocalizations.of(context)!.libraryImportedTask(task.name)
+                                              : task.name,
                                           style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
                                           maxLines: 1, overflow: TextOverflow.ellipsis,
                                         ),
@@ -405,15 +404,15 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                         // Subtitle
                                         Text(
                                           task.status == 'queued'
-                                              ? 'Waiting in queue...'
+                                              ? AppLocalizations.of(context)!.libraryImportWaiting
                                               : task.status == 'fetching'
-                                                  ? 'Fetching playlist...'
+                                                  ? AppLocalizations.of(context)!.libraryImportFetching
                                                   : task.status == 'matching'
-                                                      ? '${task.processedSongs}/${task.totalSongs} processed · ${task.matchedSongs} matched'
+                                                      ? AppLocalizations.of(context)!.libraryImportProcessed(task.processedSongs.toString(), task.totalSongs.toString(), task.matchedSongs.toString())
                                                       : task.status == 'saving'
-                                                          ? 'Saving to library...'
+                                                          ? AppLocalizations.of(context)!.libraryImportSaving
                                                           : task.status == 'done'
-                                                              ? '${task.matchedSongs > 0 ? "${task.matchedSongs} songs" : "All songs"} added · tap × to dismiss'
+                                                              ? (task.matchedSongs > 0 ? AppLocalizations.of(context)!.libraryImportDoneSongs(task.matchedSongs.toString()) : AppLocalizations.of(context)!.libraryImportDoneAll)
                                                               : task.status == 'error'
                                                                   ? task.name
                                                                   : '',
@@ -525,8 +524,8 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                         child: const Icon(LucideIcons.plus, size: 20, color: Color(0xFF050505)),
                       ),
                       const SizedBox(width: 6),
-                      const Text('Add',
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Color(0xFF050505))),
+                      Text(AppLocalizations.of(context)!.libraryAddButton,
+                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Color(0xFF050505))),
                     ],
                   ),
                 ),
@@ -584,12 +583,12 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         _SortOption(
-                          label: 'Recently Added', isActive: (_currentIndex == 0 ? _sortKey : _dlSortKey) == 'recent',
+                          label: AppLocalizations.of(context)!.librarySortRecent, isActive: (_currentIndex == 0 ? _sortKey : _dlSortKey) == 'recent',
                           sortOrder: _currentIndex == 0 ? _sortOrder : _dlSortOrder,
                           onTap: () => _handleSort('recent'),
                         ),
                         _SortOption(
-                          label: 'Alphabetical', isActive: (_currentIndex == 0 ? _sortKey : _dlSortKey) == 'alpha',
+                          label: AppLocalizations.of(context)!.librarySortAlpha, isActive: (_currentIndex == 0 ? _sortKey : _dlSortKey) == 'alpha',
                           sortOrder: _currentIndex == 0 ? _sortOrder : _dlSortOrder,
                           onTap: () => _handleSort('alpha'),
                         ),
@@ -646,10 +645,10 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text('Your library is empty.',
-              style: TextStyle(color: AppColors.textSecondary)),
+          Text(AppLocalizations.of(context)!.libraryEmptyTitle,
+              style: const TextStyle(color: AppColors.textSecondary)),
           const SizedBox(height: 4),
-          Text('Tap "Add" to start your first Pulse.',
+          Text(AppLocalizations.of(context)!.libraryEmptyDesc,
               style: const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
         ],
       ),
@@ -710,7 +709,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     if (pl.name == 'Liked Songs') {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: const Text('Cannot rename the Liked Songs playlist.', style: TextStyle(color: Colors.white)),
+                          content: Text(AppLocalizations.of(context)!.libraryRenameLikedError, style: const TextStyle(color: Colors.white)),
                           backgroundColor: Colors.black,
                           behavior: SnackBarBehavior.floating,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -721,11 +720,11 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                       setState(() { _editingPlaylist = pl; _showRenameModal = true; });
                     }
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     child: Row(children: [
-                      Icon(LucideIcons.edit2, size: 17), SizedBox(width: 14),
-                      Text('Rename', style: TextStyle(fontSize: 15)),
+                      const Icon(LucideIcons.edit2, size: 17), const SizedBox(width: 14),
+                      Text(AppLocalizations.of(context)!.libraryRename, style: const TextStyle(fontSize: 15)),
                     ]),
                   ),
                 ),
@@ -741,11 +740,11 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                       _showEditSongsModal = true;
                     });
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     child: Row(children: [
-                      Icon(LucideIcons.listMusic, size: 17), SizedBox(width: 14),
-                      Text('Edit Songs', style: TextStyle(fontSize: 15)),
+                      const Icon(LucideIcons.listMusic, size: 17), const SizedBox(width: 14),
+                      Text(AppLocalizations.of(context)!.libraryEditSongs, style: const TextStyle(fontSize: 15)),
                     ]),
                   ),
                 ),
@@ -758,7 +757,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     if (pl.name == 'Liked Songs') {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: const Text('Cannot delete the Liked Songs playlist.', style: TextStyle(color: Colors.white)),
+                          content: Text(AppLocalizations.of(context)!.libraryDeleteLikedError, style: const TextStyle(color: Colors.white)),
                           backgroundColor: Colors.black,
                           behavior: SnackBarBehavior.floating,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -768,12 +767,12 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                       setState(() { _editingPlaylist = pl; _showDeleteModal = true; });
                     }
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     child: Row(children: [
-                      Icon(LucideIcons.trash2, size: 17, color: AppColors.danger),
-                      SizedBox(width: 14),
-                      Text('Delete', style: TextStyle(fontSize: 15, color: AppColors.danger)),
+                      const Icon(LucideIcons.trash2, size: 17, color: AppColors.danger),
+                      const SizedBox(width: 14),
+                      Text(AppLocalizations.of(context)!.libraryDelete, style: const TextStyle(fontSize: 15, color: AppColors.danger)),
                     ]),
                   ),
                 ),
@@ -813,11 +812,13 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Edit Songs',
-                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                              Text(AppLocalizations.of(context)!.libraryEditSongsTitle,
+                                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                               const SizedBox(height: 2),
                               Text(
-                                '${_editSongsList.length} song${_editSongsList.length != 1 ? 's' : ''}',
+                                _editSongsList.length == 1 
+                                    ? AppLocalizations.of(context)!.libraryEditSongsCountSingle('1')
+                                    : AppLocalizations.of(context)!.libraryEditSongsCountPlural(_editSongsList.length.toString()),
                                 style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
                               ),
                             ],
@@ -826,7 +827,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                             children: [
                               TextButton(
                                 onPressed: () => setState(() => _showEditSongsModal = false),
-                                child: const Text('Cancel'),
+                                child: Text(AppLocalizations.of(context)!.libraryCancel),
                               ),
                               const SizedBox(width: 8),
                               ElevatedButton(
@@ -845,7 +846,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                     setState(() => _showEditSongsModal = false);
                                   }
                                 },
-                                child: const Text('Save'),
+                                child: Text(AppLocalizations.of(context)!.librarySave),
                               ),
                             ],
                           ),
@@ -857,10 +858,10 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     // Song list
                     Flexible(
                       child: _editSongsList.isEmpty
-                          ? const Padding(
-                              padding: EdgeInsets.all(32),
-                              child: Text('No songs in this playlist.',
-                                  style: TextStyle(color: AppColors.textSecondary)),
+                          ? Padding(
+                              padding: const EdgeInsets.all(32),
+                              child: Text(AppLocalizations.of(context)!.libraryNoSongs,
+                                  style: const TextStyle(color: AppColors.textSecondary)),
                             )
                           : ListView.builder(
                               shrinkWrap: true,
@@ -956,11 +957,11 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('Add to Library',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                Text(AppLocalizations.of(context)!.libraryAddOptionsTitle,
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 4),
-                const Text('Choose how you want to expand your Pulse',
-                    style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                Text(AppLocalizations.of(context)!.libraryAddOptionsDesc,
+                    style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                 const SizedBox(height: 20),
 
 
@@ -970,8 +971,8 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     width: 20, height: 20,
                     errorBuilder: (_, __, ___) => const Icon(LucideIcons.radioReceiver, size: 20),
                   ),
-                  label: 'Import from Pulse',
-                  subtitle: 'Paste a Pulse playlist URL',
+                  label: AppLocalizations.of(context)!.libraryImportPulse,
+                  subtitle: AppLocalizations.of(context)!.libraryImportPulseDesc,
                   onTap: () {
                     setState(() {
                       _showAddOptions = false;
@@ -988,8 +989,8 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     width: 20, height: 20,
                     errorBuilder: (_, __, ___) => const Icon(LucideIcons.music2, size: 20),
                   ),
-                  label: 'Import from YT Music',
-                  subtitle: 'Paste a PUBLIC playlist URL',
+                  label: AppLocalizations.of(context)!.libraryImportYtm,
+                  subtitle: AppLocalizations.of(context)!.libraryImportYtmDesc,
                   comingSoon: false,
                   onTap: () {
                     setState(() {
@@ -1007,8 +1008,8 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     width: 20, height: 20,
                     errorBuilder: (_, __, ___) => const Icon(LucideIcons.disc, size: 20, color: Color(0xFF1DB954)),
                   ),
-                  label: 'Import from Spotify',
-                  subtitle: 'Connect your Spotify',
+                  label: AppLocalizations.of(context)!.libraryImportSpotify,
+                  subtitle: AppLocalizations.of(context)!.libraryImportSpotifyDesc,
                   comingSoon: false,
                   onTap: () {
                     setState(() {
@@ -1020,7 +1021,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () => setState(() => _showAddOptions = false),
-                  child: const Text('Close'),
+                  child: Text(AppLocalizations.of(context)!.libraryClose),
                 ),
               ],
             ),
@@ -1057,19 +1058,19 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                   const SizedBox(height: 12),
                   Text(
                     isPulse
-                        ? 'Import from Pulse'
+                        ? AppLocalizations.of(context)!.libraryImportPulse
                         : isYtm
-                            ? 'Import from YouTube Music'
-                            : 'Import from Spotify (≤100)',
+                            ? AppLocalizations.of(context)!.libraryImportYtmFull
+                            : AppLocalizations.of(context)!.libraryImportSpotifyFull,
                     style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     isPulse
-                        ? 'Paste a Pulse playlist URL'
+                        ? AppLocalizations.of(context)!.libraryImportPulseDesc
                         : isYtm
-                            ? 'Paste a PUBLIC YouTube Music playlist or album URL'
-                            : 'Paste a public Spotify playlist URL below',
+                            ? AppLocalizations.of(context)!.libraryImportYtmUrlDesc
+                            : AppLocalizations.of(context)!.libraryImportSpotifyUrlDesc,
                     style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
                     textAlign: TextAlign.center,
                   ),
@@ -1079,10 +1080,10 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     autofocus: true,
                     decoration: InputDecoration(
                       hintText: isPulse
-                          ? 'https://pulse.app/playlist/...'
+                          ? AppLocalizations.of(context)!.libraryImportPulseHint
                           : isYtm
-                              ? 'https://music.youtube.com/playlist?list=...'
-                              : 'https://open.spotify.com/playlist/...',
+                              ? AppLocalizations.of(context)!.libraryImportYtmHint
+                              : AppLocalizations.of(context)!.libraryImportSpotifyHint,
                       hintStyle: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
                       filled: true, fillColor: AppColors.surface,
                       border: OutlineInputBorder(
@@ -1096,7 +1097,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     children: [
                       TextButton(
                         onPressed: () => setState(() => _showImportModal = false),
-                        child: const Text('Cancel'),
+                        child: Text(AppLocalizations.of(context)!.libraryCancel),
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
@@ -1115,7 +1116,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                 } else if (mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content: const Text('Failed to import Pulse playlist', style: TextStyle(color: Colors.white)),
+                                      content: Text(AppLocalizations.of(context)!.libraryImportFailed, style: const TextStyle(color: Colors.white)),
                                       backgroundColor: Colors.black,
                                       behavior: SnackBarBehavior.floating,
                                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -1130,7 +1131,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                           }
                         },
                         style: ElevatedButton.styleFrom(backgroundColor: accent, foregroundColor: AppColors.background),
-                        child: const Text('Import'),
+                        child: Text(AppLocalizations.of(context)!.libraryImportBtn),
                       ),
                     ],
                   ),
@@ -1170,17 +1171,17 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('New Playlist',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                Text(AppLocalizations.of(context)!.libraryCreateTitle,
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
-                const Text('What should we call your new playlist?',
-                    style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                Text(AppLocalizations.of(context)!.libraryCreateDesc,
+                    style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                 const SizedBox(height: 16),
                 TextField(
                   controller: _createController,
                   autofocus: true,
                   decoration: InputDecoration(
-                    hintText: 'e.g. Midnight Rides',
+                    hintText: AppLocalizations.of(context)!.libraryCreateHint,
                     filled: true, fillColor: AppColors.surface,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -1193,7 +1194,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                   children: [
                     TextButton(
                       onPressed: () => setState(() => _showCreateModal = false),
-                      child: const Text('Cancel'),
+                      child: Text(AppLocalizations.of(context)!.libraryCancel),
                     ),
                     const SizedBox(width: 8),
                     ElevatedButton(
@@ -1206,7 +1207,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                           setState(() => _showCreateModal = false);
                         }
                       },
-                      child: const Text('Create'),
+                      child: Text(AppLocalizations.of(context)!.libraryCreateBtn),
                     ),
                   ],
                 ),
@@ -1231,11 +1232,11 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('Rename Playlist',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                Text(AppLocalizations.of(context)!.libraryRenameTitle,
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
-                const Text('Enter a new name for your playlist.',
-                    style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                Text(AppLocalizations.of(context)!.libraryRenameDesc,
+                    style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                 const SizedBox(height: 16),
                 TextField(
                   controller: _renameController, autofocus: true,
@@ -1252,7 +1253,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                   children: [
                     TextButton(
                       onPressed: () => setState(() => _showRenameModal = false),
-                      child: const Text('Cancel'),
+                      child: Text(AppLocalizations.of(context)!.libraryCancel),
                     ),
                     const SizedBox(width: 8),
                     ElevatedButton(
@@ -1265,7 +1266,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                           setState(() => _showRenameModal = false);
                         }
                       },
-                      child: const Text('Rename'),
+                      child: Text(AppLocalizations.of(context)!.libraryRenameBtn),
                     ),
                   ],
                 ),
@@ -1292,11 +1293,11 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
               children: [
                 const Icon(LucideIcons.trash2, size: 32, color: AppColors.danger),
                 const SizedBox(height: 12),
-                const Text('Delete Playlist?',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                Text(AppLocalizations.of(context)!.libraryDeleteTitle,
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
                 Text(
-                  'Are you sure you want to delete "${_editingPlaylist?.name}"? This playlist will be lost forever.',
+                  AppLocalizations.of(context)!.libraryDeleteDesc(_editingPlaylist?.name ?? ''),
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
                 ),
@@ -1306,7 +1307,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                   children: [
                     TextButton(
                       onPressed: () => setState(() => _showDeleteModal = false),
-                      child: const Text('Cancel'),
+                      child: Text(AppLocalizations.of(context)!.libraryCancel),
                     ),
                     const SizedBox(width: 8),
                     ElevatedButton(
@@ -1320,7 +1321,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                           setState(() => _showDeleteModal = false);
                         }
                       },
-                      child: const Text('Delete'),
+                      child: Text(AppLocalizations.of(context)!.libraryDeleteBtn),
                     ),
                   ],
                 ),
@@ -1345,7 +1346,7 @@ class _SortButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final label = sortKey == 'alpha' ? 'A-Z' : 'Recent';
+    final label = sortKey == 'alpha' ? AppLocalizations.of(context)!.librarySortLabelAlpha : AppLocalizations.of(context)!.librarySortLabelRecent;
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -1463,7 +1464,7 @@ class _PlaylistListTile extends ConsumerWidget {
                         maxLines: 1, overflow: TextOverflow.ellipsis,
                         style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
                     const SizedBox(height: 2),
-                    Text('${songs.length} Songs',
+                    Text(AppLocalizations.of(context)!.librarySongsCount(songs.length.toString()),
                         style: const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
                   ],
                 ),
@@ -1565,7 +1566,7 @@ class _PlaylistGridCard extends ConsumerWidget {
                   children: [
                     Text(playlist.name, maxLines: 1, overflow: TextOverflow.ellipsis,
                         style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
-                    Text('${songs.length} Songs',
+                    Text(AppLocalizations.of(context)!.librarySongsCount(songs.length.toString()),
                         style: const TextStyle(fontSize: 11, color: AppColors.textSecondary)),
                   ],
                 ),
@@ -1641,7 +1642,7 @@ class _AddOptionItem extends StatelessWidget {
                     border: Border.all(color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.3)),
                   ),
                   child: Text(
-                    'Coming Soon',
+                    AppLocalizations.of(context)!.libraryComingSoon,
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w700,

@@ -17,8 +17,7 @@ import '../../widgets/glass_container.dart';
 import '../../widgets/song_tile.dart';
 import '../../widgets/song_action_sheet.dart';
 import 'package:share_plus/share_plus.dart';
-
-
+import 'package:pulse/l10n/app_localizations.dart';
 /// Playlist/Album screen — pixel-perfect port of PlaylistView.jsx.
 /// Handles both Firestore playlists and YTM playlists/albums.
 class PlaylistScreen extends ConsumerStatefulWidget {
@@ -67,8 +66,9 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
 
     if (id == '__downloads__') {
       setState(() { _offlineLoading = true; _ytmError = false; });
+      final l10nDownloads = AppLocalizations.of(context)!.playlistDownloads;
       ref.read(downloadProvider.notifier).getAllDownloadedSongs().then((songs) {
-        final pl = Playlist(id: id, name: 'Downloads', type: 'OFFLINE_PLAYLIST', songs: songs, thumbnail: songs.isNotEmpty ? songs.first.thumbnail : null);
+        final pl = Playlist(id: id, name: l10nDownloads, type: 'OFFLINE_PLAYLIST', songs: songs, thumbnail: songs.isNotEmpty ? songs.first.thumbnail : null);
         if (mounted) setState(() { _offlinePlaylist = pl; _offlineLoading = false; });
       });
       return;
@@ -76,8 +76,9 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
 
     if (id.startsWith('__pl__')) {
       setState(() { _offlineLoading = true; _ytmError = false; });
+      final l10nOffline = AppLocalizations.of(context)!.playlistOffline;
       ref.read(downloadProvider.notifier).getAllOfflinePlaylists().then((lists) async {
-        var pl = lists.firstWhere((p) => p.id == id, orElse: () => Playlist(id: id, name: 'Offline Playlist'));
+        var pl = lists.firstWhere((p) => p.id == id, orElse: () => Playlist(id: id, name: l10nOffline));
         final tracks = await ref.read(downloadProvider.notifier).getPlaylistTracks(id);
         pl = pl.copyWith(songs: tracks, thumbnail: tracks.isNotEmpty ? tracks.first.thumbnail : pl.thumbnail);
         if (mounted) setState(() { _offlinePlaylist = pl; _offlineLoading = false; });
@@ -160,7 +161,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
     final totalMinutes = (sourceSongs.length * 3.5).round();
     final hours = totalMinutes ~/ 60;
     final mins = totalMinutes % 60;
-    final durationText = hours > 0 ? '${hours}h ${mins}min' : '${mins}min';
+    final durationText = hours > 0 ? AppLocalizations.of(context)!.playlistDurationHours(hours.toString(), mins.toString()) : AppLocalizations.of(context)!.playlistDurationMins(mins.toString());
 
     // Cover thumbnail
     final coverThumb = isYtm
@@ -203,9 +204,9 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
                             Expanded(
                               child: TextField(
                                 style: const TextStyle(fontSize: 13),
-                                decoration: const InputDecoration(
-                                  hintText: 'Find on this page',
-                                  hintStyle: TextStyle(
+                                decoration: InputDecoration(
+                                  hintText: AppLocalizations.of(context)!.playlistFindOnPage,
+                                  hintStyle: const TextStyle(
                                       fontSize: 13, color: AppColors.textSecondary),
                                   border: InputBorder.none,
                                   isDense: true,
@@ -263,7 +264,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
                               const Icon(LucideIcons.globe,
                                   size: 12, color: AppColors.textSecondary),
                               const SizedBox(width: 4),
-                              Text('${sourceSongs.length} songs • $durationText',
+                              Text(AppLocalizations.of(context)!.playlistSongsAndDuration(sourceSongs.length.toString(), durationText),
                                   style: const TextStyle(
                                       fontSize: 11, color: AppColors.textSecondary)),
                             ],
@@ -298,7 +299,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
                             const Icon(LucideIcons.arrowUpDown,
                                 size: 16, color: AppColors.textSecondary),
                             const SizedBox(width: 8),
-                            Text(_sortKey == 'alpha' ? 'A-Z' : 'Recent',
+                            Text(_sortKey == 'alpha' ? AppLocalizations.of(context)!.playlistSortAlpha : AppLocalizations.of(context)!.playlistSortRecent,
                                 style: const TextStyle(
                                     fontSize: 13, color: AppColors.textSecondary)),
                             const SizedBox(width: 4),
@@ -384,10 +385,10 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
                                 const SizedBox(height: 12),
                                 Text(
                                   _trackFilter.isNotEmpty
-                                      ? 'No matches found.'
+                                      ? AppLocalizations.of(context)!.playlistNoMatches
                                       : isYtm
-                                          ? 'No tracks in this playlist.'
-                                          : 'No songs yet.',
+                                          ? AppLocalizations.of(context)!.playlistNoTracks
+                                          : AppLocalizations.of(context)!.playlistNoSongsYet,
                                   style: const TextStyle(
                                       color: AppColors.textSecondary),
                                 ),
@@ -442,8 +443,8 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                _sortOption('Recently Added', 'recent', accent),
-                                _sortOption('Alphabetical', 'alpha', accent),
+                                _sortOption(AppLocalizations.of(context)!.playlistSortRecentlyAdded, 'recent', accent),
+                                _sortOption(AppLocalizations.of(context)!.playlistSortAlphabetical, 'alpha', accent),
                               ],
                             ),
                           ),
@@ -533,7 +534,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
             children: [
               Expanded(
                 child: Text(
-                  'Downloading $newDownloadsCount song${newDownloadsCount > 1 ? 's' : ''}',
+                  AppLocalizations.of(context)!.playlistDownloadingSongs(newDownloadsCount),
                   style: const TextStyle(color: Colors.white),
                 ),
               ),
@@ -542,7 +543,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   context.push('/downloading');
                 },
-                child: Text('VIEW', style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold)),
+                child: Text(AppLocalizations.of(context)!.playlistView, style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold)),
               ),
             ],
           ),
@@ -555,9 +556,9 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text(
-            'All songs are already downloaded',
-            style: TextStyle(color: Colors.white),
+          content: Text(
+            AppLocalizations.of(context)!.playlistAllDownloaded,
+            style: const TextStyle(color: Colors.white),
           ),
           behavior: SnackBarBehavior.floating,
           backgroundColor: Colors.black,
@@ -571,7 +572,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
   void _sharePlaylist(String name, bool isYtm) {
     final id = widget.playlistId;
     final url = 'https://pulse.app/playlist/$id';
-    Share.share('Check out "$name" on Pulse!\n$url');
+    Share.share(AppLocalizations.of(context)!.playlistShareText(name, url));
   }
 
   void _showMenu(Song song, int index, bool isOwner) {
@@ -590,7 +591,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
               .removeSongFromPlaylist(widget.playlistId, index);
         },
         showRemoveDownload: isOffline,
-        removeDownloadLabel: isDownloadsPlaylist ? 'Remove from Downloads' : 'Remove from Playlist',
+        removeDownloadLabel: isDownloadsPlaylist ? AppLocalizations.of(context)!.playlistRemoveFromDownloads : AppLocalizations.of(context)!.playlistRemoveFromPlaylist,
         onRemoveDownload: () async {
           if (isDownloadsPlaylist) {
             // Delete from device memory entirely
@@ -647,12 +648,12 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text("Couldn't load this playlist.",
+              Text(AppLocalizations.of(context)!.playlistLoadError,
                   style: TextStyle(color: AppColors.textSecondary)),
               const SizedBox(height: 12),
               TextButton(
                 onPressed: () => context.pop(),
-                child: const Text('← Go back'),
+                child: Text(AppLocalizations.of(context)!.playlistGoBack),
               ),
             ],
           ),

@@ -6,6 +6,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_colors.dart';
 import '../../providers/auth_provider.dart';
 import '../../widgets/glass_container.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 /// Login screen — pixel-perfect port of Login.jsx.
 /// Email auth with sign-up toggle, glassmorphic card, branded header.
@@ -39,15 +41,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final password = _passwordC.text;
 
     if (_isSignup && name.isEmpty) {
-      setState(() => _error = 'Please enter your name');
+      setState(() => _error = AppLocalizations.of(context)!.loginErrName);
       return;
     }
     if (email.isEmpty) {
-      setState(() => _error = 'Please enter your email address');
+      setState(() => _error = AppLocalizations.of(context)!.loginErrEmail);
       return;
     }
     if (password.isEmpty) {
-      setState(() => _error = 'Please enter your password');
+      setState(() => _error = AppLocalizations.of(context)!.loginErrPassword);
       return;
     }
 
@@ -62,12 +64,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       if (mounted) context.go('/');
     } catch (e) {
       if (mounted) {
-        setState(() => _error = e.toString()
-            .replaceAll('Exception: ', '')
-            .replaceAll(RegExp(r'\[.*?\]'), '')
-            .replaceAll('Firebase: ', '')
-            .replaceAll(RegExp(r'\(auth/.*\)'), '')
-            .trim());
+        setState(() => _error = ErrorMapper.getLocalizedError(context, e));
       }
     } finally {
       if (mounted) setState(() => _submitting = false);
@@ -98,16 +95,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 Transform.translate(
                   offset: const Offset(7, 0),
-                  child: const Text('PULSE',
-                      style: TextStyle(
+                  child: Text(AppLocalizations.of(context)!.loginAppName,
+                      style: const TextStyle(
                           fontSize: 38,
                           fontWeight: FontWeight.w900,
                           letterSpacing: 14,
                           color: Colors.white)),
                 ),
                 const SizedBox(height: 4),
-                const Text('Feel Every Beat!',
-                    style: TextStyle(
+                Text(AppLocalizations.of(context)!.loginSubtitle,
+                    style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
                         color: AppColors.textSecondary)),
@@ -125,11 +122,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text('Made with ❤️ by ',
+                          Text(AppLocalizations.of(context)!.loginMadeWithHeartBy,
                               style: TextStyle(
                                   fontSize: 12,
                                   color: AppColors.textSecondary.withValues(alpha: 0.7))),
-                          Text('Ashutosh Pathak',
+                          Text(AppLocalizations.of(context)!.loginAuthorName,
                               style: TextStyle(
                                   fontSize: 12, fontWeight: FontWeight.bold, color: accent)),
                         ],
@@ -144,20 +141,20 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 if (_isSignup)
                   _buildInput(
                     controller: _nameC,
-                    hint: 'Your name',
+                    hint: AppLocalizations.of(context)!.loginHintName,
                   ),
 
                 // ── Email ──
                 _buildInput(
                   controller: _emailC,
-                  hint: 'Email address',
+                  hint: AppLocalizations.of(context)!.loginHintEmail,
                   keyboardType: TextInputType.emailAddress,
                 ),
 
                 // ── Password ──
                 _buildInput(
                   controller: _passwordC,
-                  hint: 'Password',
+                  hint: AppLocalizations.of(context)!.loginHintPassword,
                   obscure: !_showPassword,
                   suffix: GestureDetector(
                     onTap: () => setState(() => _showPassword = !_showPassword),
@@ -189,21 +186,23 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       onPressed: () async {
                         final email = _emailC.text.trim();
                         if (email.isEmpty) {
-                          setState(() => _error = 'Please enter your email to reset password');
+                          setState(() => _error = AppLocalizations.of(context)!.loginErrEmailReset);
                           return;
                         }
                         try {
                           await ref.read(authProvider.notifier).resetPassword(email);
                           if (context.mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Password reset email sent! Check your inbox.'),
-                                backgroundColor: Colors.green,
-                              ),
+                                SnackBar(
+                                  content: Text(AppLocalizations.of(context)!.loginResetSent),
+                                  backgroundColor: Colors.green,
+                                ),
                             );
                           }
                         } catch (e) {
-                          setState(() => _error = e.toString().replaceAll(RegExp(r'\[.*?\]'), '').trim());
+                          if (mounted) {
+                            setState(() => _error = ErrorMapper.getLocalizedError(context, e));
+                          }
                         }
                       },
                       style: TextButton.styleFrom(
@@ -212,7 +211,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
                       child: Text(
-                        'Forgot Password?',
+                        AppLocalizations.of(context)!.loginForgotPwd,
                         style: TextStyle(fontSize: 12, color: accent, fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -238,7 +237,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             child: CircularProgressIndicator(
                                 strokeWidth: 2, color: Colors.white))
                         : Text(
-                            _isSignup ? 'Create Account' : 'Sign In',
+                            _isSignup ? AppLocalizations.of(context)!.loginBtnSignup : AppLocalizations.of(context)!.loginBtnSignin,
                             style: const TextStyle(
                                 fontSize: 15, fontWeight: FontWeight.w700, color: Colors.black)),
                   ),
@@ -252,8 +251,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   children: [
                     Text(
                       _isSignup
-                          ? 'Already have an Pulse account? '
-                          : "Don't have an Pulse account? ",
+                          ? AppLocalizations.of(context)!.loginToggleHaveAccount
+                          : AppLocalizations.of(context)!.loginToggleNoAccount,
                       style: const TextStyle(
                           fontSize: 13, color: AppColors.textSecondary),
                     ),
@@ -263,7 +262,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         _error = '';
                       }),
                       child: Text(
-                        _isSignup ? 'Sign In' : 'Sign Up',
+                        _isSignup ? AppLocalizations.of(context)!.loginToggleSignin : AppLocalizations.of(context)!.loginToggleSignup,
                         style: TextStyle(
                             fontSize: 13, fontWeight: FontWeight.w700,
                             color: accent),

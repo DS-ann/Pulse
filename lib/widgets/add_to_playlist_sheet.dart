@@ -9,6 +9,8 @@ import '../data/models/song.dart';
 import '../providers/playlist_provider.dart';
 import 'glass_container.dart';
 import '../main.dart' show scaffoldMessengerKey;
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 /// Add-to-playlist bottom sheet — port of AddToPlaylistModal.jsx.
 /// Shows the user's playlists and lets them add a song to one.
@@ -48,7 +50,7 @@ class AddToPlaylistSheet extends ConsumerWidget {
                 children: [
                   Icon(LucideIcons.plusSquare, size: 20, color: accent),
                   const SizedBox(width: 10),
-                  const Text('Add to Playlist',
+                  Text(AppLocalizations.of(context)!.playlistSheetTitle,
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                 ],
               ),
@@ -79,8 +81,8 @@ class AddToPlaylistSheet extends ConsumerWidget {
                         child: Icon(LucideIcons.plus, color: accent),
                       ),
                       const SizedBox(width: 16),
-                      const Text(
-                        'New Playlist',
+                      Text(
+                        AppLocalizations.of(context)!.playlistSheetNewPlaylist,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
@@ -95,9 +97,9 @@ class AddToPlaylistSheet extends ConsumerWidget {
 
             // ── Playlist list ──
             if (playlists.isEmpty)
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(vertical: 32),
-                child: Text('No playlists yet',
+                child: Text(AppLocalizations.of(context)!.playlistSheetNoPlaylists,
                     style: TextStyle(color: AppColors.textSecondary)),
               )
             else
@@ -191,7 +193,7 @@ class AddToPlaylistSheet extends ConsumerWidget {
                                             color: alreadyAdded
                                                 ? accent
                                                 : AppColors.textPrimary)),
-                                    Text('$songCount songs',
+                                    Text(AppLocalizations.of(context)!.playlistSheetSongsCount(songCount),
                                         style: const TextStyle(
                                             fontSize: 12,
                                             color: AppColors.textSecondary)),
@@ -232,14 +234,14 @@ class AddToPlaylistSheet extends ConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('New Playlist', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.textPrimary)),
+                Text(AppLocalizations.of(context)!.playlistSheetNewPlaylist, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.textPrimary)),
                 const SizedBox(height: 16),
                 TextField(
                   controller: controller,
                   autofocus: true,
                   style: const TextStyle(color: AppColors.textPrimary),
                   decoration: InputDecoration(
-                    hintText: 'Playlist Name',
+                    hintText: AppLocalizations.of(context)!.playlistSheetNameHint,
                     hintStyle: const TextStyle(color: AppColors.textSecondary),
                     enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.textSecondary)),
                     focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: accent)),
@@ -251,7 +253,7 @@ class AddToPlaylistSheet extends ConsumerWidget {
                   children: [
                     TextButton(
                       onPressed: () => Navigator.pop(ctx),
-                      child: Text('Cancel', style: TextStyle(color: accent)),
+                      child: Text(AppLocalizations.of(context)!.playlistSheetCancel, style: TextStyle(color: accent)),
                     ),
                     const SizedBox(width: 8),
                     ElevatedButton(
@@ -269,37 +271,39 @@ class AddToPlaylistSheet extends ConsumerWidget {
                                   .timeout(const Duration(seconds: 10));
                               if (context.mounted) {
                                 Navigator.pop(context); // Close bottom sheet
+                                scaffoldMessengerKey.currentState?.showSnackBar(
+                                  SnackBar(
+                                    content: Text(AppLocalizations.of(context)!.playlistSheetAddedTo(name), style: const TextStyle(color: Colors.white)),
+                                    backgroundColor: Colors.black,
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                                  ),
+                                );
                               }
-                              scaffoldMessengerKey.currentState?.showSnackBar(
-                                SnackBar(
-                                  content: Text('Added to $name', style: const TextStyle(color: Colors.white)),
-                                  backgroundColor: Colors.black,
-                                  behavior: SnackBarBehavior.floating,
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                                ),
-                              );
                             } else {
-                              scaffoldMessengerKey.currentState?.showSnackBar(
-                                SnackBar(
-                                  content: const Text('Failed to create playlist: Authentication error', style: TextStyle(color: Colors.white)),
-                                  backgroundColor: Colors.black,
-                                  behavior: SnackBarBehavior.floating,
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                                ),
-                              );
+                              if (context.mounted) {
+                                scaffoldMessengerKey.currentState?.showSnackBar(
+                                  SnackBar(
+                                    content: Text(AppLocalizations.of(context)!.playlistSheetCreateFailAuth, style: const TextStyle(color: Colors.white)),
+                                    backgroundColor: Colors.black,
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                                  ),
+                                );
+                              }
                             }
                           } catch (e) {
                             if (context.mounted) {
                               Navigator.pop(context); // Close bottom sheet
+                              scaffoldMessengerKey.currentState?.showSnackBar(
+                                SnackBar(
+                                  content: Text(AppLocalizations.of(context)!.playlistSheetCreateFail(ErrorMapper.getLocalizedError(context, e)), style: const TextStyle(color: Colors.white)),
+                                  backgroundColor: Colors.black,
+                                  behavior: SnackBarBehavior.floating,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                                ),
+                              );
                             }
-                            scaffoldMessengerKey.currentState?.showSnackBar(
-                              SnackBar(
-                                content: Text('Failed to create playlist: $e', style: const TextStyle(color: Colors.white)),
-                                backgroundColor: Colors.black,
-                                behavior: SnackBarBehavior.floating,
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                              ),
-                            );
                           }
                         }
                       },
@@ -309,7 +313,7 @@ class AddToPlaylistSheet extends ConsumerWidget {
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                       ),
-                      child: const Text('Create', style: TextStyle(fontWeight: FontWeight.w800)),
+                      child: Text(AppLocalizations.of(context)!.playlistSheetCreate, style: const TextStyle(fontWeight: FontWeight.w800)),
                     ),
                   ],
                 ),

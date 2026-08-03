@@ -13,6 +13,7 @@ import '../../providers/audio_provider.dart';
 import '../../providers/download_provider.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/playing_bars.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Downloads screen — port of Downloads.jsx.
 /// Shows all offline songs, play/delete per-song, clear all.
@@ -150,7 +151,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                           size: 14, color: AppColors.textSecondary),
                       const SizedBox(width: 6),
                       Text(
-                        '${_songs.length} songs • ${_formatSize(downloads.totalSizeBytes)}',
+                        AppLocalizations.of(context)!.downloadsStats(_songs.length.toString(), _formatSize(downloads.totalSizeBytes)),
                         style: const TextStyle(
                             fontSize: 12, color: AppColors.textSecondary),
                       ),
@@ -175,13 +176,13 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                                       color: AppColors.textSecondary
                                           .withValues(alpha: 0.3)),
                                   const SizedBox(height: 12),
-                                  const Text('No offline songs yet',
-                                      style: TextStyle(
+                                  Text(AppLocalizations.of(context)!.downloadsNoOffline,
+                                      style: const TextStyle(
                                           color: AppColors.textSecondary)),
                                   const SizedBox(height: 4),
-                                  const Text(
-                                      'Songs you download will appear here',
-                                      style: TextStyle(fontSize: 12,
+                                  Text(
+                                      AppLocalizations.of(context)!.downloadsNoOfflineDesc,
+                                      style: const TextStyle(fontSize: 12,
                                           color: AppColors.textSecondary)),
                                 ],
                               ),
@@ -221,12 +222,12 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                           const Icon(LucideIcons.trash2,
                               size: 32, color: AppColors.danger),
                           const SizedBox(height: 12),
-                          const Text('Clear All Downloads?',
-                              style: TextStyle(
+                          Text(AppLocalizations.of(context)!.downloadsClearAllTitle,
+                              style: const TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w700)),
                           const SizedBox(height: 8),
                           Text(
-                            'This will remove ${_songs.length} songs and free up ${_formatSize(downloads.totalSizeBytes)} of storage.',
+                            AppLocalizations.of(context)!.downloadsClearAllDesc(_songs.length.toString(), _formatSize(downloads.totalSizeBytes)),
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                                 fontSize: 13, color: AppColors.textSecondary),
@@ -238,14 +239,14 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                               TextButton(
                                 onPressed: () =>
                                     setState(() => _showClearConfirm = false),
-                                child: const Text('Cancel'),
+                                child: Text(AppLocalizations.of(context)!.downloadsCancel),
                               ),
                               const SizedBox(width: 8),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: AppColors.danger),
                                 onPressed: _clearAll,
-                                child: const Text('Clear All'),
+                                child: Text(AppLocalizations.of(context)!.downloadsClearAll),
                               ),
                             ],
                           ),
@@ -304,9 +305,9 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
               ),
             ),
           ),
-          title: Text(pl.name, maxLines: 1, overflow: TextOverflow.ellipsis,
+          title: Text(pl.id == '__downloads__' ? AppLocalizations.of(context)!.downloadsPlaylistName : pl.name, maxLines: 1, overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600)),
-          subtitle: Text('${pl.totalTracks ?? pl.songs.length} songs', style: const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
+          subtitle: Text(AppLocalizations.of(context)!.downloadsSongsCount((pl.totalTracks ?? pl.songs.length).toString()), style: const TextStyle(fontSize: 12, color: AppColors.textSecondary)),
           trailing: GestureDetector(
             onTap: () => _showPlaylistMenu(pl),
             child: const Padding(
@@ -382,9 +383,9 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(pl.name, maxLines: 1, overflow: TextOverflow.ellipsis,
+                        Text(pl.id == '__downloads__' ? AppLocalizations.of(context)!.downloadsPlaylistName : pl.name, maxLines: 1, overflow: TextOverflow.ellipsis,
                             style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: AppColors.textPrimary)),
-                        Text('${pl.totalTracks ?? pl.songs.length} songs', maxLines: 1, overflow: TextOverflow.ellipsis,
+                        Text(AppLocalizations.of(context)!.downloadsSongsCount((pl.totalTracks ?? pl.songs.length).toString()), maxLines: 1, overflow: TextOverflow.ellipsis,
                             style: const TextStyle(fontSize: 10, color: AppColors.textSecondary)),
                       ],
                     ),
@@ -432,7 +433,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                     if (pl.id == '__downloads__') {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: const Text('Cannot rename the master downloads playlist.', style: TextStyle(color: Colors.white)),
+                          content: Text(AppLocalizations.of(context)!.downloadsCannotRenameMaster, style: const TextStyle(color: Colors.white)),
                           backgroundColor: Colors.black,
                           behavior: SnackBarBehavior.floating,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -443,11 +444,11 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                       setState(() { _editingPlaylist = pl; _showRenameModal = true; });
                     }
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     child: Row(children: [
-                      Icon(LucideIcons.edit2, size: 17), SizedBox(width: 14),
-                      Text('Rename', style: TextStyle(fontSize: 15)),
+                      const Icon(LucideIcons.edit2, size: 17), const SizedBox(width: 14),
+                      Text(AppLocalizations.of(context)!.downloadsRename, style: const TextStyle(fontSize: 15)),
                     ]),
                   ),
                 ),
@@ -470,11 +471,11 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                       _showEditSongsModal = true;
                     });
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     child: Row(children: [
-                      Icon(LucideIcons.listMusic, size: 17), SizedBox(width: 14),
-                      Text('Edit Songs', style: TextStyle(fontSize: 15)),
+                      const Icon(LucideIcons.listMusic, size: 17), const SizedBox(width: 14),
+                      Text(AppLocalizations.of(context)!.downloadsEditSongs, style: const TextStyle(fontSize: 15)),
                     ]),
                   ),
                 ),
@@ -486,11 +487,11 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                     Navigator.pop(ctx);
                     setState(() { _editingPlaylist = pl; _showDeleteModal = true; });
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     child: Row(children: [
-                      Icon(LucideIcons.trash2, size: 17, color: AppColors.danger), SizedBox(width: 14),
-                      Text('Delete', style: TextStyle(fontSize: 15, color: AppColors.danger)),
+                      const Icon(LucideIcons.trash2, size: 17, color: AppColors.danger), const SizedBox(width: 14),
+                      Text(AppLocalizations.of(context)!.downloadsDelete, style: const TextStyle(fontSize: 15, color: AppColors.danger)),
                     ]),
                   ),
                 ),
@@ -517,11 +518,11 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('Rename Playlist',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                Text(AppLocalizations.of(context)!.downloadsRenamePlaylistTitle,
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
-                const Text('Enter a new name for your playlist.',
-                    style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                Text(AppLocalizations.of(context)!.downloadsRenamePlaylistDesc,
+                    style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                 const SizedBox(height: 16),
                 TextField(
                   controller: _renameController,
@@ -539,7 +540,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                   children: [
                     TextButton(
                       onPressed: () => setState(() => _showRenameModal = false),
-                      child: const Text('Cancel'),
+                      child: Text(AppLocalizations.of(context)!.downloadsCancel),
                     ),
                     const SizedBox(width: 8),
                     ElevatedButton(
@@ -554,7 +555,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                         }
                         if (mounted) setState(() => _showRenameModal = false);
                       },
-                      child: const Text('Rename'),
+                      child: Text(AppLocalizations.of(context)!.downloadsRename),
                     ),
                   ],
                 ),
@@ -581,13 +582,13 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
               children: [
                 const Icon(LucideIcons.trash2, size: 32, color: AppColors.danger),
                 const SizedBox(height: 12),
-                const Text('Delete Playlist?',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                Text(AppLocalizations.of(context)!.downloadsDeletePlaylistTitle,
+                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
                 Text(
                   _editingPlaylist?.id == '__downloads__'
-                      ? 'Are you sure you want to delete this? You will lose all downloaded songs and playlists forever.'
-                      : 'Are you sure you want to delete "${_editingPlaylist?.name}"? This playlist will be lost forever.',
+                      ? AppLocalizations.of(context)!.downloadsDeleteMasterDesc
+                      : AppLocalizations.of(context)!.downloadsDeletePlaylistDesc(_editingPlaylist?.name ?? ''),
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 13, color: AppColors.textSecondary),
                 ),
@@ -597,7 +598,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                   children: [
                     TextButton(
                       onPressed: () => setState(() => _showDeleteModal = false),
-                      child: const Text('Cancel'),
+                      child: Text(AppLocalizations.of(context)!.downloadsCancel),
                     ),
                     const SizedBox(width: 8),
                     ElevatedButton(
@@ -614,7 +615,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                         }
                         if (mounted) setState(() => _showDeleteModal = false);
                       },
-                      child: const Text('Delete'),
+                      child: Text(AppLocalizations.of(context)!.downloadsDelete),
                     ),
                   ],
                 ),
@@ -654,11 +655,13 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('Edit Songs',
-                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                              Text(AppLocalizations.of(context)!.downloadsEditSongs,
+                                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                               const SizedBox(height: 2),
                               Text(
-                                '${_editSongsList.length} song${_editSongsList.length != 1 ? 's' : ''}',
+                                _editSongsList.length == 1 
+                                    ? AppLocalizations.of(context)!.downloadsSongCountSingle('1') 
+                                    : AppLocalizations.of(context)!.downloadsSongsCount(_editSongsList.length.toString()),
                                 style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
                               ),
                             ],
@@ -667,7 +670,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                             children: [
                               TextButton(
                                 onPressed: () => setState(() => _showEditSongsModal = false),
-                                child: const Text('Cancel'),
+                                child: Text(AppLocalizations.of(context)!.downloadsCancel),
                               ),
                               const SizedBox(width: 8),
                               ElevatedButton(
@@ -692,7 +695,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                                   }
                                   if (mounted) setState(() => _showEditSongsModal = false);
                                 },
-                                child: const Text('Save'),
+                                child: Text(AppLocalizations.of(context)!.downloadsSave),
                               ),
                             ],
                           ),
@@ -704,10 +707,10 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                     // Song list
                     Flexible(
                       child: _editSongsList.isEmpty
-                          ? const Padding(
-                              padding: EdgeInsets.all(32),
-                              child: Text('No songs in this playlist.',
-                                  style: TextStyle(color: AppColors.textSecondary)),
+                          ? Padding(
+                              padding: const EdgeInsets.all(32),
+                              child: Text(AppLocalizations.of(context)!.downloadsNoSongs,
+                                  style: const TextStyle(color: AppColors.textSecondary)),
                             )
                           : ListView.builder(
                               shrinkWrap: true,

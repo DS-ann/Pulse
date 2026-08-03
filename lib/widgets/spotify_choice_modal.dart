@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../core/theme/app_colors.dart';
 import 'glass_container.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Shown when user taps "Import from Spotify" in the library.
 /// Lets the user choose between embed-scrape (≤100 songs) or BYOA (>100 songs).
@@ -49,11 +50,11 @@ class SpotifyChoiceModal extends StatelessWidget {
             children: [
               Image.asset('assets/spotify.logo.png', width: 36, height: 36),
               const SizedBox(width: 12),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Import from Spotify', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
-                  Text('Choose your playlist size', style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                  Text(AppLocalizations.of(context)!.spotifyImportTitle, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+                  Text(AppLocalizations.of(context)!.spotifyImportSubtitle, style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                 ],
               ),
             ],
@@ -67,8 +68,8 @@ class SpotifyChoiceModal extends StatelessWidget {
           _ChoiceCard(
             icon: LucideIcons.list,
             iconColor: Colors.blueAccent,
-            title: '100 songs or fewer',
-            subtitle: 'Paste a public Spotify playlist URL.',
+            title: AppLocalizations.of(context)!.spotifyChoiceSmallTitle,
+            subtitle: AppLocalizations.of(context)!.spotifyChoiceSmallDesc,
             badge: null,
             onTap: onSelectEmbed,
           ),
@@ -79,8 +80,8 @@ class SpotifyChoiceModal extends StatelessWidget {
           _ChoiceCard(
             icon: LucideIcons.infinity,
             iconColor: const Color(0xFF1DB954),
-            title: 'More than 100 songs',
-            subtitle: 'Connect your own Spotify Developer App to import unlimited tracks.',
+            title: AppLocalizations.of(context)!.spotifyChoiceLargeTitle,
+            subtitle: AppLocalizations.of(context)!.spotifyChoiceLargeDesc,
             badge: null,
             onTap: onSelectByoa,
           ),
@@ -88,7 +89,7 @@ class SpotifyChoiceModal extends StatelessWidget {
           const SizedBox(height: 16),
           TextButton(
             onPressed: onClose,
-            child: const Text('Cancel', style: TextStyle(color: AppColors.textSecondary)),
+            child: Text(AppLocalizations.of(context)!.cancelButton, style: const TextStyle(color: AppColors.textSecondary)),
           ),
         ],
       ),

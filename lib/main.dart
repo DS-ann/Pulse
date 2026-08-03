@@ -13,6 +13,9 @@ import 'services/audio_handler.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:pulse/src/rust/frb_generated.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 /// Global key for showing snackbars from anywhere (e.g. Providers)
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
@@ -110,6 +113,15 @@ class _PulseAppState extends ConsumerState<PulseApp> {
       return MaterialApp(
         key: const ValueKey('loading-app'),
         debugShowCheckedModeBanner: false,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en', ''),
+        ],
         theme: AppTheme.dark(accentColor: accentColor),
         home: const Scaffold(
           body: Center(
@@ -121,9 +133,26 @@ class _PulseAppState extends ConsumerState<PulseApp> {
 
     return MaterialApp.router(
       scaffoldMessengerKey: scaffoldMessengerKey,
-      title: 'Pulse',
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+      ],
       theme: AppTheme.dark(accentColor: accentColor),
+      localeResolutionCallback: (locale, supportedLocales) {
+        final resolved = supportedLocales.firstWhere(
+          (s) => s.languageCode == locale?.languageCode,
+          orElse: () => const Locale('en'),
+        );
+        ErrorMapper.setLocale(resolved);
+        return resolved;
+      },
       routerConfig: ref.watch(routerProvider),
     );
   }

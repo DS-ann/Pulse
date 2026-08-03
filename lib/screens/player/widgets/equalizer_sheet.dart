@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/settings_provider.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../widgets/glass_container.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 class EqualizerSheet extends ConsumerStatefulWidget {
   const EqualizerSheet({super.key});
@@ -98,9 +99,9 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Equalizer',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
+                Text(
+                  AppLocalizations.of(context)!.playerEqualizer,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
                 ),
                 Switch(
                   value: isEnabled,
@@ -132,7 +133,7 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
                     return Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: ActionChip(
-                        label: Text(preset, style: TextStyle(fontSize: 12, color: isActive ? Theme.of(context).colorScheme.primary : AppColors.textSecondary)),
+                        label: Text(preset == 'Custom' ? AppLocalizations.of(context)!.playerEqCustom : preset, style: TextStyle(fontSize: 12, color: isActive ? Theme.of(context).colorScheme.primary : AppColors.textSecondary)),
                         backgroundColor: isActive ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.1) : AppColors.surface,
                         side: BorderSide(color: isActive ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.5) : Colors.transparent),
                         onPressed: () => _applyPreset(preset),

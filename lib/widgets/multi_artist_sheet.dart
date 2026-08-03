@@ -9,6 +9,7 @@ import '../data/api/music_api.dart';
 import '../data/models/song.dart';
 import '../providers/player_overlay_provider.dart';
 import 'glass_container.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 class MultiArtistSheet extends ConsumerStatefulWidget {
   final List<String> artistNames;
@@ -86,8 +87,8 @@ class _MultiArtistSheetState extends ConsumerState<MultiArtistSheet> {
                 children: [
                   Icon(LucideIcons.users, size: 20, color: accent),
                   const SizedBox(width: 10),
-                  const Text('Select Artist',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                  Text(AppLocalizations.of(context)!.artistSelect,
+                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                 ],
               ),
             ),

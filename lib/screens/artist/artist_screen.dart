@@ -12,6 +12,7 @@ import '../../providers/audio_provider.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/playing_bars.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Artist screen — pixel-perfect port of ArtistView.jsx.
 /// Hero banner with gradient overlay, Play-All, top songs, albums, singles.
@@ -87,7 +88,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
                 // About
                 if (artist.description.isNotEmpty) ...[
                   const SizedBox(height: 24),
-                  const Text('About', style: TextStyle(
+                  Text(AppLocalizations.of(context)!.artistAbout, style: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.w700)),
                   const SizedBox(height: 8),
                   Text(artist.description,
@@ -99,7 +100,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
                 // Top Songs
                 if (artist.topSongs.isNotEmpty) ...[
                   const SizedBox(height: 24),
-                  const Text('Popular', style: TextStyle(
+                  Text(AppLocalizations.of(context)!.artistPopular, style: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.w700)),
                   const SizedBox(height: 12),
                   ...artist.topSongs.take(5).toList().asMap().entries.map(
@@ -110,7 +111,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
                 // Albums
                 if (artist.albums.isNotEmpty) ...[
                   const SizedBox(height: 24),
-                  const Text('Albums', style: TextStyle(
+                  Text(AppLocalizations.of(context)!.artistAlbums, style: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.w700)),
                   const SizedBox(height: 12),
                 ],
@@ -140,7 +141,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
               sliver: SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 24),
-                  child: const Text('Singles & EPs', style: TextStyle(
+                  child: Text(AppLocalizations.of(context)!.artistSinglesAndEPs, style: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.w700)),
                 ),
               ),
@@ -223,7 +224,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (artist.subscribers.isNotEmpty)
-                  Text('${artist.subscribers} subscribers',
+                  Text(AppLocalizations.of(context)!.artistSubscribersCount(artist.subscribers),
                       style: const TextStyle(
                           fontSize: 12, color: AppColors.textSecondary,
                           fontWeight: FontWeight.w500)),
@@ -249,7 +250,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
                         Icon(Icons.play_arrow_rounded, size: 20,
                             color: AppColors.background),
                         const SizedBox(width: 6),
-                        Text('Play All', style: TextStyle(
+                        Text(AppLocalizations.of(context)!.artistPlayAll, style: TextStyle(
                             fontSize: 13, fontWeight: FontWeight.w700,
                             color: AppColors.background)),
                       ],
@@ -467,12 +468,12 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
                     const Icon(LucideIcons.music2, size: 48,
                         color: AppColors.textSecondary),
                     const SizedBox(height: 12),
-                    const Text("Couldn't load artist",
-                        style: TextStyle(color: AppColors.textSecondary)),
+                    Text(AppLocalizations.of(context)!.artistLoadError,
+                        style: const TextStyle(color: AppColors.textSecondary)),
                     const SizedBox(height: 12),
                     OutlinedButton(
                       onPressed: () => context.pop(),
-                      child: const Text('Go Back'),
+                      child: Text(AppLocalizations.of(context)!.artistGoBack),
                     ),
                   ],
                 ),

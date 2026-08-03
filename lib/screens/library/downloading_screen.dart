@@ -7,14 +7,15 @@ import 'package:lucide_icons/lucide_icons.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/thumbnail_utils.dart';
 import '../../providers/download_provider.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 class DownloadingScreen extends ConsumerWidget {
   const DownloadingScreen({super.key});
 
-  String _formatBytes(int bytes) {
-    if (bytes <= 0) return "0 MB";
+  String _formatBytes(BuildContext context, int bytes) {
+    if (bytes <= 0) return AppLocalizations.of(context)!.downloadingMb("0");
     final mb = bytes / (1024 * 1024);
-    return "${mb.toStringAsFixed(1)} MB";
+    return AppLocalizations.of(context)!.downloadingMb(mb.toStringAsFixed(1));
   }
 
   @override
@@ -31,9 +32,9 @@ class DownloadingScreen extends ConsumerWidget {
             Icon(LucideIcons.download, size: 48, 
                  color: AppColors.textSecondary.withValues(alpha: 0.3)),
             const SizedBox(height: 16),
-            const Text(
-              'No active downloads',
-              style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
+            Text(
+              AppLocalizations.of(context)!.downloadingNoActive,
+              style: const TextStyle(color: AppColors.textSecondary, fontSize: 16),
             ),
           ],
         ),
@@ -49,8 +50,8 @@ class DownloadingScreen extends ConsumerWidget {
         if (song == null) return const SizedBox.shrink();
 
         final thumb = ThumbnailUtils.getHighRes(song.thumbnail, size: 120);
-        final receivedStr = _formatBytes(download.receivedBytes);
-        final totalStr = _formatBytes(download.totalBytes);
+        final receivedStr = _formatBytes(context, download.receivedBytes);
+        final totalStr = _formatBytes(context, download.totalBytes);
 
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),

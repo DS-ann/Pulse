@@ -15,6 +15,7 @@ import 'auth_provider.dart';
 import 'download_provider.dart';
 import 'settings_provider.dart';
 import 'playlist_provider.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 // ── Audio State ─────────────────────────────────────────────────────────────
 
@@ -490,14 +491,17 @@ class AudioNotifier extends Notifier<AudioState> {
         } else {
           // Hard stop after 3 consecutive failures to prevent infinite looping
           _handler.stopCurrent(); // Clears buffering state and drops wake lock
-          scaffoldMessengerKey.currentState?.showSnackBar(
-            SnackBar(
-              content: const Text('Playback failed. Check your internet connection.', style: TextStyle(color: Colors.white)),
-              backgroundColor: Colors.black,
-              behavior: SnackBarBehavior.floating,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            ),
-          );
+          final ctx = scaffoldMessengerKey.currentContext;
+          if (ctx != null && ctx.mounted) {
+            scaffoldMessengerKey.currentState?.showSnackBar(
+              SnackBar(
+                content: Text(AppLocalizations.of(ctx)!.audioPlaybackFailed, style: const TextStyle(color: Colors.white)),
+                backgroundColor: Colors.black,
+                behavior: SnackBarBehavior.floating,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+            );
+          }
         }
       }
     }

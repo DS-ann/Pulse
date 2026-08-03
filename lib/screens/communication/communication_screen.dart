@@ -7,6 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/date_formatter.dart';
 import '../../providers/auth_provider.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 class CommunicationScreen extends ConsumerStatefulWidget {
   const CommunicationScreen({super.key});
@@ -149,7 +151,7 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to send: $e'), backgroundColor: AppColors.danger),
+          SnackBar(content: Text(AppLocalizations.of(context)!.commFailedToSend(ErrorMapper.getLocalizedError(context, e))), backgroundColor: AppColors.danger),
         );
       }
     } finally {
@@ -179,9 +181,9 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
                   ),
                   const SizedBox(width: 12),
                   if (auth.isAdmin)
-                    const Text(
-                      'Admin Dashboard',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                    Text(
+                      AppLocalizations.of(context)!.commAdminDashboard,
+                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                     )
                   else
                     Row(
@@ -197,8 +199,8 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Admin Support', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                            Text('Always here to help', style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                            Text(AppLocalizations.of(context)!.commAdminSupport, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                            Text(AppLocalizations.of(context)!.commAlwaysHere, style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
                           ],
                         ),
                       ],
@@ -237,24 +239,22 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
                 ),
               ),
               const SizedBox(width: 16),
-              const Expanded(
+              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Hey! 👋 I\'m Ashutosh Pathak', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
-                    SizedBox(height: 2),
-                    Text('Developer of Pulse', style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                    Text(AppLocalizations.of(context)!.commWelcomeTitle, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
+                    const SizedBox(height: 2),
+                    Text(AppLocalizations.of(context)!.commWelcomeSubtitle, style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                   ],
                 ),
               ),
             ],
           ),
           const SizedBox(height: 20),
-          const Text(
-            "I hope you're enjoying listening to your favorite music without annoying ads or subscription barriers. After all, music shouldn't come with a paywall just because someone in a boardroom needed another yacht.\n\n"
-            "This section is here so we can connect directly.\n\n"
-            "Feel free to:",
-            style: TextStyle(color: Colors.white70, fontSize: 14, height: 1.5),
+          Text(
+            AppLocalizations.of(context)!.commWelcomeBody1,
+            style: const TextStyle(color: Colors.white70, fontSize: 14, height: 1.5),
           ),
           const SizedBox(height: 12),
           Padding(
@@ -262,18 +262,16 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildBulletPoint('🎵', 'Share your feedback'),
-                _buildBulletPoint('🐞', 'Report bugs'),
-                _buildBulletPoint('💡', 'Suggest new features you\'d like to see'),
+                _buildBulletPoint('🎵', AppLocalizations.of(context)!.commBullet1),
+                _buildBulletPoint('🐞', AppLocalizations.of(context)!.commBullet2),
+                _buildBulletPoint('💡', AppLocalizations.of(context)!.commBullet3),
               ],
             ),
           ),
           const SizedBox(height: 12),
-          const Text(
-            "I personally read every message and will do my best to improve the app based on your suggestions.\n\n"
-            "Got an idea for an app that doesn't exist yet, or one that's locked behind expensive subscriptions? Tell me about it! If it's possible, I'll try to build it and make it available for everyone.\n\n"
-            "Thanks for using my app and for being part of this journey. ❤️",
-            style: TextStyle(color: Colors.white70, fontSize: 14, height: 1.5),
+          Text(
+            AppLocalizations.of(context)!.commWelcomeBody2,
+            style: const TextStyle(color: Colors.white70, fontSize: 14, height: 1.5),
           ),
         ],
       ),
@@ -303,7 +301,7 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
             stream: _userStream,
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return Center(child: Text('Error: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
+                return Center(child: Text(AppLocalizations.of(context)!.commError(ErrorMapper.getLocalizedError(context, snapshot.error)), style: const TextStyle(color: Colors.red)));
               }
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
@@ -320,15 +318,15 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
                       children: [
                         Icon(LucideIcons.messageCircle, size: 48, color: accent.withValues(alpha: 0.4)),
                         const SizedBox(height: 16),
-                        const Text(
-                          'No messages yet',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                        Text(
+                          AppLocalizations.of(context)!.commNoMessages,
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                         const SizedBox(height: 8),
-                        const Text(
-                          'Send a message to our support team or check back later for announcements.',
+                        Text(
+                          AppLocalizations.of(context)!.commNoMessagesDesc,
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: AppColors.textSecondary, fontSize: 13, height: 1.4),
+                          style: const TextStyle(color: AppColors.textSecondary, fontSize: 13, height: 1.4),
                         ),
                       ],
                     ),
@@ -471,7 +469,7 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
         ),
         _buildInputBar(
           controller: _messageController,
-          hint: 'Message support...',
+          hint: AppLocalizations.of(context)!.commMessageSupportHint,
           onSend: _sendFeedback,
         ),
       ],
@@ -484,7 +482,7 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
             stream: _adminStream,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
+          return Center(child: Text(AppLocalizations.of(context)!.commError(ErrorMapper.getLocalizedError(context, snapshot.error)), style: const TextStyle(color: Colors.red)));
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -509,13 +507,13 @@ class _CommunicationScreenState extends ConsumerState<CommunicationScreen> {
                   foregroundColor: accent,
                   child: const Icon(LucideIcons.megaphone, size: 24),
                 ),
-                title: const Text(
-                  'Global Announcements',
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 16),
+                title: Text(
+                  AppLocalizations.of(context)!.commGlobalAnnouncements,
+                  style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 16),
                 ),
-                subtitle: const Text(
-                  'Send messages to all users',
-                  style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
+                subtitle: Text(
+                  AppLocalizations.of(context)!.commSendMessagesToAll,
+                  style: const TextStyle(color: AppColors.textSecondary, fontSize: 13),
                 ),
               );
             }

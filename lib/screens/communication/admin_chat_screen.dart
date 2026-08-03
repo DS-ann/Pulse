@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/date_formatter.dart';
 import '../../providers/auth_provider.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 class AdminChatScreen extends ConsumerStatefulWidget {
   final String userId;
@@ -111,7 +113,7 @@ class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to reply: $e'), backgroundColor: AppColors.danger),
+          SnackBar(content: Text(AppLocalizations.of(context)!.adminChatFailedToReply(ErrorMapper.getLocalizedError(context, e))), backgroundColor: AppColors.danger),
         );
       }
     } finally {
@@ -159,7 +161,7 @@ class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.userName.isEmpty ? 'Support Chat' : widget.userName,
+                        widget.userName.isEmpty ? AppLocalizations.of(context)!.adminChatSupportChat : widget.userName,
                         style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                       ),
                       Text(
@@ -177,7 +179,7 @@ class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
               stream: _chatStream,
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
+                  return Center(child: Text(AppLocalizations.of(context)!.adminChatError(ErrorMapper.getLocalizedError(context, snapshot.error)), style: const TextStyle(color: Colors.red)));
                 }
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator());
@@ -186,8 +188,8 @@ class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
                 final messages = snapshot.data?.docs ?? [];
 
                 if (messages.isEmpty) {
-                  return const Center(
-                    child: Text('No conversation history.', style: TextStyle(color: AppColors.textSecondary)),
+                  return Center(
+                    child: Text(AppLocalizations.of(context)!.adminChatNoHistory, style: const TextStyle(color: AppColors.textSecondary)),
                   );
                 }
 
@@ -226,7 +228,7 @@ class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              isMe ? 'Support (You)' : widget.userName,
+                              isMe ? AppLocalizations.of(context)!.adminChatSupportYou : widget.userName,
                               style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
@@ -320,7 +322,7 @@ class _AdminChatScreenState extends ConsumerState<AdminChatScreen> {
                     style: const TextStyle(color: Colors.white, fontSize: 14),
                     textCapitalization: TextCapitalization.sentences,
                     decoration: InputDecoration(
-                      hintText: 'Type your reply...',
+                      hintText: AppLocalizations.of(context)!.adminChatTypeReply,
                       hintStyle: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
                       filled: true,
                       fillColor: AppColors.surface,

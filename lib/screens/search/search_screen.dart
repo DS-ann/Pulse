@@ -12,6 +12,8 @@ import '../../widgets/skeleton_loader.dart';
 import '../../widgets/song_tile.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/glass_container.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -136,9 +138,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text(
-              'Microphone permission required for sound recognition',
-              style: TextStyle(color: Colors.white),
+            content: Text(
+              AppLocalizations.of(context)!.searchMicPermissionRequired,
+              style: const TextStyle(color: Colors.white),
             ),
             backgroundColor: Colors.black,
             behavior: SnackBarBehavior.floating,
@@ -180,8 +182,8 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
       if (result != null && result.containsKey('track') && mounted) {
         final track = result['track'];
-        final title = track['title'] ?? 'Unknown Song';
-        final subtitle = track['subtitle'] ?? 'Unknown Artist';
+        final title = track['title'] ?? AppLocalizations.of(context)!.searchUnknownSong;
+        final subtitle = track['subtitle'] ?? AppLocalizations.of(context)!.searchUnknownArtist;
 
         // Put the result into the search bar and trigger a search
         _controller.text = '$title $subtitle';
@@ -192,8 +194,8 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
         ref.read(searchProvider.notifier).hideSuggestions();
       } else if (mounted) {
         final errorMsg = result != null && result.containsKey('error') 
-            ? 'Error: ${result['error']}' 
-            : 'No song detected.';
+            ? AppLocalizations.of(context)!.searchError(ErrorMapper.getLocalizedError(context, result['error'])) 
+            : AppLocalizations.of(context)!.searchNoSongDetected;
         
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -215,7 +217,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              'Error: ${e.toString().replaceAll('Exception: ', '')}',
+              AppLocalizations.of(context)!.searchError(ErrorMapper.getLocalizedError(context, e)),
               style: const TextStyle(color: Colors.white),
             ),
             backgroundColor: Colors.red.shade900,
@@ -241,9 +243,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text(
-              'Microphone permission required for voice search',
-              style: TextStyle(color: Colors.white),
+            content: Text(
+              AppLocalizations.of(context)!.searchMicPermissionRequired,
+              style: const TextStyle(color: Colors.white),
             ),
             backgroundColor: Colors.black,
             behavior: SnackBarBehavior.floating,
@@ -267,9 +269,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text(
-              'Speech recognition not available',
-              style: TextStyle(color: Colors.white),
+            content: Text(
+              AppLocalizations.of(context)!.searchSpeechNotAvailable,
+              style: const TextStyle(color: Colors.white),
             ),
             backgroundColor: Colors.black,
             behavior: SnackBarBehavior.floating,
@@ -363,10 +365,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                                       focusNode: _focusNode,
                                       autofocus: false,
                                       style: const TextStyle(fontSize: 15),
-                                      decoration: const InputDecoration(
-                                        hintText:
-                                            'Songs, artists, albums, playlists…',
-                                        hintStyle: TextStyle(
+                                      decoration: InputDecoration(
+                                        hintText: AppLocalizations.of(context)!.searchHint,
+                                        hintStyle: const TextStyle(
                                           color: AppColors.textSecondary,
                                           fontSize: 14,
                                         ),
@@ -547,9 +548,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           children: [
             Icon(LucideIcons.search, size: 36, color: AppColors.textSecondary),
             const SizedBox(height: 12),
-            const Text(
-              'Your recent searches appear here',
-              style: TextStyle(color: AppColors.textSecondary),
+            Text(
+              AppLocalizations.of(context)!.searchRecentEmpty,
+              style: const TextStyle(color: AppColors.textSecondary),
             ),
           ],
         ),
@@ -565,9 +566,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Recent Searches',
-                style: TextStyle(
+              Text(
+                AppLocalizations.of(context)!.searchRecentSearches,
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   color: AppColors.textPrimary,
@@ -575,9 +576,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               ),
               GestureDetector(
                 onTap: () => ref.read(searchProvider.notifier).clearHistory(),
-                child: const Text(
-                  'Clear all',
-                  style: TextStyle(
+                child: Text(
+                  AppLocalizations.of(context)!.searchClearAll,
+                  style: const TextStyle(
                     fontSize: 13,
                     color: AppColors.textSecondary,
                     fontWeight: FontWeight.w500,
@@ -633,13 +634,13 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           ),
           const SizedBox(height: 12),
           Text(
-            'No results for "$query"',
+            AppLocalizations.of(context)!.searchNoResultsFor(query),
             style: const TextStyle(color: AppColors.textSecondary),
           ),
           const SizedBox(height: 4),
-          const Text(
-            'Try different keywords',
-            style: TextStyle(fontSize: 12, color: AppColors.textSecondary),
+          Text(
+            AppLocalizations.of(context)!.searchTryDifferentKeywords,
+            style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
           ),
         ],
       ),
@@ -690,14 +691,14 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       children: [
         // Top result
         if (topResult != null) ...[
-          _sectionLabel('Top result'),
+          _sectionLabel(AppLocalizations.of(context)!.searchTopResult),
           _buildTopResult(topResult, accent),
           const SizedBox(height: 8),
         ],
 
         // Songs
         if (songs.isNotEmpty) ...[
-          _sectionLabel('Songs'),
+          _sectionLabel(AppLocalizations.of(context)!.searchSongsLabel),
           ...songs.map(
             (song) => SongTile(
               song: song,
@@ -722,7 +723,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
         // Artists
         if (artists.isNotEmpty) ...[
-          _sectionLabel('Artists'),
+          _sectionLabel(AppLocalizations.of(context)!.searchArtistsLabel),
           SizedBox(
             height: 120,
             child: ListView.separated(
@@ -738,7 +739,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
         // Albums
         if (albums.isNotEmpty) ...[
-          _sectionLabel('Albums'),
+          _sectionLabel(AppLocalizations.of(context)!.searchAlbumsLabel),
           SizedBox(
             height: 190,
             child: ListView.separated(
@@ -755,7 +756,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
         // Playlists
         if (playlists.isNotEmpty) ...[
-          _sectionLabel('Playlists'),
+          _sectionLabel(AppLocalizations.of(context)!.searchPlaylistsLabel),
           SizedBox(
             height: 190,
             child: ListView.separated(
@@ -875,7 +876,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
   Widget _buildArtistChip(Song artist) {
     final thumb = ThumbnailUtils.getHighRes(artist.thumbnail, size: 200);
-    final name = artist.title.isNotEmpty ? artist.title : 'Artist';
+    final name = artist.title.isNotEmpty ? artist.title : AppLocalizations.of(context)!.searchArtistLabel;
     return GestureDetector(
       onTap: () {
         final id = artist.browseId ?? artist.id;
@@ -909,9 +910,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
             ),
-            const Text(
-              'Artist',
-              style: TextStyle(fontSize: 10, color: AppColors.textSecondary),
+            Text(
+              AppLocalizations.of(context)!.searchArtistLabel,
+              style: const TextStyle(fontSize: 10, color: AppColors.textSecondary),
             ),
           ],
         ),
@@ -1099,14 +1100,14 @@ class _VoiceSearchSheetState extends State<_VoiceSearchSheet>
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Listening...',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.searchListening,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Speak now to search',
-              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+            Text(
+              AppLocalizations.of(context)!.searchSpeakNow,
+              style: const TextStyle(fontSize: 14, color: AppColors.textSecondary),
             ),
             const SizedBox(height: 32),
             Padding(
@@ -1124,7 +1125,7 @@ class _VoiceSearchSheetState extends State<_VoiceSearchSheet>
                     ),
                   ),
                   onPressed: widget.onCancel,
-                  child: const Text('Cancel', style: TextStyle(fontSize: 15)),
+                  child: Text(AppLocalizations.of(context)!.searchCancel, style: const TextStyle(fontSize: 15)),
                 ),
               ),
             ),
@@ -1246,14 +1247,14 @@ class _ShazamSearchSheetState extends State<_ShazamSearchSheet>
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Identifying...',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            Text(
+              AppLocalizations.of(context)!.searchIdentifying,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Listening for a song...',
-              style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+            Text(
+              AppLocalizations.of(context)!.searchListeningForSong,
+              style: const TextStyle(fontSize: 14, color: AppColors.textSecondary),
             ),
             const SizedBox(height: 32),
             Padding(
@@ -1271,7 +1272,7 @@ class _ShazamSearchSheetState extends State<_ShazamSearchSheet>
                     ),
                   ),
                   onPressed: widget.onCancel,
-                  child: const Text('Cancel', style: TextStyle(fontSize: 15)),
+                  child: Text(AppLocalizations.of(context)!.searchCancel, style: const TextStyle(fontSize: 15)),
                 ),
               ),
             ),

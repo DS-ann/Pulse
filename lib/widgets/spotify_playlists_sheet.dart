@@ -7,6 +7,8 @@ import '../services/spotify_parser.dart';
 import '../core/theme/app_colors.dart';
 import '../providers/import_provider.dart';
 import 'glass_container.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 class SpotifyPlaylistsSheet extends ConsumerStatefulWidget {
   final String clientId;
@@ -50,7 +52,7 @@ class _SpotifyPlaylistsSheetState extends ConsumerState<SpotifyPlaylistsSheet> {
                      _error = errorObj.toString();
                  }
              } else {
-                 _error = 'Raw 403 Response: $responseData\n\nFallback: ${e.toString()}';
+                 _error = 'RAW_403:$responseData|${e.toString()}';
              }
           } else {
              _error = e.toString();
@@ -65,7 +67,6 @@ class _SpotifyPlaylistsSheetState extends ConsumerState<SpotifyPlaylistsSheet> {
     ref.read(importProvider.notifier).startImport(url, clientId: widget.clientId);
     context.pop();
   }
-
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 0.55;
@@ -88,9 +89,9 @@ class _SpotifyPlaylistsSheetState extends ConsumerState<SpotifyPlaylistsSheet> {
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
-            'Your Spotify Playlists',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Text(
+            AppLocalizations.of(context)!.spotifyPlaylistsTitle,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Expanded(
@@ -100,14 +101,14 @@ class _SpotifyPlaylistsSheetState extends ConsumerState<SpotifyPlaylistsSheet> {
                 ? Center(
                     child: Padding(
                       padding: const EdgeInsets.all(24.0),
-                      child: Text('Error: $_error\nMake sure your Client ID is valid.', 
+                      child: Text(AppLocalizations.of(context)!.spotifyPlaylistsErrorMsg(ErrorMapper.getLocalizedError(context, _error)),
                         textAlign: TextAlign.center,
                         style: const TextStyle(color: Colors.redAccent)
                       ),
                     )
                   )
                 : _playlists == null || _playlists!.isEmpty
-                  ? const Center(child: Text('No playlists found in your library', style: TextStyle(color: AppColors.textSecondary)))
+                  ? Center(child: Text(AppLocalizations.of(context)!.spotifyPlaylistsEmpty, style: const TextStyle(color: AppColors.textSecondary)))
                   : ListView.builder(
                       itemCount: _playlists!.length,
                       padding: const EdgeInsets.only(bottom: 24),
@@ -130,7 +131,7 @@ class _SpotifyPlaylistsSheetState extends ConsumerState<SpotifyPlaylistsSheet> {
                                 ),
                           title: Text(p['name'], maxLines: 1, overflow: TextOverflow.ellipsis,
                               style: const TextStyle(fontWeight: FontWeight.w600)),
-                          subtitle: Text('${p['tracks']} tracks', style: const TextStyle(color: AppColors.textSecondary, fontSize: 13)),
+                          subtitle: Text(AppLocalizations.of(context)!.spotifyPlaylistsTracks(p['tracks'].toString()), style: const TextStyle(color: AppColors.textSecondary, fontSize: 13)),
                           trailing: ElevatedButton(
                             onPressed: () => _importPlaylist(p['url']),
                             style: ElevatedButton.styleFrom(
@@ -138,7 +139,7 @@ class _SpotifyPlaylistsSheetState extends ConsumerState<SpotifyPlaylistsSheet> {
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                               padding: const EdgeInsets.symmetric(horizontal: 16),
                             ),
-                            child: const Text('Import', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                            child: Text(AppLocalizations.of(context)!.spotifyPlaylistsImport, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                           ),
                         );
                       },

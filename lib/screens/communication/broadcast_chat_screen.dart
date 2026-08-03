@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/utils/date_formatter.dart';
 import '../../providers/auth_provider.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 
 class BroadcastChatScreen extends ConsumerStatefulWidget {
   const BroadcastChatScreen({super.key});
@@ -74,8 +76,8 @@ class _BroadcastChatScreenState extends ConsumerState<BroadcastChatScreen> {
       _scrollToBottom();
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Announcement broadcasted successfully!'),
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.broadcastSuccess),
             backgroundColor: Colors.green,
             duration: Duration(seconds: 2),
           ),
@@ -84,7 +86,7 @@ class _BroadcastChatScreenState extends ConsumerState<BroadcastChatScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to broadcast: $e'), backgroundColor: AppColors.danger),
+          SnackBar(content: Text(AppLocalizations.of(context)!.broadcastFailed(ErrorMapper.getLocalizedError(context, e))), backgroundColor: AppColors.danger),
         );
       }
     } finally {
@@ -112,16 +114,16 @@ class _BroadcastChatScreenState extends ConsumerState<BroadcastChatScreen> {
                     constraints: const BoxConstraints(),
                   ),
                   const SizedBox(width: 12),
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Global Announcements',
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                        AppLocalizations.of(context)!.broadcastTitle,
+                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                       ),
                       Text(
-                        'Sent to all users',
-                        style: TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                        AppLocalizations.of(context)!.broadcastSubtitle,
+                        style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
                       ),
                     ],
                   ),
@@ -139,7 +141,7 @@ class _BroadcastChatScreenState extends ConsumerState<BroadcastChatScreen> {
                 Icon(LucideIcons.alertTriangle, size: 14, color: accent),
                 const SizedBox(width: 8),
                 Text(
-                  'Messages sent here will be visible to everyone.',
+                  AppLocalizations.of(context)!.broadcastWarning,
                   style: TextStyle(color: accent, fontSize: 12, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -152,7 +154,7 @@ class _BroadcastChatScreenState extends ConsumerState<BroadcastChatScreen> {
               stream: _broadcastStream,
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}', style: const TextStyle(color: Colors.red)));
+                  return Center(child: Text(AppLocalizations.of(context)!.broadcastError(ErrorMapper.getLocalizedError(context, snapshot.error)), style: const TextStyle(color: Colors.red)));
                 }
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator());
@@ -161,8 +163,8 @@ class _BroadcastChatScreenState extends ConsumerState<BroadcastChatScreen> {
                 final messages = snapshot.data?.docs ?? [];
 
                 if (messages.isEmpty) {
-                  return const Center(
-                    child: Text('No previous announcements.', style: TextStyle(color: AppColors.textSecondary)),
+                  return Center(
+                    child: Text(AppLocalizations.of(context)!.broadcastNoHistory, style: const TextStyle(color: AppColors.textSecondary)),
                   );
                 }
 
@@ -281,7 +283,7 @@ class _BroadcastChatScreenState extends ConsumerState<BroadcastChatScreen> {
                     style: const TextStyle(color: Colors.white, fontSize: 14),
                     textCapitalization: TextCapitalization.sentences,
                     decoration: InputDecoration(
-                      hintText: 'Type a global broadcast...',
+                      hintText: AppLocalizations.of(context)!.broadcastTypeMessage,
                       hintStyle: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
                       filled: true,
                       fillColor: AppColors.surface,

@@ -15,6 +15,7 @@ import '../providers/player_overlay_provider.dart';
 import 'glass_container.dart';
 import 'add_to_playlist_sheet.dart';
 import 'multi_artist_sheet.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Song action bottom sheet — port of SongActionMenu.jsx.
 /// Shows: Add to Queue, Add to Playlist, Go to Album, Go to Artist, Download.
@@ -133,14 +134,14 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
 
             // ── Actions ──
             _ActionItem(
-              icon: LucideIcons.listMusic, label: 'Add to Queue',
+              icon: LucideIcons.listMusic, label: AppLocalizations.of(context)!.songActionQueue,
               onTap: () {
                 ref.read(audioProvider.notifier).addToQueue(widget.song);
                 Navigator.pop(context);
               },
             ),
             _ActionItem(
-              icon: LucideIcons.plusSquare, label: 'Add to Playlist',
+              icon: LucideIcons.plusSquare, label: AppLocalizations.of(context)!.songActionPlaylist,
               onTap: () {
                 Navigator.pop(context);
                 showModalBottomSheet(
@@ -154,13 +155,13 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
             ),
             _ActionItem(
               icon: LucideIcons.disc,
-              label: _loadingAction == 'ALBUM' ? 'Finding...' : 'Go to Album',
+              label: _loadingAction == 'ALBUM' ? AppLocalizations.of(context)!.songActionFinding : AppLocalizations.of(context)!.songActionAlbum,
               loading: _loadingAction == 'ALBUM',
               onTap: () => _goToAlbum(),
             ),
             _ActionItem(
               icon: LucideIcons.user,
-              label: _loadingAction == 'ARTIST' ? 'Finding...' : 'Go to Artist',
+              label: _loadingAction == 'ARTIST' ? AppLocalizations.of(context)!.songActionFinding : AppLocalizations.of(context)!.songActionArtist,
               loading: _loadingAction == 'ARTIST',
               onTap: () => _goToArtist(),
             ),
@@ -170,7 +171,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
             // ── Download ──
             _ActionItem(
               icon: _downloadIcon(),
-              label: _downloadLabel(),
+              label: _downloadLabel(context),
               loading: _downloadState == 'downloading' || _downloadState == 'checking',
               enabled: _downloadState == 'idle' || _downloadState == 'error',
               accent: _downloadState == 'done' || _downloadState == 'already',
@@ -181,7 +182,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
             if (widget.showRemove) ...[
               const Divider(height: 16, indent: 20, endIndent: 20),
               _ActionItem(
-                icon: LucideIcons.trash2, label: 'Remove from Playlist',
+                icon: LucideIcons.trash2, label: AppLocalizations.of(context)!.songActionRemovePlaylist,
                 danger: true,
                 onTap: () {
                   widget.onRemove?.call();
@@ -194,7 +195,7 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
             if (widget.showRemoveDownload) ...[
               if (!widget.showRemove) const Divider(height: 16, indent: 20, endIndent: 20),
               _ActionItem(
-                icon: LucideIcons.trash2, label: widget.removeDownloadLabel ?? 'Remove from Downloads',
+                icon: LucideIcons.trash2, label: widget.removeDownloadLabel ?? AppLocalizations.of(context)!.songActionRemoveDownload,
                 danger: true,
                 onTap: () {
                   widget.onRemoveDownload?.call();
@@ -215,14 +216,14 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
     return LucideIcons.download;
   }
 
-  String _downloadLabel() {
+  String _downloadLabel(BuildContext context) {
     return switch (_downloadState) {
-      'checking' => 'Checking...',
-      'downloading' => 'Downloading...',
-      'done' => 'Downloaded!',
-      'already' => 'Already downloaded',
-      'error' => 'Download failed',
-      _ => 'Download',
+      'checking' => AppLocalizations.of(context)!.songActionDownloadChecking,
+      'downloading' => AppLocalizations.of(context)!.songActionDownloading,
+      'done' => AppLocalizations.of(context)!.songActionDownloaded,
+      'already' => AppLocalizations.of(context)!.songActionDownloadAlready,
+      'error' => AppLocalizations.of(context)!.songActionDownloadFailed,
+      _ => AppLocalizations.of(context)!.songActionDownload,
     };
   }
 
@@ -240,15 +241,15 @@ class _SongActionSheetState extends ConsumerState<SongActionSheet> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         content: Row(
           children: [
-            const Expanded(
-              child: Text('Downloading', style: TextStyle(color: Colors.white)),
+            Expanded(
+              child: Text(AppLocalizations.of(context)!.songActionDownloadingSnack, style: const TextStyle(color: Colors.white)),
             ),
             TextButton(
               onPressed: () {
                 messenger.hideCurrentSnackBar();
                 router.push('/downloading');
               },
-              child: Text('VIEW', style: TextStyle(color: accent, fontWeight: FontWeight.bold)),
+              child: Text(AppLocalizations.of(context)!.songActionView, style: TextStyle(color: accent, fontWeight: FontWeight.bold)),
             ),
           ],
         ),

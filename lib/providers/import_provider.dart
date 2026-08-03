@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/api/music_api.dart';
 import '../data/models/song.dart';
 import '../services/spotify_parser.dart';
+import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/core/utils/error_mapper.dart';
 import 'playlist_provider.dart';
 
 // ── ImportTask model ─────────────────────────────────────────────────────────
@@ -116,10 +119,13 @@ class ImportNotifier extends StateNotifier<Map<String, ImportTask>> {
         await _importYtMusic(taskId, task.url);
       }
     } catch (e) {
-      String errMsg = 'Error importing playlist';
+      final l10n = lookupAppLocalizations(const Locale('en'));
+      String errMsg = l10n.importErrorPlaylist;
       final eStr = e.toString();
       if (eStr.contains('highly populated')) {
-        errMsg = eStr.replaceFirst('Exception: ', '');
+        errMsg = l10n.importErrorHighlyPopulated;
+      } else {
+        errMsg = ErrorMapper.getLocalizedErrorBackground(e);
       }
       if (state.containsKey(taskId)) {
         state = {

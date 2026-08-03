@@ -15,6 +15,7 @@ import '../../data/api/music_api.dart';
 import '../../data/models/song.dart';
 import '../../widgets/glass_container.dart';
 import '../../core/constants/app_constants.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Profile screen — port of Profile.jsx.
 /// Avatar, stats dashboard (timeframe picker), top songs, top artists, footer.
@@ -104,12 +105,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('Not logged in',
+                Text(AppLocalizations.of(context)!.profileNotLoggedIn,
                     style: TextStyle(color: AppColors.textSecondary)),
                 const SizedBox(height: 12),
                 ElevatedButton(
                   onPressed: () => context.go('/login'),
-                  child: const Text('Sign In'),
+                  child: Text(AppLocalizations.of(context)!.profileSignIn),
                 ),
               ],
             ),
@@ -118,7 +119,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
       );
     }
 
-    final displayName = auth.displayName ?? 'Pulse User';
+    final displayName = auth.displayName ?? AppLocalizations.of(context)!.profileDefaultUser;
     final email = auth.user?.email ?? '';
     final initials = auth.initials;
 
@@ -166,7 +167,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                             width: 160,
                             child: GlassContainer(
                               borderRadius: 14,
-                              child: _actionTile(LucideIcons.pencil, 'Edit Profile', () {
+                              child: _actionTile(LucideIcons.pencil, AppLocalizations.of(context)!.profileEditProfile, () {
                                 _showEditProfileBottomSheet(context, displayName, auth.photoURL, initials);
                               }),
                             ),
@@ -190,7 +191,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               child: Row(
                 children: ['day', 'week', 'month', 'year'].map((tf) {
                   final isActive = _activeTimeframe == tf;
-                  final label = tf[0].toUpperCase() + tf.substring(1);
+                  final label = tf == 'day' ? AppLocalizations.of(context)!.profileTimeframeDay : tf == 'week' ? AppLocalizations.of(context)!.profileTimeframeWeek : tf == 'month' ? AppLocalizations.of(context)!.profileTimeframeMonth : AppLocalizations.of(context)!.profileTimeframeYear;
                   return Expanded(
                     child: GestureDetector(
                       onTap: () => setState(() {
@@ -238,7 +239,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           children: [
                             Icon(LucideIcons.clock, size: 14, color: accent),
                             const SizedBox(width: 6),
-                            Text('LISTENING TIME',
+                            Text(AppLocalizations.of(context)!.profileListeningTime,
                                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
                                     color: accent, letterSpacing: 1)),
                           ],
@@ -249,10 +250,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                 fontSize: 28, fontWeight: FontWeight.w800)),
                         const SizedBox(height: 4),
                         Text(
-                          _activeTimeframe == 'day' ? 'Today'
-                              : _activeTimeframe == 'week' ? 'This week'
-                              : _activeTimeframe == 'month' ? 'This month'
-                              : 'This year',
+                          _activeTimeframe == 'day' ? AppLocalizations.of(context)!.profileToday
+                              : _activeTimeframe == 'week' ? AppLocalizations.of(context)!.profileThisWeek
+                              : _activeTimeframe == 'month' ? AppLocalizations.of(context)!.profileThisMonth
+                              : AppLocalizations.of(context)!.profileThisYear,
                           style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
                         ),
                       ],
@@ -273,7 +274,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           children: [
                             Icon(LucideIcons.trendingUp, size: 14, color: accent),
                             const SizedBox(width: 6),
-                            Text('DAILY AVG',
+                            Text(AppLocalizations.of(context)!.profileDailyAvg,
                                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
                                     color: accent, letterSpacing: 1)),
                           ],
@@ -283,7 +284,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                             style: const TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.w800)),
                         const SizedBox(height: 4),
-                        const Text('Per day',
+                        Text(AppLocalizations.of(context)!.profilePerDay,
                             style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
                       ],
                     ),
@@ -306,7 +307,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     children: [
                       Icon(LucideIcons.headphones, size: 14, color: accent),
                       const SizedBox(width: 6),
-                      Text('LIFETIME LISTENING',
+                      Text(AppLocalizations.of(context)!.profileLifetimeListening,
                           style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
                               color: accent, letterSpacing: 1)),
                     ],
@@ -315,7 +316,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   Text(_formatTime(stats.lifetimeMs),
                       style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w800)),
                   const SizedBox(height: 4),
-                  const Text('Total time listened to music on Pulse',
+                  Text(AppLocalizations.of(context)!.profileTotalTimeListened,
                       style: TextStyle(fontSize: 12, color: AppColors.textSecondary)),
                 ],
               ),
@@ -328,16 +329,16 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               children: [
                 Icon(LucideIcons.playCircle, size: 18, color: accent.withValues(alpha: 0.9)),
                 const SizedBox(width: 8),
-                const Text('Your Top Songs',
+                Text(AppLocalizations.of(context)!.profileYourTopSongs,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
               ],
             ),
             const SizedBox(height: 12),
             stats.topSongs.isEmpty
-                ? const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    child: Text('Listening history will appear here.',
-                        style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Text(AppLocalizations.of(context)!.profileListeningHistoryEmpty,
+                        style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                   )
                 : SizedBox(
                     height: 200,
@@ -391,7 +392,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                   Text(s['artist'] ?? '', maxLines: 1, overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(fontSize: 10, color: AppColors.textSecondary)),
                                   const SizedBox(height: 2),
-                                  Text('${s['playCount'] ?? 0} plays',
+                                  Text(AppLocalizations.of(context)!.profilePlays(s['playCount'] ?? 0),
                                       style: TextStyle(fontSize: 10, color: accent.withValues(alpha: 0.8), fontWeight: FontWeight.w500)),
                                 ],
                               ),
@@ -409,16 +410,16 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               children: [
                 Icon(LucideIcons.mic2, size: 18, color: accent.withValues(alpha: 0.9)),
                 const SizedBox(width: 8),
-                const Text('Your Top Artists',
+                Text(AppLocalizations.of(context)!.profileYourTopArtists,
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
               ],
             ),
             const SizedBox(height: 12),
             stats.topArtists.isEmpty
-                ? const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    child: Text('Your favorite artists will appear here.',
-                        style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    child: Text(AppLocalizations.of(context)!.profileTopArtistsEmpty,
+                        style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                   )
                 : SizedBox(
                     height: 200,
@@ -465,7 +466,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                   Text(name, maxLines: 1, overflow: TextOverflow.ellipsis,
                                       style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
                                   const SizedBox(height: 2),
-                                  const Text('Artist', maxLines: 1, overflow: TextOverflow.ellipsis,
+                                  Text(AppLocalizations.of(context)!.profileArtistLabel, maxLines: 1, overflow: TextOverflow.ellipsis,
                                       style: TextStyle(fontSize: 10, color: AppColors.textSecondary)),
                                   const SizedBox(height: 2),
                                   Text(_formatTime((a['totalSeconds'] ?? 0) * 1000),
@@ -486,7 +487,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               borderRadius: 14,
               child: Column(
                 children: [
-                  _actionTile(LucideIcons.logOut, 'Sign Out', () async {
+                  _actionTile(LucideIcons.logOut, AppLocalizations.of(context)!.profileSignOut, () async {
                     await ref.read(authProvider.notifier).logout();
                     if (context.mounted) context.go('/login');
                   }, danger: true),
@@ -507,7 +508,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   const Text('Pulse',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                   const SizedBox(height: 4),
-                  Text('Version $kAppVersion',
+                  Text(AppLocalizations.of(context)!.profileVersion(kAppVersion),
                       style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                   const SizedBox(height: 4),
                   GestureDetector(
@@ -521,10 +522,10 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Text('Made with ❤️ by ',
+                          Text(AppLocalizations.of(context)!.profileMadeWithHeartBy,
                               style: TextStyle(fontSize: 12,
                                   color: AppColors.textSecondary)),
-                          Text('Ashutosh Pathak',
+                          Text(AppLocalizations.of(context)!.profileAuthorName,
                               style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold,
                                   color: accent)),
                         ],
@@ -725,7 +726,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         color: Colors.white24, borderRadius: BorderRadius.circular(2)),
                     ),
                   ),
-                  const Text('EDIT PROFILE', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, letterSpacing: 1)),
+                  Text(AppLocalizations.of(context)!.profileEditProfileHeader, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800, letterSpacing: 1)),
                   const SizedBox(height: 24),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -763,7 +764,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('DISPLAY NAME', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.textSecondary, letterSpacing: 1)),
+                            Text(AppLocalizations.of(context)!.profileDisplayName, style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.textSecondary, letterSpacing: 1)),
                             const SizedBox(height: 8),
                             TextField(
                               controller: _nameC,
@@ -777,7 +778,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                TextButton(onPressed: () => ctx.pop(), child: const Text('Cancel')),
+                                TextButton(onPressed: () => ctx.pop(), child: Text(AppLocalizations.of(context)!.profileCancel)),
                                 const SizedBox(width: 12),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
@@ -800,7 +801,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                                   },
                                   child: isSaving
                                       ? SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: accent))
-                                      : const Text('Save'),
+                                      : Text(AppLocalizations.of(context)!.profileSave),
                                 ),
                               ],
                             ),
@@ -841,7 +842,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                const Text('Choose Avatar', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+                Text(AppLocalizations.of(context)!.profileChooseAvatar, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
                 const SizedBox(height: 16),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.5,

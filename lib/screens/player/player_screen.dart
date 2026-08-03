@@ -23,6 +23,7 @@ import 'widgets/equalizer_sheet.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/song_tile.dart';
+import 'package:pulse/l10n/app_localizations.dart';
 
 /// Full-screen player — port of PlayerView.jsx.
 /// Album art with lyrics flip, seek bar, main controls, up-next queue.
@@ -207,7 +208,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                         ),
                         Column(
                           children: [
-                            Text('PULSE',
+                            Text(AppLocalizations.of(context)!.playerAppName,
                                 style: TextStyle(
                                     fontSize: 12, fontWeight: FontWeight.w800,
                                     color: Theme.of(context).colorScheme.primary, letterSpacing: 2)),
@@ -222,10 +223,10 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    const Text('Made with \u2764\ufe0f by ',
+                                    Text(AppLocalizations.of(context)!.playerMadeWithHeartBy,
                                         style: TextStyle(
                                             fontSize: 9, color: AppColors.textSecondary)),
-                                    Text('Ashutosh Pathak',
+                                    Text(AppLocalizations.of(context)!.playerAuthorName,
                                         style: TextStyle(
                                             fontSize: 9, fontWeight: FontWeight.bold,
                                             color: Theme.of(context).colorScheme.primary)),
@@ -539,7 +540,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                   children: [
                     Icon(LucideIcons.music2, size: 12, color: accent),
                     const SizedBox(width: 4),
-                    const Text('Swipe for lyrics',
+                    Text(AppLocalizations.of(context)!.playerSwipeForLyrics,
                         style: TextStyle(fontSize: 11, color: Colors.white70)),
                   ],
                 ),
@@ -585,7 +586,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
         child: _lyricsState == 'loading'
             ? const Center(child: CircularProgressIndicator(color: Colors.white))
             : _lyricsState == 'error' || _parsedLines == null || _parsedLines!.isEmpty
-                ? const Center(child: Text('No lyrics available', style: TextStyle(color: Colors.white70)))
+                ? Center(child: Text(AppLocalizations.of(context)!.playerNoLyrics, style: const TextStyle(color: Colors.white70)))
                 : SingleChildScrollView(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 120),
                     controller: _lyricsScrollController,
@@ -698,7 +699,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                         const SizedBox(height: 12),
                         Center(
                           child: Text(
-                            'Up Next',
+                            AppLocalizations.of(context)!.playerUpNext,
                             style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: accent),
                           ),
                         ),
@@ -716,11 +717,11 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                         child: Opacity(
                           opacity: ((sheetExtent - 0.11) / 0.12).clamp(0.0, 1.0),
                           child: queue.isEmpty
-                            ? const Padding(
-                                padding: EdgeInsets.only(top: 32),
+                            ? Padding(
+                                padding: const EdgeInsets.only(top: 32),
                                 child: Center(
-                                  child: Text('No tracks in queue',
-                                      style: TextStyle(fontSize: 13, color: AppColors.textSecondary)),
+                                  child: Text(AppLocalizations.of(context)!.playerNoTracksInQueue,
+                                      style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
                                 ),
                               )
                             : Column(
@@ -820,10 +821,10 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text('No music playing',
+                    Text(AppLocalizations.of(context)!.playerNoMusicPlaying,
                         style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
                     const SizedBox(height: 8),
-                    const Text('Pick a vibe from your library or home',
+                    Text(AppLocalizations.of(context)!.playerPickAVibe,
                         style: TextStyle(color: AppColors.textSecondary)),
                     const SizedBox(height: 20),
                     ElevatedButton(
@@ -831,7 +832,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                         ref.read(playerOverlayProvider.notifier).state = false;
                         context.go('/');
                       },
-                      child: const Text('Go Home'),
+                      child: Text(AppLocalizations.of(context)!.playerGoHome),
                     ),
                   ],
                 ),
