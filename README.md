@@ -148,7 +148,7 @@ rust_builder/       # Tooling and scripts to build the Rust library (Cargokit)
 
 ### 📥 Download APK
 
-Don't want to build it from source? **[Download the latest APK release here](#)** to install Pulse instantly!
+Don't want to build it from source? **[Download the latest APK release here](https://github.com/its-ashutosh-pathak/Pulse/releases/latest)** to install Pulse instantly!
 
 ### Prerequisites
 
