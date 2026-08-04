@@ -121,7 +121,10 @@ class _PulseAppState extends ConsumerState<PulseApp> {
         ],
         supportedLocales: const [
           Locale('en', ''),
+          Locale('hi', ''),
+          Locale('fr', ''),
         ],
+        locale: settings.appLocale == null ? null : Locale(settings.appLocale!),
         theme: AppTheme.dark(accentColor: accentColor),
         home: const Scaffold(
           body: Center(
@@ -143,7 +146,10 @@ class _PulseAppState extends ConsumerState<PulseApp> {
       ],
       supportedLocales: const [
         Locale('en', ''),
+        Locale('hi', ''),
+        Locale('fr', ''),
       ],
+      locale: settings.appLocale == null ? null : Locale(settings.appLocale!),
       theme: AppTheme.dark(accentColor: accentColor),
       localeResolutionCallback: (locale, supportedLocales) {
         final resolved = supportedLocales.firstWhere(

@@ -1766,6 +1766,12 @@ abstract class AppLocalizations {
   /// **'Appearance'**
   String get settingsAppearance;
 
+  /// No description provided for @settingsLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get settingsLanguage;
+
   /// No description provided for @settingsCustomAccent.
   ///
   /// In en, this message translates to:

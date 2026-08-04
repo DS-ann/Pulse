@@ -20,6 +20,9 @@ class SettingsState {
   final List<double> equalizerGains;
   final List<double> equalizerCustomGains;
 
+  // ── Locale ──
+  final String? appLocale; // e.g. 'en', 'hi', null means 'System'
+
   const SettingsState({
     this.streamingQuality = 'high',
     this.downloadQuality = 'high',
@@ -30,6 +33,7 @@ class SettingsState {
     this.equalizerPreset = 'Custom',
     this.equalizerGains = const [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
     this.equalizerCustomGains = const [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    this.appLocale,
   });
 
   SettingsState copyWith({
@@ -42,6 +46,8 @@ class SettingsState {
     String? equalizerPreset,
     List<double>? equalizerGains,
     List<double>? equalizerCustomGains,
+    String? appLocale,
+    bool clearLocale = false, // Helper to unset the locale
   }) {
     return SettingsState(
       streamingQuality: streamingQuality ?? this.streamingQuality,
@@ -53,6 +59,7 @@ class SettingsState {
       equalizerPreset: equalizerPreset ?? this.equalizerPreset,
       equalizerGains: equalizerGains ?? this.equalizerGains,
       equalizerCustomGains: equalizerCustomGains ?? this.equalizerCustomGains,
+      appLocale: clearLocale ? null : (appLocale ?? this.appLocale),
     );
   }
 }
@@ -123,6 +130,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
       equalizerPreset: prefs.getString('pulse_eq_preset') ?? 'Custom',
       equalizerGains: loadedGains,
       equalizerCustomGains: loadedCustomGains,
+      appLocale: prefs.getString('pulse_app_locale'),
     );
   }
 
@@ -184,6 +192,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
       equalizerPreset:  eqPreset  as String?,
       equalizerGains:   parsedGains,
       equalizerCustomGains: parsedCustomGains,
+      appLocale:        data['appLocale'] as String?,
     );
 
     // Persist locally so the app works offline on subsequent launches.
@@ -276,6 +285,12 @@ class SettingsNotifier extends Notifier<SettingsState> {
     _scheduleFsWrite();
   }
 
+  void setAppLocale(String? locale) {
+    state = state.copyWith(appLocale: locale, clearLocale: locale == null);
+    _persistToDisk();
+    _scheduleFsWrite();
+  }
+
   // ── Persist to SharedPreferences (always immediate, always offline-safe) ──
 
   Future<void> _persistToDisk() async {
@@ -289,6 +304,12 @@ class SettingsNotifier extends Notifier<SettingsState> {
     await prefs.setString('pulse_eq_preset',         state.equalizerPreset);
     await prefs.setString('pulse_eq_gains',          state.equalizerGains.join(','));
     await prefs.setString('pulse_eq_custom_gains',   state.equalizerCustomGains.join(','));
+    
+    if (state.appLocale == null) {
+      await prefs.remove('pulse_app_locale');
+    } else {
+      await prefs.setString('pulse_app_locale', state.appLocale!);
+    }
   }
 
   // ── Debounced Firestore write ──
@@ -322,6 +343,7 @@ class SettingsNotifier extends Notifier<SettingsState> {
         'equalizerPreset':       state.equalizerPreset,
         'equalizerGains':        state.equalizerGains,
         'equalizerCustomGains':  state.equalizerCustomGains,
+        'appLocale':             state.appLocale,
         // Purge legacy ghost fields from the database
         'equalizerPreAmp':       FieldValue.delete(),
         'equalizerCustomPreAmp': FieldValue.delete(),

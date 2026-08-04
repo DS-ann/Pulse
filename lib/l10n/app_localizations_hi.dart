@@ -947,6 +947,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settingsAppearance => 'दिखावट';
 
   @override
+  String get settingsLanguage => 'भाषा';
+
+  @override
   String get settingsCustomAccent => 'कस्टम एक्सेंट';
 
   @override

@@ -455,6 +455,7 @@
   "settingsDataSaver": "Data Saver",
   "settingsDataSaverDesc": "Stream at lower quality over cellular",
   "settingsAppearance": "Appearance",
+  "settingsLanguage": "Language",
   "settingsCustomAccent": "Custom Accent",
   "settingsSaturation": "Saturation",
   "settingsBrightness": "Brightness",

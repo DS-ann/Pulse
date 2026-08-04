@@ -944,6 +944,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsAppearance => 'Appearance';
 
   @override
+  String get settingsLanguage => 'Language';
+
+  @override
   String get settingsCustomAccent => 'Custom Accent';
 
   @override

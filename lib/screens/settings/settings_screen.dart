@@ -292,6 +292,42 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ),
             ),
 
+            const SizedBox(height: 24),
+
+            // ── Language ──
+            _sectionTitle(LucideIcons.globe, AppLocalizations.of(context)!.settingsLanguage),
+            const SizedBox(height: 8),
+            GlassContainer(
+              borderRadius: 14,
+              padding: const EdgeInsets.all(16),
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => _showLanguageSelector(context, settings, accent),
+                child: Row(
+                  children: [
+                    Icon(LucideIcons.globe, size: 18, color: accent),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppLocalizations.of(context)!.settingsLanguage,
+                            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                          ),
+                          Text(
+                            _getLanguageName(settings.appLocale),
+                            style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Icon(LucideIcons.chevronRight, size: 16, color: AppColors.textSecondary),
+                  ],
+                ),
+              ),
+            ),
+
             const SizedBox(height: 32),
 
             // ── Footer ──
@@ -369,6 +405,86 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             Text(label,
                 style: TextStyle(
                     fontSize: 14,
+                    fontWeight: isActive ? FontWeight.w600 : FontWeight.w500)),
+            Container(
+              width: 18, height: 18,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                    color: isActive ? accent : AppColors.textSecondary,
+                    width: 2),
+              ),
+              child: isActive
+                  ? Center(child: Container(
+                      width: 8, height: 8,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: accent)))
+                  : null,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String _getLanguageName(String? localeCode) {
+    if (localeCode == 'hi') return 'हिन्दी';
+    if (localeCode == 'fr') return 'Français';
+    return 'English';
+  }
+
+  void _showLanguageSelector(BuildContext context, SettingsState settings, Color accent) {
+    showModalBottomSheet(
+      useRootNavigator: true,
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) {
+        return GlassContainer(
+          borderRadius: 24,
+          blur: 24,
+          child: SafeArea(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 16),
+                Center(
+                  child: Container(
+                    width: 36, height: 4,
+                    decoration: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(2)),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(AppLocalizations.of(context)!.settingsLanguage, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+                const SizedBox(height: 16),
+                _languageItem(ctx, 'en', 'English', settings.appLocale, accent),
+                _languageItem(ctx, 'hi', 'हिन्दी', settings.appLocale, accent),
+                _languageItem(ctx, 'fr', 'Français', settings.appLocale, accent),
+                const SizedBox(height: 24),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _languageItem(BuildContext context, String localeCode, String label, String? active, Color accent) {
+    final effectiveActive = active ?? 'en';
+    final isActive = localeCode == effectiveActive;
+    
+    return InkWell(
+      onTap: () {
+        ref.read(settingsProvider.notifier).setAppLocale(localeCode);
+        Navigator.pop(context);
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(label,
+                style: TextStyle(
+                    fontSize: 15,
                     fontWeight: isActive ? FontWeight.w600 : FontWeight.w500)),
             Container(
               width: 18, height: 18,
