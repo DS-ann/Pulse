@@ -468,6 +468,8 @@ class AudioNotifier extends Notifier<AudioState> {
         onTimeout: () => throw TimeoutException('Stream extraction timed out. Check internet connection.'),
       );
       
+      if (isStale()) return;
+
       await player.setVolume(100.0);
       await player.open(Media(
         streamUrl,
