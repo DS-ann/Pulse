@@ -1,0 +1,574 @@
+{
+  "@@locale": "ml",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "കുറിച്ച്",
+  "artistPopular": "ജനപ്രിയമായവ",
+  "artistAlbums": "ആൽബങ്ങൾ",
+  "artistSinglesAndEPs": "സിംഗിൾസ് & EP",
+  "artistSubscribersCount": "{count} സബ്‌സ്‌ക്രൈബർമാർ",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "എല്ലാം പ്ലേ ചെയ്യുക",
+  "artistLoadError": "ആർട്ടിസ്റ്റിനെ ലോഡ് ചെയ്യാനായില്ല",
+  "artistGoBack": "പുറകോട്ട് പോകുക",
+  "adminChatFailedToReply": "മറുപടി നൽകാനായില്ല: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "സപ്പോർട്ട് ചാറ്റ്",
+  "adminChatError": "പിശക്: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "മുൻ സംഭാഷണങ്ങളൊന്നുമില്ല.",
+  "adminChatSupportYou": "സപ്പോർട്ട് (നിങ്ങൾ)",
+  "adminChatTypeReply": "നിങ്ങളുടെ മറുപടി ടൈപ്പ് ചെയ്യുക...",
+  "broadcastSuccess": "അറിയിപ്പ് വിജയകരമായി സംപ്രേക്ഷണം ചെയ്തു!",
+  "broadcastFailed": "സംപ്രേക്ഷണം ചെയ്യാനായില്ല: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "ആഗോള അറിയിപ്പുകൾ",
+  "broadcastSubtitle": "എല്ലാ ഉപയോക്താക്കൾക്കും അയച്ചു",
+  "broadcastWarning": "ഇവിടെ അയയ്ക്കുന്ന സന്ദേശങ്ങൾ എല്ലാവർക്കും ദൃശ്യമാകും.",
+  "broadcastError": "പിശക്: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "മുൻ അറിയിപ്പുകളൊന്നുമില്ല.",
+  "broadcastTypeMessage": "ഒരു ആഗോള അറിയിപ്പ് ടൈപ്പ് ചെയ്യുക...",
+  "commFailedToSend": "അയയ്ക്കാനായില്ല: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "അഡ്മിൻ ഡാഷ്‌ബോർഡ്",
+  "commAdminSupport": "അഡ്മിൻ സപ്പോർട്ട്",
+  "commAlwaysHere": "സഹായിക്കാൻ എപ്പോഴും തയ്യാറാണ്",
+  "commWelcomeTitle": "നമസ്കാരം! 👋 ഞാൻ അശുതೋಷ് പാഠക്",
+  "commWelcomeSubtitle": "Pulse ഡെവಲപ്പർ",
+  "commWelcomeBody1": "പരസ്യങ്ങളോ സബ്‌സ്‌ക്രിപ്‌ഷൻ തടസ്സങ്ങളോ ഇല്ലാതെ നിങ്ങളുടെ പ്രിയപ്പെട്ട സംഗീതം നിങ്ങൾ ആസ്വദിക്കുന്നുണ്ടെന്ന് ഞാൻ കരുതുന്നു. സംഗീതം പണക്കാർക്ക് മാത്രം സ്വന്തമാകാൻ പാടില്ല.\n\nനമുക്ക് നേരിട്ട് ബന്ധപ്പെടാനാണ് ഈ വിഭാഗം.\n\nനിങ്ങൾക്ക് പറയാനുള്ളത്:",
+  "commBullet1": "നിങ്ങളുടെ അഭിപ്രായങ്ങൾ",
+  "commBullet2": "പിശകുകൾ റിപ്പോർട്ട് ചെയ്യുക",
+  "commBullet3": "പുതിയ ഫീച്ചറുകൾ നിർദ്ദേശിക്കുക",
+  "commWelcomeBody2": "ഓരോ സന്ദേശവും ഞാൻ വായിക്കുകയും നിങ്ങളുടെ നിർദ്ദേശങ്ങൾക്കനുസരിച്ച് ആപ്പ് മെച്ചപ്പെടുത്തുകയും ചെയ്യും.\n\nസബ്‌സ്‌ക്രിപ്‌ഷനുകളിൽ കുടുങ്ങിക്കിടക്കുന്ന പുതിയ ആപ്പ് ആശയങ്ങൾ നിങ്ങൾക്കുണ്ടോ? എന്നെ അറിയിക്കുക! സാധ്യമെങ്കിൽ ഞാൻ അത് എല്ലാവർക്കുമായി നിർമ്മിക്കും.\n\nഈ യാത്രയിൽ ഒപ്പമുള്ളതിന് നന്ദി. ❤️",
+  "commError": "പിശക്: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "ഇതുവരെ സന്ദേശങ്ങളൊന്നുമില്ല",
+  "commNoMessagesDesc": "ഞങ്ങളുടെ സപ്പോർട്ട് ടീമിന് സന്ദേശമയയ്‌ക്കുക അല്ലെങ്കിൽ പിന്നീട് പരിശോധിക്കുക.",
+  "commMessageSupportHint": "സപ്പോർട്ട് ടീമിന് എഴുതുക...",
+  "commGlobalAnnouncements": "ആഗോള അറിയിപ്പുകൾ",
+  "commSendMessagesToAll": "എല്ലാവർക്കും സന്ദേശമയയ്‌ക്കുക",
+  "homeGreetingMorning": "സുപ്രഭാതം,",
+  "homeGreetingAfternoon": "ശുഭ ഉച്ചതിരിഞ്ഞ്,",
+  "homeGreetingEvening": "ശുഭ സായാഹ്നം,",
+  "homeMember": "അംഗം",
+  "homeRecentPlaylists": "സമീപകാല പ്ലേലിസ്റ്റുകൾ",
+  "homeRecentlyPlayed": "സമീപകാലത്ത് പ്ലേ ചെയ്തവ",
+  "homeSpeedDial": "സ്പീഡ് ഡയൽ",
+  "homeNoContent": "ഉള്ളടക്കമില്ല",
+  "homeRefresh": "റിഫ്രഷ്",
+  "homeLoadError": "സംഗീതം ലോഡ് ചെയ്യാനായില്ല.",
+  "homeRetry": "വീണ്ടും ശ്രമിക്കുക",
+  "importSuccess": "Spotify വിജയകരമായി കണക്‌റ്റ് ചെയ്‌തു!",
+  "importFailed": "കണക്‌റ്റ് ചെയ്യാനായില്ല: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify കണക്റ്റ് ചെയ്യുക",
+  "importSetupTitle": "Spotify സജ്ജീകരണം",
+  "importSetupDesc": "Spotify പരിമിതികൾ ഒഴിവാക്കി നിങ്ങളുടെ പ്ലേലിസ്റ്റുകൾ വേഗത്തിൽ ഇംപോർട്ട് ചെയ്യാൻ നിങ്ങളുടെ ഡെവലപ്പർ കീ ഉപയോഗിക്കുക. ഈ ഘട്ടങ്ങൾ പാലിക്കുക:",
+  "importStep1": "Spotify Developer Dashboard തുറക്കുക.",
+  "importStep2": "ലോഗിൻ ചെയ്ത് \"Create app\" ക്ലിക്ക് ചെയ്യുക.",
+  "importStep3": "ആപ്പിന് ഒരു പേരും വിവരണവും നൽകുക.",
+  "importStep4": "\"Redirect URIs\" താഴെ ഈ URL ഒട്ടിക്കുക:",
+  "importRedirectCopied": "റീഡയറക്റ്റ് URI പകർത്തി!",
+  "importStep5": "ആപ്പ് സേവ് ചെയ്ത്, ക്രമീകരണങ്ങളിൽ നിന്നും നിങ്ങളുടെ \"Client ID\" പകർത്തി താഴെ ഒട്ടിക്കുക.",
+  "importImportant": "പ്രധാനപ്പെട്ടത്: ഈ ഡെവലപ്പർ ആപ്പ് നിർമ്മിക്കാൻ ഉപയോഗിക്കുന്ന Spotify അക്കൗണ്ടിന് ഒരു ആക്റ്റീവ് പ്രീമിയം സബ്‌സ്‌ക്രിപ്‌ഷൻ ഉണ്ടായിരിക്കണം.",
+  "importClientIdHint": "നിങ്ങളുടെ Spotify Client ID ഇവിടെ ഒട്ടിക്കുക...",
+  "importConnectButton": "കണക്റ്റ് & ലൈബ്രറി ലോഡ് ചെയ്യുക",
+  "downloadingNoActive": "സജീവ ഡൗൺലോഡുകളൊന്നുമില്ല",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "ഡൗൺലോഡുകൾ",
+  "downloadsStats": "{count} ഗാനങ്ങൾ • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "ഓഫ്‌ലൈൻ ഗാനങ്ങളില്ല",
+  "downloadsNoOfflineDesc": "നിങ്ങൾ ഡൗൺലോഡ് ചെയ്ത ഗാനങ്ങൾ ഇവിടെ കാണിക്കും",
+  "downloadsClearAllTitle": "എല്ലാം മായ്‌ക്കണോ?",
+  "downloadsClearAllDesc": "ഇത് {count} ഗാനങ്ങൾ ഇല്ലാതാക്കുകയും {size} സ്റ്റോറേജ് ശൂന്യമാക്കുകയും ചെയ്യും.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "റദ്ദാക്കുക",
+  "downloadsClearAll": "എല്ലാം മായ്‌ക്കുക",
+  "downloadsSongsCount": "{count} ഗാനങ്ങൾ",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} ഗാനം",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "പ്രധാന ഡൗൺലോഡ് പ്ലേലിസ്റ്റിന്റെ പേരുമാറ്റാൻ കഴിയില്ല.",
+  "downloadsRename": "പേരുമാറ്റുക",
+  "downloadsEditSongs": "ഗാനങ്ങൾ എഡിറ്റ് ചെയ്യുക",
+  "downloadsDelete": "ഇല്ലാതാക്കുക",
+  "downloadsRenamePlaylistTitle": "പ്ലേലിസ്റ്റിന്റെ പേരുമാറ്റുക",
+  "downloadsRenamePlaylistDesc": "നിങ്ങളുടെ പ്ലേലിസ്റ്റിന് പുതിയ പേര് നൽകുക.",
+  "downloadsDeletePlaylistTitle": "പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കണോ?",
+  "downloadsDeleteMasterDesc": "തീർച്ചയാണോ? ഡൗൺലോഡ് ചെയ്ത എല്ലാ ഗാനങ്ങളും പ്ലേലിസ്റ്റുകളും ശാശ്വതമായി നഷ്‌ടപ്പെടും.",
+  "downloadsDeletePlaylistDesc": "\"{name}\" ഇല്ലാതാക്കണമെന്ന് ഉറപ്പാണോ? ഈ പ്ലേലിസ്റ്റ് ശാശ്വതമായി നഷ്‌ടപ്പെടും.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "സേവ് ചെയ്യുക",
+  "downloadsNoSongs": "ഈ പ്ലേലിസ്റ്റിൽ ഗാനങ്ങളൊന്നുമില്ല.",
+  "libraryTitle": "ലൈബ്രറി",
+  "libraryPauseAll": "എല്ലാം താൽക്കാലികമായി നിർത്തുക",
+  "libraryResumeAll": "എല്ലാം പുനരാരംഭിക്കുക",
+  "libraryTabPlaylists": "പ്ലേലിസ്റ്റുകൾ",
+  "libraryTabDownloads": "ഡൗൺലോഡുകൾ",
+  "libraryTabDownloading": "ഡൗൺലോഡ് ചെയ്യുന്നു",
+  "libraryImportedTask": "{name} ഇംപോർട്ട് ചെയ്തു",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "കാത്തിരിക്കുന്നു...",
+  "libraryImportFetching": "പ്ലേലിസ്റ്റ് എടുക്കുന്നു...",
+  "libraryImportProcessed": "{processed}/{total} പ്രോസസ്സ് ചെയ്തു · {matched} മാച്ച് ചെയ്തു",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "ലൈബ്രറിയിലേക്ക് സേവ് ചെയ്യുന്നു...",
+  "libraryImportDoneSongs": "{matched} ഗാനങ്ങൾ ചേർത്തു · അടയ്ക്കാൻ × അമർത്തുക",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "എല്ലാ ഗാനങ്ങളും ചേർത്തു · അടയ്ക്കാൻ × അമർത്തുക",
+  "libraryAddButton": "ചേർക്കുക",
+  "librarySortRecent": "സമീപകാലത്ത് ചേർത്തവ",
+  "librarySortAlpha": "അക്ഷരമാലാക്രമം",
+  "libraryEmptyTitle": "നിങ്ങളുടെ ലൈബ്രറി ശൂന്യമാണ്.",
+  "libraryEmptyDesc": "നിങ്ങളുടെ ആദ്യത്തെ Pulse ആരംഭിക്കാൻ \"ചേർക്കുക\" അമർത്തുക.",
+  "libraryRenameLikedError": "Liked Songs പ്ലേലിസ്റ്റിന്റെ പേരുമാറ്റാൻ കഴിയില്ല.",
+  "libraryRename": "പേരുമാറ്റുക",
+  "libraryEditSongs": "ഗാനങ്ങൾ എഡിറ്റ് ചെയ്യുക",
+  "libraryDeleteLikedError": "Liked Songs പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കാൻ കഴിയില്ല.",
+  "libraryDelete": "ഇല്ലാതാക്കുക",
+  "libraryEditSongsTitle": "ഗാനങ്ങൾ എഡിറ്റ് ചെയ്യുക",
+  "libraryEditSongsCountSingle": "{count} ഗാനം",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} ഗാനങ്ങൾ",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "റദ്ദാക്കുക",
+  "librarySave": "സേവ് ചെയ്യുക",
+  "libraryNoSongs": "ഈ പ്ലേലിസ്റ്റിൽ ഗാനങ്ങളൊന്നുമില്ല.",
+  "libraryAddOptionsTitle": "ലൈബ്രറിയിലേക്ക് ചേർക്കുക",
+  "libraryAddOptionsDesc": "നിങ്ങളുടെ Pulse ലൈബ്രറി എങ്ങനെ വിപുലീകരിക്കാമെന്ന് തിരഞ്ഞെടുക്കുക",
+  "libraryImportPulse": "Pulse-ൽ നിന്ന് ഇംപോർട്ട് ചെയ്യുക",
+  "libraryImportPulseDesc": "ഒരു Pulse പ്ലേലിസ്റ്റ് URL ഒട്ടിക്കുക",
+  "libraryImportYtm": "YT Music-ൽ നിന്ന് ഇംപോർട്ട് ചെയ്യുക",
+  "libraryImportYtmDesc": "ഒരു പബ്ലിക് പ്ലേലിസ്റ്റ് URL ഒട്ടിക്കുക",
+  "libraryImportSpotify": "Spotify-ൽ നിന്ന് ഇംപോർട്ട് ചെയ്യുക",
+  "libraryImportSpotifyDesc": "നിങ്ങളുടെ Spotify കണക്റ്റ് ചെയ്യുക",
+  "libraryClose": "അടയ്ക്കുക",
+  "libraryImportYtmFull": "YouTube Music-ൽ നിന്ന് ഇംപോർട്ട് ചെയ്യുക",
+  "libraryImportSpotifyFull": "Spotify-ൽ നിന്ന് ഇംപോർട്ട് ചെയ്യുക (≤100)",
+  "libraryImportYtmUrlDesc": "ഒരു പബ്ലic YouTube Music പ്ലേലിസ്റ്റ് അല്ലെങ്കിൽ ആൽബം URL ഒട്ടിക്കുക",
+  "libraryImportSpotifyUrlDesc": "ഒരു പബ്ലിക് Spotify പ്ലേലിസ്റ്റ് URL താഴെ ഒട്ടിക്കുക",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse പ്ലേലിസ്റ്റ് ഇംപോർട്ട് ചെയ്യാനായില്ല",
+  "importErrorPlaylist": "പ്ലേലിസ്റ്റ് ഇംപോർട്ട് ചെയ്യുന്നതിൽ പിശക്",
+  "importErrorHighlyPopulated": "പ്ലേലിസ്റ്റ് വളരെ വലുതാണ്, എടുക്കാൻ സമയമെടുത്തേക്കാം.",
+  "libraryImportBtn": "ഇംപോർട്ട്",
+  "libraryCreateTitle": "പുതിയ പ്ലേലിസ്റ്റ്",
+  "libraryCreateDesc": "പുതിയ പ്ലേലിസ്റ്റിന് എന്ത് പേര് നൽകാം?",
+  "libraryCreateHint": "ഉദാ. Midnight Rides",
+  "libraryCreateBtn": "രൂപീകരിക്കുക",
+  "libraryRenameTitle": "പ്ലേലിസ്റ്റിന്റെ പേരുമാറ്റുക",
+  "libraryRenameDesc": "നിങ്ങളുടെ പ്ലേലിസ്റ്റിന് പുതിയ പേര് നൽകുക.",
+  "libraryRenameBtn": "പേരുമാറ്റുക",
+  "libraryDeleteTitle": "പ്ലേലിസ്റ്റ് ഇല്ലാതാക്കണോ?",
+  "libraryDeleteDesc": "\"{name}\" ഇല്ലാതാക്കണമെന്ന് ഉറപ്പാണോ? ഈ പ്ലേലിസ്റ്റ് ശാശ്വതമായി നഷ്‌ടപ്പെടും.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "ഇല്ലാതാക്കുക",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "സമീപകാലം",
+  "librarySongsCount": "{count} ഗാനങ്ങൾ",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "ഉടൻ വരുന്നു",
+  "loginErrName": "ദയവായി നിങ്ങളുടെ പേര് നൽകുക",
+  "loginErrEmail": "ദയവായി നിങ്ങളുടെ ഇമെയിൽ നൽകുക",
+  "loginErrPassword": "ദയവായി നിങ്ങളുടെ പാസ്‌വേഡ് നൽകുക",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "ഓരോ ബീറ്റും അനുഭവിക്കുക!",
+  "loginMadeWithHeartBy": "സ്നേഹത്തോടെ നിർമ്മിച്ചത്: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "നിങ്ങളുടെ പേര്",
+  "loginHintEmail": "ഇമെയിൽ വിലാസം",
+  "loginHintPassword": "പാസ്‌വേഡ്",
+  "loginErrEmailReset": "പാസ്‌വേഡ് റീസെറ്റ് ചെയ്യാൻ ഇമെയിൽ നൽകുക",
+  "loginResetSent": "റീസെറ്റ് ഇമെയിൽ അയച്ചു! ഇൻബോക്സ് പരിശോധിക്കുക.",
+  "loginForgotPwd": "പാസ്‌വേഡ് മറന്നോ?",
+  "loginBtnSignup": "അക്കൗണ്ട് നിർമ്മിക്കുക",
+  "loginBtnSignin": "സൈൻ ഇൻ",
+  "loginToggleHaveAccount": "നേരത്തെ Pulse അക്കൗണ്ട് ഉണ്ടോ? ",
+  "loginToggleNoAccount": "Pulse അക്കൗണ്ട് ഇല്ലേ? ",
+  "loginToggleSignin": "സൈൻ ഇൻ",
+  "loginToggleSignup": "സൈൻ അപ്പ്",
+  "offlineStillOffline": "ഇപ്പോഴും ഓഫ്‌ലൈനിലാണ്. കണക്ഷൻ പരിശോധിക്കുക.",
+  "offlineTitle": "നിങ്ങൾ ഓഫ്‌ലൈനിലാണ്",
+  "offlineSubtitle": "ഇന്റർനെറ്റ് കണക്ഷനില്ല.\nനെറ്റ്‌വർക്ക് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.",
+  "offlineChecking": "പരിശോധിക്കുന്നു...",
+  "offlineRetry": "വീണ്ടും ശ്രമിക്കുക",
+  "offlineGoToDownloads": "ഡൗൺലോഡുകളിലേക്ക് പോകുക",
+  "playerMadeWithHeartBy": "സ്നേഹത്തോടെ നിർമ്മിച്ചത്: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "വരികൾക്കായി സ്വൈപ്പ് ചെയ്യുക",
+  "playerNoLyrics": "വരികളൊന്നും ലഭ്യമല്ല",
+  "playerUpNext": "അടുത്തത്",
+  "playerNoTracksInQueue": "ക്യൂവിൽ ഗാനങ്ങളൊന്നുമില്ല",
+  "playerNoMusicPlaying": "സംഗീതമൊന്നും പ്ലേ ചെയ്യുന്നില്ല",
+  "playerPickAVibe": "നിങ്ങളുടെ ലൈബ്രറിയിൽ നിന്നോ ഹോമിൽ നിന്നോ ഒരു ഗാനം തിരഞ്ഞെടുക്കുക",
+  "playerGoHome": "ഹോമിലേക്ക് പോകുക",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "ഇക്വലൈസർ",
+  "playerEqCustom": "കസ്റ്റം",
+  "playlistDownloads": "ഡൗൺലോഡുകൾ",
+  "playlistOffline": "ഓഫ്‌ലൈൻ പ്ലേലിസ്റ്റ്",
+  "playlistDurationHours": "{hours}മ {mins}മി",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}മി",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "ഈ പേജിൽ തിരയുക",
+  "playlistSongsAndDuration": "{count} ഗാനങ്ങൾ • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "സമീപകാലം",
+  "playlistNoMatches": "ഒന്നും കണ്ടെത്തിയില്ല.",
+  "playlistNoTracks": "ഈ പ്ലേലിസ്റ്റിൽ ഗാനങ്ങളൊന്നുമില്ല.",
+  "playlistNoSongsYet": "ഇതുവരെ ഗാനങ്ങളൊന്നുമില്ല.",
+  "playlistSortRecentlyAdded": "സമീപകാലത്ത് ചേർത്തവ",
+  "playlistSortAlphabetical": "അക്ഷരമാലാക്രമം",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{ഗാനം} other{ഗാനങ്ങൾ}} ഡൗൺലോഡ് ചെയ്യുന്നു",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "കാണുക",
+  "playlistAllDownloaded": "എല്ലാ ഗാനങ്ങളും ഇതിനകം ഡൗൺലോഡ് ചെയ്തു",
+  "playlistShareText": "Pulse-ൽ \"{name}\" കേൾക്കൂ!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "ഡൗൺലോഡുകളിൽ നിന്ന് നീക്കം ചെയ്യുക",
+  "playlistRemoveFromPlaylist": "പ്ലേലിസ്റ്റിൽ നിന്ന് നീക്കം ചെയ്യുക",
+  "playlistLoadError": "ഈ പ്ലേലിസ്റ്റ് ലോഡ് ചെയ്യാനായില്ല.",
+  "playlistGoBack": "← പുറകോട്ട് പോകുക",
+  "profileNotLoggedIn": "ലോഗിൻ ചെയ്തിട്ടില്ല",
+  "profileSignIn": "സൈൻ ഇൻ",
+  "profileDefaultUser": "Pulse ഉപയോക്താവ്",
+  "profileEditProfile": "പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യുക",
+  "profileTimeframeDay": "ദിവസം",
+  "profileTimeframeWeek": "ആഴ്ച",
+  "profileTimeframeMonth": "മാസം",
+  "profileTimeframeYear": "വർഷം",
+  "profileListeningTime": "കേട്ട സമയം",
+  "profileToday": "ഇന്ന്",
+  "profileThisWeek": "ഈ ആഴ്ച",
+  "profileThisMonth": "ഈ മാസം",
+  "profileThisYear": "ഈ വർഷം",
+  "profileDailyAvg": "പ്രതിദിന ശരാശരി",
+  "profilePerDay": "ഒരു ദിവസം",
+  "profileLifetimeListening": "ആകെ കേട്ട സമയം",
+  "profileTotalTimeListened": "Pulse-ൽ മൊത്തം സംഗീതം കേട്ട സമയം",
+  "profileYourTopSongs": "നിങ്ങളുടെ മികച്ച ഗാനങ്ങൾ",
+  "profileListeningHistoryEmpty": "നിങ്ങൾ കേട്ട ഗാനങ്ങളുടെ ചരിത്രം ഇവിടെ കാണിക്കും.",
+  "profilePlays": "{count} തവണ പ്ലേ ചെയ്തു",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "നിങ്ങളുടെ മികച്ച ആർട്ടിസ്റ്റുകൾ",
+  "profileTopArtistsEmpty": "നിങ്ങളുടെ പ്രിയപ്പെട്ട ആർട്ടിസ്റ്റുകൾ ഇവിടെ കാണിക്കും.",
+  "profileArtistLabel": "ആർട്ടിസ്റ്റ്",
+  "profileSignOut": "സൈൻ ഔട്ട്",
+  "profileVersion": "പതിപ്പ് {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "സ്നേഹത്തോടെ നിർമ്മിച്ചത്: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യുക",
+  "profileDisplayName": "പ്രദർശിപ്പിക്കുന്ന പേര്",
+  "profileCancel": "റദ്ദാക്കുക",
+  "profileSave": "സേവ് ചെയ്യുക",
+  "profileChooseAvatar": "അവതാർ തിരഞ്ഞെടുക്കുക",
+  "searchMicPermissionRequired": "ഈ ഫീച്ചറിന് മൈക്രോഫോൺ അനുമതി ആവശ്യമാണ്",
+  "searchUnknownSong": "അറിയപ്പെടാത്ത ഗാനം",
+  "searchUnknownArtist": "അറിയപ്പെടാത്ത ആർട്ടിസ്റ്റ്",
+  "searchNoSongDetected": "ഗാനമൊന്നും കണ്ടെത്തിയില്ല.",
+  "searchError": "പിശക്: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "വോയ്‌സ് സെർച്ച് ലഭ്യമല്ല",
+  "searchHint": "ഗാനങ്ങൾ, ആർട്ടിസ്റ്റുകൾ, ആൽബങ്ങൾ...",
+  "searchRecentEmpty": "നിങ്ങളുടെ സമീപകാല തിരയലുകൾ ഇവിടെ കാണിക്കും",
+  "searchRecentSearches": "സമീപകാല തിരയലുകൾ",
+  "searchClearAll": "എല്ലാം മായ്‌ക്കുക",
+  "searchNoResultsFor": "\"{query}\"-ന് ഫലങ്ങളൊന്നുമില്ല",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "മറ്റ് വാക്കുകൾ ഉപയോഗിച്ച് ശ്രമിക്കുക",
+  "searchTopResult": "മികച്ച ഫലം",
+  "searchSongsLabel": "ഗാനങ്ങൾ",
+  "searchArtistsLabel": "ആർട്ടിസ്റ്റുകൾ",
+  "searchAlbumsLabel": "ആൽബങ്ങൾ",
+  "searchPlaylistsLabel": "പ്ലേലിസ്റ്റുകൾ",
+  "searchArtistLabel": "ആർട്ടിസ്റ്റ്",
+  "searchListening": "കേൾക്കുന്നു...",
+  "searchSpeakNow": "തിരയാൻ സംസാരിക്കുക",
+  "searchCancel": "റദ്ദാക്കുക",
+  "searchIdentifying": "തിരിച്ചറിയുന്നു...",
+  "searchListeningForSong": "ഗാനത്തിനായി കേൾക്കുന്നു...",
+  "settingsTitle": "ക്രമീകരണങ്ങൾ",
+  "settingsStreamingQuality": "സ്ട്രീമിംഗ് നിലവാരം",
+  "settingsQualityAutomatic": "ഓട്ടോമാറ്റിക്",
+  "settingsQualityLow": "കുറഞ്ഞത്",
+  "settingsQualityNormal": "സാധാരണം",
+  "settingsQualityHigh": "കൂടിയത്",
+  "settingsDownloadQuality": "ഡൗൺലോഡ് നിലവാരം",
+  "settingsPlayback": "പ്ലേബാക്ക്",
+  "settingsCrossfade": "ക്രോസ്ഫേഡ്",
+  "settingsCrossfadeDesc": "തടസ്സമില്ലാത്ത മാറ്റത്തിനായി ട്രാക്കുകൾ ഓവർലാപ്പ് ചെയ്യുക",
+  "settingsDataUsage": "ഡാറ്റാ ഉപയോഗം",
+  "settingsDataSaver": "ഡാറ്റ സേവർ",
+  "settingsDataSaverDesc": "മൊബൈൽ ഡാറ്റയിൽ കുറഞ്ഞ നിലവാരത്തിൽ സ്ട്രീം ചെയ്യുക",
+  "settingsAppearance": "രൂപം",
+  "settingsLanguage": "ഭാഷ",
+  "settingsCustomAccent": "കസ്റ്റം ആക്സന്റ്",
+  "settingsSaturation": "സാച്ചുറേഷൻ",
+  "settingsBrightness": "തെളിച്ചം",
+  "settingsResetDefault": "ഡിഫോൾട്ടിലേക്ക് റീസെറ്റ് ചെയ്യുക",
+  "playlistSheetTitle": "പ്ലേലിസ്റ്റിലേക്ക് ചേർക്കുക",
+  "playlistSheetNewPlaylist": "പുതിയ പ്ലേലിസ്റ്റ്",
+  "playlistSheetNoPlaylists": "പ്ലേലിസ്റ്റുകളൊന്നുമില്ല",
+  "playlistSheetSongsCount": "{count} ഗാനങ്ങൾ",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "പ്ലേലിസ്റ്റിന്റെ പേര്",
+  "playlistSheetCancel": "റദ്ദാക്കുക",
+  "playlistSheetAddedTo": "{name}-ലേക്ക് ചേർത്തു",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "രൂപീകരിക്കാനായില്ല: ഓതന്റിക്കേഷൻ പിശക്",
+  "playlistSheetCreateFail": "രൂപീകരിക്കാനായില്ല: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "രൂപീകരിക്കുക",
+  "appUpdateAvailable": "അപ്ഡേറ്റ് ലഭ്യമാണ്",
+  "appUpdateDesc": "പതിപ്പ് {version} എത്തി! പുതിയ ഫീച്ചറുകൾക്കായി അപ്‌ഡേറ്റ് ചെയ്യുക.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "അപ്ഡേറ്റ് ഡൗൺലോഡ് ചെയ്യുക",
+  "navHome": "ഹോം",
+  "navLibrary": "ലൈബ്രറി",
+  "navSearch": "തിരയുക",
+  "navSettings": "ക്രമീകരണങ്ങൾ",
+  "navProfile": "പ്രൊഫൈൽ",
+  "artistSelect": "ആർട്ടിസ്റ്റിനെ തിരഞ്ഞെടുക്കുക",
+  "songActionQueue": "ക്യൂവിലേക്ക് ചേർക്കുക",
+  "songActionPlaylist": "പ്ലേലിസ്റ്റിലേക്ക് ചേർക്കുക",
+  "songActionFinding": "കണ്ടെത്തുന്നു...",
+  "songActionAlbum": "ആൽബത്തിലേക്ക് പോകുക",
+  "songActionArtist": "ആർട്ടിസ്റ്റിന്റെ അടുത്തേക്ക് പോകുക",
+  "songActionRemovePlaylist": "പ്ലേലിസ്റ്റിൽ നിന്ന് നീക്കം ചെയ്യുക",
+  "songActionRemoveDownload": "ഡൗൺലോഡുകളിൽ നിന്ന് നീക്കം ചെയ്യുക",
+  "songActionDownloadChecking": "പരിശോധിക്കുന്നു...",
+  "songActionDownloading": "ഡൗൺലോഡ് ചെയ്യുന്നു...",
+  "songActionDownloaded": "ഡൗൺലോഡ് ചെയ്തു!",
+  "songActionDownloadAlready": "ഇതിനകം ഡൗൺലോഡ് ചെയ്തു",
+  "songActionDownloadFailed": "ഡൗൺലോഡ് പരാജയപ്പെട്ടു",
+  "songActionDownload": "ഡൗൺലോഡ്",
+  "songActionDownloadingSnack": "ഡൗൺലോഡ് ചെയ്യുന്നു",
+  "songActionView": "കാണുക",
+  "spotifyImportTitle": "Spotify-ൽ നിന്ന് ഇംപോർട്ട് ചെയ്യുക",
+  "spotifyImportSubtitle": "പ്ലേലിസ്റ്റ് വലിപ്പം തിരഞ്ഞെടുക്കുക",
+  "spotifyChoiceSmallTitle": "100 ഗാനങ്ങളോ അതിൽ താഴെയോ",
+  "spotifyChoiceSmallDesc": "ഒരു പബ്ലിക് Spotify പ്ലേലിസ്റ്റ് URL ഒട്ടിക്കുക.",
+  "spotifyChoiceLargeTitle": "100 ഗാനങ്ങളിൽ കൂടുതൽ",
+  "spotifyChoiceLargeDesc": "പരിധിയില്ലാത്ത ട്രാക്കുകൾ ഇംപോർട്ട് ചെയ്യാൻ നിങ്ങളുടെ സ്വന്തം Spotify Developer App കണക്റ്റ് ചെയ്യുക.",
+  "cancelButton": "റദ്ദാക്കുക",
+  "spotifyPlaylistsTitle": "നിങ്ങളുടെ Spotify പ്ലേലിസ്റ്റുകൾ",
+  "spotifyPlaylistsErrorMsg": "പിശക്: {error}\nനിങ്ങളുടെ Client ID ശരിയാണോയെന്ന് പരിശോധിക്കുക.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "നിങ്ങളുടെ ലൈബ്രറിയിൽ പ്ലേലിസ്റ്റുകളൊന്നുമില്ല",
+  "spotifyPlaylistsTracks": "{count} ട്രാക്കുകൾ",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "ഇംപോർട്ട്",
+  "audioPlaybackFailed": "പ്ലേബാക്ക് പരാജയപ്പെട്ടു. ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിക്കുക.",
+  "audioControlPrevious": "മുമ്പത്തേത്",
+  "audioControlPause": "പോസ്",
+  "audioControlPlay": "പ്ലേ",
+  "audioControlNext": "അടുത്തത്",
+  "audioControlUnlike": "അൺലൈക്ക്",
+  "audioControlLike": "ലൈക്ക്",
+  "spotifyRawResponseError": "യഥാർത്ഥ റെസ്പോൺസ്: {data}\n\nഫോൾബാക്ക്: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "തെറ്റായ ക്ലയന്റ് അല്ലെങ്കിൽ ക്ലയന്റ് രഹസ്യം.",
+  "apiErrorBadRequest": "തെറ്റായ അഭ്യർത്ഥന. നിങ്ങളുടെ ഇൻപുട്ട് പരിശോധിക്കുക.",
+  "apiErrorUnauthorized": "അധികാരമില്ല. ദയവായി വീണ്ടും ലോഗിൻ ചെയ്യുക.",
+  "apiErrorForbidden": "വിലക്കപ്പെട്ടിരിക്കുന്നു. നിങ്ങൾക്ക് പ്രവേശനമില്ല.",
+  "apiErrorNotFound": "വിഭവം കണ്ടെത്താനായില്ല.",
+  "apiErrorEmailInUse": "ഈ ഇമെയിൽ വിലാസം ഇതിനകം ഉപയോഗത്തിലാണ്.",
+  "apiErrorUserNotFound": "ഈ ഇമെയിലുമായി ബന്ധപ്പെട്ട അക്കൗണ്ട് കണ്ടെത്തിയില്ല.",
+  "apiErrorWrongPassword": "തെറ്റായ പാസ്‌വേഡ്.",
+  "apiErrorInvalidCredential": "ലോഗിൻ പരാജയപ്പെട്ടു. നിങ്ങളുടെ വിവരങ്ങൾ പരിശോധിക്കുക.",
+  "apiErrorNetwork": "നെറ്റ്‌വർക്ക് പിശക്. നിങ്ങളുടെ കണക്ഷൻ പരിശോധിക്കുക.",
+  "apiErrorSocketTimeout": "കണക്ഷൻ സമയപരിധി കഴിഞ്ഞു. വീണ്ടും ശ്രമിക്കുക.",
+  "apiErrorTooManyRequests": "വളരെ കൂടുതൽ അഭ്യർത്ഥനകൾ. കുറച്ച് കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.",
+  "apiErrorServerError": "സെർവർ പിശക്. കുറച്ച് കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.",
+  "apiErrorInvalidEmail": "ദയവായി ശരിയായ ഇമെയിൽ വിലാസം നൽകുക.",
+  "apiErrorWeakPassword": "പാസ്‌വേഡ് വളരെ ദുർബലമാണ്. കുറഞ്ഞത് 6 അക്ഷരങ്ങളെങ്കിലും ഉപയോഗിക്കുക.",
+  "apiErrorTooManyAttempts": "നിരവധി തവണ തെറ്റായി ശ്രമിച്ചു. പിന്നീട് വീണ്ടും ശ്രമിക്കുക."
+}

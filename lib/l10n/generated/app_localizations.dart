@@ -9,9 +9,12 @@ import 'app_localizations_af.dart';
 import 'app_localizations_bn.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_hi.dart';
+import 'app_localizations_kn.dart';
 import 'app_localizations_mai.dart';
+import 'app_localizations_ml.dart';
 import 'app_localizations_mr.dart';
 import 'app_localizations_ne.dart';
+import 'app_localizations_or.dart';
 import 'app_localizations_pa.dart';
 import 'app_localizations_sa.dart';
 import 'app_localizations_ta.dart';
@@ -107,9 +110,12 @@ abstract class AppLocalizations {
     Locale('bn'),
     Locale('en'),
     Locale('hi'),
+    Locale('kn'),
     Locale('mai'),
+    Locale('ml'),
     Locale('mr'),
     Locale('ne'),
+    Locale('or'),
     Locale('pa'),
     Locale('sa'),
     Locale('ta'),
@@ -2250,9 +2256,12 @@ class _AppLocalizationsDelegate
     'bn',
     'en',
     'hi',
+    'kn',
     'mai',
+    'ml',
     'mr',
     'ne',
+    'or',
     'pa',
     'sa',
     'ta',
@@ -2274,12 +2283,18 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsEn();
     case 'hi':
       return AppLocalizationsHi();
+    case 'kn':
+      return AppLocalizationsKn();
     case 'mai':
       return AppLocalizationsMai();
+    case 'ml':
+      return AppLocalizationsMl();
     case 'mr':
       return AppLocalizationsMr();
     case 'ne':
       return AppLocalizationsNe();
+    case 'or':
+      return AppLocalizationsOr();
     case 'pa':
       return AppLocalizationsPa();
     case 'sa':

@@ -1,0 +1,574 @@
+{
+  "@@locale": "kn",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "ಬಗ್ಗೆ",
+  "artistPopular": "ಜನಪ್ರಿಯ",
+  "artistAlbums": "ಆಲ್ಬಮ್‌ಗಳು",
+  "artistSinglesAndEPs": "ಸಿಂಗಲ್ಸ್ ಮತ್ತು ಇಪಿ",
+  "artistSubscribersCount": "{count} ಚಂದಾದಾರರು",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "ಎಲ್ಲಾ ಪ್ಲೇ ಮಾಡಿ",
+  "artistLoadError": "ಕಲಾವಿದರನ್ನು ಲೋಡ್ ಮಾಡಲಾಗಲಿಲ್ಲ",
+  "artistGoBack": "ಹಿಂದೆ ಹೋಗಿ",
+  "adminChatFailedToReply": "ಪ್ರತಿಕ್ರಿಯಿಸಲು ವಿಫಲವಾಗಿದೆ: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "ಬೆಂಬಲ ಚಾಟ್",
+  "adminChatError": "ದೋಷ: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "ಹಿಂದಿನ ಯಾವುದೇ ಸಂಭಾಷಣೆಗಳಿಲ್ಲ.",
+  "adminChatSupportYou": "ಬೆಂಬಲ (ನೀವು)",
+  "adminChatTypeReply": "ನಿಮ್ಮ ಪ್ರತ್ಯುತ್ತರ ಟೈಪ್ ಮಾಡಿ...",
+  "broadcastSuccess": "ಪ್ರಕಟಣೆಯನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಪ್ರಸಾರ ಮಾಡಲಾಗಿದೆ!",
+  "broadcastFailed": "ಪ್ರಸಾರ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "ಜಾಗತಿಕ ಪ್ರಕಟಣೆಗಳು",
+  "broadcastSubtitle": "ಎಲ್ಲಾ ಬಳಕೆದಾರರಿಗೆ ಕಳುಹಿಸಲಾಗಿದೆ",
+  "broadcastWarning": "ಇಲ್ಲಿ ಕಳುಹಿಸುವ ಸಂದೇಶಗಳು ಎಲ್ಲರಿಗೂ ಕಾಣಿಸುತ್ತವೆ.",
+  "broadcastError": "ದೋಷ: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "ಹಿಂದಿನ ಯಾವುದೇ ಪ್ರಕಟಣೆಗಳಿಲ್ಲ.",
+  "broadcastTypeMessage": "ಜಾಗತಿಕ ಪ್ರಕಟಣೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ...",
+  "commFailedToSend": "ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "ಅಡ್ಮಿನ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+  "commAdminSupport": "ಅಡ್ಮಿನ್ ಬೆಂಬಲ",
+  "commAlwaysHere": "ಸಹಾಯ ಮಾಡಲು ಸದಾ ಸಿದ್ಧ",
+  "commWelcomeTitle": "ನಮಸ್ಕಾರ! 👋 ನಾನು ಅಶುತೋಷ್ ಪಾಠಕ್",
+  "commWelcomeSubtitle": "Pulse ಡೆವಲಪರ್",
+  "commWelcomeBody1": "ಜಾಹೀರಾತುಗಳು ಅಥವಾ ಚಂದಾದಾರಿಕೆ ತಡೆಗಳಿಲ್ಲದೆ ನಿಮ್ಮ ನೆಚ್ಚಿನ ಸಂಗೀತವನ್ನು ಆನಂದಿಸುತ್ತಿದ್ದೀರಿ ಎಂದು ಭಾವಿಸುತ್ತೇನೆ. ಸಂಗೀತವು ಕೇವಲ ಶ್ರೀಮಂತರಿಗೆ ಮಾತ್ರ ಸೀಮಿತವಾಗಿರಬಾರದು.\n\nನಾವು ನೇರವಾಗಿ ಸಂಪರ್ಕಿಸಲು ಈ ವಿಭಾಗವಿದೆ.\n\nನಿಮ್ಮ ಸಲಹೆಗಳು ಮುಕ್ತವಾಗಿವೆ:",
+  "commBullet1": "ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಿ",
+  "commBullet2": "ದೋಷಗಳನ್ನು ವರದಿ ಮಾಡಿ",
+  "commBullet3": "ಹೊಸ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಸೂಚಿಸಿ",
+  "commWelcomeBody2": "ಪ್ರತಿ ಸಂದೇಶವನ್ನು ನಾನೇ ಓದುತ್ತೇನೆ ಮತ್ತು ನಿಮ್ಮ ಸಲಹೆಗಳೊಂದಿಗೆ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಸುಧಾರಿಸುತ್ತೇನೆ.\n\nಚಂದಾದಾರಿಕೆಗಳಲ್ಲಿ ಸಿಲುಕಿರುವ ಹೊಸ ಅಪ್ಲಿಕೇಶನ್ ಕಲ್ಪನೆ ನಿಮ್ಮಲ್ಲಿದೆಯೇ? ನನಗೆ ತಿಳಿಸಿ! ಸಾಧ್ಯವಾದರೆ ನಾನು ಅದನ್ನು ನಿರ್ಮಿಸಿ ಎಲ್ಲರಿಗೂ ನೀಡುತ್ತೇನೆ.\n\nಈ ಪಯಣದಲ್ಲಿ ಜೊತೆಯಾಗಿರುವುದಕ್ಕೆ ಧನ್ಯವಾದಗಳು. ❤️",
+  "commError": "ದೋಷ: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "ಇನ್ನೂ ಯಾವುದೇ ಸಂದೇಶಗಳಿಲ್ಲ",
+  "commNoMessagesDesc": "ನಮ್ಮ ಬೆಂಬಲ ತಂಡಕ್ಕೆ ಸಂದೇಶ ಕಳುಹಿಸಿ ಅಥವಾ ನಂತರ ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ.",
+  "commMessageSupportHint": "ಬೆಂಬಲ ತಂಡಕ್ಕೆ ಬರೆಯಿರಿ...",
+  "commGlobalAnnouncements": "ಜಾಗತಿಕ ಪ್ರಕಟಣೆಗಳು",
+  "commSendMessagesToAll": "ಎಲ್ಲಾ ಬಳಕೆದಾರರಿಗೆ ಕಳುಹಿಸಿ",
+  "homeGreetingMorning": "ಶುಭೋದಯ,",
+  "homeGreetingAfternoon": "ಶುಭ ಮಧ್ಯಾಹ್ನ,",
+  "homeGreetingEvening": "ಶುಭ ಸಂಜೆ,",
+  "homeMember": "ಸದಸ್ಯ",
+  "homeRecentPlaylists": "ಇತ್ತೀಚಿನ ಪ್ಲೇಪಟ್ಟಿಗಳು",
+  "homeRecentlyPlayed": "ಇತ್ತೀಚೆಗೆ ಪ್ಲೇ ಮಾಡಿದವು",
+  "homeSpeedDial": "ವೇಗದ ಡಯಲ್",
+  "homeNoContent": "ಯಾವುದೇ ವಿಷಯವಿಲ್ಲ",
+  "homeRefresh": "ರಿಫ್ರೆಶ್",
+  "homeLoadError": "ಸಂಗೀತ ಫೀಡ್ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.",
+  "homeRetry": "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+  "importSuccess": "Spotify ಯಶಸ್ವಿಯಾಗಿ ಸಂಪರ್ಕಗೊಂಡಿದೆ!",
+  "importFailed": "ಸಂಪರ್ಕಿಸಲು ವಿಫಲವಾಗಿದೆ: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify ಸಂಪರ್ಕಿಸಿ",
+  "importSetupTitle": "Spotify ಸೆಟಪ್",
+  "importSetupDesc": "Spotify ಮಿತಿಗಳನ್ನು ತಪ್ಪಿಸಿ ನಿಮ್ಮ ಪ್ಲೇಪಟ್ಟಿಗಳನ್ನು ವೇಗವಾಗಿ ಆಮದು ಮಾಡಲು ನಿಮ್ಮ ಡೆವಲಪರ್ ಕೀ ಬಳಸಿ. ಈ ಹಂತಗಳನ್ನು ಅನುಸರಿಸಿ:",
+  "importStep1": "Spotify Developer Dashboard ತೆರೆಯಿರಿ.",
+  "importStep2": "ಲಾಗಿನ್ ಮಾಡಿ ಮತ್ತು \"Create app\" ಕ್ಲಿಕ್ ಮಾಡಿ.",
+  "importStep3": "ಅಪ್ಲಿಕೇಶನ್ ಹೆಸರು ಮತ್ತು ವಿವರಣೆ ನೀಡಿ.",
+  "importStep4": "\"Redirect URIs\" ಕೆಳಗೆ ಈ URL ಅನ್ನು ಅಂಟಿಸಿ:",
+  "importRedirectCopied": "ಮರುನಿರ್ದೇಶನ URI ನಕಲಿಸಲಾಗಿದೆ!",
+  "importStep5": "ಅಪ್ಲಿಕೇಶನ್ ಉಳಿಸಿ, ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ನಿಮ್ಮ \"Client ID\" ನಕಲಿಸಿ ಕೆಳಗೆ ಅಂಟಿಸಿ.",
+  "importImportant": "ಪ್ರಮುಖ: ಈ ಡೆವಲಪರ್ ಅಪ್ಲಿಕೇಶನ್ ರಚಿಸಲು ಬಳಸುವ Spotify ಖಾತೆಗೆ ಸಕ್ರಿಯ ಪ್ರೀಮಿಯಂ ಚಂದಾದಾರಿಕೆ ಇರಬೇಕು.",
+  "importClientIdHint": "ನಿಮ್ಮ Spotify Client ID ಇಲ್ಲಿ ಅಂಟಿಸಿ...",
+  "importConnectButton": "ಸಂಪರ್ಕಿಸಿ & ಲೈಬ್ರರಿ ಲೋಡ್ ಮಾಡಿ",
+  "downloadingNoActive": "ಯಾವುದೇ ಸಕ್ರಿಯ ಡೌನ್‌ಲೋಡ್‌ಗಳಿಲ್ಲ",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "ಡೌನ್‌ಲೋಡ್‌ಗಳು",
+  "downloadsStats": "{count} ಹಾಡುಗಳು • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "ಆಫ್‌ಲೈನ್ ಹಾಡುಗಳಿಲ್ಲ",
+  "downloadsNoOfflineDesc": "ನೀವು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಹಾಡುಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ",
+  "downloadsClearAllTitle": "ಎಲ್ಲವನ್ನೂ ಅಳಿಸಬೇಕೆ?",
+  "downloadsClearAllDesc": "ಇದು {count} ಹಾಡುಗಳನ್ನು ಅಳಿಸುತ್ತದೆ ಮತ್ತು {size} ಜಾಗವನ್ನು ಖಾಲಿ ಮಾಡುತ್ತದೆ.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "ರದ್ದುಮಾಡಿ",
+  "downloadsClearAll": "ಎಲ್ಲವನ್ನೂ ಅಳಿಸಿ",
+  "downloadsSongsCount": "{count} ಹಾಡುಗಳು",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} ಹಾಡು",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "ಮುಖ್ಯ ಡೌನ್‌ಲೋಡ್ ಪ್ಲೇಪಟ್ಟಿಯನ್ನು ಮರುಹೆಸರಿಸಲಾಗುವುದಿಲ್ಲ.",
+  "downloadsRename": "ಮರುಹೆಸರಿಸಿ",
+  "downloadsEditSongs": "ಹಾಡುಗಳನ್ನು ಎಡಿಟ್ ಮಾಡಿ",
+  "downloadsDelete": "ಅಳಿಸಿ",
+  "downloadsRenamePlaylistTitle": "ಪ್ಲೇಪಟ್ಟಿ ಮರುಹೆಸರಿಸಿ",
+  "downloadsRenamePlaylistDesc": "ಪ್ಲೇಪಟ್ಟಿಗೆ ಹೊಸ ಹೆಸರನ್ನು ನೀಡಿ.",
+  "downloadsDeletePlaylistTitle": "ಪ್ಲೇಪಟ್ಟಿ ಅಳಿಸಬೇಕೆ?",
+  "downloadsDeleteMasterDesc": "ನೀವು ಖಚಿತವೇ? ನೀವು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಎಲ್ಲಾ ಹಾಡುಗಳು ಮತ್ತು ಪ್ಲೇಪಟ್ಟಿಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ಕಳೆದುಕೊಳ್ಳುತ್ತೀರಿ.",
+  "downloadsDeletePlaylistDesc": "\"{name}\" ಅನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವೇ? ಈ ಪ್ಲೇಪಟ್ಟಿ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲ್ಪಡುತ್ತದೆ.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "ಉಳಿಸಿ",
+  "downloadsNoSongs": "ಈ ಪ್ಲೇಪಟ್ಟಿಯಲ್ಲಿ ಯಾವುದೇ ಹಾಡುಗಳಿಲ್ಲ.",
+  "libraryTitle": "ಲೈಬ್ರರಿ",
+  "libraryPauseAll": "ಎಲ್ಲವನ್ನೂ ವಿರಾಮಗೊಳಿಸಿ",
+  "libraryResumeAll": "ಎಲ್ಲವನ್ನೂ ಪುನರಾರಂಭಿಸಿ",
+  "libraryTabPlaylists": "ಪ್ಲೇಪಟ್ಟಿಗಳು",
+  "libraryTabDownloads": "ಡೌನ್‌ಲೋಡ್‌ಗಳು",
+  "libraryTabDownloading": "ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿದೆ",
+  "libraryImportedTask": "{name} ಆಮದು ಮಾಡಲಾಗಿದೆ",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "ಕಾಯಲಾಗುತ್ತಿದೆ...",
+  "libraryImportFetching": "ಪ್ಲೇಪಟ್ಟಿ ತರಲಾಗುತ್ತಿದೆ...",
+  "libraryImportProcessed": "{processed}/{total} ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗಿದೆ · {matched} ಹೊಂದಿಕೆಯಾಗಿದೆ",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "ಲೈಬ್ರರಿಗೆ ಉಳಿಸಲಾಗುತ್ತಿದೆ...",
+  "libraryImportDoneSongs": "{matched} ಹಾಡುಗಳನ್ನು ಸೇರಿಸಲಾಗಿದೆ · ಮುಚ್ಚಲು × ಒತ್ತಿರಿ",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "ಎಲ್ಲಾ ಹಾಡುಗಳನ್ನು ಸೇರಿಸಲಾಗಿದೆ · ಮುಚ್ಚಲು × ಒತ್ತಿರಿ",
+  "libraryAddButton": "ಸೇರಿಸಿ",
+  "librarySortRecent": "ಇತ್ತೀಚಿನದು",
+  "librarySortAlpha": "ಅಕ್ಷರಮಾಲೆ",
+  "libraryEmptyTitle": "ನಿಮ್ಮ ಲೈಬ್ರರಿ ಖಾಲಿಯಾಗಿದೆ.",
+  "libraryEmptyDesc": "ನಿಮ್ಮ ಮೊದಲ Pulse ಪ್ರಾರಂಭಿಸಲು \"ಸೇರಿಸಿ\" ಒತ್ತಿರಿ.",
+  "libraryRenameLikedError": "Liked Songs ಪ್ಲೇಪಟ್ಟಿಯನ್ನು ಮರುಹೆಸರಿಸಲಾಗುವುದಿಲ್ಲ.",
+  "libraryRename": "ಮರುಹೆಸರಿಸಿ",
+  "libraryEditSongs": "ಹಾಡುಗಳನ್ನು ಎಡಿಟ್ ಮಾಡಿ",
+  "libraryDeleteLikedError": "Liked Songs ಪ್ಲೇಪಟ್ಟಿಯನ್ನು ಅಳಿಸಲಾಗುವುದಿಲ್ಲ.",
+  "libraryDelete": "ಅಳಿಸಿ",
+  "libraryEditSongsTitle": "ಹಾಡುಗಳನ್ನು ಎಡಿಟ್ ಮಾಡಿ",
+  "libraryEditSongsCountSingle": "{count} ಹಾಡು",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} ಹಾಡುಗಳು",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "ರದ್ದುಮಾಡಿ",
+  "librarySave": "ಉಳಿಸಿ",
+  "libraryNoSongs": "ಈ ಪ್ಲೇಪಟ್ಟಿಯಲ್ಲಿ ಯಾವುದೇ ಹಾಡುಗಳಿಲ್ಲ.",
+  "libraryAddOptionsTitle": "ಲೈಬ್ರರಿಗೆ ಸೇರಿಸಿ",
+  "libraryAddOptionsDesc": "ನಿಮ್ಮ Pulse ಲೈಬ್ರರಿಯನ್ನು ಹೇಗೆ ವಿಸ್ತರಿಸುವುದು ಎಂದು ಆಯ್ಕೆಮಾಡಿ",
+  "libraryImportPulse": "Pulse ನಿಂದ ಆಮದು ಮಾಡಿ",
+  "libraryImportPulseDesc": "Pulse ಪ್ಲೇಪಟ್ಟಿ URL ಅಂಟಿಸಿ",
+  "libraryImportYtm": "YT Music ನಿಂದ ಆಮದು ಮಾಡಿ",
+  "libraryImportYtmDesc": "ಸಾರ್ವಜನಿಕ ಪ್ಲೇಪಟ್ಟಿ URL ಅಂಟಿಸಿ",
+  "libraryImportSpotify": "Spotify ನಿಂದ ಆಮದು ಮಾಡಿ",
+  "libraryImportSpotifyDesc": "Spotify ಸಂಪರ್ಕಿಸಿ",
+  "libraryClose": "ಮುಚ್ಚಿ",
+  "libraryImportYtmFull": "YouTube Music ನಿಂದ ಆಮದು ಮಾಡಿ",
+  "libraryImportSpotifyFull": "Spotify ನಿಂದ ಆಮದು ಮಾಡಿ (≤100)",
+  "libraryImportYtmUrlDesc": "ಸಾರ್ವಜನಿಕ YouTube Music ಪ್ಲೇಪಟ್ಟಿ ಅಥವಾ ಆಲ್ಬಮ್ URL ಅಂಟಿಸಿ",
+  "libraryImportSpotifyUrlDesc": "ಸಾರ್ವಜನಿಕ Spotify ಪ್ಲೇಪಟ್ಟಿ URL ಕೆಳಗೆ ಅಂಟಿಸಿ",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse ಪ್ಲೇಪಟ್ಟಿ ಆಮದು ಮಾಡಲು ವಿಫಲವಾಗಿದೆ",
+  "importErrorPlaylist": "ಪ್ಲೇಪಟ್ಟಿ ಆಮದು ಮಾಡುವಾಗ ದೋಷ",
+  "importErrorHighlyPopulated": "ಪ್ಲೇಪಟ್ಟಿ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ, ತರಲು ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು.",
+  "libraryImportBtn": "ಆಮದು ಮಾಡಿ",
+  "libraryCreateTitle": "ಹೊಸ ಪ್ಲೇಪಟ್ಟಿ",
+  "libraryCreateDesc": "ನಿಮ್ಮ ಹೊಸ ಪ್ಲೇಪಟ್ಟಿಗೆ ಏನು ಹೆಸರಿಸೋಣ?",
+  "libraryCreateHint": "ಉದಾ. Midnight Rides",
+  "libraryCreateBtn": "ರಚಿಸಿ",
+  "libraryRenameTitle": "ಪ್ಲೇಪಟ್ಟಿ ಮರುಹೆಸರಿಸಿ",
+  "libraryRenameDesc": "ಪ್ಲೇಪಟ್ಟಿಗೆ ಹೊಸ ಹೆಸರನ್ನು ನೀಡಿ.",
+  "libraryRenameBtn": "ಮರುಹೆಸರಿಸಿ",
+  "libraryDeleteTitle": "ಪ್ಲೇಪಟ್ಟಿ ಅಳಿಸಬೇಕೆ?",
+  "libraryDeleteDesc": "\"{name}\" ಅನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವೇ? ಈ ಪ್ಲೇಪಟ್ಟಿ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲ್ಪಡುತ್ತದೆ.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "ಅಳಿಸಿ",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "ಇತ್ತೀಚಿನದು",
+  "librarySongsCount": "{count} ಹಾಡುಗಳು",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ",
+  "loginErrName": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+  "loginErrEmail": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಇಮೇಲ್ ನಮೂದಿಸಿ",
+  "loginErrPassword": "ದಯವಿಟ್ಟು ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "ಪ್ರತಿ ಬೀಟ್ ಅನ್ನು ಅನುಭವಿಸಿ!",
+  "loginMadeWithHeartBy": "ಪ್ರೀತಿಯಿಂದ ರಚಿಸಿದವರು: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "ನಿಮ್ಮ ಹೆಸರು",
+  "loginHintEmail": "ಇಮೇಲ್ ವಿಳಾಸ",
+  "loginHintPassword": "ಪಾಸ್‌ವರ್ಡ್",
+  "loginErrEmailReset": "ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ಇಮೇಲ್ ನಮೂದಿಸಿ",
+  "loginResetSent": "ಮರುಹೊಂದಿಸುವ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆ! ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.",
+  "loginForgotPwd": "ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರಾ?",
+  "loginBtnSignup": "ಖಾತೆ ರಚಿಸಿ",
+  "loginBtnSignin": "ಸೈನ್ ಇನ್",
+  "loginToggleHaveAccount": "ಈಗಾಗಲೇ Pulse ಖಾತೆ ಇದೆಯೇ? ",
+  "loginToggleNoAccount": "Pulse ಖಾತೆ ಇಲ್ಲವೇ? ",
+  "loginToggleSignin": "ಸೈನ್ ಇನ್",
+  "loginToggleSignup": "ಸೈನ್ ಅಪ್",
+  "offlineStillOffline": "ಇನ್ನೂ ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿದ್ದೀರಿ. ನಿಮ್ಮ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ.",
+  "offlineTitle": "ನೀವು ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿದ್ದೀರಿ",
+  "offlineSubtitle": "ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವಿಲ್ಲ.\nನೆಟ್‌ವರ್ಕ್ ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+  "offlineChecking": "ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ...",
+  "offlineRetry": "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+  "offlineGoToDownloads": "ಡೌನ್‌ಲೋಡ್‌ಗಳಿಗೆ ಹೋಗಿ",
+  "playerMadeWithHeartBy": "ಪ್ರೀತಿಯಿಂದ ರಚಿಸಿದವರು: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "ಸಾಹಿತ್ಯಕ್ಕಾಗಿ ಸ್ವೈಪ್ ಮಾಡಿ",
+  "playerNoLyrics": "ಸಾಹಿತ್ಯ ಲಭ್ಯವಿಲ್ಲ",
+  "playerUpNext": "ಮುಂದಿನದು",
+  "playerNoTracksInQueue": "ಕ್ಯೂನಲ್ಲಿ ಯಾವುದೇ ಹಾಡುಗಳಿಲ್ಲ",
+  "playerNoMusicPlaying": "ಯಾವುದೇ ಸಂಗೀತ ಪ್ಲೇ ಆಗುತ್ತಿಲ್ಲ",
+  "playerPickAVibe": "ನಿಮ್ಮ ಲೈಬ್ರರಿ ಅಥವಾ ಹೋಮ್‌ನಿಂದ ಹಾಡನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+  "playerGoHome": "ಹೋಮ್‌ಗೆ ಹೋಗಿ",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "ಈಕ್ವಲೈಜರ್",
+  "playerEqCustom": "ಕಸ್ಟಮ್",
+  "playlistDownloads": "ಡೌನ್‌ಲೋಡ್‌ಗಳು",
+  "playlistOffline": "ಆಫ್‌ಲೈನ್ ಪ್ಲೇಪಟ್ಟಿ",
+  "playlistDurationHours": "{hours}ಗಂ {mins}ನಿ",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}ನಿ",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "ಈ ಪುಟದಲ್ಲಿ ಹುಡುಕಿ",
+  "playlistSongsAndDuration": "{count} ಹಾಡುಗಳು • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "ಇತ್ತೀಚಿನದು",
+  "playlistNoMatches": "ಏನೂ ಕಂಡುಬಂದಿಲ್ಲ.",
+  "playlistNoTracks": "ಈ ಪ್ಲೇಪಟ್ಟಿಯಲ್ಲಿ ಹಾಡುಗಳಿಲ್ಲ.",
+  "playlistNoSongsYet": "ಇನ್ನೂ ಯಾವುದೇ ಹಾಡುಗಳಿಲ್ಲ.",
+  "playlistSortRecentlyAdded": "ಇತ್ತೀಚೆಗೆ ಸೇರಿಸಲಾಗಿದೆ",
+  "playlistSortAlphabetical": "ಅಕ್ಷರಮಾಲೆ",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{ಹಾಡು} other{ಹಾಡುಗಳು}} ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿವೆ",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "ವೀಕ್ಷಿಸಿ",
+  "playlistAllDownloaded": "ಎಲ್ಲಾ ಹಾಡುಗಳನ್ನು ಈಗಾಗಲೇ ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ",
+  "playlistShareText": "Pulse ನಲ್ಲಿ \"{name}\" ಕೇಳಿ!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "ಡೌನ್‌ಲೋಡ್‌ಗಳಿಂದ ತೆಗೆದುಹಾಕಿ",
+  "playlistRemoveFromPlaylist": "ಪ್ಲೇಪಟ್ಟಿಯಿಂದ ತೆಗೆದುಹಾಕಿ",
+  "playlistLoadError": "ಈ ಪ್ಲೇಪಟ್ಟಿ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.",
+  "playlistGoBack": "← ಹಿಂದೆ ಹೋಗಿ",
+  "profileNotLoggedIn": "ಲಾಗಿನ್ ಆಗಿಲ್ಲ",
+  "profileSignIn": "ಸೈನ್ ಇನ್",
+  "profileDefaultUser": "Pulse ಬಳಕೆದಾರ",
+  "profileEditProfile": "ಪ್ರೊಫೈಲ್ ಎಡಿಟ್ ಮಾಡಿ",
+  "profileTimeframeDay": "ದಿನ",
+  "profileTimeframeWeek": "ವಾರ",
+  "profileTimeframeMonth": "ತಿಂಗಳು",
+  "profileTimeframeYear": "ವರ್ಷ",
+  "profileListeningTime": "ಕೇಳಿದ ಸಮಯ",
+  "profileToday": "ಇಂದು",
+  "profileThisWeek": "ಈ ವಾರ",
+  "profileThisMonth": "ಈ ತಿಂಗಳು",
+  "profileThisYear": "ಈ ವರ್ಷ",
+  "profileDailyAvg": "ದೈನಂದಿನ ಸರಾಸರಿ",
+  "profilePerDay": "ದಿನಕ್ಕೆ",
+  "profileLifetimeListening": "ಒಟ್ಟು ಕೇಳಿದ ಸಮಯ",
+  "profileTotalTimeListened": "Pulse ನಲ್ಲಿ ಒಟ್ಟು ಸಂಗೀತ ಆಲಿಸಿದ ಸಮಯ",
+  "profileYourTopSongs": "ನಿಮ್ಮ ನೆಚ್ಚಿನ ಹಾಡುಗಳು",
+  "profileListeningHistoryEmpty": "ನಿಮ್ಮ ಆಲಿಸುವಿಕೆಯ ಇತಿಹಾಸ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.",
+  "profilePlays": "{count} ಬಾರಿ ಪ್ಲೇ ಆಗಿದೆ",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "ನಿಮ್ಮ ನೆಚ್ಚಿನ ಕಲಾವಿದರು",
+  "profileTopArtistsEmpty": "ನಿಮ್ಮ ನೆಚ್ಚಿನ ಕಲಾವಿದರು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತಾರೆ.",
+  "profileArtistLabel": "ಕಲಾವಿದ",
+  "profileSignOut": "ಸೈನ್ ಔಟ್",
+  "profileVersion": "ಆವೃತ್ತಿ {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "ಪ್ರೀತಿಯಿಂದ ರಚಿಸಿದವರು: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "ಪ್ರೊಫೈಲ್ ಎಡಿಟ್ ಮಾಡಿ",
+  "profileDisplayName": "ಪ್ರದರ್ಶಿಸುವ ಹೆಸರು",
+  "profileCancel": "ರದ್ದುಮಾಡಿ",
+  "profileSave": "ಉಳಿಸಿ",
+  "profileChooseAvatar": "ಅವತಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+  "searchMicPermissionRequired": "ಈ ವೈಶಿಷ್ಟ್ಯಕ್ಕೆ ಮೈಕ್ರೊಫೋನ್ ಅನುಮತಿ ಅಗತ್ಯವಿದೆ",
+  "searchUnknownSong": "ಅಪರಿಚಿತ ಹಾಡು",
+  "searchUnknownArtist": "ಅಪರಿಚಿತ ಕಲಾವಿದ",
+  "searchNoSongDetected": "ಯಾವುದೇ ಹಾಡು ಪತ್ತೆಯಾಗಿಲ್ಲ.",
+  "searchError": "ದೋಷ: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "ಧ್ವನಿ ಹುಡುಕಾಟ ಲಭ್ಯವಿಲ್ಲ",
+  "searchHint": "ಹಾಡುಗಳು, ಕಲಾವಿದರು, ಆಲ್ಬಮ್‌ಗಳು...",
+  "searchRecentEmpty": "ನಿಮ್ಮ ಇತ್ತೀಚಿನ ಹುಡುಕಾಟಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ",
+  "searchRecentSearches": "ಇತ್ತೀಚಿನ ಹುಡುಕಾಟಗಳು",
+  "searchClearAll": "ಎಲ್ಲವನ್ನೂ ಅಳಿಸಿ",
+  "searchNoResultsFor": "\"{query}\" ಗಾಗಿ ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "ವಿಭಿನ್ನ ಪದಗಳೊಂದಿಗೆ ಪ್ರಯತ್ನಿಸಿ",
+  "searchTopResult": "ಉನ್ನತ ಫಲಿತಾಂಶ",
+  "searchSongsLabel": "ಹಾಡುಗಳು",
+  "searchArtistsLabel": "ಕಲಾವಿದರು",
+  "searchAlbumsLabel": "ಆಲ್ಬಮ್‌ಗಳು",
+  "searchPlaylistsLabel": "ಪ್ಲೇಪಟ್ಟಿಗಳು",
+  "searchArtistLabel": "ಕಲಾವಿದ",
+  "searchListening": "ಕೇಳಿಸಿಕೊಳ್ಳಲಾಗುತ್ತಿದೆ...",
+  "searchSpeakNow": "ಹುಡುಕಲು ಈಗ ಮಾತನಾಡಿ",
+  "searchCancel": "ರದ್ದುಮಾಡಿ",
+  "searchIdentifying": "ಗುರುತಿಸಲಾಗುತ್ತಿದೆ...",
+  "searchListeningForSong": "ಹಾಡಿಗೆ ಕೇಳಿಸಿಕೊಳ್ಳಲಾಗುತ್ತಿದೆ...",
+  "settingsTitle": "ಸೆಟ್ಟಿಂಗ್ಸ್",
+  "settingsStreamingQuality": "ಸ್ಟ್ರೀಮಿಂಗ್ ಗುಣಮಟ್ಟ",
+  "settingsQualityAutomatic": "ಸ್ವಯಂಚಾಲಿತ",
+  "settingsQualityLow": "ಕಡಿಮೆ",
+  "settingsQualityNormal": "ಸಾಮಾನ್ಯ",
+  "settingsQualityHigh": "ಹೆಚ್ಚು",
+  "settingsDownloadQuality": "ಡೌನ್‌ಲೋಡ್ ಗುಣಮಟ್ಟ",
+  "settingsPlayback": "ಪ್ಲೇಬ್ಯಾಕ್",
+  "settingsCrossfade": "ಕ್ರಾಸ್‌ಫೇಡ್",
+  "settingsCrossfadeDesc": "ಅಡೆತಡೆಯಿಲ್ಲದ ಪರಿವರ್ತನೆಗಾಗಿ ಟ್ರ್ಯಾಕ್‌ಗಳನ್ನು ಓವರ್‌ಲ್ಯಾಪ್ ಮಾಡಿ",
+  "settingsDataUsage": "ಡೇಟಾ ಬಳಕೆ",
+  "settingsDataSaver": "ಡೇಟಾ ಸೇವರ್",
+  "settingsDataSaverDesc": "ಮೊಬೈಲ್ ಡೇಟಾದಲ್ಲಿ ಕಡಿಮೆ ಗುಣಮಟ್ಟದಲ್ಲಿ ಸ್ಟ್ರೀಮ್ ಮಾಡಿ",
+  "settingsAppearance": "ಗೋಚರತೆ",
+  "settingsLanguage": "ಭಾಷೆ",
+  "settingsCustomAccent": "ಕಸ್ಟಮ್ ಆಕ್ಸೆಂಟ್",
+  "settingsSaturation": "ಸ್ಯಾಚುರೇಶನ್",
+  "settingsBrightness": "ಪ್ರಕಾಶ",
+  "settingsResetDefault": "ಡೀಫಾಲ್ಟ್‌ಗೆ ಮರುಹೊಂದಿಸಿ",
+  "playlistSheetTitle": "ಪ್ಲೇಪಟ್ಟಿಗೆ ಸೇರಿಸಿ",
+  "playlistSheetNewPlaylist": "ಹೊಸ ಪ್ಲೇಪಟ್ಟಿ",
+  "playlistSheetNoPlaylists": "ಇನ್ನೂ ಪ್ಲೇಪಟ್ಟಿಗಳಿಲ್ಲ",
+  "playlistSheetSongsCount": "{count} ಹಾಡುಗಳು",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "ಪ್ಲೇಪಟ್ಟಿ ಹೆಸರು",
+  "playlistSheetCancel": "ರದ್ದುಮಾಡಿ",
+  "playlistSheetAddedTo": "{name} ಗೆ ಸೇರಿಸಲಾಗಿದೆ",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ: ದೃಢೀಕರಣ ದೋಷ",
+  "playlistSheetCreateFail": "ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "ರಚಿಸಿ",
+  "appUpdateAvailable": "ಅಪ್‌ಡೇಟ್ ಲಭ್ಯವಿದೆ",
+  "appUpdateDesc": "ಆವೃತ್ತಿ {version} ಬಂದಿದೆ! ಹೊಸ ವೈಶಿಷ್ಟ್ಯಗಳಿಗಾಗಿ ಅಪ್‌ಡೇಟ್ ಮಾಡಿ.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "ಅಪ್‌ಡೇಟ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+  "navHome": "ಹೋಮ್",
+  "navLibrary": "ಲೈಬ್ರರಿ",
+  "navSearch": "ಹುಡುಕಾಟ",
+  "navSettings": "ಸೆಟ್ಟಿಂಗ್ಸ್",
+  "navProfile": "ಪ್ರೊಫೈಲ್",
+  "artistSelect": "ಕಲಾವಿದರನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+  "songActionQueue": "ಕ್ಯೂಗೆ ಸೇರಿಸಿ",
+  "songActionPlaylist": "ಪ್ಲೇಪಟ್ಟಿಗೆ ಸೇರಿಸಿ",
+  "songActionFinding": "ಹುಡುಕಲಾಗುತ್ತಿದೆ...",
+  "songActionAlbum": "ಆಲ್ಬಮ್‌ಗೆ ಹೋಗಿ",
+  "songActionArtist": "ಕಲಾವಿದರ ಬಳಿಗೆ ಹೋಗಿ",
+  "songActionRemovePlaylist": "ಪ್ಲೇಪಟ್ಟಿಯಿಂದ ತೆಗೆದುಹಾಕಿ",
+  "songActionRemoveDownload": "ಡೌನ್‌ಲೋಡ್‌ಗಳಿಂದ ತೆಗೆದುಹಾಕಿ",
+  "songActionDownloadChecking": "ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ...",
+  "songActionDownloading": "ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+  "songActionDownloaded": "ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ!",
+  "songActionDownloadAlready": "ಈಗಾಗಲೇ ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ",
+  "songActionDownloadFailed": "ಡೌನ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ",
+  "songActionDownload": "ಡೌನ್‌ಲೋಡ್",
+  "songActionDownloadingSnack": "ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿದೆ",
+  "songActionView": "ವೀಕ್ಷಿಸಿ",
+  "spotifyImportTitle": "Spotify ನಿಂದ ಆಮದು ಮಾಡಿ",
+  "spotifyImportSubtitle": "ಪ್ಲೇಪಟ್ಟಿ ಗಾತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+  "spotifyChoiceSmallTitle": "100 ಹಾಡುಗಳು ಅಥವಾ ಕಡಿಮೆ",
+  "spotifyChoiceSmallDesc": "ಸಾರ್ವಜನಿಕ Spotify ಪ್ಲೇಪಟ್ಟಿ URL ಅಂಟಿಸಿ.",
+  "spotifyChoiceLargeTitle": "100 ಹಾಡುಗಳಿಗಿಂತ ಹೆಚ್ಚು",
+  "spotifyChoiceLargeDesc": "ಅನಿಯಮಿತ ಟ್ರ್ಯಾಕ್‌ಗಳನ್ನು ಆಮದು ಮಾಡಲು ನಿಮ್ಮದೇ Spotify Developer App ಸಂಪರ್ಕಿಸಿ.",
+  "cancelButton": "ರದ್ದುಮಾಡಿ",
+  "spotifyPlaylistsTitle": "ನಿಮ್ಮ Spotify ಪ್ಲೇಪಟ್ಟಿಗಳು",
+  "spotifyPlaylistsErrorMsg": "ದೋಷ: {error}\nನಿಮ್ಮ Client ID ಸರಿಯಾಗಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "ನಿಮ್ಮ ಲೈಬ್ರರಿಯಲ್ಲಿ ಯಾವುದೇ ಪ್ಲೇಪಟ್ಟಿಗಳಿಲ್ಲ",
+  "spotifyPlaylistsTracks": "{count} ಟ್ರ್ಯಾಕ್‌ಗಳು",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "ಆಮದು ಮಾಡಿ",
+  "audioPlaybackFailed": "ಪ್ಲೇಬ್ಯಾಕ್ ವಿಫಲವಾಗಿದೆ. ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ.",
+  "audioControlPrevious": "ಹಿಂದಿನದು",
+  "audioControlPause": "ವಿರಾಮ",
+  "audioControlPlay": "ಪ್ಲೇ",
+  "audioControlNext": "ಮುಂದಿನದು",
+  "audioControlUnlike": "ಅನ್‌ಲೈಕ್",
+  "audioControlLike": "ಲೈಕ್",
+  "spotifyRawResponseError": "ಮೂಲ ಪ್ರತಿಕ್ರಿಯೆ: {data}\n\nದೋಷ: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "ಅಮಾನ್ಯ ಕ್ಲೈಂಟ್ ಅಥವಾ ಕ್ಲೈಂಟ್ ಸೀಕ್ರೆಟ್.",
+  "apiErrorBadRequest": "ತಪ್ಪಾದ ವಿನಂತಿ. ನಿಮ್ಮ ಇನ್‌ಪುಟ್ ಪರಿಶೀಲಿಸಿ.",
+  "apiErrorUnauthorized": "ಅಧಿಕಾರವಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಲಾಗಿನ್ ಮಾಡಿ.",
+  "apiErrorForbidden": "ನಿಷೇಧಿಸಲಾಗಿದೆ. ನಿಮಗೆ ಪ್ರವೇಶವಿಲ್ಲ.",
+  "apiErrorNotFound": "ಸಂಪನ್ಮೂಲ ಕಂಡುಬಂದಿಲ್ಲ.",
+  "apiErrorEmailInUse": "ಈ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ.",
+  "apiErrorUserNotFound": "ಈ ಇಮೇಲ್‌ನೊಂದಿಗೆ ಯಾವುದೇ ಖಾತೆ ಕಂಡುಬಂದಿಲ್ಲ.",
+  "apiErrorWrongPassword": "ತಪ್ಪಾದ ಪಾಸ್‌ವರ್ಡ್.",
+  "apiErrorInvalidCredential": "ಲಾಗಿನ್ ವಿಫಲವಾಗಿದೆ. ನಿಮ್ಮ ರುಜುವಾತುಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
+  "apiErrorNetwork": "ನೆಟ್‌ವರ್ಕ್ ದೋಷ. ನಿಮ್ಮ ಸಂಪರ್ಕ ಪರಿಶೀಲಿಸಿ.",
+  "apiErrorSocketTimeout": "ಸಂಪರ್ಕದ ಅವಧಿ ಮೀರಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+  "apiErrorTooManyRequests": "ತುಂಬಾ ವಿನಂತಿಗಳು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+  "apiErrorServerError": "ಸರ್ವರ್ ದೋಷ. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+  "apiErrorInvalidEmail": "ದಯವಿಟ್ಟು ಸರಿಯಾದ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ.",
+  "apiErrorWeakPassword": "ಪಾಸ್‌ವರ್ಡ್ ತುಂಬಾ ದುರ್ಬಲವಾಗಿದೆ. ಕನಿಷ್ಠ 6 ಅಕ್ಷರಗಳನ್ನು ಬಳಸಿ.",
+  "apiErrorTooManyAttempts": "ಹಲವು ಬಾರಿ ತಪ್ಪಾಗಿ ಪ್ರಯತ್ನಿಸಲಾಗಿದೆ. ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+}

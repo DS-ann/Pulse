@@ -438,6 +438,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     if (localeCode == 'bn') return 'বাংলা';
     if (localeCode == 'te') return 'తెలుగు';
     if (localeCode == 'ta') return 'தமிழ்';
+    if (localeCode == 'kn') return 'ಕನ್ನಡ';
+    if (localeCode == 'or') return 'ଓଡ଼ିଆ';
+    if (localeCode == 'ml') return 'മലയാളം';
     return 'English';
   }
 
@@ -481,6 +484,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           _languageItem(ctx, 'bn', 'বাংলা', settings.appLocale, accent),
                           _languageItem(ctx, 'te', 'తెలుగు', settings.appLocale, accent),
                           _languageItem(ctx, 'ta', 'தமிழ்', settings.appLocale, accent),
+                          _languageItem(ctx, 'kn', 'ಕನ್ನಡ', settings.appLocale, accent),
+                          _languageItem(ctx, 'or', 'ଓଡ଼ିଆ', settings.appLocale, accent),
+                          _languageItem(ctx, 'ml', 'മലയാളം', settings.appLocale, accent),
                           const SizedBox(height: 24),
                         ],
                       ),
