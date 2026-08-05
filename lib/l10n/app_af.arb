@@ -1,0 +1,641 @@
+{
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "Oor",
+  "artistPopular": "Gewild",
+  "artistAlbums": "Albums",
+  "artistSinglesAndEPs": "Enkelsnitte en EP's",
+  "artistSubscribersCount": "{count} intekenare",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "Speel Alles",
+  "artistLoadError": "Kon nie kunstenaar laai nie",
+  "artistGoBack": "Gaan Terug",
+  "adminChatFailedToReply": "Kon nie antwoord nie: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "Ondersteuning Klets",
+  "adminChatError": "Fout: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "Geen gesprekgeskiedenis nie.",
+  "adminChatSupportYou": "Ondersteuning (Jy)",
+  "adminChatTypeReply": "Tik jou antwoord...",
+  "broadcastSuccess": "Aankondiging is suksesvol uitgesaai!",
+  "broadcastFailed": "Kon nie uitsaai nie: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "Globale aankondigings",
+  "broadcastSubtitle": "Gestuur aan alle gebruikers",
+  "broadcastWarning": "Boodskappe wat hierheen gestuur word, sal vir almal sigbaar wees.",
+  "broadcastError": "Fout: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "Geen vorige aankondigings nie.",
+  "broadcastTypeMessage": "Tik 'n wêreldwye uitsending...",
+  "commFailedToSend": "Kon nie stuur nie: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "Admin Dashboard",
+  "commAdminSupport": "Admin Ondersteuning",
+  "commAlwaysHere": "Altyd hier om te help",
+  "commWelcomeTitle": "Haai! 👋 Ek is Ashutosh Pathak",
+  "commWelcomeSubtitle": "Ontwikkelaar van Pulse",
+  "commWelcomeBody1": "Ek hoop jy geniet dit om na jou gunsteling musiek te luister sonder irriterende advertensies of intekeningversperrings. Musiek moet tog nie saam met 'n betaalmuur kom net omdat iemand in 'n raadsaal nog 'n seiljag nodig gehad het nie.\n\nHierdie afdeling is hier sodat ons direk kan koppel.\n\nVoel vry om:",
+  "commBullet1": "Deel jou terugvoer",
+  "commBullet2": "Rapporteer foute",
+  "commBullet3": "Stel nuwe kenmerke voor wat jy graag wil sien",
+  "commWelcomeBody2": "Ek lees persoonlik elke boodskap en sal my bes doen om die toepassing te verbeter op grond van jou voorstelle.\n\nHet jy 'n idee vir 'n toepassing wat nog nie bestaan ​​nie, of een wat agter duur intekeninge opgesluit is? Vertel my daarvan! As dit moontlik is, sal ek probeer om dit te bou en dit vir almal beskikbaar te stel.\n\nDankie dat jy my toepassing gebruik en dat jy deel was van hierdie reis. ❤️",
+  "commError": "Fout: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "Nog geen boodskappe nie",
+  "commNoMessagesDesc": "Stuur 'n boodskap aan ons ondersteuningspan of kom kyk later vir aankondigings.",
+  "commMessageSupportHint": "Boodskapondersteuning...",
+  "commGlobalAnnouncements": "Globale aankondigings",
+  "commSendMessagesToAll": "Stuur boodskappe aan alle gebruikers",
+  "homeGreetingMorning": "Goeie môre,",
+  "homeGreetingAfternoon": "Goeie middag,",
+  "homeGreetingEvening": "Goeienaand,",
+  "homeMember": "Lid",
+  "homeRecentPlaylists": "Onlangse snitlyste",
+  "homeRecentlyPlayed": "Onlangs gespeel",
+  "homeSpeedDial": "Vinnige Toegang",
+  "homeNoContent": "Geen inhoud beskikbaar nie",
+  "homeRefresh": "Verfris",
+  "homeLoadError": "Kon nie musiekstroom laai nie.",
+  "homeRetry": "Probeer weer",
+  "importSuccess": "Suksesvol aan Spotify gekoppel!",
+  "importFailed": "Kon nie koppel nie: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Koppel Spotify",
+  "importSetupTitle": "Stel Spotify-integrasie op",
+  "importSetupDesc": "Om Spotify se streng tarieflimiete te omseil en al jou snitlyste onmiddellik in te voer, moet jy jou eie gratis ontwikkelaarsleutel gebruik. Volg hierdie eenvoudige stappe:",
+  "importStep1": "Maak die Spotify-ontwikkelaarkontroleskerm oop.",
+  "importStep2": "Meld aan en klik \"Skep app\".",
+  "importStep3": "Vul enige programnaam en -beskrywing in.",
+  "importStep4": "Onder \"Herlei URI's\", plak die volgende presiese URL:",
+  "importRedirectCopied": "Herlei URI gekopieer!",
+  "importStep5": "Stoor die toepassing, kopieer jou \"kliënt-ID\" vanaf instellings, en plak dit hieronder.",
+  "importImportant": "Belangrik: Die Spotify-rekening wat gebruik word om hierdie ontwikkelaarprogram te skep, moet 'n aktiewe Premium-intekening hê.",
+  "importClientIdHint": "Plak jou Spotify-kliënt-ID hier...",
+  "importConnectButton": "Koppel en laai biblioteek",
+  "downloadingNoActive": "Geen aktiewe aflaaie nie",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "Aflaaie",
+  "downloadsStats": "{count} liedjies • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsNoOffline": "Nog geen vanlyn liedjies nie",
+  "downloadsNoOfflineDesc": "Liedjies wat jy aflaai, sal hier verskyn",
+  "downloadsClearAllTitle": "Vee alle aflaaie uit?",
+  "downloadsClearAllDesc": "Dit sal {count} liedjies verwyder en {size} berging vrymaak.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsCancel": "Kanselleer",
+  "downloadsClearAll": "Vee alles uit",
+  "downloadsSongsCount": "{count} liedjies",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsSongCountSingle": "{count} liedjie",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsCannotRenameMaster": "Kan nie die hoofaflaai-snitlys hernoem nie.",
+  "downloadsRename": "Hernoem",
+  "downloadsEditSongs": "Redigeer liedjies",
+  "downloadsDelete": "Vee uit",
+  "downloadsRenamePlaylistTitle": "Hernoem snitlys",
+  "downloadsRenamePlaylistDesc": "Voer 'n nuwe naam vir jou snitlys in.",
+  "downloadsDeletePlaylistTitle": "Vee snitlys uit?",
+  "downloadsDeleteMasterDesc": "Is jy seker jy wil dit uitvee? Jy sal alle afgelaaide liedjies en snitlyste vir ewig verloor.",
+  "downloadsDeletePlaylistDesc": "Is jy seker jy wil \"{name}\" uitvee? Hierdie snitlys sal vir altyd verlore wees.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsSave": "Stoor",
+  "downloadsNoSongs": "Geen liedjies in hierdie snitlys nie.",
+  "libraryTitle": "Biblioteek",
+  "libraryPauseAll": "Onderbreek alles",
+  "libraryResumeAll": "Hervat alles",
+  "libraryTabPlaylists": "Snitlyste",
+  "libraryTabDownloads": "Aflaaie",
+  "libraryTabDownloading": "Laai tans af",
+  "libraryImportedTask": "Ingevoer {name}",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportWaiting": "Wag tans in tou...",
+  "libraryImportFetching": "Haal tans snitlys …",
+  "libraryImportProcessed": "{processed}/{total} verwerk · {matched} ooreenstem",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "matched": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportSaving": "Stoor tans na biblioteek …",
+  "libraryImportDoneSongs": "{matched} liedjies bygevoeg · tik × om toe te maak",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportDoneAll": "Alle liedjies bygevoeg · tik × om toe te maak",
+  "libraryAddButton": "Voeg by",
+  "librarySortRecent": "Onlangs bygevoeg",
+  "librarySortAlpha": "Alfabeties",
+  "libraryEmptyTitle": "Jou biblioteek is leeg.",
+  "libraryEmptyDesc": "Tik \"Voeg by\" om jou eerste Pulse te begin.",
+  "libraryRenameLikedError": "Kan nie die 'Gehou Van' snitlys hernoem nie.",
+  "libraryRename": "Hernoem",
+  "libraryEditSongs": "Redigeer liedjies",
+  "libraryDeleteLikedError": "Kan nie die 'Gehou Van' snitlys uitvee nie.",
+  "libraryDelete": "Vee uit",
+  "libraryEditSongsTitle": "Redigeer liedjies",
+  "libraryEditSongsCountSingle": "{count} liedjie",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} liedjies",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryCancel": "Kanselleer",
+  "librarySave": "Stoor",
+  "libraryNoSongs": "Geen liedjies in hierdie snitlys nie.",
+  "libraryAddOptionsTitle": "Voeg by biblioteek",
+  "libraryAddOptionsDesc": "Kies hoe jy jou Pulse wil uitbrei",
+  "libraryImportPulse": "Voer in vanaf Pulse",
+  "libraryImportPulseDesc": "Plak 'n Pulse-snitlys-URL",
+  "libraryImportYtm": "Voer in vanaf YT Music",
+  "libraryImportYtmDesc": "Plak 'n PUBLIEKE snitlys-URL",
+  "libraryImportSpotify": "Voer in vanaf Spotify",
+  "libraryImportSpotifyDesc": "Koppel jou Spotify",
+  "libraryClose": "Maak toe",
+  "libraryImportYtmFull": "Voer in vanaf YouTube Music",
+  "libraryImportSpotifyFull": "Voer in vanaf Spotify (≤100)",
+  "libraryImportYtmUrlDesc": "Plak 'n PUBLIEKE YouTube Music-snitlys of album-URL",
+  "libraryImportSpotifyUrlDesc": "Plak 'n publieke Spotify-snitlys-URL hieronder",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Kon nie Pulse-snitlys invoer nie",
+  "importErrorPlaylist": "Kon nie snitlys invoer nie",
+  "importErrorHighlyPopulated": "Snitlys is baie bevolk, dit kan 'n rukkie neem om te gaan haal.",
+  "libraryImportBtn": "Invoer",
+  "libraryCreateTitle": "Nuwe snitlys",
+  "libraryCreateDesc": "Wat moet ons jou nuwe snitlys noem?",
+  "libraryCreateHint": "bv. Middernagritte",
+  "libraryCreateBtn": "Skep",
+  "libraryRenameTitle": "Hernoem snitlys",
+  "libraryRenameDesc": "Voer 'n nuwe naam vir jou snitlys in.",
+  "libraryRenameBtn": "Hernoem",
+  "libraryDeleteTitle": "Vee snitlys uit?",
+  "libraryDeleteDesc": "Is jy seker jy wil \"{name}\" uitvee? Hierdie snitlys sal vir altyd verlore wees.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryDeleteBtn": "Vee uit",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "Onlangs",
+  "librarySongsCount": "{count} Liedjies",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryComingSoon": "Binnekort",
+  "loginErrName": "Voer asseblief jou naam in",
+  "loginErrEmail": "Voer asseblief jou e-posadres in",
+  "loginErrPassword": "Voer asseblief jou wagwoord in",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "Voel elke slag!",
+  "loginMadeWithHeartBy": "Gemaak met ❤️ deur",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "Jou naam",
+  "loginHintEmail": "E-pos adres",
+  "loginHintPassword": "Wagwoord",
+  "loginErrEmailReset": "Voer asseblief jou e-posadres in om wagwoord terug te stel",
+  "loginResetSent": "Wagwoordherstel e-pos gestuur! Gaan jou inkassie na.",
+  "loginForgotPwd": "Wagwoord vergeet?",
+  "loginBtnSignup": "Skep rekening",
+  "loginBtnSignin": "Meld aan",
+  "loginToggleHaveAccount": "Het jy reeds 'n Pulse-rekening?",
+  "loginToggleNoAccount": "Het jy nie 'n Pulse-rekening nie?",
+  "loginToggleSignin": "Meld aan",
+  "loginToggleSignup": "Teken in",
+  "offlineStillOffline": "Nog steeds vanlyn. Gaan asseblief jou verbinding na.",
+  "offlineTitle": "Jy is vanlyn",
+  "offlineSubtitle": "Geen internetverbinding gevind nie.\nGaan jou netwerk na en probeer weer.",
+  "offlineChecking": "Kontroleer tans …",
+  "offlineRetry": "Probeer weer",
+  "offlineGoToDownloads": "Gaan na Downloads",
+  "playerMadeWithHeartBy": "Gemaak met ❤️ deur",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "Swiep vir lirieke",
+  "playerNoLyrics": "Geen lirieke beskikbaar nie",
+  "playerUpNext": "Volgende",
+  "playerNoTracksInQueue": "Geen spore in die tou nie",
+  "playerNoMusicPlaying": "Geen musiek speel nie",
+  "playerPickAVibe": "Kies 'n atmosfeer uit jou biblioteek of huis",
+  "playerGoHome": "Gaan Huis toe",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "Gelykmaker",
+  "playerEqCustom": "Pasgemaak",
+  "playlistDownloads": "Aflaaie",
+  "playlistOffline": "Vanlyn snitlys",
+  "playlistDurationHours": "{hours}h {mins}min",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "mins": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistDurationMins": "{mins}min",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistFindOnPage": "Vind op hierdie bladsy",
+  "playlistSongsAndDuration": "{count} liedjies • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "Onlangs",
+  "playlistNoMatches": "Geen passings gevind nie.",
+  "playlistNoTracks": "Geen snitte in hierdie snitlys nie.",
+  "playlistNoSongsYet": "Nog geen liedjies nie.",
+  "playlistSortRecentlyAdded": "Onlangs bygevoeg",
+  "playlistSortAlphabetical": "Alfabeties",
+  "playlistDownloadingSongs": "Laai tans af {count} {count, plural, =1{liedjie} other{liedjies}}",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistView": "BESIGTIG",
+  "playlistAllDownloaded": "Alle liedjies is reeds afgelaai",
+  "playlistShareText": "Kyk na \"{name}\" op Pulse!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistRemoveFromDownloads": "Verwyder van aflaaie",
+  "playlistRemoveFromPlaylist": "Verwyder uit snitlys",
+  "playlistLoadError": "Kon nie hierdie snitlys laai nie.",
+  "playlistGoBack": "← Gaan terug",
+  "profileNotLoggedIn": "Nie aangemeld nie",
+  "profileSignIn": "Meld aan",
+  "profileDefaultUser": "Pulse-gebruiker",
+  "profileEditProfile": "Wysig profiel",
+  "profileTimeframeDay": "Dag",
+  "profileTimeframeWeek": "Week",
+  "profileTimeframeMonth": "Maand",
+  "profileTimeframeYear": "Jaar",
+  "profileListeningTime": "LUISTERTYD",
+  "profileToday": "Vandag",
+  "profileThisWeek": "Hierdie week",
+  "profileThisMonth": "Hierdie maand",
+  "profileThisYear": "Hierdie jaar",
+  "profileDailyAvg": "DAAGLIKSE GEM",
+  "profilePerDay": "Per dag",
+  "profileLifetimeListening": "LEWENSTYD LUISTER",
+  "profileTotalTimeListened": "Totale tyd geluister na musiek op Pulse",
+  "profileYourTopSongs": "Jou Top Liedjies",
+  "profileListeningHistoryEmpty": "Luistergeskiedenis sal hier verskyn.",
+  "profilePlays": "{count} {count, plural, =1{keer gespeel} other{kere gespeel}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileYourTopArtists": "Jou topkunstenaars",
+  "profileTopArtistsEmpty": "Jou gunsteling kunstenaars sal hier verskyn.",
+  "profileArtistLabel": "Kunstenaar",
+  "profileSignOut": "Teken uit",
+  "profileVersion": "Weergawe {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "profileMadeWithHeartBy": "Gemaak met ❤️ deur",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "WYSIG PROFIEL",
+  "profileDisplayName": "VERTOONNAAM",
+  "profileCancel": "Kanselleer",
+  "profileSave": "Stoor",
+  "profileChooseAvatar": "Kies Avatar",
+  "searchMicPermissionRequired": "Mikrofoontoestemming word vir hierdie kenmerk vereis",
+  "searchUnknownSong": "Onbekende liedjie",
+  "searchUnknownArtist": "Onbekende Kunstenaar",
+  "searchNoSongDetected": "Geen liedjie bespeur nie.",
+  "searchError": "Fout: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "searchSpeechNotAvailable": "Spraakherkenning nie beskikbaar nie",
+  "searchHint": "Liedjies, kunstenaars, albums, snitlyste …",
+  "searchRecentEmpty": "Jou onlangse soektogte verskyn hier",
+  "searchRecentSearches": "Onlangse soektogte",
+  "searchClearAll": "Vee alles uit",
+  "searchNoResultsFor": "Geen resultate vir \"{query}\"",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "searchTryDifferentKeywords": "Probeer verskillende sleutelwoorde",
+  "searchTopResult": "Top resultaat",
+  "searchSongsLabel": "Liedjies",
+  "searchArtistsLabel": "Kunstenaars",
+  "searchAlbumsLabel": "Albums",
+  "searchPlaylistsLabel": "Snitlyste",
+  "searchArtistLabel": "Kunstenaar",
+  "searchListening": "Luister tans...",
+  "searchSpeakNow": "Praat nou om te soek",
+  "searchCancel": "Kanselleer",
+  "searchIdentifying": "Identifiseer tans …",
+  "searchListeningForSong": "Luister vir 'n liedjie...",
+  "settingsTitle": "Instellings",
+  "settingsStreamingQuality": "Stroomkwaliteit",
+  "settingsQualityAutomatic": "Outomaties",
+  "settingsQualityLow": "Laag",
+  "settingsQualityNormal": "Normaal",
+  "settingsQualityHigh": "Hoog",
+  "settingsDownloadQuality": "Aflaai Kwaliteit",
+  "settingsPlayback": "Afspeel",
+  "settingsCrossfade": "Crossfade",
+  "settingsCrossfadeDesc": "Oorvleuel spore vir gapingslose oorgange",
+  "settingsDataUsage": "Datagebruik",
+  "settingsDataSaver": "Databespaarder",
+  "settingsDataSaverDesc": "Stroom teen laer gehalte oor sellulêr",
+  "settingsAppearance": "Voorkoms",
+  "settingsLanguage": "Taal",
+  "settingsCustomAccent": "Pasgemaakte aksent",
+  "settingsSaturation": "Versadiging",
+  "settingsBrightness": "Helderheid",
+  "settingsResetDefault": "Stel verstek terug",
+  "playlistSheetTitle": "Voeg by snitlys",
+  "playlistSheetNewPlaylist": "Nuwe snitlys",
+  "playlistSheetNoPlaylists": "Nog geen snitlyste nie",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{liedjie} other{liedjies}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSheetNameHint": "Snitlys Naam",
+  "playlistSheetCancel": "Kanselleer",
+  "playlistSheetAddedTo": "By {name} gevoeg",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSheetCreateFailAuth": "Kon nie snitlys skep nie: Stawingsfout",
+  "playlistSheetCreateFail": "Kon nie snitlys skep nie: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSheetCreate": "Skep",
+  "appUpdateAvailable": "Opdatering beskikbaar",
+  "appUpdateDesc": "Weergawe {version} is hier! Dateer nou op om die nuutste kenmerke te kry.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "appUpdateDownload": "Laai Update af",
+  "navHome": "Tuis",
+  "navLibrary": "Biblioteek",
+  "navSearch": "Soek",
+  "navSettings": "Instellings",
+  "navProfile": "Profiel",
+  "artistSelect": "Kies Kunstenaar",
+  "songActionQueue": "Voeg by waglys",
+  "songActionPlaylist": "Voeg by snitlys",
+  "songActionFinding": "Vind tans …",
+  "songActionAlbum": "Gaan na Album",
+  "songActionArtist": "Gaan na Kunstenaar",
+  "songActionRemovePlaylist": "Verwyder uit snitlys",
+  "songActionRemoveDownload": "Verwyder van aflaaie",
+  "songActionDownloadChecking": "Kontroleer tans …",
+  "songActionDownloading": "Laai tans af...",
+  "songActionDownloaded": "Afgelaai!",
+  "songActionDownloadAlready": "Reeds afgelaai",
+  "songActionDownloadFailed": "Kon nie aflaai nie",
+  "songActionDownload": "Laai af",
+  "songActionDownloadingSnack": "Laai tans af",
+  "songActionView": "BESIGTIG",
+  "spotifyImportTitle": "Voer in vanaf Spotify",
+  "spotifyImportSubtitle": "Kies jou snitlysgrootte",
+  "spotifyChoiceSmallTitle": "100 liedjies of minder",
+  "spotifyChoiceSmallDesc": "Plak 'n publieke Spotify-snitlys-URL.",
+  "spotifyChoiceLargeTitle": "Meer as 100 liedjies",
+  "spotifyChoiceLargeDesc": "Koppel jou eie Spotify-ontwikkelaarprogram om onbeperkte snitte in te voer.",
+  "cancelButton": "Kanselleer",
+  "spotifyPlaylistsTitle": "Jou Spotify-snitlyste",
+  "spotifyPlaylistsErrorMsg": "Fout: {error}\nMaak seker jou kliënt-ID is geldig.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "Geen snitlyste in jou biblioteek gevind nie",
+  "spotifyPlaylistsTracks": "{count} snitte",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "Invoer",
+  "audioPlaybackFailed": "Terugspeel het misluk. Gaan jou internetverbinding na.",
+  "audioControlPrevious": "Vorige",
+  "audioControlPause": "Pouse",
+  "audioControlPlay": "Speel",
+  "audioControlNext": "Volgende",
+  "audioControlUnlike": "Verwyder Gunsteling",
+  "audioControlLike": "Gunsteling",
+  "spotifyRawResponseError": "Rou reaksie: {data}\n\nTerugval: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "apiErrorInvalidClient": "Ongeldige kliënt- of kliëntgeheim.",
+  "apiErrorBadRequest": "Slegte versoek. Gaan asseblief jou insette na.",
+  "apiErrorUnauthorized": "Ongemagtig. Meld asseblief weer aan.",
+  "apiErrorForbidden": "Verbode. Jy het nie toegang nie.",
+  "apiErrorNotFound": "Hulpbron nie gevind nie.",
+  "apiErrorEmailInUse": "Hierdie e-posadres is reeds in gebruik.",
+  "apiErrorUserNotFound": "Geen rekening gevind met hierdie e-pos nie.",
+  "apiErrorWrongPassword": "Verkeerde wagwoord.",
+  "apiErrorInvalidCredential": "Kon nie aanmeld nie. Gaan asseblief jou geloofsbriewe na.",
+  "apiErrorNetwork": "Netwerkfout. Gaan asseblief jou verbinding na.",
+  "apiErrorSocketTimeout": "Verbinding het uitgetel. Probeer asseblief weer.",
+  "apiErrorTooManyRequests": "Te veel versoeke. Wag asseblief 'n oomblik en probeer weer.",
+  "apiErrorServerError": "Bedienerfout. Probeer asseblief later weer.",
+  "apiErrorInvalidEmail": "Voer asseblief 'n geldige e-posadres in.",
+  "apiErrorWeakPassword": "Wagwoord is te swak. Gebruik ten minste 6 karakters.",
+  "apiErrorTooManyAttempts": "Te veel mislukte pogings. Probeer asseblief later weer."
+}

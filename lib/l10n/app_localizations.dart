@@ -5,8 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'app_localizations_af.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_hi.dart';
+import 'app_localizations_mai.dart';
 
 // ignore_for_file: type=lint
 
@@ -94,8 +96,10 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
+    Locale('af'),
     Locale('en'),
     Locale('hi'),
+    Locale('mai'),
   ];
 
   /// The title of the application
@@ -2228,7 +2232,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'hi'].contains(locale.languageCode);
+      <String>['af', 'en', 'hi', 'mai'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -2237,10 +2241,14 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'af':
+      return AppLocalizationsAf();
     case 'en':
       return AppLocalizationsEn();
     case 'hi':
       return AppLocalizationsHi();
+    case 'mai':
+      return AppLocalizationsMai();
   }
 
   throw FlutterError(

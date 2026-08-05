@@ -44,7 +44,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
   @override
   void initState() {
     super.initState();
-    _fetchYtmIfNeeded();
+    Future.microtask(() => _fetchYtmIfNeeded());
     // Defer heavy list rendering until the route transition completes (250ms)
     Future.delayed(const Duration(milliseconds: 250), () {
       if (mounted) setState(() => _showList = true);

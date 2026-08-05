@@ -429,7 +429,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   String _getLanguageName(String? localeCode) {
     if (localeCode == 'hi') return 'हिन्दी';
-    if (localeCode == 'fr') return 'Français';
+    if (localeCode == 'af') return 'Afrikaans';
+    if (localeCode == 'mai') return 'मैथिली';
     return 'English';
   }
 
@@ -458,7 +459,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 const SizedBox(height: 16),
                 _languageItem(ctx, 'en', 'English', settings.appLocale, accent),
                 _languageItem(ctx, 'hi', 'हिन्दी', settings.appLocale, accent),
-                _languageItem(ctx, 'fr', 'Français', settings.appLocale, accent),
+                _languageItem(ctx, 'af', 'Afrikaans', settings.appLocale, accent),
+                _languageItem(ctx, 'mai', 'मैथिली', settings.appLocale, accent),
                 const SizedBox(height: 24),
               ],
             ),

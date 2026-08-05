@@ -544,7 +544,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get loginSubtitle => 'हर बीट को महसूस करें!';
 
   @override
-  String get loginMadeWithHeartBy => '❤️ के साथ बनाया गया ';
+  String get loginMadeWithHeartBy => '❤️ से निर्माण: ';
 
   @override
   String get loginAuthorName => 'आशुतोष पाठक';
@@ -609,7 +609,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get offlineGoToDownloads => 'डाउनलोड पर जाएं';
 
   @override
-  String get playerMadeWithHeartBy => '❤️ के साथ बनाया गया ';
+  String get playerMadeWithHeartBy => '❤️ से निर्माण: ';
 
   @override
   String get playerAuthorName => 'आशुतोष पाठक';
@@ -809,7 +809,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get profileMadeWithHeartBy => '❤️ के साथ बनाया गया ';
+  String get profileMadeWithHeartBy => '❤️ से निर्माण: ';
 
   @override
   String get profileAuthorName => 'आशुतोष पाठक';

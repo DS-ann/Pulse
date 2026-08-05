@@ -16,6 +16,7 @@ import 'package:pulse/src/rust/frb_generated.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pulse/l10n/app_localizations.dart';
 import 'package:pulse/core/utils/error_mapper.dart';
+import 'l10n/fallback_localizations.dart';
 
 /// Global key for showing snackbars from anywhere (e.g. Providers)
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
@@ -118,12 +119,11 @@ class _PulseAppState extends ConsumerState<PulseApp> {
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
+          FallbackMaterialLocalizationDelegate(),
+          FallbackCupertinoLocalizationDelegate(),
+          FallbackWidgetsLocalizationDelegate(),
         ],
-        supportedLocales: const [
-          Locale('en', ''),
-          Locale('hi', ''),
-          Locale('fr', ''),
-        ],
+        supportedLocales: AppLocalizations.supportedLocales,
         locale: settings.appLocale == null ? null : Locale(settings.appLocale!),
         theme: AppTheme.dark(accentColor: accentColor),
         home: const Scaffold(
@@ -143,12 +143,11 @@ class _PulseAppState extends ConsumerState<PulseApp> {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        FallbackMaterialLocalizationDelegate(),
+        FallbackCupertinoLocalizationDelegate(),
+        FallbackWidgetsLocalizationDelegate(),
       ],
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('hi', ''),
-        Locale('fr', ''),
-      ],
+      supportedLocales: AppLocalizations.supportedLocales,
       locale: settings.appLocale == null ? null : Locale(settings.appLocale!),
       theme: AppTheme.dark(accentColor: accentColor),
       localeResolutionCallback: (locale, supportedLocales) {

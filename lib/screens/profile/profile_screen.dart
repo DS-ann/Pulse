@@ -573,9 +573,13 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   color: danger ? AppColors.danger : AppColors.textPrimary),
               const SizedBox(width: 14),
               Expanded(
-                child: Text(label, style: TextStyle(
-                    fontSize: 15,
-                    color: danger ? AppColors.danger : AppColors.textPrimary)),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Text(label, style: TextStyle(
+                      fontSize: 15,
+                      color: danger ? AppColors.danger : AppColors.textPrimary)),
+                ),
               ),
               if (trailing != null) ...[
                 trailing,
