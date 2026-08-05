@@ -1,0 +1,574 @@
+{
+  "@@locale": "te",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "గురించి",
+  "artistPopular": "జనాదరణ",
+  "artistAlbums": "ఆల్బమ్‌లు",
+  "artistSinglesAndEPs": "సింగిల్స్ & EPలు",
+  "artistSubscribersCount": "{count} సబ్‌స్క్రైబర్లు",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "అన్నీ ప్లే చేయండి",
+  "artistLoadError": "ఆర్టిస్ట్‌ను లోడ్ చేయలేకపోయాము",
+  "artistGoBack": "వెనక్కి వెళ్ళండి",
+  "adminChatFailedToReply": "రిప్లై ఇవ్వడం విఫలమైంది: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "సపోర్ట్ చాట్",
+  "adminChatError": "లోపం: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "గత సంభాషణలు లేవు.",
+  "adminChatSupportYou": "సపోర్ట్ (మీరు)",
+  "adminChatTypeReply": "మీ రిప్లై రాయండి...",
+  "broadcastSuccess": "ప్రకటన విజయవంతంగా బ్రాడ్‌కాస్ట్ చేయబడింది!",
+  "broadcastFailed": "బ్రాడ్‌కాస్ట్ విఫలమైంది: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "గ్లోబల్ ప్రకటనలు",
+  "broadcastSubtitle": "యూజర్లందరికీ పంపబడింది",
+  "broadcastWarning": "ఇక్కడ పంపే సందేశాలు అందరికీ కనిపిస్తాయి.",
+  "broadcastError": "లోపం: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "గత ప్రకటనలు లేవు.",
+  "broadcastTypeMessage": "గ్లోబల్ ప్రకటన రాయండి...",
+  "commFailedToSend": "పంపడం విఫలమైంది: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "అడ్మిన్ డ్యాష్‌బోర్డ్",
+  "commAdminSupport": "అడ్మిన్ సపోర్ట్",
+  "commAlwaysHere": "సహాయం చేయడానికి ఇక్కడే ఉన్నాం",
+  "commWelcomeTitle": "హలో! 👋 నేను ఆశుతోష్ పాఠక్",
+  "commWelcomeSubtitle": "Pulse డెవలపర్",
+  "commWelcomeBody1": "ప్రకటనలు లేదా సబ్‌స్క్రిప్షన్ అడ్డంకులు లేకుండా మీకిష్టమైన సంగీతాన్ని ఆస్వాదిస్తున్నారని ఆశిస్తున్నాను. సంగీతం కేవలం డబ్బున్న వారికే పరిమితం కాకూడదు.\n\nమనమిద్దరం నేరుగా కనెక్ట్ అవ్వడానికి ఈ విభాగం ఉంది.\n\nమీరు ఏమైనా చెప్పాలనుకుంటే:",
+  "commBullet1": "మీ ఫీడ్‌బ్యాక్ ఇవ్వండి",
+  "commBullet2": "బగ్‌లను రిపోర్ట్ చేయండి",
+  "commBullet3": "కొత్త ఫీచర్లను సూచించండి",
+  "commWelcomeBody2": "ప్రతి సందేశాన్ని నేనే చదువుతాను మరియు మీ సూచనలతో యాప్‌ను మెరుగుపరుస్తాను.\n\nసబ్‌స్క్రిప్షన్లలో చిక్కుకున్న కొత్త యాప్ ఆలోచన ఉందా? నాకు చెప్పండి! వీలైతే నేను దాన్ని అందరికీ అందుబాటులోకి తెస్తాను.\n\nఈ ప్రయాణంలో భాగమైనందుకు ధన్యవాదాలు. ❤️",
+  "commError": "లోపం: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "ఇంకా సందేశాలు లేవు",
+  "commNoMessagesDesc": "మా సపోర్ట్ టీమ్‌కు సందేశం పంపండి లేదా ప్రకటనల కోసం తర్వాత చూడండి.",
+  "commMessageSupportHint": "సపోర్ట్ టీమ్‌కు రాయండి...",
+  "commGlobalAnnouncements": "గ్లోబల్ ప్రకటనలు",
+  "commSendMessagesToAll": "యూజర్లందరికీ సందేశాలు పంపండి",
+  "homeGreetingMorning": "శుభోదయం,",
+  "homeGreetingAfternoon": "శుభాహ్నం,",
+  "homeGreetingEvening": "శుభ సాయంత్రం,",
+  "homeMember": "సభ్యుడు",
+  "homeRecentPlaylists": "ఇటీవలి ప్లేలిస్ట్‌లు",
+  "homeRecentlyPlayed": "ఇటీవల ప్లే చేసినవి",
+  "homeSpeedDial": "స్పీడ్ డయల్",
+  "homeNoContent": "కంటెంట్ లేదు",
+  "homeRefresh": "రిఫ్రెష్",
+  "homeLoadError": "మ్యూజిక్ ఫీడ్ లోడ్ కాలేదు.",
+  "homeRetry": "మళ్ళీ ప్రయత్నించండి",
+  "importSuccess": "Spotify విజయవంతంగా కనెక్ట్ అయ్యింది!",
+  "importFailed": "కనెక్ట్ చేయడం విఫలమైంది: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify కనెక్ట్ చేయండి",
+  "importSetupTitle": "Spotify సెటప్",
+  "importSetupDesc": "Spotify పరిమితులను దాటవేసి మీ ప్లేలిస్ట్‌లను వెంటనే ఇంపోర్ట్ చేయడానికి మీ డెవలపర్ కీని ఉపయోగించండి. ఈ స్టెప్స్ ఫాలో అవ్వండి:",
+  "importStep1": "Spotify Developer Dashboard తెరవండి.",
+  "importStep2": "లాగిన్ చేసి \"Create app\" నొక్కండి.",
+  "importStep3": "యాప్ పేరు మరియు వివరణ ఇవ్వండి.",
+  "importStep4": "\"Redirect URIs\" కింద ఈ ఖచ్చితమైన URLను పేస్ట్ చేయండి:",
+  "importRedirectCopied": "రీడైరెక్ట్ URI కాపీ అయ్యింది!",
+  "importStep5": "యాప్ సేవ్‌ చేసి, సెట్టింగ్స్ నుండి మీ \"Client ID\" కాపీ చేసి కింద పేస్ట్ చేయండి.",
+  "importImportant": "ముఖ్య గమనిక: ఈ డెవలపర్ యాప్ క్రియేట్ చేయడానికి ఉపయోగించే Spotify ఖాతాకు యాక్టివ్ ప్రీమియం సబ్‌స్క్రిప్షన్ ఉండాలి.",
+  "importClientIdHint": "మీ Spotify Client ID ఇక్కడ పేస్ట్ చేయండి...",
+  "importConnectButton": "కనెక్ట్ & లైబ్రరీ లోడ్ చేయండి",
+  "downloadingNoActive": "యాక్టివ్ డౌన్‌లోడ్స్ లేవు",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "డౌన్‌లోడ్స్",
+  "downloadsStats": "{count} పాటలు • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "ఆఫ్‌లైన్ పాటలు లేవు",
+  "downloadsNoOfflineDesc": "మీరు డౌన్‌లోడ్ చేసిన పాటలు ఇక్కడ కనిపిస్తాయి",
+  "downloadsClearAllTitle": "అన్ని డౌన్‌లోడ్స్ క్లియర్ చేయాలా?",
+  "downloadsClearAllDesc": "ఇది {count} పాటలను తొలగిస్తుంది మరియు {size} స్టోరేజ్ ఖాళీ చేస్తుంది.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "రద్దు చేయి",
+  "downloadsClearAll": "అన్నీ క్లియర్ చేయి",
+  "downloadsSongsCount": "{count} పాటలు",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} పాట",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "మెయిన్ డౌన్‌లోడ్స్ ప్లేలిస్ట్ పేరు మార్చలేరు.",
+  "downloadsRename": "పేరు మార్చు",
+  "downloadsEditSongs": "పాటలను ఎడిట్ చేయండి",
+  "downloadsDelete": "తొలగించు",
+  "downloadsRenamePlaylistTitle": "ప్లేలిస్ట్ పేరు మార్చు",
+  "downloadsRenamePlaylistDesc": "ప్లేలిస్ట్‌కు కొత్త పేరు ఇవ్వండి.",
+  "downloadsDeletePlaylistTitle": "ప్లేలిస్ట్ తొలగించాలా?",
+  "downloadsDeleteMasterDesc": "దీన్ని నిజంగా తొలగించాలనుకుంటున్నారా? మీరు డౌన్‌లోడ్ చేసిన పాటలు మరియు ప్లేలిస్ట్‌లు శాశ్వతంగా కోల్పోతారు.",
+  "downloadsDeletePlaylistDesc": "\"{name}\" నిజంగా తొలగించాలనుకుంటున్నారా? ఈ ప్లేలిస్ట్ శాశ్వతంగా కోల్పోతారు.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "సేవ్ చేయి",
+  "downloadsNoSongs": "ఈ ప్లేలిస్ట్‌లో పాటలు లేవు.",
+  "libraryTitle": "లైబ్రరీ",
+  "libraryPauseAll": "అన్నీ పాజ్ చేయి",
+  "libraryResumeAll": "అన్నీ రెజ్యూమ్ చేయి",
+  "libraryTabPlaylists": "ప్లేలిస్ట్‌లు",
+  "libraryTabDownloads": "డౌన్‌లోడ్స్",
+  "libraryTabDownloading": "డౌన్‌లోడింగ్",
+  "libraryImportedTask": "{name} ఇంపోర్ట్ అయ్యింది",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "వేచి ఉంది...",
+  "libraryImportFetching": "ప్లేలిస్ట్‌ తెస్తోంది...",
+  "libraryImportProcessed": "{processed}/{total} ప్రాసెస్ అయ్యాయి · {matched} మ్యాచ్ అయ్యాయి",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "లైబ్రరీకి సేవ్ చేస్తోంది...",
+  "libraryImportDoneSongs": "{matched} పాటలు యాడ్ అయ్యాయి · మూసివేయడానికి × నొక్కండి",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "పాటలన్నీ యాడ్ అయ్యాయి · మూసివేయడానికి × నొక్కండి",
+  "libraryAddButton": "యాడ్ చేయి",
+  "librarySortRecent": "ఇటీవలివి",
+  "librarySortAlpha": "ఆల్ఫాబెటికల్",
+  "libraryEmptyTitle": "మీ లైబ్రరీ ఖాళీగా ఉంది.",
+  "libraryEmptyDesc": "మీ మొదటి Pulse ప్రారంభించడానికి \"యాడ్ చేయి\" నొక్కండి.",
+  "libraryRenameLikedError": "Liked Songs ప్లేలిస్ట్ పేరు మార్చలేరు.",
+  "libraryRename": "పేరు మార్చు",
+  "libraryEditSongs": "పాటలను ఎడిట్ చేయండి",
+  "libraryDeleteLikedError": "Liked Songs ప్లేలిస్ట్ తొలగించలేరు.",
+  "libraryDelete": "తొలగించు",
+  "libraryEditSongsTitle": "పాటలను ఎడిట్ చేయండి",
+  "libraryEditSongsCountSingle": "{count} పాట",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} పాటలు",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "రద్దు చేయి",
+  "librarySave": "సేవ్ చేయి",
+  "libraryNoSongs": "ఈ ప్లేలిస్ట్‌లో పాటలు లేవు.",
+  "libraryAddOptionsTitle": "లైబ్రరీకి యాడ్ చేయండి",
+  "libraryAddOptionsDesc": "మీ Pulse లైబ్రరీ ఎలా పెంచుకోవాలో ఎంచుకోండి",
+  "libraryImportPulse": "Pulse నుండి ఇంపోర్ట్ చేయండి",
+  "libraryImportPulseDesc": "Pulse ప్లేలిస్ట్ URL పేస్ట్ చేయండి",
+  "libraryImportYtm": "YT Music నుండి ఇంపోర్ట్ చేయండి",
+  "libraryImportYtmDesc": "పబ్లిక్ ప్లేలిస్ట్ URL పేస్ట్ చేయండి",
+  "libraryImportSpotify": "Spotify నుండి ఇంపోర్ట్ చేయండి",
+  "libraryImportSpotifyDesc": "Spotify కనెక్ట్ చేయండి",
+  "libraryClose": "మూసివేయి",
+  "libraryImportYtmFull": "YouTube Music నుండి ఇంపోర్ట్ చేయండి",
+  "libraryImportSpotifyFull": "Spotify నుండి ఇంపోర్ట్ చేయండి (≤100)",
+  "libraryImportYtmUrlDesc": "పబ్లిక్ YouTube Music ప్లేలిస్ట్ లేదా ఆల్బమ్ URL పేస్ట్ చేయండి",
+  "libraryImportSpotifyUrlDesc": "పబ్లిక్ Spotify ప్లేలిస్ట్ URL కింద పేస్ట్ చేయండి",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse ప్లేలిస్ట్ ఇంపోర్ట్ విఫలమైంది",
+  "importErrorPlaylist": "ప్లేలిస్ట్ ఇంపోర్ట్ చేయడంలో లోపం",
+  "importErrorHighlyPopulated": "ప్లేలిస్ట్ చాలా పెద్దది, తెచ్చేందుకు సమయం పట్టవచ్చు.",
+  "libraryImportBtn": "ఇంపోర్ట్",
+  "libraryCreateTitle": "కొత్త ప్లేలిస్ట్",
+  "libraryCreateDesc": "కొత్త ప్లేలిస్ట్‌కు ఏం పేరు పెడదాం?",
+  "libraryCreateHint": "ఉదా. Midnight Rides",
+  "libraryCreateBtn": "క్రియేట్ చేయి",
+  "libraryRenameTitle": "ప్లేలిస్ట్ పేరు మార్చు",
+  "libraryRenameDesc": "ప్లేలిస్ట్‌కు కొత్త పేరు ఇవ్వండి.",
+  "libraryRenameBtn": "పేరు మార్చు",
+  "libraryDeleteTitle": "ప్లేలిస్ట్ తొలగించాలా?",
+  "libraryDeleteDesc": "\"{name}\" నిజంగా తొలగించాలనుకుంటున్నారా? ఈ ప్లేలిస్ట్ శాశ్వతంగా కోల్పోతారు.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "తొలగించు",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "ఇటీవలివి",
+  "librarySongsCount": "{count} పాటలు",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "త్వరలో వస్తోంది",
+  "loginErrName": "దయచేసి మీ పేరు ఇవ్వండి",
+  "loginErrEmail": "దయచేసి మీ ఇమెయిల్ ఇవ్వండి",
+  "loginErrPassword": "దయచేసి మీ పాస్‌వర్డ్ ఇవ్వండి",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "ప్రతి బీట్ ఫీల్ అవ్వండి!",
+  "loginMadeWithHeartBy": "ప్రేమతో సృష్టించినది: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "మీ పేరు",
+  "loginHintEmail": "ఇమెయిల్ అడ్రస్",
+  "loginHintPassword": "పాస్‌వర్డ్",
+  "loginErrEmailReset": "పాస్‌వర్డ్ రీసెట్ చేయడానికి ఇమెయిల్ ఇవ్వండి",
+  "loginResetSent": "రీసెట్ ఇమెయిల్ పంపబడింది! ఇన్‌బాక్స్ చెక్ చేయండి.",
+  "loginForgotPwd": "పాస్‌వర్డ్ మర్చిపోయారా?",
+  "loginBtnSignup": "అకౌంట్ క్రియేట్ చేయి",
+  "loginBtnSignin": "సైన్ ఇన్",
+  "loginToggleHaveAccount": "ఇప్పటికే Pulse అకౌంట్ ఉందా? ",
+  "loginToggleNoAccount": "Pulse అకౌంట్ లేదా? ",
+  "loginToggleSignin": "సైన్ ఇన్",
+  "loginToggleSignup": "సైన్ అప్",
+  "offlineStillOffline": "ఇంకా ఆఫ్‌లైన్‌లోనే ఉన్నారు. కనెక్షన్ చెక్ చేయండి.",
+  "offlineTitle": "మీరు ఆఫ్‌లైన్‌లో ఉన్నారు",
+  "offlineSubtitle": "ఇంటర్నెట్ కనెక్షన్ లేదు.\nనెట్‌వర్క్ చెక్ చేసి మళ్ళీ ప్రయత్నించండి.",
+  "offlineChecking": "చెక్ చేస్తోంది...",
+  "offlineRetry": "మళ్ళీ ప్రయత్నించండి",
+  "offlineGoToDownloads": "డౌన్‌లోడ్స్‌కి వెళ్ళు",
+  "playerMadeWithHeartBy": "ప్రేమతో సృష్టించినది: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "లిరిక్స్ కోసం స్వైప్ చేయండి",
+  "playerNoLyrics": "లిరిక్స్ అందుబాటులో లేవు",
+  "playerUpNext": "తర్వాత రాబోయేది",
+  "playerNoTracksInQueue": "క్యూలో ట్రాక్స్ లేవు",
+  "playerNoMusicPlaying": "ఏ సంగీతం ప్లే అవ్వట్లేదు",
+  "playerPickAVibe": "లైబ్రరీ లేదా హోమ్ నుండి పాటను ఎంచుకోండి",
+  "playerGoHome": "హోమ్‌కి వెళ్ళు",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "ఈక్వలైజర్",
+  "playerEqCustom": "కస్టమ్",
+  "playlistDownloads": "డౌన్‌లోడ్స్",
+  "playlistOffline": "ఆఫ్‌లైన్ ప్లేలిస్ట్",
+  "playlistDurationHours": "{hours}గం {mins}ని",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}ని",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "ఈ పేజీలో వెతుకు",
+  "playlistSongsAndDuration": "{count} పాటలు • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "ఇటీవలివి",
+  "playlistNoMatches": "ఏమీ దొరకలేదు.",
+  "playlistNoTracks": "ఈ ప్లేలిస్ట్‌లో ట్రాక్స్ లేవు.",
+  "playlistNoSongsYet": "ఇంకా పాటలు లేవు.",
+  "playlistSortRecentlyAdded": "ఇటీవల యాడ్ చేసినవి",
+  "playlistSortAlphabetical": "ఆల్ఫాబెటికల్",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{పాట} other{పాటలు}} డౌన్‌లోడ్ అవుతున్నాయి",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "చూడండి",
+  "playlistAllDownloaded": "అన్ని పాటలు ముందే డౌన్‌లోడ్ అయ్యాయి",
+  "playlistShareText": "Pulseలో \"{name}\" వినండి!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "డౌన్‌లోడ్స్ నుండి తీసివేయి",
+  "playlistRemoveFromPlaylist": "ప్లేలిస్ట్ నుండి తీసివేయి",
+  "playlistLoadError": "ప్లేలిస్ట్ లోడ్ కాలేదు.",
+  "playlistGoBack": "← వెనక్కి వెళ్ళు",
+  "profileNotLoggedIn": "లాగిన్ అవ్వలేదు",
+  "profileSignIn": "సైన్ ఇన్",
+  "profileDefaultUser": "Pulse యూజర్",
+  "profileEditProfile": "ప్రొఫైల్ ఎడిట్ చేయి",
+  "profileTimeframeDay": "రోజు",
+  "profileTimeframeWeek": "వారం",
+  "profileTimeframeMonth": "నెల",
+  "profileTimeframeYear": "సంవత్సరం",
+  "profileListeningTime": "లిజనింగ్ టైమ్",
+  "profileToday": "ఈ రోజు",
+  "profileThisWeek": "ఈ వారం",
+  "profileThisMonth": "ఈ నెల",
+  "profileThisYear": "ఈ సంవత్సరం",
+  "profileDailyAvg": "రోజువారీ సగటు",
+  "profilePerDay": "రోజుకు",
+  "profileLifetimeListening": "మొత్తం లిజనింగ్ టైమ్",
+  "profileTotalTimeListened": "Pulseలో మొత్తం పాటలు విన్న సమయం",
+  "profileYourTopSongs": "మీ టాప్ పాటలు",
+  "profileListeningHistoryEmpty": "మీ లిజనింగ్ హిస్టరీ ఇక్కడ కనిపిస్తుంది.",
+  "profilePlays": "{count} సార్లు ప్లే అయ్యింది",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "మీ టాప్ ఆర్టిస్ట్‌లు",
+  "profileTopArtistsEmpty": "మీ ఫేవరెట్ ఆర్టిస్ట్‌లు ఇక్కడ కనిపిస్తారు.",
+  "profileArtistLabel": "ఆర్టిస్ట్",
+  "profileSignOut": "సైన్ అవుట్",
+  "profileVersion": "వెర్షన్ {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "ప్రేమతో సృష్టించినది: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "ప్రొఫైల్ ఎడిట్ చేయి",
+  "profileDisplayName": "డిస్‌ప్లే పేరు",
+  "profileCancel": "రద్దు చేయి",
+  "profileSave": "సేవ్ చేయి",
+  "profileChooseAvatar": "అవతార్ ఎంచుకోండి",
+  "searchMicPermissionRequired": "ఈ ఫీచర్‌కి మైక్రోఫోన్ అనుమతి అవసరం",
+  "searchUnknownSong": "తెలియని పాట",
+  "searchUnknownArtist": "తెలియని ఆర్టిస్ట్",
+  "searchNoSongDetected": "ఏ పాట గుర్తించబడలేదు.",
+  "searchError": "లోపం: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "వాయిస్ సెర్చ్ అందుబాటులో లేదు",
+  "searchHint": "పాటలు, ఆర్టిస్ట్‌లు, ఆల్బమ్‌లు...",
+  "searchRecentEmpty": "మీ ఇటీవలి సెర్చ్‌లు ఇక్కడ కనిపిస్తాయి",
+  "searchRecentSearches": "ఇటీవలి సెర్చ్‌లు",
+  "searchClearAll": "అన్నీ క్లియర్ చేయి",
+  "searchNoResultsFor": "\"{query}\"కి ఎలాంటి ఫలితాలు లేవు",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "వేరే పదాలతో ప్రయత్నించండి",
+  "searchTopResult": "టాప్ రిజల్ట్",
+  "searchSongsLabel": "పాటలు",
+  "searchArtistsLabel": "ఆర్టిస్ట్‌లు",
+  "searchAlbumsLabel": "ఆల్బమ్‌లు",
+  "searchPlaylistsLabel": "ప్లేలిస్ట్‌లు",
+  "searchArtistLabel": "ఆర్టిస్ట్",
+  "searchListening": "వింటోంది...",
+  "searchSpeakNow": "వెతకడానికి మాట్లాడండి",
+  "searchCancel": "రద్దు చేయి",
+  "searchIdentifying": "గుర్తిస్తోంది...",
+  "searchListeningForSong": "పాట కోసం వింటోంది...",
+  "settingsTitle": "సెట్టింగ్స్",
+  "settingsStreamingQuality": "స్ట్రీమింగ్ క్వాలిటీ",
+  "settingsQualityAutomatic": "ఆటోమేటిక్",
+  "settingsQualityLow": "తక్కువ",
+  "settingsQualityNormal": "సాధారణం",
+  "settingsQualityHigh": "ఎక్కువ",
+  "settingsDownloadQuality": "డౌన్‌లోడ్ క్వాలిటీ",
+  "settingsPlayback": "ప్లేబ్యాక్",
+  "settingsCrossfade": "క్రాస్‌ఫేడ్",
+  "settingsCrossfadeDesc": "గ్యాప్‌లెస్ ట్రాన్సిషన్ కోసం ట్రాక్స్ ఓవర్‌లాప్ చేయండి",
+  "settingsDataUsage": "డేటా వినియోగం",
+  "settingsDataSaver": "డేటా సేవ‌ర్",
+  "settingsDataSaverDesc": "మొబైల్ డేటాలో తక్కువ క్వాలిటీలో స్ట్రీమ్ చేయండి",
+  "settingsAppearance": "రూపం",
+  "settingsLanguage": "భాష",
+  "settingsCustomAccent": "కస్టమ్ యాక్సెంట్",
+  "settingsSaturation": "సాచురేషన్",
+  "settingsBrightness": "బ్రైట్‌నెస్",
+  "settingsResetDefault": "డిఫాల్ట్‌కి రీసెట్ చేయండి",
+  "playlistSheetTitle": "ప్లేలిస్ట్‌కి యాడ్ చేయండి",
+  "playlistSheetNewPlaylist": "కొత్త ప్లేలిస్ట్",
+  "playlistSheetNoPlaylists": "ఇంకా ప్లేలిస్ట్‌లు లేవు",
+  "playlistSheetSongsCount": "{count} పాటలు",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "ప్లేలిస్ట్ పేరు",
+  "playlistSheetCancel": "రద్దు చేయి",
+  "playlistSheetAddedTo": "{name}కి యాడ్ అయ్యింది",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "క్రియేట్ చేయలేకపోయాము: అథెంటికేషన్ లోపం",
+  "playlistSheetCreateFail": "క్రియేట్ చేయలేకపోయాము: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "క్రియేట్ చేయి",
+  "appUpdateAvailable": "అప్‌డేట్ అందుబాటులో ఉంది",
+  "appUpdateDesc": "వెర్షన్ {version} వచ్చింది! కొత్త ఫీచర్స్ కోసం అప్‌డేట్ చేసుకోండి.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "అప్‌డేట్ డౌన్‌లోడ్ చేయండి",
+  "navHome": "హోమ్",
+  "navLibrary": "లైబ్రరీ",
+  "navSearch": "సెర్చ్",
+  "navSettings": "సెట్టింగ్స్",
+  "navProfile": "ప్రొఫైల్",
+  "artistSelect": "ఆర్టిస్ట్‌ని ఎంచుకోండి",
+  "songActionQueue": "క్యూకి యాడ్ చేయి",
+  "songActionPlaylist": "ప్లేలిస్ట్‌కి యాడ్ చేయి",
+  "songActionFinding": "వెతుకుతోంది...",
+  "songActionAlbum": "ఆల్బమ్‌కి వెళ్ళు",
+  "songActionArtist": "ఆర్టిస్ట్‌కి వెళ్ళు",
+  "songActionRemovePlaylist": "ప్లేలిస్ట్ నుండి తీసివేయి",
+  "songActionRemoveDownload": "డౌన్‌లోడ్స్ నుండి తీసివేయి",
+  "songActionDownloadChecking": "చెక్ చేస్తోంది...",
+  "songActionDownloading": "డౌన్‌లోడ్ అవుతోంది...",
+  "songActionDownloaded": "డౌన్‌లోడ్ అయ్యింది!",
+  "songActionDownloadAlready": "ఇంతకుముందే డౌన్‌లోడ్ అయ్యింది",
+  "songActionDownloadFailed": "డౌన్‌లోడ్ విఫలమైంది",
+  "songActionDownload": "డౌన్‌లోడ్",
+  "songActionDownloadingSnack": "డౌన్‌లోడ్ అవుతోంది",
+  "songActionView": "చూడండి",
+  "spotifyImportTitle": "Spotify నుండి ఇంపోర్ట్ చేయండి",
+  "spotifyImportSubtitle": "ప్లేలిస్ట్ సైజు ఎంచుకోండి",
+  "spotifyChoiceSmallTitle": "100 పాటలు లేదా అంతకంటే తక్కువ",
+  "spotifyChoiceSmallDesc": "పబ్లిక్ Spotify ప్లేలిస్ట్ URL పేస్ట్ చేయండి.",
+  "spotifyChoiceLargeTitle": "100 పాటలకంటే ఎక్కువ",
+  "spotifyChoiceLargeDesc": "అపరిమిత ట్రాక్స్ ఇంపోర్ట్ చేయడానికి మీ Spotify Developer App కనెక్ట్ చేయండి.",
+  "cancelButton": "రద్దు చేయి",
+  "spotifyPlaylistsTitle": "మీ Spotify ప్లేలిస్ట్‌లు",
+  "spotifyPlaylistsErrorMsg": "లోపం: {error}\nమీ Client ID సరిగ్గా ఉందో లేదో చూసుకోండి.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "మీ లైబ్రరీలో ఏ ప్లేలిస్ట్‌లు లేవు",
+  "spotifyPlaylistsTracks": "{count} ట్రాక్స్",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "ఇంపోర్ట్",
+  "audioPlaybackFailed": "ప్లేబ్యాక్ విఫలమైంది. ఇంటర్నెట్ కనెక్షన్ చెక్ చేయండి.",
+  "audioControlPrevious": "మునుపటి",
+  "audioControlPause": "పాజ్",
+  "audioControlPlay": "ప్లే",
+  "audioControlNext": "తదుపరి",
+  "audioControlUnlike": "అన్‌లైక్",
+  "audioControlLike": "లైక్",
+  "spotifyRawResponseError": "రా రెస్పాన్స్: {data}\n\nఫాల్‌బ్యాక్: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "ఇన్‌వాలిడ్ క్లయింట్ లేదా క్లయింట్ సీక్రెట్.",
+  "apiErrorBadRequest": "బ్యాడ్ రిక్వెస్ట్. దయచేసి మీ వివరాలు చెక్ చేయండి.",
+  "apiErrorUnauthorized": "అన్‌ఆథరైజ్డ్. దయచేసి మళ్ళీ లాగిన్ చేయండి.",
+  "apiErrorForbidden": "ఫర్బిడెన్. మీకు యాక్సెస్ లేదు.",
+  "apiErrorNotFound": "రీసోర్స్ దొరకలేదు.",
+  "apiErrorEmailInUse": "ఈ ఇమెయిల్ అడ్రస్ ఇప్పటికే వాడుకలో ఉంది.",
+  "apiErrorUserNotFound": "ఈ ఇమెయిల్‌తో ఏ ఖాతా కనుగొనబడలేదు.",
+  "apiErrorWrongPassword": "తప్పు పాస్‌వర్డ్.",
+  "apiErrorInvalidCredential": "లాగిన్ విఫలమైంది. మీ వివరాలు చెక్ చేయండి.",
+  "apiErrorNetwork": "నెట్‌వర్క్ లోపం. మీ కనెక్షన్ చెక్ చేయండి.",
+  "apiErrorSocketTimeout": "కనెక్షన్ టైమ్ అవుట్. దయచేసి మళ్ళీ ప్రయత్నించండి.",
+  "apiErrorTooManyRequests": "అతిగా రిక్వెస్ట్‌లు. కాసేపాగి మళ్ళీ ప్రయత్నించండి.",
+  "apiErrorServerError": "సర్వర్ లోపం. కొద్దిసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.",
+  "apiErrorInvalidEmail": "దయచేసి సరైన ఇమెయిల్ అడ్రస్ ఇవ్వండి.",
+  "apiErrorWeakPassword": "పాస్‌వర్డ్ చాలా వీక్. కనీసం 6 అక్షరాలు వాడండి.",
+  "apiErrorTooManyAttempts": "అనేక విఫల ప్రయత్నాలు. తర్వాత మళ్ళీ ప్రయత్నించండి."
+}

@@ -1,0 +1,574 @@
+{
+  "@@locale": "ta",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "பற்றி",
+  "artistPopular": "பிரபலமானவை",
+  "artistAlbums": "ஆல்பங்கள்",
+  "artistSinglesAndEPs": "சிங்கிள்ஸ் & EP",
+  "artistSubscribersCount": "{count} சந்தாதாரர்கள்",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "அனைத்தையும் பிளே செய்",
+  "artistLoadError": "ஆர்ட்டிஸ்ட்டை ஏற்ற முடியவில்லை",
+  "artistGoBack": "பின் செல்",
+  "adminChatFailedToReply": "பதிலளிக்க முடியவில்லை: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "சப்போர்ட் சாட்",
+  "adminChatError": "பிழை: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "முந்தைய உரையாடல்கள் இல்லை.",
+  "adminChatSupportYou": "சப்போர்ட் (நீங்கள்)",
+  "adminChatTypeReply": "உங்கள் பதிலை உள்ளிடவும்...",
+  "broadcastSuccess": "அறிவிப்பு வெற்றிகரமாக ஒளிபரப்பப்பட்டது!",
+  "broadcastFailed": "ஒளிபரப்ப முடியவில்லை: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "உலகளாவிய அறிவிப்புகள்",
+  "broadcastSubtitle": "அனைத்து பயனர்களுக்கும் அனுப்பப்பட்டது",
+  "broadcastWarning": "இங்கு அனுப்பும் செய்திகள் அனைவருக்கும் தெரியும்.",
+  "broadcastError": "பிழை: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "முந்தைய அறிவிப்புகள் இல்லை.",
+  "broadcastTypeMessage": "உலகளாவிய அறிவிப்பை உள்ளிடவும்...",
+  "commFailedToSend": "அனுப்ப முடியவில்லை: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "அட்மின் டாஷ்போர்டு",
+  "commAdminSupport": "அட்மின் சப்போர்ட்",
+  "commAlwaysHere": "உதவ எப்போதும் தயாராக உள்ளோம்",
+  "commWelcomeTitle": "ஹலோ! 👋 நான் அசுதோஷ் பதக்",
+  "commWelcomeSubtitle": "Pulse டெவலப்பர்",
+  "commWelcomeBody1": "விளம்பரங்கள் அல்லது சந்தா தடைகள் இல்லாமல் உங்கள் விருப்பமான இசையை ரசிக்கிறீர்கள் என நம்புகிறேன். இசை பணக்காரர்களுக்கு மட்டுமே சொந்தமாக இருக்கக்கூடாது.\n\nநாம் நேரடியாகத் தொடர்புகொள்ள இந்தப் பகுதி உள்ளது.\n\nநீங்கள் என்னிடம் பகிரலாம்:",
+  "commBullet1": "உங்கள் கருத்துக்கள்",
+  "commBullet2": "பிழைகளைப் புகாரளிக்கவும்",
+  "commBullet3": "புதிய அம்சங்களை பரிந்துரைக்கவும்",
+  "commWelcomeBody2": "ஒவ்வொரு செய்தியையும் நான் படித்து, உங்கள் ஆலோசனைகளைக் கொண்டு செயலியை மேம்படுத்துவேன்.\n\nசந்தாக்களில் சிக்கியுள்ள ஒரு புதிய ஆப் ஐடியா உங்களிடம் உள்ளதா? எனக்கு சொல்லுங்கள்! சாத்தியமானால் அதை உருவாக்கி அனைவருக்கும் வழங்குவேன்.\n\nபயன்படுத்தியதற்கு நன்றி. ❤️",
+  "commError": "பிழை: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "இன்னும் எந்த செய்தியும் இல்லை",
+  "commNoMessagesDesc": "சப்போர்ட் டீமுக்கு செய்தி அனுப்பவும் அல்லது பின்னர் சரிபார்க்கவும்.",
+  "commMessageSupportHint": "சப்போர்ட் டீமுக்கு எழுதவும்...",
+  "commGlobalAnnouncements": "உலகளாவிய அறிவிப்புகள்",
+  "commSendMessagesToAll": "அனைவருக்கும் செய்தி அனுப்பு",
+  "homeGreetingMorning": "காலை வணக்கம்,",
+  "homeGreetingAfternoon": "மதிய வணக்கம்,",
+  "homeGreetingEvening": "மாலை வணக்கம்,",
+  "homeMember": "உறுப்பினர்",
+  "homeRecentPlaylists": "சமீபத்திய பிளேலிஸ்ட்கள்",
+  "homeRecentlyPlayed": "சமீபத்தில் கேட்டவை",
+  "homeSpeedDial": "ஸ்பீட் டயல்",
+  "homeNoContent": "எந்த உள்ளடக்கமும் இல்லை",
+  "homeRefresh": "புதுப்பி",
+  "homeLoadError": "இசையை ஏற்ற முடியவில்லை.",
+  "homeRetry": "மீண்டும் முயல்க",
+  "importSuccess": "Spotify வெற்றிகரமாக இணைக்கப்பட்டது!",
+  "importFailed": "இணைக்க முடியவில்லை: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify ஐ இணைக்கவும்",
+  "importSetupTitle": "Spotify அமைவு",
+  "importSetupDesc": "Spotify கட்டுப்பாடுகளைத் தவிர்த்து உங்கள் பிளேலிஸ்ட்களை உடனே இம்போர்ட் செய்ய உங்கள் டெவலப்பர் கீயைப் பயன்படுத்தவும். இந்தப் படிகளைப் பின்பற்றவும்:",
+  "importStep1": "Spotify Developer Dashboard ஐ திறக்கவும்.",
+  "importStep2": "உள்நுழைந்து \"Create app\" என்பதை கிளிக் செய்யவும்.",
+  "importStep3": "ஏதேனும் ஆப் பெயர் மற்றும் விளக்கத்தை உள்ளிடவும்.",
+  "importStep4": "\"Redirect URIs\" என்பதற்கு கீழே இந்தச் சரியான URL ஐ ஒட்டவும்:",
+  "importRedirectCopied": "ரீடைரக்ட் URI நகலெடுக்கப்பட்டது!",
+  "importStep5": "ஆப்பை சேமித்து, செட்டிங்ஸில் இருந்து \"Client ID\" ஐ நகலெடுத்து கீழே ஒட்டவும்.",
+  "importImportant": "முக்கிய குறிப்பு: இதை உருவாக்கப் பயன்படுத்தப்படும் Spotify கணக்கில் ஆக்டிவ் ப்ரீமியம் சந்தா இருக்க வேண்டும்.",
+  "importClientIdHint": "உங்கள் Spotify Client ID ஐ இங்கு ஒட்டவும்...",
+  "importConnectButton": "இணை & லைப்ரரியை ஏற்று",
+  "downloadingNoActive": "பதிவிறக்கங்கள் எதுவும் இல்லை",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "பதிவிறக்கங்கள்",
+  "downloadsStats": "{count} பாடல்கள் • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "ஆஃப்லைன் பாடல்கள் இல்லை",
+  "downloadsNoOfflineDesc": "நீங்கள் பதிவிறக்கிய பாடல்கள் இங்கு தோன்றும்",
+  "downloadsClearAllTitle": "அனைத்தையும் அழிக்கவா?",
+  "downloadsClearAllDesc": "இது {count} பாடல்களை நீக்கி {size} ஸ்டோரேஜைக் காலி செய்யும்.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "ரத்து",
+  "downloadsClearAll": "அனைத்தையும் அழி",
+  "downloadsSongsCount": "{count} பாடல்கள்",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} பாடல்",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "முக்கிய பதிவிறக்கங்கள் பிளேலிஸ்ட்டின் பெயரை மாற்ற முடியாது.",
+  "downloadsRename": "பெயர் மாற்று",
+  "downloadsEditSongs": "பாடல்களைத் திருத்து",
+  "downloadsDelete": "நீக்கு",
+  "downloadsRenamePlaylistTitle": "பிளேலிஸ்ட்டின் பெயர் மாற்று",
+  "downloadsRenamePlaylistDesc": "உங்கள் பிளேலிஸ்ட்டிற்கு புதிய பெயரை உள்ளிடவும்.",
+  "downloadsDeletePlaylistTitle": "பிளேலிஸ்ட்டை நீக்கவா?",
+  "downloadsDeleteMasterDesc": "இதை உறுதியாக நீக்க விரும்புகிறீர்களா? நீங்கள் பதிவிறக்கிய பாடல்கள் மற்றும் பிளேலிஸ்ட்களை நிரந்தரமாக இழக்க நேரிடும்.",
+  "downloadsDeletePlaylistDesc": "\"{name}\" ஐ உறுதியாக நீக்க விரும்புகிறீர்களா? இந்த பிளேலிஸ்ட்டை நிரந்தரமாக இழக்க நேரிடும்.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "சேமி",
+  "downloadsNoSongs": "இந்தப் பிளேலிஸ்ட்டில் பாடல்கள் இல்லை.",
+  "libraryTitle": "லைப்ரரி",
+  "libraryPauseAll": "அனைத்தையும் இடைநிறுத்து",
+  "libraryResumeAll": "அனைத்தையும் தொடர்",
+  "libraryTabPlaylists": "பிளேலிஸ்ட்கள்",
+  "libraryTabDownloads": "பதிவிறக்கங்கள்",
+  "libraryTabDownloading": "பதிவிறக்குகிறது",
+  "libraryImportedTask": "{name} இம்போர்ட் செய்யப்பட்டது",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "காத்திருக்கிறது...",
+  "libraryImportFetching": "பிளேலிஸ்ட்டைக் கொண்டு வருகிறது...",
+  "libraryImportProcessed": "{processed}/{total} செயலாக்கப்பட்டது · {matched} பொருத்தமானது",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "லைப்ரரியில் சேமிக்கிறது...",
+  "libraryImportDoneSongs": "{matched} பாடல்கள் சேர்க்கப்பட்டன · மூட × ஐ அழுத்தவும்",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "அனைத்து பாடல்களும் சேர்க்கப்பட்டன · மூட × ஐ அழுத்தவும்",
+  "libraryAddButton": "சேர்",
+  "librarySortRecent": "சமீபத்தியவை",
+  "librarySortAlpha": "அகரவரிசை",
+  "libraryEmptyTitle": "உங்கள் லைப்ரரி காலியாக உள்ளது.",
+  "libraryEmptyDesc": "உங்கள் முதல் Pulse ஐ தொடங்க \"சேர்\" என்பதை அழுத்தவும்.",
+  "libraryRenameLikedError": "Liked Songs பிளேலிஸ்ட்டின் பெயரை மாற்ற முடியாது.",
+  "libraryRename": "பெயர் மாற்று",
+  "libraryEditSongs": "பாடல்களைத் திருத்து",
+  "libraryDeleteLikedError": "Liked Songs பிளேலிஸ்ட்டை நீக்க முடியாது.",
+  "libraryDelete": "நீக்கு",
+  "libraryEditSongsTitle": "பாடல்களைத் திருத்து",
+  "libraryEditSongsCountSingle": "{count} பாடல்",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} பாடல்கள்",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "ரத்து",
+  "librarySave": "சேமி",
+  "libraryNoSongs": "இந்தப் பிளேலிஸ்ட்டில் பாடல்கள் இல்லை.",
+  "libraryAddOptionsTitle": "லைப்ரரியில் சேர்க்கவும்",
+  "libraryAddOptionsDesc": "உங்கள் Pulse லைப்ரரியை எப்படி விரிவுபடுத்துவது எனத் தேர்வு செய்யவும்",
+  "libraryImportPulse": "Pulse இலிருந்து இம்போர்ட் செய்",
+  "libraryImportPulseDesc": "Pulse பிளேலிஸ்ட் URL ஐ ஒட்டவும்",
+  "libraryImportYtm": "YT Music இலிருந்து இம்போர்ட் செய்",
+  "libraryImportYtmDesc": "பப்ளிக் பிளேலிஸ்ட் URL ஐ ஒட்டவும்",
+  "libraryImportSpotify": "Spotify இலிருந்து இம்போர்ட் செய்",
+  "libraryImportSpotifyDesc": "உங்கள் Spotify ஐ இணைக்கவும்",
+  "libraryClose": "மூடு",
+  "libraryImportYtmFull": "YouTube Music இலிருந்து இம்போர்ட் செய்",
+  "libraryImportSpotifyFull": "Spotify இலிருந்து இம்போர்ட் செய் (≤100)",
+  "libraryImportYtmUrlDesc": "பப்ளிக் YouTube Music பிளேலிஸ்ட் அல்லது ஆல்பம் URL ஐ ஒட்டவும்",
+  "libraryImportSpotifyUrlDesc": "பப்ளிக் Spotify பிளேலிஸ்ட் URL ஐ கீழே ஒட்டவும்",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse பிளேலிஸ்ட்டை இம்போர்ட் செய்ய முடியவில்லை",
+  "importErrorPlaylist": "பிளேலிஸ்ட்டை இம்போர்ட் செய்வதில் பிழை",
+  "importErrorHighlyPopulated": "பிளேலிஸ்ட் மிகப் பெரியது, இதைக் கொண்டுவர சிறிது நேரம் ஆகலாம்.",
+  "libraryImportBtn": "இம்போர்ட் செய்",
+  "libraryCreateTitle": "புதிய பிளேலிஸ்ட்",
+  "libraryCreateDesc": "உங்கள் புதிய பிளேலிஸ்ட்டிற்கு என்ன பெயர் வைக்கலாம்?",
+  "libraryCreateHint": "எ.கா. Midnight Rides",
+  "libraryCreateBtn": "உருவாக்கு",
+  "libraryRenameTitle": "பிளேலிஸ்ட்டின் பெயர் மாற்று",
+  "libraryRenameDesc": "உங்கள் பிளேலிஸ்ட்டிற்கு புதிய பெயரை உள்ளிடவும்.",
+  "libraryRenameBtn": "பெயர் மாற்று",
+  "libraryDeleteTitle": "பிளேலிஸ்ட்டை நீக்கவா?",
+  "libraryDeleteDesc": "\"{name}\" ஐ உறுதியாக நீக்க விரும்புகிறீர்களா? இந்த பிளேலிஸ்ட்டை நிரந்தரமாக இழக்க நேரிடும்.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "நீக்கு",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "சமீபத்தியவை",
+  "librarySongsCount": "{count} பாடல்கள்",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "விரைவில் வருகிறது",
+  "loginErrName": "தயவுசெய்து உங்கள் பெயரை உள்ளிடவும்",
+  "loginErrEmail": "தயவுசெய்து உங்கள் மின்னஞ்சலை உள்ளிடவும்",
+  "loginErrPassword": "தயவுசெய்து உங்கள் கடவுச்சொல்லை உள்ளிடவும்",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "ஒவ்வொரு பீட்டையும் உணருங்கள்!",
+  "loginMadeWithHeartBy": "அன்புடன் உருவாக்கியவர்: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "உங்கள் பெயர்",
+  "loginHintEmail": "மின்னஞ்சல் முகவரி",
+  "loginHintPassword": "கடவுச்சொல்",
+  "loginErrEmailReset": "கடவுச்சொல்லை ரீசெட் செய்ய மின்னஞ்சலை உள்ளிடவும்",
+  "loginResetSent": "ரீசெட் மின்னஞ்சல் அனுப்பப்பட்டது! இன்பாக்ஸை சரிபார்க்கவும்.",
+  "loginForgotPwd": "கடவுச்சொல்லை மறந்துவிட்டீர்களா?",
+  "loginBtnSignup": "கணக்கை உருவாக்கு",
+  "loginBtnSignin": "உள்நுழை",
+  "loginToggleHaveAccount": "ஏற்கனவே Pulse கணக்கு உள்ளதா? ",
+  "loginToggleNoAccount": "Pulse கணக்கு இல்லையா? ",
+  "loginToggleSignin": "உள்நுழை",
+  "loginToggleSignup": "பதிவு செய்",
+  "offlineStillOffline": "இன்னும் ஆஃப்லைனில் உள்ளீர்கள். இணைப்பைச் சரிபார்க்கவும்.",
+  "offlineTitle": "நீங்கள் ஆஃப்லைனில் உள்ளீர்கள்",
+  "offlineSubtitle": "இணைய இணைப்பு இல்லை.\nநெட்வொர்க்கைச் சரிபார்த்து மீண்டும் முயல்க.",
+  "offlineChecking": "சரிபார்க்கிறது...",
+  "offlineRetry": "மீண்டும் முயல்க",
+  "offlineGoToDownloads": "பதிவிறக்கங்களுக்குச் செல்",
+  "playerMadeWithHeartBy": "அன்புடன் உருவாக்கியவர்: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "வரிகளுக்கு ஸ்வைப் செய்யவும்",
+  "playerNoLyrics": "வரிகள் கிடைக்கவில்லை",
+  "playerUpNext": "அடுத்து வருவது",
+  "playerNoTracksInQueue": "வரிசையில் பாடல்கள் இல்லை",
+  "playerNoMusicPlaying": "எந்தப் பாடலும் ஒலிக்கவில்லை",
+  "playerPickAVibe": "உங்கள் லைப்ரரி அல்லது முகப்பிலிருந்து ஒரு பாடலைத் தேர்வு செய்யவும்",
+  "playerGoHome": "முகப்பிற்குச் செல்",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "ஈக்வலைஸர்",
+  "playerEqCustom": "கஸ்டம்",
+  "playlistDownloads": "பதிவிறக்கங்கள்",
+  "playlistOffline": "ஆஃப்லைன் பிளேலிஸ்ட்",
+  "playlistDurationHours": "{hours}ம {mins}நி",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}நி",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "இந்தப் பக்கத்தில் தேடு",
+  "playlistSongsAndDuration": "{count} பாடல்கள் • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "சமீபத்தியவை",
+  "playlistNoMatches": "எதுவும் கிடைக்கவில்லை.",
+  "playlistNoTracks": "இந்தப் பிளேலிஸ்ட்டில் பாடல்கள் இல்லை.",
+  "playlistNoSongsYet": "இன்னும் பாடல்கள் இல்லை.",
+  "playlistSortRecentlyAdded": "சமீபத்தில் சேர்க்கப்பட்டவை",
+  "playlistSortAlphabetical": "அகரவரிசை",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{பாடல்} other{பாடல்கள்}} பதிவிறக்குகிறது",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "காண்க",
+  "playlistAllDownloaded": "அனைத்து பாடல்களும் ஏற்கனவே பதிவிறக்கப்பட்டுவிட்டன",
+  "playlistShareText": "Pulse இல் \"{name}\" ஐ கேளுங்கள்!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "பதிவிறக்கங்களில் இருந்து நீக்கு",
+  "playlistRemoveFromPlaylist": "பிளேலிஸ்ட்டில் இருந்து நீக்கு",
+  "playlistLoadError": "இந்தப் பிளேலிஸ்ட்டை ஏற்ற முடியவில்லை.",
+  "playlistGoBack": "← பின் செல்",
+  "profileNotLoggedIn": "உள்நுழையவில்லை",
+  "profileSignIn": "உள்நுழை",
+  "profileDefaultUser": "Pulse பயனர்",
+  "profileEditProfile": "புரொஃபைலைத் திருத்து",
+  "profileTimeframeDay": "நாள்",
+  "profileTimeframeWeek": "வாரம்",
+  "profileTimeframeMonth": "மாதம்",
+  "profileTimeframeYear": "ஆண்டு",
+  "profileListeningTime": "கேட்கும் நேரம்",
+  "profileToday": "இன்று",
+  "profileThisWeek": "இந்த வாரம்",
+  "profileThisMonth": "இந்த மாதம்",
+  "profileThisYear": "இந்த ஆண்டு",
+  "profileDailyAvg": "தினசரி சராசரி",
+  "profilePerDay": "ஒரு நாளைக்கு",
+  "profileLifetimeListening": "மொத்தமாக கேட்ட நேரம்",
+  "profileTotalTimeListened": "Pulse இல் இசையைக் கேட்ட மொத்த நேரம்",
+  "profileYourTopSongs": "உங்களின் சிறந்த பாடல்கள்",
+  "profileListeningHistoryEmpty": "நீங்கள் கேட்ட பாடல்களின் வரலாறு இங்கு தோன்றும்.",
+  "profilePlays": "{count} முறை ஒலிக்கப்பட்டது",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "உங்களின் சிறந்த கலைஞர்கள்",
+  "profileTopArtistsEmpty": "உங்களுக்குப் பிடித்த கலைஞர்கள் இங்கு தோன்றுவார்கள்.",
+  "profileArtistLabel": "கலைஞர்",
+  "profileSignOut": "வெளியேறு",
+  "profileVersion": "பதிப்பு {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "அன்புடன் உருவாக்கியவர்: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "புரொஃபைலைத் திருத்து",
+  "profileDisplayName": "காண்பிக்கும் பெயர்",
+  "profileCancel": "ரத்து",
+  "profileSave": "சேமி",
+  "profileChooseAvatar": "அவதாரைத் தேர்வு செய்",
+  "searchMicPermissionRequired": "இந்த அம்சத்திற்கு மைக்ரோஃபோன் அனுமதி தேவை",
+  "searchUnknownSong": "அறியப்படாத பாடல்",
+  "searchUnknownArtist": "அறியப்படாத கலைஞர்",
+  "searchNoSongDetected": "எந்தப் பாடலும் கண்டறியப்படவில்லை.",
+  "searchError": "பிழை: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "வாய்ஸ் சர்ச் கிடைக்கவில்லை",
+  "searchHint": "பாடல்கள், கலைஞர்கள், ஆல்பங்கள்...",
+  "searchRecentEmpty": "உங்கள் சமீபத்திய தேடல்கள் இங்கு தோன்றும்",
+  "searchRecentSearches": "சமீபத்திய தேடல்கள்",
+  "searchClearAll": "அனைத்தையும் அழி",
+  "searchNoResultsFor": "\"{query}\" க்கான முடிவுகள் இல்லை",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "வேறு வார்த்தைகளுடன் முயலவும்",
+  "searchTopResult": "முக்கிய முடிவு",
+  "searchSongsLabel": "பாடல்கள்",
+  "searchArtistsLabel": "கலைஞர்கள்",
+  "searchAlbumsLabel": "ஆல்பங்கள்",
+  "searchPlaylistsLabel": "பிளேலிஸ்ட்கள்",
+  "searchArtistLabel": "கலைஞர்",
+  "searchListening": "கேட்கிறது...",
+  "searchSpeakNow": "தேட இப்போது பேசுங்கள்",
+  "searchCancel": "ரத்து",
+  "searchIdentifying": "கண்டறிகிறது...",
+  "searchListeningForSong": "பாடல் ஒலிக்கிறதா என்று கேட்கிறது...",
+  "settingsTitle": "செட்டிங்ஸ்",
+  "settingsStreamingQuality": "ஸ்ட்ரீமிங் தரம்",
+  "settingsQualityAutomatic": "ஆட்டோமேட்டிக்",
+  "settingsQualityLow": "குறைந்த",
+  "settingsQualityNormal": "சாதாரண",
+  "settingsQualityHigh": "உயர்",
+  "settingsDownloadQuality": "பதிவிறக்கத் தரம்",
+  "settingsPlayback": "பிளேபேக்",
+  "settingsCrossfade": "க்ராஸ்ஃபேட்",
+  "settingsCrossfadeDesc": "இடையூறில்லாத மாற்றத்திற்காக டிராக்குகளை ஓவர்லேப் செய்யவும்",
+  "settingsDataUsage": "டேட்டா பயன்பாடு",
+  "settingsDataSaver": "டேட்டா சேவர்",
+  "settingsDataSaverDesc": "மொபைல் டேட்டாவில் குறைந்த தரத்தில் ஸ்ட்ரீம் செய்யவும்",
+  "settingsAppearance": "தோற்றம்",
+  "settingsLanguage": "மொழி",
+  "settingsCustomAccent": "கஸ்டம் ஆக்சென்ட்",
+  "settingsSaturation": "சாச்சுரேஷன்",
+  "settingsBrightness": "பிரைட்னஸ்",
+  "settingsResetDefault": "டிஃபால்ட்டிற்கு ரீசெட் செய்",
+  "playlistSheetTitle": "பிளேலிஸ்ட்டில் சேர்",
+  "playlistSheetNewPlaylist": "புதிய பிளேலிஸ்ட்",
+  "playlistSheetNoPlaylists": "இன்னும் பிளேலிஸ்ட்கள் இல்லை",
+  "playlistSheetSongsCount": "{count} பாடல்கள்",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "பிளேலிஸ்ட் பெயர்",
+  "playlistSheetCancel": "ரத்து",
+  "playlistSheetAddedTo": "{name} இல் சேர்க்கப்பட்டது",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "உருவாக்க முடியவில்லை: அங்கீகாரப் பிழை",
+  "playlistSheetCreateFail": "உருவாக்க முடியவில்லை: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "உருவாக்கு",
+  "appUpdateAvailable": "அப்டேட் கிடைக்கிறது",
+  "appUpdateDesc": "பதிப்பு {version} வந்துவிட்டது! புதிய அம்சங்களுக்கு அப்டேட் செய்யவும்.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "அப்டேட்டைப் பதிவிறக்கு",
+  "navHome": "முகப்பு",
+  "navLibrary": "லைப்ரரி",
+  "navSearch": "தேடல்",
+  "navSettings": "செட்டிங்ஸ்",
+  "navProfile": "புரொஃபைல்",
+  "artistSelect": "கலைஞரைத் தேர்வு செய்",
+  "songActionQueue": "வரிசையில் சேர்",
+  "songActionPlaylist": "பிளேலிஸ்ட்டில் சேர்",
+  "songActionFinding": "தேடுகிறது...",
+  "songActionAlbum": "ஆல்பத்திற்குச் செல்",
+  "songActionArtist": "கலைஞருக்குச் செல்",
+  "songActionRemovePlaylist": "பிளேலிஸ்ட்டில் இருந்து நீக்கு",
+  "songActionRemoveDownload": "பதிவிறக்கங்களில் இருந்து நீக்கு",
+  "songActionDownloadChecking": "சரிபார்க்கிறது...",
+  "songActionDownloading": "பதிவிறக்குகிறது...",
+  "songActionDownloaded": "பதிவிறக்கப்பட்டது!",
+  "songActionDownloadAlready": "ஏற்கனவே பதிவிறக்கப்பட்டது",
+  "songActionDownloadFailed": "பதிவிறக்கம் தோல்வியடைந்தது",
+  "songActionDownload": "பதிவிறக்கு",
+  "songActionDownloadingSnack": "பதிவிறக்குகிறது",
+  "songActionView": "காண்க",
+  "spotifyImportTitle": "Spotify இலிருந்து இம்போர்ட் செய்",
+  "spotifyImportSubtitle": "பிளேலிஸ்ட் அளவைத் தேர்வு செய்யவும்",
+  "spotifyChoiceSmallTitle": "100 பாடல்கள் அல்லது அதற்குக் குறைவு",
+  "spotifyChoiceSmallDesc": "பப்ளிக் Spotify பிளேலிஸ்ட் URL ஐ ஒட்டவும்.",
+  "spotifyChoiceLargeTitle": "100 பாடல்களுக்கு மேல்",
+  "spotifyChoiceLargeDesc": "வரம்பற்ற டிராக்குகளை இம்போர்ட் செய்ய உங்கள் சொந்த Spotify Developer App ஐ இணைக்கவும்.",
+  "cancelButton": "ரத்து",
+  "spotifyPlaylistsTitle": "உங்கள் Spotify பிளேலிஸ்ட்கள்",
+  "spotifyPlaylistsErrorMsg": "பிழை: {error}\nஉங்கள் Client ID சரியாக உள்ளதா எனச் சரிபார்க்கவும்.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "உங்கள் லைப்ரரியில் எந்தப் பிளேலிஸ்ட்டும் இல்லை",
+  "spotifyPlaylistsTracks": "{count} டிராக்குகள்",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "இம்போர்ட் செய்",
+  "audioPlaybackFailed": "பிளேபேக் தோல்வியடைந்தது. இணைய இணைப்பைச் சரிபார்க்கவும்.",
+  "audioControlPrevious": "முந்தையது",
+  "audioControlPause": "இடைநிறுத்து",
+  "audioControlPlay": "பிளே",
+  "audioControlNext": "அடுத்தது",
+  "audioControlUnlike": "அன்லைக்",
+  "audioControlLike": "லைக்",
+  "spotifyRawResponseError": "ரா ரெஸ்பான்ஸ்: {data}\n\nஃபால்பேக்: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "தவறான கிளையண்ட் அல்லது கிளையண்ட் சீக்ரெட்.",
+  "apiErrorBadRequest": "தவறான கோரிக்கை. உங்கள் உள்ளீட்டைச் சரிபார்க்கவும்.",
+  "apiErrorUnauthorized": "அங்கீகாரமற்றது. மீண்டும் உள்நுழையவும்.",
+  "apiErrorForbidden": "தடைசெய்யப்பட்டுள்ளது. உங்களுக்கு அணுகல் இல்லை.",
+  "apiErrorNotFound": "வளம் கிடைக்கவில்லை.",
+  "apiErrorEmailInUse": "இந்த மின்னஞ்சல் முகவரி ஏற்கனவே பயன்பாட்டில் உள்ளது.",
+  "apiErrorUserNotFound": "இந்த மின்னஞ்சலுடன் எந்தக் கணக்கும் கிடைக்கவில்லை.",
+  "apiErrorWrongPassword": "தவறான கடவுச்சொல்.",
+  "apiErrorInvalidCredential": "உள்நுழைவு தோல்வியடைந்தது. உங்கள் விவரங்களைச் சரிபார்க்கவும்.",
+  "apiErrorNetwork": "நெட்வொர்க் பிழை. உங்கள் இணைப்பைச் சரிபார்க்கவும்.",
+  "apiErrorSocketTimeout": "இணைப்பு காலாவதியானது. மீண்டும் முயலவும்.",
+  "apiErrorTooManyRequests": "மிக அதிகமான கோரிக்கைகள். சிறிது நேரம் கழித்து மீண்டும் முயலவும்.",
+  "apiErrorServerError": "சர்வர் பிழை. சிறிது நேரம் கழித்து மீண்டும் முயலவும்.",
+  "apiErrorInvalidEmail": "சரியான மின்னஞ்சல் முகவரியை உள்ளிடவும்.",
+  "apiErrorWeakPassword": "கடவுச்சொல் மிகவும் பலவீனமாக உள்ளது. குறைந்தது 6 எழுத்துகளைப் பயன்படுத்தவும்.",
+  "apiErrorTooManyAttempts": "பல முறை தவறாக முயன்றுள்ளீர்கள். பின்னர் மீண்டும் முயலவும்."
+}
