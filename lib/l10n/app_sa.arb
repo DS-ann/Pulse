@@ -1,0 +1,642 @@
+{
+  "@@locale": "sa",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "विषये",
+  "artistPopular": "प्रसिद्धम्",
+  "artistAlbums": "सङ्ग्रहाः",
+  "artistSinglesAndEPs": "एकलगीतानि",
+  "artistSubscribersCount": "{count} ग्राहकाः",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "सर्वं वादयतु",
+  "artistLoadError": "कलाकारं प्राप्तुं न शक्तम्",
+  "artistGoBack": "प्रतिगच्छतु",
+  "adminChatFailedToReply": "उत्तरं दातुं विफलम्: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "सहायता-संवादः",
+  "adminChatError": "दोषः: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "पूर्वं कोऽपि संवादः नास्ति।",
+  "adminChatSupportYou": "सहायता (भवान्)",
+  "adminChatTypeReply": "उत्तरं लिखतु...",
+  "broadcastSuccess": "उद्घोषणा सफलतापूर्वं प्रेषिता!",
+  "broadcastFailed": "प्रेषणं विफलम्: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "सार्वभौमिक-उद्घोषणाः",
+  "broadcastSubtitle": "सर्वेभ्यः प्रेषितम्",
+  "broadcastWarning": "अत्र प्रेषिताः सन्देशाः सर्वेषां कृते दृश्यन्ते।",
+  "broadcastError": "दोषः: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "पूर्वाः उद्घोषणाः न सन्ति।",
+  "broadcastTypeMessage": "सार्वभौमिक-सन्देशं लिखतु...",
+  "commFailedToSend": "प्रेषणं विफलम्: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "प्रशासक-फलकम्",
+  "commAdminSupport": "प्रशासक-सहायता",
+  "commAlwaysHere": "सहायतार्थं सर्वदा उपस्थितः",
+  "commWelcomeTitle": "नमस्ते! 👋 अहम् आशुतोष पाठकः अस्मि",
+  "commWelcomeSubtitle": "Pulse इत्यस्य निर्माता",
+  "commWelcomeBody1": "आशासे यत् भवान् विज्ञापनैः विना स्वप्रियं सङ्गीतं शृण्वन् अस्ति। सङ्गीते धनवरोधः न भवेत्।\n\nअयं विभागः अस्माकं साक्षात् सम्पर्कार्थम् अस्ति।\n\nभवान् स्वेच्छया:",
+  "commBullet1": "स्वविचारान् प्रेषयतु",
+  "commBullet2": "दोषान् सूचयतु",
+  "commBullet3": "नूतनाः सुविधाः सूचयतु",
+  "commWelcomeBody2": "अहं व्यक्तिगततया प्रत्येकं सन्देशं पठामि, भवतः सुझावैरनुसारं ऐप-मध्ये सुधारं कर्तुं प्रयतै।\n\nधन्यवादः यत् भवान् Pulse इत्यस्य उपयोगं करोति। ❤️",
+  "commError": "दोषः: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "अद्यापि कोऽपि सन्देशः नास्ति",
+  "commNoMessagesDesc": "सहायता-समूहं प्रति सन्देशं प्रेषयतु वा अनन्तरं पश्यतु।",
+  "commMessageSupportHint": "सहायतां प्रति सन्देशः...",
+  "commGlobalAnnouncements": "सार्वभौमिक-उद्घोषणाः",
+  "commSendMessagesToAll": "सर्वेभ्यः सन्देशान् प्रेषयतु",
+  "homeGreetingMorning": "सुप्रभातम्,",
+  "homeGreetingAfternoon": "शुभमध्याह्नम्,",
+  "homeGreetingEvening": "शुभसन्ध्या,",
+  "homeMember": "सदस्यः",
+  "homeRecentPlaylists": "नूतनाः वादनसूच्यः",
+  "homeRecentlyPlayed": "सद्यः श्रुतम्",
+  "homeSpeedDial": "शीघ्र-सम्पर्कः",
+  "homeNoContent": "सामग्री न उपलब्धा",
+  "homeRefresh": "पुनः लोडं करोतु",
+  "homeLoadError": "सङ्गीतं प्राप्तुं न शक्तम्।",
+  "homeRetry": "पुनः प्रयतताम्",
+  "importSuccess": "Spotify सह सफलतापूर्वं सञ्जातम्!",
+  "importFailed": "सम्पर्कः विफलः: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify योजयतु",
+  "importSetupTitle": "Spotify सञ्चालनम्",
+  "importSetupDesc": "स्वकीयं निःशुल्कं विकासक-कुञ्जीं उपयुज्य सर्वान् वादनसूचीन् शीघ्रं प्राप्तुं एतान् पदान् अनुसरतु:",
+  "importStep1": "Spotify Developer Dashboard उद्घाटयतु।",
+  "importStep2": "लॉग-इन् कृत्वा 'Create app' नोदयतु।",
+  "importStep3": "अनुप्रयोगस्य नाम विवरणं च लिखतु।",
+  "importStep4": "'Redirect URIs' मध्ये अधोलिखितं URL स्थापयतु:",
+  "importRedirectCopied": "Redirect URI प्रतिलिपितम्!",
+  "importStep5": "रक्षतु, स्वस्य 'Client ID' प्रतिलिपिं कृत्वा अत्र स्थापयतु।",
+  "importImportant": "महत्त्वपूर्णम्: अस्य विकासक-अनुप्रयोगस्य कृते प्रीमियम-सदस्यता आवश्यकी अस्ति।",
+  "importClientIdHint": "स्वस्य Spotify Client ID अत्र स्थापयतु...",
+  "importConnectButton": "सम्पर्कं कृत्वा सङ्ग्रहं प्राप्नोतु",
+  "downloadingNoActive": "सक्रिय-डाउनलोड् नास्ति",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "डाउनलोड्",
+  "downloadsStats": "{count} गीतानि • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsNoOffline": "अद्यापि अवनत-गीतानि न सन्ति",
+  "downloadsNoOfflineDesc": "अवनतानि गीतानि अत्र दृश्यन्ते",
+  "downloadsClearAllTitle": "सर्वान् डाउनलोड् निष्कासयतु?",
+  "downloadsClearAllDesc": "इदं {count} गीतानि निष्कासयिष्यति तथा {size} स्थानं मुक्तं करिष्यति।",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsCancel": "रद्द करोतु",
+  "downloadsClearAll": "सर्वं निष्कासयतु",
+  "downloadsSongsCount": "{count} गीतानि",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsSongCountSingle": "{count} गीतम्",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsCannotRenameMaster": "मुख्य-डाउनलोड्-वादनसूचीं पुनर्नामितुं न शक्यते।",
+  "downloadsRename": "पुनर्नाम",
+  "downloadsEditSongs": "गीतानि सम्पादयतु",
+  "downloadsDelete": "निष्कासयतु",
+  "downloadsRenamePlaylistTitle": "वादनसूचीं पुनर्नामतु",
+  "downloadsRenamePlaylistDesc": "स्ववादनसूच्यै नूतनं नाम ददातु।",
+  "downloadsDeletePlaylistTitle": "वादनसूचीं निष्कासयतु?",
+  "downloadsDeleteMasterDesc": "किं भवान् निश्चितरूपेण एतत् निष्कासितुम् इच्छति? सर्वाणि अवनत-गीतानि वादनसूच्यः च सर्वदा नष्टानि भविष्यन्ति।",
+  "downloadsDeletePlaylistDesc": "किं भवान् निश्चितरूपेण '{name}' निष्कासितुम् इच्छति? इयं वादनसूची सर्वदा नष्टा भविष्यति।",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsSave": "रक्षतु",
+  "downloadsNoSongs": "अस्यां वादनसूच्यां गीतानि न सन्ति।",
+  "libraryTitle": "सङ्ग्रहः",
+  "libraryPauseAll": "सर्वं स्थगयतु",
+  "libraryResumeAll": "सर्वं पुनः आरभताम्",
+  "libraryTabPlaylists": "वादनसूच्यः",
+  "libraryTabDownloads": "डाउनलोड्",
+  "libraryTabDownloading": "अवनम्यमानम्",
+  "libraryImportedTask": "{name} आयातितम्",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportWaiting": "प्रतीक्षा क्रियते...",
+  "libraryImportFetching": "वादनसूचीं प्राप्नोति...",
+  "libraryImportProcessed": "{processed}/{total} संसाधितम् · {matched} प्राप्तम्",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "matched": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportSaving": "सङ्ग्रहे रक्ष्यते...",
+  "libraryImportDoneSongs": "{matched} गीतानि योजितानि",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportDoneAll": "सर्वाणि गीतानि योजितानि",
+  "libraryAddButton": "योजयतु",
+  "librarySortRecent": "सद्यः योजितम्",
+  "librarySortAlpha": "अक्षरक्रमेण",
+  "libraryEmptyTitle": "भवतः सङ्ग्रहः रिक्तः अस्ति।",
+  "libraryEmptyDesc": "प्रथमं Pulse आरब्धुं 'योजयतु' नुदतु।",
+  "libraryRenameLikedError": "रोचते-वादनसूचीं पुनर्नामितुं न शक्यते।",
+  "libraryRename": "पुनर्नाम",
+  "libraryEditSongs": "गीतानि सम्पादयतु",
+  "libraryDeleteLikedError": "रोचते-वादनसूचीं निष्कासितुं न शक्यते।",
+  "libraryDelete": "निष्कासयतु",
+  "libraryEditSongsTitle": "गीतानि सम्पादयतु",
+  "libraryEditSongsCountSingle": "{count} गीतम्",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} गीतानि",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryCancel": "रद्द करोतु",
+  "librarySave": "रक्षतु",
+  "libraryNoSongs": "अस्यां वादनसूच्यां गीतानि न सन्ति।",
+  "libraryAddOptionsTitle": "सङ्ग्रहे योजयतु",
+  "libraryAddOptionsDesc": "स्वस्य Pulse विस्तारयितुं मार्गं चिनोतु",
+  "libraryImportPulse": "Pulse तः आयातं करोतु",
+  "libraryImportPulseDesc": "Pulse वादनसूची URL स्थापयतु",
+  "libraryImportYtm": "YT Music तः आयातं करोतु",
+  "libraryImportYtmDesc": "सार्वजनिक-वादनसूची URL स्थापयतु",
+  "libraryImportSpotify": "Spotify तः आयातं करोतु",
+  "libraryImportSpotifyDesc": "स्वस्य Spotify योजयतु",
+  "libraryClose": "पिदधातु",
+  "libraryImportYtmFull": "YouTube Music तः आयातं करोतु",
+  "libraryImportSpotifyFull": "Spotify तः आयातं करोतु (≤100)",
+  "libraryImportYtmUrlDesc": "सार्वजनिक YouTube Music वादनसूची वा सङ्ग्रह URL अत्र स्थापयतु",
+  "libraryImportSpotifyUrlDesc": "सार्वजनिक Spotify वादनसूची URL अत्र स्थापयतु",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse वादनसूची-आयातः विफलः",
+  "importErrorPlaylist": "वादनसूची-आयाते दोषः",
+  "importErrorHighlyPopulated": "वादनसूची अत्यन्तं बृहत् अस्ति, प्राप्तुं समयः लास्यति।",
+  "libraryImportBtn": "आयातं करोतु",
+  "libraryCreateTitle": "नूतना वादनसूची",
+  "libraryCreateDesc": "अस्याः नूतनवादनसूच्याः नाम किं भवेत्?",
+  "libraryCreateHint": "उदा. सङ्गीतमयी रात्रिः",
+  "libraryCreateBtn": "सृजतु",
+  "libraryRenameTitle": "वादनसूचीं पुनर्नामतु",
+  "libraryRenameDesc": "स्ववादनसूच्यै नूतनं नाम ददातु।",
+  "libraryRenameBtn": "पुनर्नाम",
+  "libraryDeleteTitle": "वादनसूचीं निष्कासयतु?",
+  "libraryDeleteDesc": "किं भवान् निश्चितरूपेण '{name}' निष्कासितुम् इच्छति? इयं वादनसूची सर्वदा नष्टा भविष्यति।",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryDeleteBtn": "निष्कासयतु",
+  "librarySortLabelAlpha": "अ-ज्ञ",
+  "librarySortLabelRecent": "नूतनम्",
+  "librarySongsCount": "{count} गीतानि",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryComingSoon": "शीघ्रमेव आगच्छति",
+  "loginErrName": "कृपया स्वनाम लिखतु",
+  "loginErrEmail": "कृपया स्व-ईमेल-सङ्केतं लिखतु",
+  "loginErrPassword": "कृपया कूटशब्दं लिखतु",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "प्रत्येकं तालम् अनुभवतु!",
+  "loginMadeWithHeartBy": "❤️ सह निर्मितम्: ",
+  "loginAuthorName": "आशुतोष पाठक",
+  "loginHintName": "भवतः नाम",
+  "loginHintEmail": "ईमेल-सङ्केतः",
+  "loginHintPassword": "कूटशब्दः",
+  "loginErrEmailReset": "कूटशब्दं परिवर्तयितुं स्व-ईमेल-सङ्केतं लिखतु",
+  "loginResetSent": "कूटशब्द-परिवर्तन-ईमेल प्रेषितम्! स्व-इनबॉक्स पश्यतु।",
+  "loginForgotPwd": "किं कूटशब्दं विस्मृतवान्?",
+  "loginBtnSignup": "खातं सृजतु",
+  "loginBtnSignin": "प्रविशतु",
+  "loginToggleHaveAccount": "किं पूर्वमेव Pulse खातम् अस्ति? ",
+  "loginToggleNoAccount": "किं Pulse खातं नास्ति? ",
+  "loginToggleSignin": "प्रविशतु",
+  "loginToggleSignup": "खातं सृजतु",
+  "offlineStillOffline": "अद्यापि अन्तर्जालसम्पर्कः नास्ति। कृपया पश्यतु।",
+  "offlineTitle": "अन्तर्जालसम्पर्कः विच्छिन्नः",
+  "offlineSubtitle": "अन्तर्जालसम्पर्कः न प्राप्तः।\nस्वजालपुटं दृष्ट्वा पुनः प्रयतताम्।",
+  "offlineChecking": "परीक्ष्यते...",
+  "offlineRetry": "पुनः प्रयतताम्",
+  "offlineGoToDownloads": "डाउनलोड्-मध्ये गच्छतु",
+  "playerMadeWithHeartBy": "❤️ सह निर्मितम्: ",
+  "playerAuthorName": "आशुतोष पाठक",
+  "playerSwipeForLyrics": "गीतपदार्थं स्वाइप् करोतु",
+  "playerNoLyrics": "गीतपदानि न उपलब्धानि",
+  "playerUpNext": "अग्रिमम्",
+  "playerNoTracksInQueue": "कतारमध्ये गीतानि न सन्ति",
+  "playerNoMusicPlaying": "सङ्गीतं न वाद्यते",
+  "playerPickAVibe": "सङ्ग्रहात् वा मुखपृष्ठात् कमपि भावं चिनोतु",
+  "playerGoHome": "मुखपृष्ठं गच्छतु",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "ईक्वलाइजर",
+  "playerEqCustom": "स्वच्छन्दानुसारम्",
+  "playlistDownloads": "डाउनलोड्",
+  "playlistOffline": "अवनत-वादनसूची",
+  "playlistDurationHours": "{hours}होरा {mins}निमेषाः",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "mins": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistDurationMins": "{mins}निमेषाः",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistFindOnPage": "अस्मिन् पुटे अन्विष्यतु",
+  "playlistSongsAndDuration": "{count} गीतानि • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSortAlpha": "अ-ज्ञ",
+  "playlistSortRecent": "नूतनम्",
+  "playlistNoMatches": "कोऽपि मेलः न प्राप्तः।",
+  "playlistNoTracks": "अस्यां वादनसूच्यां गीतानि न सन्ति।",
+  "playlistNoSongsYet": "अद्यापि गीतानि न सन्ति।",
+  "playlistSortRecentlyAdded": "सद्यः योजितम्",
+  "playlistSortAlphabetical": "अक्षरक्रमेण",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{गीतम्} other{गीतानि}} अवनम्यन्ते",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistView": "पश्यतु",
+  "playlistAllDownloaded": "सर्वाणि गीतानि पूर्वमेव अवनतानि सन्ति",
+  "playlistShareText": "Pulse इत्यत्र '{name}' पश्यतु!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistRemoveFromDownloads": "डाउनलोड्-तः निष्कासयतु",
+  "playlistRemoveFromPlaylist": "वादनसूच्याः निष्कासयतु",
+  "playlistLoadError": "इमां वादनसूचीं प्राप्तुं न शक्तम्।",
+  "playlistGoBack": "← प्रतिगच्छतु",
+  "profileNotLoggedIn": "प्रवेशः न कृतः",
+  "profileSignIn": "प्रविशतु",
+  "profileDefaultUser": "Pulse उपयोक्ता",
+  "profileEditProfile": "सम्पादनम्",
+  "profileTimeframeDay": "दिनम्",
+  "profileTimeframeWeek": "सप्ताहः",
+  "profileTimeframeMonth": "मासः",
+  "profileTimeframeYear": "वर्षम्",
+  "profileListeningTime": "श्रवणसमयः",
+  "profileToday": "अद्य",
+  "profileThisWeek": "अस्मिन् सप्ताहे",
+  "profileThisMonth": "अस्मिन् मासे",
+  "profileThisYear": "अस्मिन् वर्षे",
+  "profileDailyAvg": "दैनिक-औसतम्",
+  "profilePerDay": "प्रतिदिनम्",
+  "profileLifetimeListening": "आजीवनश्रवणम्",
+  "profileTotalTimeListened": "Pulse इत्यत्र सङ्गीतश्रवणस्य कुलसमयः",
+  "profileYourTopSongs": "भवतः प्रमुखगीतानि",
+  "profileListeningHistoryEmpty": "श्रवण-इतिहासः अत्र दृश्यते।",
+  "profilePlays": "{count} {count, plural, =1{वारम्} other{वाराः}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileYourTopArtists": "भवतः प्रमुखकलाकाराः",
+  "profileTopArtistsEmpty": "भवतः प्रियम-कलाकाराः अत्र दृश्यन्ते।",
+  "profileArtistLabel": "कलाकारः",
+  "profileSignOut": "बहिर्गच्छतु",
+  "profileVersion": "संस्करणम् {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "profileMadeWithHeartBy": "❤️ सह निर्मितम्: ",
+  "profileAuthorName": "आशुतोष पाठक",
+  "profileEditProfileHeader": "सम्पादनम्",
+  "profileDisplayName": "प्रदर्शितनाम",
+  "profileCancel": "रद्द करोतु",
+  "profileSave": "रक्षतु",
+  "profileChooseAvatar": "चित्रं चिनोतु",
+  "searchMicPermissionRequired": "अस्यै सुविधायै ध्वनिग्राहकस्य अनुमतिः आवश्यकी अस्ति",
+  "searchUnknownSong": "अज्ञातगीतम्",
+  "searchUnknownArtist": "अज्ञातकलाकारः",
+  "searchNoSongDetected": "कोऽपि गीतं न ज्ञातम्।",
+  "searchError": "दोषः: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "searchSpeechNotAvailable": "ध्वनि-अभिज्ञानं न उपलब्धम्",
+  "searchHint": "गीतानि, कलाकाराः, सङ्ग्रहाः, वादनसूच्यः…",
+  "searchRecentEmpty": "भवतः सद्यः अन्वेषणानि अत्र दृश्यन्ते",
+  "searchRecentSearches": "सद्यः अन्वेषणानि",
+  "searchClearAll": "सर्वं मार्जयतु",
+  "searchNoResultsFor": "'{query}' कृते कोऽपि परिणामः नास्ति",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "searchTryDifferentKeywords": "भिन्नान् शब्दान् प्रयुङ्क्त",
+  "searchTopResult": "प्रथमपरिणामः",
+  "searchSongsLabel": "गीतानि",
+  "searchArtistsLabel": "कलाकाराः",
+  "searchAlbumsLabel": "सङ्ग्रहाः",
+  "searchPlaylistsLabel": "वादनसूच्यः",
+  "searchArtistLabel": "कलाकारः",
+  "searchListening": "शृणोति...",
+  "searchSpeakNow": "अन्वेष्टुं इदानीं वदतु",
+  "searchCancel": "रद्द करोतु",
+  "searchIdentifying": "अभिज्ञानं करोति...",
+  "searchListeningForSong": "गीतं शृणोति...",
+  "settingsTitle": "व्यवस्थाः",
+  "settingsStreamingQuality": "श्रवणगुणवत्ता",
+  "settingsQualityAutomatic": "स्वचालितम्",
+  "settingsQualityLow": "निम्नम्",
+  "settingsQualityNormal": "सामान्यम्",
+  "settingsQualityHigh": "उच्चम्",
+  "settingsDownloadQuality": "अवनमनगुणवत्ता",
+  "settingsPlayback": "वादनम्",
+  "settingsCrossfade": "क्रॉसफेड",
+  "settingsCrossfadeDesc": "निर्बाधवादनार्थं गीतानां अतिव्यापनम्",
+  "settingsDataUsage": "डाटा-उपयोगः",
+  "settingsDataSaver": "डाटा-रक्षकः",
+  "settingsDataSaverDesc": "सेल्यूलर-मध्ये निम्नगुणवत्तायां वादयतु",
+  "settingsAppearance": "दृश्यम्",
+  "settingsLanguage": "भाषा",
+  "settingsCustomAccent": "स्वच्छन्दवर्णः",
+  "settingsSaturation": "सन्तृप्तिः",
+  "settingsBrightness": "प्रकाशः",
+  "settingsResetDefault": "पूर्ववत् करोतु",
+  "playlistSheetTitle": "वादनसूच्यां योजयतु",
+  "playlistSheetNewPlaylist": "नूतना वादनसूची",
+  "playlistSheetNoPlaylists": "अद्यापि वादनसूच्यः न सन्ति",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{गीतम्} other{गीतानि}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSheetNameHint": "वादनसूची-नाम",
+  "playlistSheetCancel": "रद्द करोतु",
+  "playlistSheetAddedTo": "{name} इत्यत्र योजितम्",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSheetCreateFailAuth": "वादनसूचीसृजने विफलम्: प्रमाणीकरणदोषः",
+  "playlistSheetCreateFail": "वादनसूचीसृजने विफलम्: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSheetCreate": "सृजतु",
+  "appUpdateAvailable": "अद्यतनम् उपलब्धम्",
+  "appUpdateDesc": "संस्करणम् {version} अत्र अस्ति! नूतनाः सुविधाः प्राप्तुं इदानीम् अद्यतनं करोतु।",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "appUpdateDownload": "अद्यतनं डाउनलोड् करोतु",
+  "navHome": "मुखपृष्ठम्",
+  "navLibrary": "सङ्ग्रहः",
+  "navSearch": "अन्वेषणम्",
+  "navSettings": "व्यवस्थाः",
+  "navProfile": "प्रोफाइल",
+  "artistSelect": "कलाकारं चिनोतु",
+  "songActionQueue": "कतारे योजयतु",
+  "songActionPlaylist": "वादनसूच्यां योजयतु",
+  "songActionFinding": "अन्विष्यति...",
+  "songActionAlbum": "सङ्ग्रहं गच्छतु",
+  "songActionArtist": "कलाकारं गच्छतु",
+  "songActionRemovePlaylist": "वादनसूच्याः निष्कासयतु",
+  "songActionRemoveDownload": "डाउनलोड्-तः निष्कासयतु",
+  "songActionDownloadChecking": "परीक्ष्यते...",
+  "songActionDownloading": "अवनम्यते...",
+  "songActionDownloaded": "अवनतम्!",
+  "songActionDownloadAlready": "पूर्वमेव अवनतम्",
+  "songActionDownloadFailed": "डाउनलोड् विफलम्",
+  "songActionDownload": "डाउनलोड् करोतु",
+  "songActionDownloadingSnack": "डाउनलोड् करोति",
+  "songActionView": "पश्यतु",
+  "spotifyImportTitle": "Spotify तः आयातं करोतु",
+  "spotifyImportSubtitle": "स्ववादनसूच्याः आकारं चिनोतु",
+  "spotifyChoiceSmallTitle": "१०० गीतानि वा ततः न्यूनानि",
+  "spotifyChoiceSmallDesc": "सार्वजनिक-Spotify-वादनसूची-URL स्थापयतु।",
+  "spotifyChoiceLargeTitle": "१०० गीतेभ्यः अधिकम्",
+  "spotifyChoiceLargeDesc": "असीमितगीतानि प्राप्तुं स्वकीयं Spotify Developer App योजयतु।",
+  "cancelButton": "रद्द करोतु",
+  "spotifyPlaylistsTitle": "भवतः Spotify वादनसूच्यः",
+  "spotifyPlaylistsErrorMsg": "दोषः: {error}\nClient ID सम्यक् अस्ति वा इति पश्यतु।",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "भवतः सङ्ग्रहे वादनसूच्यः न प्राप्ताः",
+  "spotifyPlaylistsTracks": "{count} गीतानि",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "आयातम",
+  "audioPlaybackFailed": "वादनं विफलम्। अन्तर्जालसम्पर्कं पश्यतु।",
+  "audioControlPrevious": "पूर्वम्",
+  "audioControlPause": "स्थगयतु",
+  "audioControlPlay": "वादयतु",
+  "audioControlNext": "अग्रिमम्",
+  "audioControlUnlike": "न रोचते",
+  "audioControlLike": "रोचते",
+  "spotifyRawResponseError": "मूल-उत्तरम्: {data}\n\nविकल्पः: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "apiErrorInvalidClient": "अमान्य-क्लायंट् वा क्लायंट्-गुप्तशब्दः।",
+  "apiErrorBadRequest": "अमान्य-अनुरोधः। कृपया स्व-विवरणं पश्यतु।",
+  "apiErrorUnauthorized": "अनाधिकृतम्। कृपया पुनः प्रविशतु।",
+  "apiErrorForbidden": "निषिद्धम्। भवतः अनुमतिः नास्ति।",
+  "apiErrorNotFound": "संसाधनं न प्राप्तम्।",
+  "apiErrorEmailInUse": "अयं ईमेल-सङ्केतः पूर्वमेव प्रयुक्तः अस्ति।",
+  "apiErrorUserNotFound": "अनेन ईमेल-सङ्केतेन कोऽपि खाता न प्राप्तः।",
+  "apiErrorWrongPassword": "अशुद्ध-कूटशब्दः।",
+  "apiErrorInvalidCredential": "प्रवेशः विफलः। कृपया स्व-प्रमाणपत्राणि पश्यतु।",
+  "apiErrorNetwork": "जालदोषः। कृपया अन्तर्जालसम्पर्कं पश्यतु।",
+  "apiErrorSocketTimeout": "सम्पर्कसमयः अतीतः। कृपया पुनः प्रयतताम्।",
+  "apiErrorTooManyRequests": "अत्यधिकाः अनुरोधाः। कृपया किञ्चित्कालं प्रतीक्ष्य पुनः प्रयतताम्।",
+  "apiErrorServerError": "सर्वर-दोषः। कृपया किञ्चित्कालानन्तरं प्रयतताम्।",
+  "apiErrorInvalidEmail": "कृपया मान्य-ईमेल-सङ्केतं लिखतु।",
+  "apiErrorWeakPassword": "कूटशब्दः दुर्बलः अस्ति। न्यूनातिन्यूनं ६ अक्षराणि प्रयुङ्क्त।",
+  "apiErrorTooManyAttempts": "अत्यधिकाः विफलाः प्रयासाः। कृपया किञ्चित्कालानन्तरं प्रयतताम्।"
+}
