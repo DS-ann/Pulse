@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import '../core/theme/app_colors.dart';
 import 'glass_container.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Shown when user taps "Import from Spotify" in the library.
 /// Lets the user choose between embed-scrape (≤100 songs) or BYOA (>100 songs).

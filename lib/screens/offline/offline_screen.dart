@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import '../../core/theme/app_colors.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Offline screen — port of OfflineScreen.jsx.
 /// Shows animated glowing rings around Pulse logo, retry button, and go to downloads.

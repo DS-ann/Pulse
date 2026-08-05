@@ -1,0 +1,642 @@
+{
+  "@@locale": "pa",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "ਬਾਰੇ",
+  "artistPopular": "ਪ੍ਰਸਿੱਧ",
+  "artistAlbums": "ਐਲਬਮਾਂ",
+  "artistSinglesAndEPs": "ਸਿੰਗਲਜ਼ ਅਤੇ EPs",
+  "artistSubscribersCount": "{count} ਮੈਂਬਰ",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "ਸਭ ਚਲਾਓ",
+  "artistLoadError": "ਕਲਾਕਾਰ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ",
+  "artistGoBack": "ਪਿੱਛੇ ਜਾਓ",
+  "adminChatFailedToReply": "ਜਵਾਬ ਦੇਣ ਵਿੱਚ ਅਸਫਲ: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "ਸਹਾਇਤਾ ਚੈਟ",
+  "adminChatError": "ਗਲਤੀ: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "ਕੋਈ ਗੱਲਬਾਤ ਦਾ ਇਤਿਹਾਸ ਨਹੀਂ।",
+  "adminChatSupportYou": "ਸਹਾਇਤਾ (ਤੁਸੀਂ)",
+  "adminChatTypeReply": "ਆਪਣਾ ਜਵਾਬ ਟਾਈਪ ਕਰੋ...",
+  "broadcastSuccess": "ਘੋਸ਼ਣਾ ਸਫਲਤਾਪੂਰਵਕ ਪ੍ਰਸਾਰਿਤ ਕੀਤੀ ਗਈ!",
+  "broadcastFailed": "ਪ੍ਰਸਾਰਿਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "ਵਿਸ਼ਵਵਿਆਪੀ ਘੋਸ਼ਣਾਵਾਂ",
+  "broadcastSubtitle": "ਸਾਰਿਆਂ ਨੂੰ ਭੇਜਿਆ",
+  "broadcastWarning": "ਇੱਥੇ ਭੇਜੇ ਗਏ ਸੰਦੇਸ਼ ਸਾਰਿਆਂ ਨੂੰ ਦਿਖਾਈ ਦੇਣਗੇ।",
+  "broadcastError": "ਗਲਤੀ: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "ਕੋਈ ਪਿਛਲੀ ਘੋਸ਼ਣਾ ਨਹੀਂ।",
+  "broadcastTypeMessage": "ਵਿਸ਼ਵਵਿਆਪੀ ਘੋਸ਼ਣਾ ਟਾਈਪ ਕਰੋ...",
+  "commFailedToSend": "ਭੇਜਣ ਵਿੱਚ ਅਸਫਲ: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "ਪ੍ਰਸ਼ਾਸਕ ਡੈਸ਼ਬੋਰਡ",
+  "commAdminSupport": "ਪ੍ਰਸ਼ਾਸਕ ਸਹਾਇਤਾ",
+  "commAlwaysHere": "ਮਦਦ ਲਈ ਹਮੇਸ਼ਾ ਇੱਥੇ ਹਾਂ",
+  "commWelcomeTitle": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! 👋 ਮੈਂ ਆਸ਼ੂਤੋਸ਼ ਪਾਠਕ ਹਾਂ",
+  "commWelcomeSubtitle": "Pulse ਦਾ ਡਿਵੈਲਪਰ",
+  "commWelcomeBody1": "ਮੈਨੂੰ ਉਮੀਦ ਹੈ ਕਿ ਤੁਸੀਂ ਬਿਨਾਂ ਕਿਸੇ ਇਸ਼ਤਿਹਾਰ ਜਾਂ ਗਾਹਕੀ ਦੇ ਆਪਣੇ ਮਨਪਸੰਦ ਸੰਗੀਤ ਦਾ ਆਨੰਦ ਲੈ ਰਹੇ ਹੋ। ਸੰਗੀਤ ਮੁਫ਼ਤ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।\n\nਇਹ ਭਾਗ ਇਸ ਲਈ ਹੈ ਤਾਂ ਜੋ ਅਸੀਂ ਸਿੱਧਾ ਸੰਪਰਕ ਕਰ ਸਕੀਏ।\n\nਤੁਸੀਂ ਬਿਨਾਂ ਝਿਜਕ:",
+  "commBullet1": "ਆਪਣੇ ਵਿਚਾਰ ਸਾਂਝੇ ਕਰੋ",
+  "commBullet2": "ਬੱਗ ਰਿਪੋਰਟ ਕਰੋ",
+  "commBullet3": "ਨਵੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦਾ ਸੁਝਾਅ ਦਿਓ",
+  "commWelcomeBody2": "ਮੈਂ ਖੁਦ ਹਰ ਸੰਦੇਸ਼ ਪੜ੍ਹਦਾ ਹਾਂ ਅਤੇ ਤੁਹਾਡੇ ਸੁਝਾਵਾਂ ਅਨੁਸਾਰ ਐਪ ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਾਂਗਾ।\n\nPulse ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਅਤੇ ਇਸ ਸਫ਼ਰ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਣ ਲਈ ਤੁਹਾਡਾ ਧੰਨਵਾਦ। ❤️",
+  "commError": "ਗਲਤੀ: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "ਅਜੇ ਕੋਈ ਸੰਦੇਸ਼ ਨਹੀਂ",
+  "commNoMessagesDesc": "ਸਹਾਇਤਾ ਟੀਮ ਨੂੰ ਸੰਦੇਸ਼ ਭੇਜੋ ਜਾਂ ਘੋਸ਼ਣਾਵਾਂ ਲਈ ਬਾਅਦ ਵਿੱਚ ਦੇਖੋ।",
+  "commMessageSupportHint": "ਸਹਾਇਤਾ ਨੂੰ ਸੰਦੇਸ਼ ਭੇਜੋ...",
+  "commGlobalAnnouncements": "ਵਿਸ਼ਵਵਿਆਪੀ ਘੋਸ਼ਣਾਵਾਂ",
+  "commSendMessagesToAll": "ਸਾਰਿਆਂ ਨੂੰ ਸੰਦੇਸ਼ ਭੇਜੋ",
+  "homeGreetingMorning": "ਸ਼ੁਭ ਸਵੇਰ,",
+  "homeGreetingAfternoon": "ਸ਼ੁਭ ਦੁਪਹਿਰ,",
+  "homeGreetingEvening": "ਸ਼ੁਭ ਸ਼ਾਮ,",
+  "homeMember": "ਮੈਂਬਰ",
+  "homeRecentPlaylists": "ਤਾਜ਼ਾ ਪਲੇਲਿਸਟਾਂ",
+  "homeRecentlyPlayed": "ਹਾਲ ਹੀ ਵਿੱਚ ਸੁਣਿਆ",
+  "homeSpeedDial": "ਤੇਜ਼ ਸੰਪਰਕ",
+  "homeNoContent": "ਕੋਈ ਸਮੱਗਰੀ ਉਪਲਬਧ ਨਹੀਂ",
+  "homeRefresh": "ਰਿਫ੍ਰੈਸ਼",
+  "homeLoadError": "ਸੰਗੀਤ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ।",
+  "homeRetry": "ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
+  "importSuccess": "Spotify ਨਾਲ ਸਫਲਤਾਪੂਰਵਕ ਜੁੜ ਗਿਆ!",
+  "importFailed": "ਜੁੜਨ ਵਿੱਚ ਅਸਫਲ: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify ਕਨੈਕਟ ਕਰੋ",
+  "importSetupTitle": "Spotify ਸੈੱਟਅੱਪ ਕਰੋ",
+  "importSetupDesc": "ਆਪਣੀ ਖੁਦ ਦੀ ਮੁਫਤ ਡਿਵੈਲਪਰ ਕੁੰਜੀ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣੀਆਂ ਸਾਰੀਆਂ ਪਲੇਲਿਸਟਾਂ ਨੂੰ ਤੁਰੰਤ ਆਯਾਤ ਕਰਨ ਲਈ ਇਨ੍ਹਾਂ ਸਧਾਰਨ ਕਦਮਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ:",
+  "importStep1": "Spotify Developer Dashboard ਖੋਲ੍ਹੋ।",
+  "importStep2": "ਲਾਗਇਨ ਕਰੋ ਅਤੇ 'Create app' 'ਤੇ ਕਲਿੱਕ ਕਰੋ।",
+  "importStep3": "ਐਪ ਦਾ ਨਾਮ ਅਤੇ ਵੇਰਵਾ ਭਰੋ।",
+  "importStep4": "'Redirect URIs' ਦੇ ਹੇਠਾਂ ਦਿੱਤਾ URL ਪੇਸਟ ਕਰੋ:",
+  "importRedirectCopied": "Redirect URI ਕਾਪੀ ਕੀਤਾ ਗਿਆ!",
+  "importStep5": "ਸੇਵ ਕਰੋ, ਆਪਣਾ 'Client ID' ਕਾਪੀ ਕਰੋ ਅਤੇ ਹੇਠਾਂ ਪੇਸਟ ਕਰੋ।",
+  "importImportant": "ਮਹੱਤਵਪੂਰਨ: ਇਸ ਡਿਵੈਲਪਰ ਐਪ ਲਈ ਤੁਹਾਡੇ ਕੋਲ ਪ੍ਰੀਮੀਅਮ ਗਾਹਕੀ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।",
+  "importClientIdHint": "ਆਪਣਾ Spotify Client ID ਇੱਥੇ ਪੇਸਟ ਕਰੋ...",
+  "importConnectButton": "ਕਨੈਕਟ ਕਰੋ ਅਤੇ ਲਾਇਬ੍ਰੇਰੀ ਪ੍ਰਾਪਤ ਕਰੋ",
+  "downloadingNoActive": "ਕੋਈ ਸਰਗਰਮ ਡਾਊਨਲੋਡ ਨਹੀਂ",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "ਡਾਊਨਲੋਡਸ",
+  "downloadsStats": "{count} ਗੀਤ • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsNoOffline": "ਅਜੇ ਕੋਈ ਔਫਲਾਈਨ ਗੀਤ ਨਹੀਂ",
+  "downloadsNoOfflineDesc": "ਤੁਹਾਡੇ ਦੁਆਰਾ ਡਾਊਨਲੋਡ ਕੀਤੇ ਗੀਤ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ",
+  "downloadsClearAllTitle": "ਸਾਰੇ ਡਾਊਨਲੋਡ ਮਿਟਾਓ?",
+  "downloadsClearAllDesc": "ਇਹ {count} ਗੀਤਾਂ ਨੂੰ ਮਿਟਾ ਦੇਵੇਗਾ ਅਤੇ {size} ਸਟੋਰੇਜ ਖਾਲੀ ਕਰੇਗਾ।",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsCancel": "ਰੱਦ ਕਰੋ",
+  "downloadsClearAll": "ਸਭ ਮਿਟਾਓ",
+  "downloadsSongsCount": "{count} ਗੀਤ",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsSongCountSingle": "{count} ਗੀਤ",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsCannotRenameMaster": "ਮੁੱਖ ਡਾਊਨਲੋਡ ਪਲੇਲਿਸਟ ਦਾ ਨਾਮ ਨਹੀਂ ਬਦਲਿਆ ਜਾ ਸਕਦਾ।",
+  "downloadsRename": "ਨਾਮ ਬਦਲੋ",
+  "downloadsEditSongs": "ਗੀਤ ਸੰਪਾਦਿਤ ਕਰੋ",
+  "downloadsDelete": "ਮਿਟਾਓ",
+  "downloadsRenamePlaylistTitle": "ਪਲੇਲਿਸਟ ਦਾ ਨਾਮ ਬਦਲੋ",
+  "downloadsRenamePlaylistDesc": "ਆਪਣੀ ਪਲੇਲਿਸਟ ਲਈ ਨਵਾਂ ਨਾਮ ਟਾਈਪ ਕਰੋ।",
+  "downloadsDeletePlaylistTitle": "ਪਲੇਲਿਸਟ ਮਿਟਾਓ?",
+  "downloadsDeleteMasterDesc": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਤੁਹਾਡੇ ਸਾਰੇ ਡਾਊਨਲੋਡ ਕੀਤੇ ਗੀਤ ਅਤੇ ਪਲੇਲਿਸਟਾਂ ਹਮੇਸ਼ਾ ਲਈ ਖਤਮ ਹੋ ਜਾਣਗੀਆਂ।",
+  "downloadsDeletePlaylistDesc": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ '{name}' ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਪਲੇਲਿਸਟ ਹਮੇਸ਼ਾ ਲਈ ਖਤਮ ਹੋ ਜਾਵੇਗੀ।",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsSave": "ਸੇਵ ਕਰੋ",
+  "downloadsNoSongs": "ਇਸ ਪਲੇਲਿਸਟ ਵਿੱਚ ਕੋਈ ਗੀਤ ਨਹੀਂ ਹਨ।",
+  "libraryTitle": "ਲਾਇਬ੍ਰੇਰੀ",
+  "libraryPauseAll": "ਸਭ ਰੋਕੋ",
+  "libraryResumeAll": "ਸਭ ਚਾਲੂ ਕਰੋ",
+  "libraryTabPlaylists": "ਪਲੇਲਿਸਟਾਂ",
+  "libraryTabDownloads": "ਡਾਊਨਲੋਡਸ",
+  "libraryTabDownloading": "ਡਾਊਨਲੋਡ ਹੋ ਰਿਹਾ ਹੈ",
+  "libraryImportedTask": "{name} ਆਯਾਤ ਕੀਤਾ ਗਿਆ",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportWaiting": "ਉਡੀਕ ਕਰ ਰਿਹਾ ਹੈ...",
+  "libraryImportFetching": "ਪਲੇਲਿਸਟ ਪ੍ਰਾਪਤ ਕਰ ਰਿਹਾ ਹੈ...",
+  "libraryImportProcessed": "{processed}/{total} ਪ੍ਰੋਸੈਸ ਕੀਤਾ ਗਿਆ · {matched} ਮਿਲੇ",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "matched": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportSaving": "ਲਾਇਬ੍ਰੇਰੀ ਵਿੱਚ ਸੇਵ ਕਰ ਰਿਹਾ ਹੈ...",
+  "libraryImportDoneSongs": "{matched} ਗੀਤ ਸ਼ਾਮਲ ਕੀਤੇ ਗਏ",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryImportDoneAll": "ਸਾਰੇ ਗੀਤ ਸ਼ਾਮਲ ਕੀਤੇ ਗਏ",
+  "libraryAddButton": "ਸ਼ਾਮਲ ਕਰੋ",
+  "librarySortRecent": "ਹਾਲ ਹੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕੀਤੇ",
+  "librarySortAlpha": "ਅੱਖਰਾਂ ਅਨੁਸਾਰ",
+  "libraryEmptyTitle": "ਤੁਹਾਡੀ ਲਾਇਬ੍ਰੇਰੀ ਖਾਲੀ ਹੈ।",
+  "libraryEmptyDesc": "ਸ਼ੁਰੂ ਕਰਨ ਲਈ 'ਸ਼ਾਮਲ ਕਰੋ' 'ਤੇ ਟੈਪ ਕਰੋ।",
+  "libraryRenameLikedError": "ਪਸੰਦ ਕੀਤੇ ਗੀਤਾਂ ਦੀ ਪਲੇਲਿਸਟ ਦਾ ਨਾਮ ਨਹੀਂ ਬਦਲਿਆ ਜਾ ਸਕਦਾ।",
+  "libraryRename": "ਨਾਮ ਬਦਲੋ",
+  "libraryEditSongs": "ਗੀਤ ਸੰਪਾਦਿਤ ਕਰੋ",
+  "libraryDeleteLikedError": "ਪਸੰਦ ਕੀਤੇ ਗੀਤਾਂ ਦੀ ਪਲੇਲਿਸਟ ਨੂੰ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।",
+  "libraryDelete": "ਮਿਟਾਓ",
+  "libraryEditSongsTitle": "ਗੀਤ ਸੰਪਾਦਿਤ ਕਰੋ",
+  "libraryEditSongsCountSingle": "{count} ਗੀਤ",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} ਗੀਤ",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryCancel": "ਰੱਦ ਕਰੋ",
+  "librarySave": "ਸੇਵ ਕਰੋ",
+  "libraryNoSongs": "ਇਸ ਪਲੇਲਿਸਟ ਵਿੱਚ ਕੋਈ ਗੀਤ ਨਹੀਂ ਹਨ।",
+  "libraryAddOptionsTitle": "ਲਾਇਬ੍ਰੇਰੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ",
+  "libraryAddOptionsDesc": "ਚੁਣੋ ਕਿ ਤੁਸੀਂ ਆਪਣਾ Pulse ਕਿਵੇਂ ਵਧਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ",
+  "libraryImportPulse": "Pulse ਤੋਂ ਆਯਾਤ ਕਰੋ",
+  "libraryImportPulseDesc": "Pulse ਪਲੇਲਿਸਟ URL ਪੇਸਟ ਕਰੋ",
+  "libraryImportYtm": "YT Music ਤੋਂ ਆਯਾਤ ਕਰੋ",
+  "libraryImportYtmDesc": "ਜਨਤਕ ਪਲੇਲਿਸਟ URL ਪੇਸਟ ਕਰੋ",
+  "libraryImportSpotify": "Spotify ਤੋਂ ਆਯਾਤ ਕਰੋ",
+  "libraryImportSpotifyDesc": "ਆਪਣਾ Spotify ਕਨੈਕਟ ਕਰੋ",
+  "libraryClose": "ਬੰਦ ਕਰੋ",
+  "libraryImportYtmFull": "YouTube Music ਤੋਂ ਆਯਾਤ ਕਰੋ",
+  "libraryImportSpotifyFull": "Spotify ਤੋਂ ਆਯਾਤ ਕਰੋ (≤100)",
+  "libraryImportYtmUrlDesc": "ਜਨਤਕ YouTube Music ਪਲੇਲਿਸਟ URL ਇੱਥੇ ਪੇਸਟ ਕਰੋ",
+  "libraryImportSpotifyUrlDesc": "ਜਨਤਕ Spotify ਪਲੇਲਿਸਟ URL ਇੱਥੇ ਪੇਸਟ ਕਰੋ",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse ਪਲੇਲਿਸਟ ਆਯਾਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+  "importErrorPlaylist": "ਪਲੇਲਿਸਟ ਆਯਾਤ ਕਰਨ ਵਿੱਚ ਗਲਤੀ",
+  "importErrorHighlyPopulated": "ਪਲੇਲਿਸਟ ਬਹੁਤ ਵੱਡੀ ਹੈ, ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।",
+  "libraryImportBtn": "ਆਯਾਤ ਕਰੋ",
+  "libraryCreateTitle": "ਨਵੀਂ ਪਲੇਲਿਸਟ",
+  "libraryCreateDesc": "ਇਸ ਪਲੇਲਿਸਟ ਦਾ ਨਾਮ ਕੀ ਰੱਖਣਾ ਹੈ?",
+  "libraryCreateHint": "ਉਦਾਹਰਨ: ਰਾਤ ਦਾ ਸਫ਼ਰ",
+  "libraryCreateBtn": "ਬਣਾਓ",
+  "libraryRenameTitle": "ਪਲੇਲਿਸਟ ਦਾ ਨਾਮ ਬਦਲੋ",
+  "libraryRenameDesc": "ਆਪਣੀ ਪਲੇਲਿਸਟ ਲਈ ਨਵਾਂ ਨਾਮ ਟਾਈਪ ਕਰੋ।",
+  "libraryRenameBtn": "ਨਾਮ ਬਦਲੋ",
+  "libraryDeleteTitle": "ਪਲੇਲਿਸਟ ਮਿਟਾਓ?",
+  "libraryDeleteDesc": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ '{name}' ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਪਲੇਲਿਸਟ ਹਮੇਸ਼ਾ ਲਈ ਖਤਮ ਹੋ ਜਾਵੇਗੀ।",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryDeleteBtn": "ਮਿਟਾਓ",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "ਤਾਜ਼ਾ",
+  "librarySongsCount": "{count} ਗੀਤ",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryComingSoon": "ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ",
+  "loginErrName": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਨਾਮ ਟਾਈਪ ਕਰੋ",
+  "loginErrEmail": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਈਮੇਲ ਟਾਈਪ ਕਰੋ",
+  "loginErrPassword": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਪਾਸਵਰਡ ਟਾਈਪ ਕਰੋ",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "ਹਰ ਬੀਟ ਨੂੰ ਮਹਿਸੂਸ ਕਰੋ!",
+  "loginMadeWithHeartBy": "❤️ ਨਾਲ ਬਣਾਇਆ: ",
+  "loginAuthorName": "ਆਸ਼ੂਤੋਸ਼ ਪਾਠਕ",
+  "loginHintName": "ਤੁਹਾਡਾ ਨਾਮ",
+  "loginHintEmail": "ਈਮੇਲ ਪਤਾ",
+  "loginHintPassword": "ਪਾਸਵਰਡ",
+  "loginErrEmailReset": "ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰਨ ਲਈ ਈਮੇਲ ਟਾਈਪ ਕਰੋ",
+  "loginResetSent": "ਪਾਸਵਰਡ ਰੀਸੈਟ ਈਮੇਲ ਭੇਜ ਦਿੱਤੀ ਗਈ! ਆਪਣਾ ਇਨਬਾਕਸ ਚੈੱਕ ਕਰੋ।",
+  "loginForgotPwd": "ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?",
+  "loginBtnSignup": "ਖਾਤਾ ਬਣਾਓ",
+  "loginBtnSignin": "ਸਾਈਨ ਇਨ ਕਰੋ",
+  "loginToggleHaveAccount": "ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਪਹਿਲਾਂ ਹੀ Pulse ਖਾਤਾ ਹੈ? ",
+  "loginToggleNoAccount": "ਕੀ Pulse ਖਾਤਾ ਨਹੀਂ ਹੈ? ",
+  "loginToggleSignin": "ਸਾਈਨ ਇਨ ਕਰੋ",
+  "loginToggleSignup": "ਸਾਈਨ ਅੱਪ ਕਰੋ",
+  "offlineStillOffline": "ਅਜੇ ਵੀ ਔਫਲਾਈਨ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਕਨੈਕਸ਼ਨ ਚੈੱਕ ਕਰੋ।",
+  "offlineTitle": "ਤੁਸੀਂ ਔਫਲਾਈਨ ਹੋ",
+  "offlineSubtitle": "ਕੋਈ ਇੰਟਰਨੈਟ ਕਨੈਕਸ਼ਨ ਨਹੀਂ ਮਿਲਿਆ।\nਆਪਣਾ ਨੈੱਟਵਰਕ ਚੈੱਕ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "offlineChecking": "ਚੈੱਕ ਕਰ ਰਿਹਾ ਹੈ...",
+  "offlineRetry": "ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
+  "offlineGoToDownloads": "ਡਾਊਨਲੋਡਸ 'ਤੇ ਜਾਓ",
+  "playerMadeWithHeartBy": "❤️ ਨਾਲ ਬਣਾਇਆ: ",
+  "playerAuthorName": "ਆਸ਼ੂਤੋਸ਼ ਪਾਠਕ",
+  "playerSwipeForLyrics": "ਬੋਲਾਂ ਲਈ ਸਵਾਈਪ ਕਰੋ",
+  "playerNoLyrics": "ਕੋਈ ਬੋਲ ਉਪਲਬਧ ਨਹੀਂ",
+  "playerUpNext": "ਅੱਗੇ ਚੱਲੇਗਾ",
+  "playerNoTracksInQueue": "ਕਤਾਰ ਵਿੱਚ ਕੋਈ ਗੀਤ ਨਹੀਂ",
+  "playerNoMusicPlaying": "ਕੋਈ ਸੰਗੀਤ ਨਹੀਂ ਚੱਲ ਰਿਹਾ",
+  "playerPickAVibe": "ਆਪਣੀ ਲਾਇਬ੍ਰੇਰੀ ਜਾਂ ਹੋਮ ਤੋਂ ਗੀਤ ਚੁਣੋ",
+  "playerGoHome": "ਹੋਮ 'ਤੇ ਜਾਓ",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "ਇਕੁਅਲਾਈਜ਼ਰ",
+  "playerEqCustom": "ਕਸਟਮ",
+  "playlistDownloads": "ਡਾਊਨਲੋਡਸ",
+  "playlistOffline": "ਔਫਲਾਈਨ ਪਲੇਲਿਸਟ",
+  "playlistDurationHours": "{hours}ਘੰਟੇ {mins}ਮਿੰਟ",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "mins": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistDurationMins": "{mins}ਮਿੰਟ",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistFindOnPage": "ਇਸ ਪੰਨੇ 'ਤੇ ਖੋਜੋ",
+  "playlistSongsAndDuration": "{count} ਗੀਤ • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "ਤਾਜ਼ਾ",
+  "playlistNoMatches": "ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ ਮਿਲਿਆ।",
+  "playlistNoTracks": "ਇਸ ਪਲੇਲਿਸਟ ਵਿੱਚ ਕੋਈ ਗੀਤ ਨਹੀਂ ਹਨ।",
+  "playlistNoSongsYet": "ਅਜੇ ਕੋਈ ਗੀਤ ਨਹੀਂ।",
+  "playlistSortRecentlyAdded": "ਹਾਲ ਹੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕੀਤੇ",
+  "playlistSortAlphabetical": "ਅੱਖਰਾਂ ਅਨੁਸਾਰ",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{ਗੀਤ} other{ਗੀਤ}} ਡਾਊਨਲੋਡ ਹੋ ਰਹੇ ਹਨ",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistView": "ਦੇਖੋ",
+  "playlistAllDownloaded": "ਸਾਰੇ ਗੀਤ ਪਹਿਲਾਂ ਹੀ ਡਾਊਨਲੋਡ ਹੋ ਚੁੱਕੇ ਹਨ",
+  "playlistShareText": "Pulse 'ਤੇ '{name}' ਦੇਖੋ!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistRemoveFromDownloads": "ਡਾਊਨਲੋਡਸ ਵਿੱਚੋਂ ਹਟਾਓ",
+  "playlistRemoveFromPlaylist": "ਪਲੇਲਿਸਟ ਵਿੱਚੋਂ ਹਟਾਓ",
+  "playlistLoadError": "ਇਹ ਪਲੇਲਿਸਟ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕਿਆ।",
+  "playlistGoBack": "← ਪਿੱਛੇ ਜਾਓ",
+  "profileNotLoggedIn": "ਲੌਗ ਇਨ ਨਹੀਂ ਹੈ",
+  "profileSignIn": "ਸਾਈਨ ਇਨ ਕਰੋ",
+  "profileDefaultUser": "Pulse ਯੂਜ਼ਰ",
+  "profileEditProfile": "ਸੰਪਾਦਿਤ ਕਰੋ",
+  "profileTimeframeDay": "ਦਿਨ",
+  "profileTimeframeWeek": "ਹਫ਼ਤਾ",
+  "profileTimeframeMonth": "ਮਹੀਨਾ",
+  "profileTimeframeYear": "ਸਾਲ",
+  "profileListeningTime": "ਸੁਣਨ ਦਾ ਸਮਾਂ",
+  "profileToday": "ਅੱਜ",
+  "profileThisWeek": "ਇਸ ਹਫ਼ਤੇ",
+  "profileThisMonth": "ਇਸ ਮਹੀਨੇ",
+  "profileThisYear": "ਇਸ ਸਾਲ",
+  "profileDailyAvg": "ਰੋਜ਼ਾਨਾ ਔਸਤ",
+  "profilePerDay": "ਪ੍ਰਤੀ ਦਿਨ",
+  "profileLifetimeListening": "ਉਮਰ ਭਰ ਸੁਣਨਾ",
+  "profileTotalTimeListened": "Pulse 'ਤੇ ਸੰਗੀਤ ਸੁਣਨ ਦਾ ਕੁੱਲ ਸਮਾਂ",
+  "profileYourTopSongs": "ਤੁਹਾਡੇ ਪਸੰਦੀਦਾ ਗੀਤ",
+  "profileListeningHistoryEmpty": "ਸੁਣਨ ਦਾ ਇਤਿਹਾਸ ਇੱਥੇ ਦਿਖਾਈ ਦੇਵੇਗਾ।",
+  "profilePlays": "{count} {count, plural, =1{ਵਾਰ} other{ਵਾਰ}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileYourTopArtists": "ਤੁਹਾਡੇ ਪਸੰਦੀਦਾ ਕਲਾਕਾਰ",
+  "profileTopArtistsEmpty": "ਤੁਹਾਡੇ ਪਸੰਦੀਦਾ ਕਲਾਕਾਰ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।",
+  "profileArtistLabel": "ਕਲਾਕਾਰ",
+  "profileSignOut": "ਸਾਈਨ ਆਊਟ ਕਰੋ",
+  "profileVersion": "ਵਰਜਨ {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "profileMadeWithHeartBy": "❤️ ਨਾਲ ਬਣਾਇਆ: ",
+  "profileAuthorName": "ਆਸ਼ੂਤੋਸ਼ ਪਾਠਕ",
+  "profileEditProfileHeader": "ਸੰਪਾਦਿਤ ਕਰੋ",
+  "profileDisplayName": "ਨਾਮ",
+  "profileCancel": "ਰੱਦ ਕਰੋ",
+  "profileSave": "ਸੇਵ ਕਰੋ",
+  "profileChooseAvatar": "ਅਵਤਾਰ ਚੁਣੋ",
+  "searchMicPermissionRequired": "ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਲਈ ਮਾਈਕ੍ਰੋਫੋਨ ਦੀ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਹੈ",
+  "searchUnknownSong": "ਅਣਜਾਣ ਗੀਤ",
+  "searchUnknownArtist": "ਅਣਜਾਣ ਕਲਾਕਾਰ",
+  "searchNoSongDetected": "ਕੋਈ ਗੀਤ ਨਹੀਂ ਪਛਾਣਿਆ ਗਿਆ।",
+  "searchError": "ਗਲਤੀ: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "searchSpeechNotAvailable": "ਆਵਾਜ਼ ਦੀ ਪਛਾਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ",
+  "searchHint": "ਗੀਤ, ਕਲਾਕਾਰ, ਐਲਬਮਾਂ, ਪਲੇਲਿਸਟਾਂ…",
+  "searchRecentEmpty": "ਤੁਹਾਡੀਆਂ ਤਾਜ਼ਾ ਖੋਜਾਂ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੀਆਂ",
+  "searchRecentSearches": "ਤਾਜ਼ਾ ਖੋਜਾਂ",
+  "searchClearAll": "ਸਭ ਸਾਫ਼ ਕਰੋ",
+  "searchNoResultsFor": "'{query}' ਲਈ ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "searchTryDifferentKeywords": "ਵੱਖਰੇ ਸ਼ਬਦ ਅਜ਼ਮਾਓ",
+  "searchTopResult": "ਸਿਖਰਲਾ ਨਤੀਜਾ",
+  "searchSongsLabel": "ਗੀਤ",
+  "searchArtistsLabel": "ਕਲਾਕਾਰ",
+  "searchAlbumsLabel": "ਐਲਬਮਾਂ",
+  "searchPlaylistsLabel": "ਪਲੇਲਿਸਟਾਂ",
+  "searchArtistLabel": "ਕਲਾਕਾਰ",
+  "searchListening": "ਸੁਣ ਰਿਹਾ ਹੈ...",
+  "searchSpeakNow": "ਖੋਜਣ ਲਈ ਹੁਣੇ ਬੋਲੋ",
+  "searchCancel": "ਰੱਦ ਕਰੋ",
+  "searchIdentifying": "ਪਛਾਣ ਕਰ ਰਿਹਾ ਹੈ...",
+  "searchListeningForSong": "ਗੀਤ ਸੁਣ ਰਿਹਾ ਹੈ...",
+  "settingsTitle": "ਸੈਟਿੰਗਾਂ",
+  "settingsStreamingQuality": "ਸਟ੍ਰੀਮਿੰਗ ਕੁਆਲਿਟੀ",
+  "settingsQualityAutomatic": "ਆਟੋਮੈਟਿਕ",
+  "settingsQualityLow": "ਘੱਟ",
+  "settingsQualityNormal": "ਸਧਾਰਨ",
+  "settingsQualityHigh": "ਉੱਚ",
+  "settingsDownloadQuality": "ਡਾਊਨਲੋਡ ਕੁਆਲਿਟੀ",
+  "settingsPlayback": "ਪਲੇਬੈਕ",
+  "settingsCrossfade": "ਕ੍ਰੌਸਫੇਡ",
+  "settingsCrossfadeDesc": "ਨਿਰਵਿਘਨ ਤਬਦੀਲੀ ਲਈ ਟਰੈਕਾਂ ਨੂੰ ਓਵਰਲੈਪ ਕਰੋ",
+  "settingsDataUsage": "ਡਾਟਾ ਵਰਤੋਂ",
+  "settingsDataSaver": "ਡਾਟਾ ਸੇਵਰ",
+  "settingsDataSaverDesc": "ਮੋਬਾਈਲ ਡਾਟਾ 'ਤੇ ਘੱਟ ਗੁਣਵੱਤਾ ਵਿੱਚ ਸਟ੍ਰੀਮ ਕਰੋ",
+  "settingsAppearance": "ਦਿੱਖ",
+  "settingsLanguage": "ਭਾਸ਼ਾ",
+  "settingsCustomAccent": "ਕਸਟਮ ਰੰਗ",
+  "settingsSaturation": "ਸੈਚੂਰੇਸ਼ਨ",
+  "settingsBrightness": "ਬ੍ਰਾਈਟਨੈੱਸ",
+  "settingsResetDefault": "ਡਿਫੌਲਟ ਰੀਸੈਟ ਕਰੋ",
+  "playlistSheetTitle": "ਪਲੇਲਿਸਟ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ",
+  "playlistSheetNewPlaylist": "ਨਵੀਂ ਪਲੇਲਿਸਟ",
+  "playlistSheetNoPlaylists": "ਅਜੇ ਕੋਈ ਪਲੇਲਿਸਟ ਨਹੀਂ",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{ਗੀਤ} other{ਗੀਤ}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playlistSheetNameHint": "ਪਲੇਲਿਸਟ ਦਾ ਨਾਮ",
+  "playlistSheetCancel": "ਰੱਦ ਕਰੋ",
+  "playlistSheetAddedTo": "{name} ਵਿੱਚ ਸ਼ਾਮਲ ਕੀਤਾ",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSheetCreateFailAuth": "ਪਲੇਲਿਸਟ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ: ਪ੍ਰਮਾਣੀਕਰਨ ਗਲਤੀ",
+  "playlistSheetCreateFail": "ਪਲੇਲਿਸਟ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "playlistSheetCreate": "ਬਣਾਓ",
+  "appUpdateAvailable": "ਅੱਪਡੇਟ ਉਪਲਬਧ",
+  "appUpdateDesc": "ਵਰਜਨ {version} ਉਪਲਬਧ ਹੈ! ਨਵੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਹੁਣੇ ਅੱਪਡੇਟ ਕਰੋ।",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "appUpdateDownload": "ਅੱਪਡੇਟ ਡਾਊਨਲੋਡ ਕਰੋ",
+  "navHome": "ਹੋਮ",
+  "navLibrary": "ਲਾਇਬ੍ਰੇਰੀ",
+  "navSearch": "ਖੋਜ",
+  "navSettings": "ਸੈਟਿੰਗਾਂ",
+  "navProfile": "ਪ੍ਰੋਫਾਈਲ",
+  "artistSelect": "ਕਲਾਕਾਰ ਚੁਣੋ",
+  "songActionQueue": "ਕਤਾਰ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ",
+  "songActionPlaylist": "ਪਲੇਲਿਸਟ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ",
+  "songActionFinding": "ਲੱਭ ਰਿਹਾ ਹੈ...",
+  "songActionAlbum": "ਐਲਬਮ 'ਤੇ ਜਾਓ",
+  "songActionArtist": "ਕਲਾਕਾਰ 'ਤੇ ਜਾਓ",
+  "songActionRemovePlaylist": "ਪਲੇਲਿਸਟ ਵਿੱਚੋਂ ਹਟਾਓ",
+  "songActionRemoveDownload": "ਡਾਊਨਲੋਡਸ ਵਿੱਚੋਂ ਹਟਾਓ",
+  "songActionDownloadChecking": "ਚੈੱਕ ਕਰ ਰਿਹਾ ਹੈ...",
+  "songActionDownloading": "ਡਾਊਨਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+  "songActionDownloaded": "ਡਾਊਨਲੋਡ ਹੋ ਗਿਆ!",
+  "songActionDownloadAlready": "ਪਹਿਲਾਂ ਹੀ ਡਾਊਨਲੋਡ ਕੀਤਾ ਹੈ",
+  "songActionDownloadFailed": "ਡਾਊਨਲੋਡ ਅਸਫਲ",
+  "songActionDownload": "ਡਾਊਨਲੋਡ ਕਰੋ",
+  "songActionDownloadingSnack": "ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ",
+  "songActionView": "ਦੇਖੋ",
+  "spotifyImportTitle": "Spotify ਤੋਂ ਆਯਾਤ ਕਰੋ",
+  "spotifyImportSubtitle": "ਆਪਣੀ ਪਲੇਲਿਸਟ ਦਾ ਆਕਾਰ ਚੁਣੋ",
+  "spotifyChoiceSmallTitle": "੧੦੦ ਜਾਂ ਘੱਟ ਗੀਤ",
+  "spotifyChoiceSmallDesc": "ਜਨਤਕ Spotify ਪਲੇਲਿਸਟ URL ਪੇਸਟ ਕਰੋ।",
+  "spotifyChoiceLargeTitle": "੧੦੦ ਤੋਂ ਵੱਧ ਗੀਤ",
+  "spotifyChoiceLargeDesc": "ਅਸੀਮਤ ਗੀਤ ਆਯਾਤ ਕਰਨ ਲਈ ਆਪਣੀ ਖੁਦ ਦੀ Spotify Developer App ਕਨੈਕਟ ਕਰੋ।",
+  "cancelButton": "ਰੱਦ ਕਰੋ",
+  "spotifyPlaylistsTitle": "ਤੁਹਾਡੀਆਂ Spotify ਪਲੇਲਿਸਟਾਂ",
+  "spotifyPlaylistsErrorMsg": "ਗਲਤੀ: {error}\nਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਹਾਡਾ Client ID ਸਹੀ ਹੈ।",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "ਤੁਹਾਡੀ ਲਾਇਬ੍ਰੇਰੀ ਵਿੱਚ ਕੋਈ ਪਲੇਲਿਸਟ ਨਹੀਂ ਮਿਲੀ",
+  "spotifyPlaylistsTracks": "{count} ਟਰੈਕ",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "ਆਯਾਤ ਕਰੋ",
+  "audioPlaybackFailed": "ਪਲੇਬੈਕ ਅਸਫਲ। ਆਪਣਾ ਇੰਟਰਨੈਟ ਕਨੈਕਸ਼ਨ ਚੈੱਕ ਕਰੋ।",
+  "audioControlPrevious": "ਪਿਛਲਾ",
+  "audioControlPause": "ਰੋਕੋ",
+  "audioControlPlay": "ਚਲਾਓ",
+  "audioControlNext": "ਅਗਲਾ",
+  "audioControlUnlike": "ਨਾਪਸੰਦ",
+  "audioControlLike": "ਪਸੰਦ",
+  "spotifyRawResponseError": "ਮੂਲ ਜਵਾਬ: {data}\n\nਫਾਲਬੈਕ: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "apiErrorInvalidClient": "ਅਵੈਧ ਕਲਾਇੰਟ ਜਾਂ ਕਲਾਇੰਟ ਸੀਕਰੇਟ।",
+  "apiErrorBadRequest": "ਬੈਡ ਰਿਕੁਐਸਟ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਵੇਰਵੇ ਚੈੱਕ ਕਰੋ।",
+  "apiErrorUnauthorized": "ਅਣਅਧਿਕਾਰਤ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਲੌਗ ਇਨ ਕਰੋ।",
+  "apiErrorForbidden": "ਵਰਜਿਤ। ਤੁਹਾਨੂੰ ਪਹੁੰਚ ਨਹੀਂ ਹੈ।",
+  "apiErrorNotFound": "ਸਰੋਤ ਨਹੀਂ ਮਿਲਿਆ।",
+  "apiErrorEmailInUse": "ਇਹ ਈਮੇਲ ਪਤਾ ਪਹਿਲਾਂ ਹੀ ਵਰਤੋਂ ਵਿੱਚ ਹੈ।",
+  "apiErrorUserNotFound": "ਇਸ ਈਮੇਲ ਨਾਲ ਕੋਈ ਖਾਤਾ ਨਹੀਂ ਮਿਲਿਆ।",
+  "apiErrorWrongPassword": "ਗਲਤ ਪਾਸਵਰਡ।",
+  "apiErrorInvalidCredential": "ਲੌਗਇਨ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਚੈੱਕ ਕਰੋ।",
+  "apiErrorNetwork": "ਨੈੱਟਵਰਕ ਗਲਤੀ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਕਨੈਕਸ਼ਨ ਚੈੱਕ ਕਰੋ।",
+  "apiErrorSocketTimeout": "ਕਨੈਕਸ਼ਨ ਸਮਾਂ ਸਮਾਪਤ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "apiErrorTooManyRequests": "ਬਹੁਤ ਜ਼ਿਆਦਾ ਬੇਨਤੀਆਂ। ਕਿਰਪਾ ਕਰਕੇ ਕੁਝ ਸਮਾਂ ਉਡੀਕ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "apiErrorServerError": "ਸਰਵਰ ਗਲਤੀ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "apiErrorInvalidEmail": "ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ ਈਮੇਲ ਪਤਾ ਟਾਈਪ ਕਰੋ।",
+  "apiErrorWeakPassword": "ਪਾਸਵਰਡ ਬਹੁਤ ਕਮਜ਼ੋਰ ਹੈ। ਘੱਟੋ-ਘੱਟ ੬ ਅੱਖਰ ਵਰਤੋ।",
+  "apiErrorTooManyAttempts": "ਬਹੁਤ ਜ਼ਿਆਦਾ ਅਸਫਲ ਕੋਸ਼ਿਸ਼ਾਂ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+}

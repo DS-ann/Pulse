@@ -14,7 +14,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'package:pulse/src/rust/frb_generated.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 import 'package:pulse/core/utils/error_mapper.dart';
 import 'l10n/fallback_localizations.dart';
 

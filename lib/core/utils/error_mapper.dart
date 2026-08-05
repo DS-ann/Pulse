@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 class ErrorMapper {
   // ── Active locale for background (context-free) usage ─────────────────────

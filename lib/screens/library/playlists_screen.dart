@@ -22,7 +22,7 @@ import '../../widgets/glass_container.dart';
 import '../../widgets/playing_bars.dart';
 import 'downloads_screen.dart';
 import 'downloading_screen.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Library screen — port of Library.jsx.
 /// Shows user playlists with sort, grid/list toggle, FAB for create/import.

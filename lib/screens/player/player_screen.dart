@@ -23,7 +23,7 @@ import 'widgets/equalizer_sheet.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/song_tile.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Full-screen player — port of PlayerView.jsx.
 /// Album art with lyrics flip, seek bar, main controls, up-next queue.

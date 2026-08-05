@@ -17,7 +17,7 @@ import '../providers/player_overlay_provider.dart';
 import '../providers/audio_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// App scaffold — the persistent shell with bottom nav + mini player.
 /// Equivalent to Layout.jsx in the React app.

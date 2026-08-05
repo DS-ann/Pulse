@@ -17,7 +17,7 @@ import '../../widgets/glass_container.dart';
 import '../../widgets/song_tile.dart';
 import '../../widgets/song_action_sheet.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 /// Playlist/Album screen — pixel-perfect port of PlaylistView.jsx.
 /// Handles both Firestore playlists and YTM playlists/albums.
 class PlaylistScreen extends ConsumerStatefulWidget {

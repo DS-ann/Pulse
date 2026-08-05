@@ -6,7 +6,7 @@ import '../../core/theme/app_colors.dart';
 import '../../providers/settings_provider.dart';
 import '../../widgets/glass_container.dart';
 import '../../core/constants/app_constants.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Settings screen — pixel-perfect port of Settings.jsx.
 /// Streaming/download quality, crossfade slider, data saver, accent color picker.
@@ -432,6 +432,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     if (localeCode == 'af') return 'Afrikaans';
     if (localeCode == 'mai') return 'मैथिली';
     if (localeCode == 'sa') return 'संस्कृतम्';
+    if (localeCode == 'mr') return 'मराठी';
+    if (localeCode == 'pa') return 'ਪੰਜਾਬੀ';
+    if (localeCode == 'ne') return 'नेपाली';
     return 'English';
   }
 
@@ -440,31 +443,45 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       useRootNavigator: true,
       context: context,
       backgroundColor: Colors.transparent,
+      isScrollControlled: true,
       builder: (ctx) {
         return GlassContainer(
           borderRadius: 24,
           blur: 24,
-          child: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(height: 16),
-                Center(
-                  child: Container(
-                    width: 36, height: 4,
-                    decoration: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(2)),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.415,
+            child: SafeArea(
+              child: Column(
+                children: [
+                  const SizedBox(height: 16),
+                  Center(
+                    child: Container(
+                      width: 36, height: 4,
+                      decoration: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(2)),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 16),
-                Text(AppLocalizations.of(context)!.settingsLanguage, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
-                const SizedBox(height: 16),
-                _languageItem(ctx, 'en', 'English', settings.appLocale, accent),
-                _languageItem(ctx, 'hi', 'हिन्दी', settings.appLocale, accent),
-                _languageItem(ctx, 'af', 'Afrikaans', settings.appLocale, accent),
-                _languageItem(ctx, 'mai', 'मैथिली', settings.appLocale, accent),
-                _languageItem(ctx, 'sa', 'संस्कृतम्', settings.appLocale, accent),
-                const SizedBox(height: 24),
-              ],
+                  const SizedBox(height: 16),
+                  Text(AppLocalizations.of(context)!.settingsLanguage, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          _languageItem(ctx, 'en', 'English', settings.appLocale, accent),
+                          _languageItem(ctx, 'hi', 'हिन्दी', settings.appLocale, accent),
+                          _languageItem(ctx, 'af', 'Afrikaans', settings.appLocale, accent),
+                          _languageItem(ctx, 'mai', 'मैथिली', settings.appLocale, accent),
+                          _languageItem(ctx, 'sa', 'संस्कृतम्', settings.appLocale, accent),
+                          _languageItem(ctx, 'mr', 'मराठी', settings.appLocale, accent),
+                          _languageItem(ctx, 'pa', 'ਪੰਜਾਬੀ', settings.appLocale, accent),
+                          _languageItem(ctx, 'ne', 'नेपाली', settings.appLocale, accent),
+                          const SizedBox(height: 24),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );

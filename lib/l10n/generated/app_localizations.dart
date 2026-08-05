@@ -9,6 +9,9 @@ import 'app_localizations_af.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_hi.dart';
 import 'app_localizations_mai.dart';
+import 'app_localizations_mr.dart';
+import 'app_localizations_ne.dart';
+import 'app_localizations_pa.dart';
 import 'app_localizations_sa.dart';
 
 // ignore_for_file: type=lint
@@ -21,7 +24,7 @@ import 'app_localizations_sa.dart';
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'l10n/app_localizations.dart';
+/// import 'generated/app_localizations.dart';
 ///
 /// return MaterialApp(
 ///   localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -101,6 +104,9 @@ abstract class AppLocalizations {
     Locale('en'),
     Locale('hi'),
     Locale('mai'),
+    Locale('mr'),
+    Locale('ne'),
+    Locale('pa'),
     Locale('sa'),
   ];
 
@@ -2233,8 +2239,16 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['af', 'en', 'hi', 'mai', 'sa'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'af',
+    'en',
+    'hi',
+    'mai',
+    'mr',
+    'ne',
+    'pa',
+    'sa',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -2251,6 +2265,12 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsHi();
     case 'mai':
       return AppLocalizationsMai();
+    case 'mr':
+      return AppLocalizationsMr();
+    case 'ne':
+      return AppLocalizationsNe();
+    case 'pa':
+      return AppLocalizationsPa();
     case 'sa':
       return AppLocalizationsSa();
   }

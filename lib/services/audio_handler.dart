@@ -6,7 +6,7 @@ import 'package:media_kit/media_kit.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart' show Locale;
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 import '../main.dart' show scaffoldMessengerKey;
 
 /// Custom [BaseAudioHandler] for Pulse — bridges `media_kit` with `audio_service`

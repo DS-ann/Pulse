@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/settings_provider.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../widgets/glass_container.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 class EqualizerSheet extends ConsumerStatefulWidget {
   const EqualizerSheet({super.key});

@@ -16,7 +16,7 @@ import '../../widgets/glass_container.dart';
 import '../../widgets/skeleton_loader.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/playing_bars.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Home screen — port of Home.jsx.
 /// Shows greeting, recent playlists grid, and horizontal-scrolling song sections.

@@ -15,7 +15,7 @@ import 'auth_provider.dart';
 import 'download_provider.dart';
 import 'settings_provider.dart';
 import 'playlist_provider.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 // ── Audio State ─────────────────────────────────────────────────────────────
 

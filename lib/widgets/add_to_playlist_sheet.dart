@@ -9,7 +9,7 @@ import '../data/models/song.dart';
 import '../providers/playlist_provider.dart';
 import 'glass_container.dart';
 import '../main.dart' show scaffoldMessengerKey;
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 import 'package:pulse/core/utils/error_mapper.dart';
 
 /// Add-to-playlist bottom sheet — port of AddToPlaylistModal.jsx.

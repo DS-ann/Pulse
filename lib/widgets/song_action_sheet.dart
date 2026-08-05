@@ -15,7 +15,7 @@ import '../providers/player_overlay_provider.dart';
 import 'glass_container.dart';
 import 'add_to_playlist_sheet.dart';
 import 'multi_artist_sheet.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Song action bottom sheet — port of SongActionMenu.jsx.
 /// Shows: Add to Queue, Add to Playlist, Go to Album, Go to Artist, Download.

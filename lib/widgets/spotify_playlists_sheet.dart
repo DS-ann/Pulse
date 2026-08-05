@@ -7,7 +7,7 @@ import '../services/spotify_parser.dart';
 import '../core/theme/app_colors.dart';
 import '../providers/import_provider.dart';
 import 'glass_container.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 import 'package:pulse/core/utils/error_mapper.dart';
 
 class SpotifyPlaylistsSheet extends ConsumerStatefulWidget {

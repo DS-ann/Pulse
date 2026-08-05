@@ -10,7 +10,7 @@ import '../../services/spotify_auth_service.dart';
 
 import '../../widgets/glass_container.dart';
 import '../../widgets/spotify_playlists_sheet.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 import 'package:pulse/core/utils/error_mapper.dart';
 
 /// Import Playlist screen — port of ImportPlaylist.jsx.

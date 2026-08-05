@@ -15,7 +15,7 @@ import '../../data/api/music_api.dart';
 import '../../data/models/song.dart';
 import '../../widgets/glass_container.dart';
 import '../../core/constants/app_constants.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Profile screen — port of Profile.jsx.
 /// Avatar, stats dashboard (timeframe picker), top songs, top artists, footer.

@@ -13,7 +13,7 @@ import '../../providers/audio_provider.dart';
 import '../../providers/download_provider.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/playing_bars.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Downloads screen — port of Downloads.jsx.
 /// Shows all offline songs, play/delete per-song, clear all.

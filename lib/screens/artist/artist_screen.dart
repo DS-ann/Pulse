@@ -12,7 +12,7 @@ import '../../providers/audio_provider.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/playing_bars.dart';
-import 'package:pulse/l10n/app_localizations.dart';
+import 'package:pulse/l10n/generated/app_localizations.dart';
 
 /// Artist screen — pixel-perfect port of ArtistView.jsx.
 /// Hero banner with gradient overlay, Play-All, top songs, albums, singles.
