@@ -9,11 +9,13 @@ import 'app_localizations_af.dart';
 import 'app_localizations_ar.dart';
 import 'app_localizations_as.dart';
 import 'app_localizations_bn.dart';
+import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_es.dart';
 import 'app_localizations_fr.dart';
 import 'app_localizations_gu.dart';
 import 'app_localizations_hi.dart';
+import 'app_localizations_id.dart';
 import 'app_localizations_ja.dart';
 import 'app_localizations_kn.dart';
 import 'app_localizations_ko.dart';
@@ -29,6 +31,7 @@ import 'app_localizations_sa.dart';
 import 'app_localizations_ta.dart';
 import 'app_localizations_te.dart';
 import 'app_localizations_ur.dart';
+import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -120,11 +123,13 @@ abstract class AppLocalizations {
     Locale('ar'),
     Locale('as'),
     Locale('bn'),
+    Locale('de'),
     Locale('en'),
     Locale('es'),
     Locale('fr'),
     Locale('gu'),
     Locale('hi'),
+    Locale('id'),
     Locale('ja'),
     Locale('kn'),
     Locale('ko'),
@@ -140,6 +145,7 @@ abstract class AppLocalizations {
     Locale('ta'),
     Locale('te'),
     Locale('ur'),
+    Locale('zh'),
   ];
 
   /// The title of the application
@@ -2276,11 +2282,13 @@ class _AppLocalizationsDelegate
     'ar',
     'as',
     'bn',
+    'de',
     'en',
     'es',
     'fr',
     'gu',
     'hi',
+    'id',
     'ja',
     'kn',
     'ko',
@@ -2296,6 +2304,7 @@ class _AppLocalizationsDelegate
     'ta',
     'te',
     'ur',
+    'zh',
   ].contains(locale.languageCode);
 
   @override
@@ -2313,6 +2322,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsAs();
     case 'bn':
       return AppLocalizationsBn();
+    case 'de':
+      return AppLocalizationsDe();
     case 'en':
       return AppLocalizationsEn();
     case 'es':
@@ -2323,6 +2334,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsGu();
     case 'hi':
       return AppLocalizationsHi();
+    case 'id':
+      return AppLocalizationsId();
     case 'ja':
       return AppLocalizationsJa();
     case 'kn':
@@ -2353,6 +2366,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsTe();
     case 'ur':
       return AppLocalizationsUr();
+    case 'zh':
+      return AppLocalizationsZh();
   }
 
   throw FlutterError(

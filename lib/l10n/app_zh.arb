@@ -1,0 +1,574 @@
+{
+  "@@locale": "zh",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "关于",
+  "artistPopular": "热门",
+  "artistAlbums": "专辑",
+  "artistSinglesAndEPs": "单曲和 EP",
+  "artistSubscribersCount": "{count} 位订阅者",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "播放全部",
+  "artistLoadError": "无法加载歌手",
+  "artistGoBack": "返回",
+  "adminChatFailedToReply": "回复失败: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "技术支持",
+  "adminChatError": "错误: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "没有消息记录。",
+  "adminChatSupportYou": "技术支持（您）",
+  "adminChatTypeReply": "输入回复...",
+  "broadcastSuccess": "公告发送成功！",
+  "broadcastFailed": "发送失败: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "全局公告",
+  "broadcastSubtitle": "已发送给所有用户",
+  "broadcastWarning": "此消息所有人可见。",
+  "broadcastError": "错误: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "暂无全局公告。",
+  "broadcastTypeMessage": "输入公告...",
+  "commFailedToSend": "发送失败: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "管理员面板",
+  "commAdminSupport": "支持",
+  "commAlwaysHere": "随时为您提供帮助",
+  "commWelcomeTitle": "你好！👋 我是 Ashutosh Pathak",
+  "commWelcomeSubtitle": "Pulse 创作者",
+  "commWelcomeBody1": "希望您享受无广告的音乐体验。音乐应该是自由的。\n\n您可以在这里直接与我交流。\n\n随时发送：",
+  "commBullet1": "您的反馈",
+  "commBullet2": "错误报告",
+  "commBullet3": "新功能建议",
+  "commWelcomeBody2": "我会亲自阅读每一条消息。\n\n如果有新应用的想法，请告诉我！如果可能，我会制作它。\n\n感谢您成为这里的一部分。❤️",
+  "commError": "错误: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "暂无消息",
+  "commNoMessagesDesc": "向支持团队发送消息或稍后查看。",
+  "commMessageSupportHint": "发送消息...",
+  "commGlobalAnnouncements": "全局公告",
+  "commSendMessagesToAll": "向所有人发送",
+  "homeGreetingMorning": "早上好，",
+  "homeGreetingAfternoon": "下午好，",
+  "homeGreetingEvening": "晚上好，",
+  "homeMember": "会员",
+  "homeRecentPlaylists": "最近的歌单",
+  "homeRecentlyPlayed": "最近播放",
+  "homeSpeedDial": "快速访问",
+  "homeNoContent": "没有内容",
+  "homeRefresh": "刷新",
+  "homeLoadError": "加载失败。",
+  "homeRetry": "重试",
+  "importSuccess": "成功连接 Spotify！",
+  "importFailed": "连接失败: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "连接 Spotify",
+  "importSetupTitle": "Spotify 设置",
+  "importSetupDesc": "使用您的开发者密钥快速导入歌单：",
+  "importStep1": "打开 Spotify Developer Dashboard。",
+  "importStep2": "登录并点击 'Create app'。",
+  "importStep3": "输入应用名称和描述。",
+  "importStep4": "在 'Redirect URIs' 下，粘贴此链接：",
+  "importRedirectCopied": "重定向链接已复制！",
+  "importStep5": "保存，复制 'Client ID' 并粘贴到下方。",
+  "importImportant": "重要提示：需要 Spotify Premium 订阅。",
+  "importClientIdHint": "在此粘贴 Spotify Client ID...",
+  "importConnectButton": "连接并加载音乐库",
+  "downloadingNoActive": "没有正在下载的歌曲",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "下载内容",
+  "downloadsStats": "{count} 首歌曲 • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "没有离线歌曲",
+  "downloadsNoOfflineDesc": "下载的歌曲将显示在这里",
+  "downloadsClearAllTitle": "全部清除？",
+  "downloadsClearAllDesc": "这将删除 {count} 首歌曲并释放 {size} 的空间。",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "取消",
+  "downloadsClearAll": "全部清除",
+  "downloadsSongsCount": "{count} 首歌曲",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} 首歌",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "无法重命名主下载歌单。",
+  "downloadsRename": "重命名",
+  "downloadsEditSongs": "编辑歌曲",
+  "downloadsDelete": "删除",
+  "downloadsRenamePlaylistTitle": "重命名歌单",
+  "downloadsRenamePlaylistDesc": "输入歌单的新名称。",
+  "downloadsDeletePlaylistTitle": "删除歌单？",
+  "downloadsDeleteMasterDesc": "确定要删除吗？您将永久丢失所有下载的歌曲和歌单。",
+  "downloadsDeletePlaylistDesc": "确定要删除 '{name}' 吗？此操作无法撤销。",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "保存",
+  "downloadsNoSongs": "此歌单没有歌曲。",
+  "libraryTitle": "音乐库",
+  "libraryPauseAll": "全部暂停",
+  "libraryResumeAll": "全部恢复",
+  "libraryTabPlaylists": "歌单",
+  "libraryTabDownloads": "下载",
+  "libraryTabDownloading": "下载中",
+  "libraryImportedTask": "已导入 {name}",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "等待中...",
+  "libraryImportFetching": "正在获取歌单...",
+  "libraryImportProcessed": "已处理 {processed}/{total} · 匹配 {matched}",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "正在保存...",
+  "libraryImportDoneSongs": "添加了 {matched} 首歌 · 点击 × 关闭",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "已添加全部歌曲 · 点击 × 关闭",
+  "libraryAddButton": "添加",
+  "librarySortRecent": "最近添加",
+  "librarySortAlpha": "按字母顺序",
+  "libraryEmptyTitle": "您的音乐库是空的。",
+  "libraryEmptyDesc": "点击“添加”开始您的音乐之旅。",
+  "libraryRenameLikedError": "无法重命名“我喜欢的音乐”。",
+  "libraryRename": "重命名",
+  "libraryEditSongs": "编辑歌曲",
+  "libraryDeleteLikedError": "无法删除“我喜欢的音乐”。",
+  "libraryDelete": "删除",
+  "libraryEditSongsTitle": "编辑歌曲",
+  "libraryEditSongsCountSingle": "{count} 首歌",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} 首歌曲",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "取消",
+  "librarySave": "保存",
+  "libraryNoSongs": "此歌单没有歌曲。",
+  "libraryAddOptionsTitle": "添加到音乐库",
+  "libraryAddOptionsDesc": "选择如何扩充您的 Pulse 音乐库",
+  "libraryImportPulse": "从 Pulse 导入",
+  "libraryImportPulseDesc": "粘贴 Pulse 歌单链接",
+  "libraryImportYtm": "从 YT Music 导入",
+  "libraryImportYtmDesc": "粘贴公开链接",
+  "libraryImportSpotify": "从 Spotify 导入",
+  "libraryImportSpotifyDesc": "连接您的 Spotify",
+  "libraryClose": "关闭",
+  "libraryImportYtmFull": "从 YouTube Music 导入",
+  "libraryImportSpotifyFull": "从 Spotify 导入 (≤100首)",
+  "libraryImportYtmUrlDesc": "在此粘贴 YouTube Music 公开歌单或专辑链接",
+  "libraryImportSpotifyUrlDesc": "在此粘贴 Spotify 公开歌单链接",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "无法导入 Pulse 歌单",
+  "importErrorPlaylist": "导入错误",
+  "importErrorHighlyPopulated": "歌单很大，可能需要一些时间。",
+  "libraryImportBtn": "导入",
+  "libraryCreateTitle": "新歌单",
+  "libraryCreateDesc": "给新歌单起个名字吧？",
+  "libraryCreateHint": "例：公路旅行",
+  "libraryCreateBtn": "创建",
+  "libraryRenameTitle": "重命名歌单",
+  "libraryRenameDesc": "输入新名称。",
+  "libraryRenameBtn": "重命名",
+  "libraryDeleteTitle": "删除歌单？",
+  "libraryDeleteDesc": "确定要删除 '{name}' 吗？此操作无法撤销。",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "删除",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "最近",
+  "librarySongsCount": "{count} 首歌曲",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "敬请期待",
+  "loginErrName": "请输入您的名字",
+  "loginErrEmail": "请输入您的邮箱",
+  "loginErrPassword": "请输入您的密码",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "感受每一次脉动！",
+  "loginMadeWithHeartBy": "用心制作 ❤️: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "您的名字",
+  "loginHintEmail": "邮箱地址",
+  "loginHintPassword": "密码",
+  "loginErrEmailReset": "请输入重置邮箱",
+  "loginResetSent": "已发送！请检查收件箱。",
+  "loginForgotPwd": "忘记密码？",
+  "loginBtnSignup": "创建账户",
+  "loginBtnSignin": "登录",
+  "loginToggleHaveAccount": "已经有 Pulse 账户了？ ",
+  "loginToggleNoAccount": "还没有 Pulse 账户？ ",
+  "loginToggleSignin": "登录",
+  "loginToggleSignup": "注册",
+  "offlineStillOffline": "仍处于离线状态。请检查网络连接。",
+  "offlineTitle": "您已离线",
+  "offlineSubtitle": "没有网络连接。\n请检查您的网络并重试。",
+  "offlineChecking": "正在检查...",
+  "offlineRetry": "重试",
+  "offlineGoToDownloads": "前往下载内容",
+  "playerMadeWithHeartBy": "用心制作 ❤️: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "滑动查看歌词",
+  "playerNoLyrics": "没有可用歌词",
+  "playerUpNext": "接下来播放",
+  "playerNoTracksInQueue": "队列中没有歌曲",
+  "playerNoMusicPlaying": "没有正在播放的音乐",
+  "playerPickAVibe": "从音乐库中挑选一首歌",
+  "playerGoHome": "回到首页",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "均衡器",
+  "playerEqCustom": "自定义",
+  "playlistDownloads": "下载内容",
+  "playlistOffline": "离线歌单",
+  "playlistDurationHours": "{hours}小时 {mins}分钟",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}分钟",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "在页面中查找",
+  "playlistSongsAndDuration": "{count} 首歌曲 • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "最近",
+  "playlistNoMatches": "没有找到匹配项。",
+  "playlistNoTracks": "此歌单没有歌曲。",
+  "playlistNoSongsYet": "目前还没有歌曲。",
+  "playlistSortRecentlyAdded": "最近添加",
+  "playlistSortAlphabetical": "按字母顺序",
+  "playlistDownloadingSongs": "正在下载 {count} {count, plural, =1{首歌} other{首歌曲}}",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "查看",
+  "playlistAllDownloaded": "已全部下载",
+  "playlistShareText": "在 Pulse 上听听 '{name}' 吧！\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "从下载中移除",
+  "playlistRemoveFromPlaylist": "从歌单中移除",
+  "playlistLoadError": "加载失败。",
+  "playlistGoBack": "← 返回",
+  "profileNotLoggedIn": "未登录",
+  "profileSignIn": "登录",
+  "profileDefaultUser": "Pulse 用户",
+  "profileEditProfile": "编辑",
+  "profileTimeframeDay": "天",
+  "profileTimeframeWeek": "周",
+  "profileTimeframeMonth": "月",
+  "profileTimeframeYear": "年",
+  "profileListeningTime": "收听时长",
+  "profileToday": "今天",
+  "profileThisWeek": "本周",
+  "profileThisMonth": "本月",
+  "profileThisYear": "今年",
+  "profileDailyAvg": "日均",
+  "profilePerDay": "/天",
+  "profileLifetimeListening": "累计收听",
+  "profileTotalTimeListened": "Pulse 累计收听总时长",
+  "profileYourTopSongs": "最爱歌曲",
+  "profileListeningHistoryEmpty": "您的收听记录将显示在这里。",
+  "profilePlays": "{count} {count, plural, =1{次播放} other{次播放}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "最爱歌手",
+  "profileTopArtistsEmpty": "您最爱的歌手将显示在这里。",
+  "profileArtistLabel": "歌手",
+  "profileSignOut": "退出登录",
+  "profileVersion": "版本 {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "用心制作 ❤️: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "编辑资料",
+  "profileDisplayName": "显示名称",
+  "profileCancel": "取消",
+  "profileSave": "保存",
+  "profileChooseAvatar": "选择头像",
+  "searchMicPermissionRequired": "需要麦克风权限",
+  "searchUnknownSong": "未知歌曲",
+  "searchUnknownArtist": "未知歌手",
+  "searchNoSongDetected": "未检测到任何歌曲。",
+  "searchError": "错误: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "语音搜索不可用",
+  "searchHint": "歌曲、歌手、专辑...",
+  "searchRecentEmpty": "您的近期搜索将显示在这里",
+  "searchRecentSearches": "近期搜索",
+  "searchClearAll": "全部清除",
+  "searchNoResultsFor": "没有找到与 '{query}' 相关的结果",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "尝试使用不同的关键词",
+  "searchTopResult": "最佳结果",
+  "searchSongsLabel": "歌曲",
+  "searchArtistsLabel": "歌手",
+  "searchAlbumsLabel": "专辑",
+  "searchPlaylistsLabel": "歌单",
+  "searchArtistLabel": "歌手",
+  "searchListening": "正在聆听...",
+  "searchSpeakNow": "请说话",
+  "searchCancel": "取消",
+  "searchIdentifying": "正在识别...",
+  "searchListeningForSong": "正在收听歌曲...",
+  "settingsTitle": "设置",
+  "settingsStreamingQuality": "流媒体音质",
+  "settingsQualityAutomatic": "自动",
+  "settingsQualityLow": "低",
+  "settingsQualityNormal": "标准",
+  "settingsQualityHigh": "高",
+  "settingsDownloadQuality": "下载音质",
+  "settingsPlayback": "播放",
+  "settingsCrossfade": "淡入淡出",
+  "settingsCrossfadeDesc": "歌曲之间的平滑过渡",
+  "settingsDataUsage": "数据流量",
+  "settingsDataSaver": "省流模式",
+  "settingsDataSaverDesc": "在移动网络下以较低音质播放",
+  "settingsAppearance": "外观",
+  "settingsLanguage": "语言",
+  "settingsCustomAccent": "强调色",
+  "settingsSaturation": "饱和度",
+  "settingsBrightness": "亮度",
+  "settingsResetDefault": "恢复默认",
+  "playlistSheetTitle": "添加到歌单",
+  "playlistSheetNewPlaylist": "新歌单",
+  "playlistSheetNoPlaylists": "没有歌单",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{首歌} other{首歌曲}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "歌单名称",
+  "playlistSheetCancel": "取消",
+  "playlistSheetAddedTo": "已添加到 {name}",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "创建失败: 认证错误",
+  "playlistSheetCreateFail": "创建失败: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "创建",
+  "appUpdateAvailable": "有可用更新",
+  "appUpdateDesc": "版本 {version} 现已发布！请更新以体验新功能。",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "下载更新",
+  "navHome": "首页",
+  "navLibrary": "音乐库",
+  "navSearch": "搜索",
+  "navSettings": "设置",
+  "navProfile": "我的",
+  "artistSelect": "选择歌手",
+  "songActionQueue": "添加到队列",
+  "songActionPlaylist": "添加到歌单",
+  "songActionFinding": "正在查找...",
+  "songActionAlbum": "查看专辑",
+  "songActionArtist": "查看歌手",
+  "songActionRemovePlaylist": "从歌单中移除",
+  "songActionRemoveDownload": "从下载中移除",
+  "songActionDownloadChecking": "正在检查...",
+  "songActionDownloading": "正在下载...",
+  "songActionDownloaded": "已下载！",
+  "songActionDownloadAlready": "已下载",
+  "songActionDownloadFailed": "下载失败",
+  "songActionDownload": "下载",
+  "songActionDownloadingSnack": "正在下载",
+  "songActionView": "查看",
+  "spotifyImportTitle": "从 Spotify 导入",
+  "spotifyImportSubtitle": "选择歌单大小",
+  "spotifyChoiceSmallTitle": "100 首歌以内",
+  "spotifyChoiceSmallDesc": "粘贴公开的 Spotify 链接。",
+  "spotifyChoiceLargeTitle": "超过 100 首歌",
+  "spotifyChoiceLargeDesc": "连接您自己的 Spotify 开发者应用。",
+  "cancelButton": "取消",
+  "spotifyPlaylistsTitle": "Spotify 歌单",
+  "spotifyPlaylistsErrorMsg": "错误: {error}\n请检查您的 Client ID。",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "您的音乐库中没有歌单",
+  "spotifyPlaylistsTracks": "{count} 首歌",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "导入",
+  "audioPlaybackFailed": "播放失败。",
+  "audioControlPrevious": "上一首",
+  "audioControlPause": "暂停",
+  "audioControlPlay": "播放",
+  "audioControlNext": "下一首",
+  "audioControlUnlike": "取消喜欢",
+  "audioControlLike": "喜欢",
+  "spotifyRawResponseError": "原始响应: {data}\n\n错误: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "无效的 Client ID。",
+  "apiErrorBadRequest": "请求无效。请检查您的数据。",
+  "apiErrorUnauthorized": "未授权。请重新登录。",
+  "apiErrorForbidden": "被拒绝。您没有访问权限。",
+  "apiErrorNotFound": "找不到请求的资源。",
+  "apiErrorEmailInUse": "该邮箱已被使用。",
+  "apiErrorUserNotFound": "找不到使用此邮箱的账户。",
+  "apiErrorWrongPassword": "密码错误。",
+  "apiErrorInvalidCredential": "登录失败。请检查您的登录信息。",
+  "apiErrorNetwork": "网络错误。请检查您的网络连接。",
+  "apiErrorSocketTimeout": "连接超时。请稍后再试。",
+  "apiErrorTooManyRequests": "请求过多。请稍后再试。",
+  "apiErrorServerError": "服务器出错。请稍后再试。",
+  "apiErrorInvalidEmail": "请提供有效的邮箱地址。",
+  "apiErrorWeakPassword": "密码太简单。请至少使用 6 个字符。",
+  "apiErrorTooManyAttempts": "失败尝试过多。请稍后再试。"
+}

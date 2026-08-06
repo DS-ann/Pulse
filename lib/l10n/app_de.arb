@@ -1,0 +1,574 @@
+{
+  "@@locale": "de",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "Über",
+  "artistPopular": "Beliebt",
+  "artistAlbums": "Alben",
+  "artistSinglesAndEPs": "Singles & EPs",
+  "artistSubscribersCount": "{count} Abonnenten",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "Alle abspielen",
+  "artistLoadError": "Künstler konnte nicht geladen werden",
+  "artistGoBack": "Zurück",
+  "adminChatFailedToReply": "Antwort fehlgeschlagen: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "Support-Chat",
+  "adminChatError": "Fehler: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "Kein Nachrichtenverlauf.",
+  "adminChatSupportYou": "Support (Du)",
+  "adminChatTypeReply": "Antwort schreiben...",
+  "broadcastSuccess": "Ankündigung erfolgreich gesendet!",
+  "broadcastFailed": "Senden fehlgeschlagen: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "Globale Ankündigung",
+  "broadcastSubtitle": "An alle Nutzer gesendet",
+  "broadcastWarning": "Diese Nachricht wird von allen gesehen.",
+  "broadcastError": "Fehler: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "Keine globalen Ankündigungen.",
+  "broadcastTypeMessage": "Ankündigung schreiben...",
+  "commFailedToSend": "Senden fehlgeschlagen: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "Admin-Dashboard",
+  "commAdminSupport": "Support",
+  "commAlwaysHere": "Immer hier, um zu helfen",
+  "commWelcomeTitle": "Hallo! 👋 Ich bin Ashutosh Pathak",
+  "commWelcomeSubtitle": "Pulse Ersteller",
+  "commWelcomeBody1": "Ich hoffe, du genießt werbefreie Musik. Musik sollte keine Barrieren haben.\n\nDies ist dein Bereich, um direkt mit mir zu sprechen.\n\nDu kannst senden:",
+  "commBullet1": "Dein Feedback",
+  "commBullet2": "Fehlerberichte",
+  "commBullet3": "Neue Feature-Ideen",
+  "commWelcomeBody2": "Ich lese jede Nachricht persönlich.\n\nHast du Ideen für eine neue App? Lass es mich wissen! Wenn möglich, werde ich sie entwickeln.\n\nDanke, dass du ein Teil davon bist. ❤️",
+  "commError": "Fehler: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "Noch keine Nachrichten",
+  "commNoMessagesDesc": "Sende eine Nachricht an den Support oder schau später nach.",
+  "commMessageSupportHint": "Nachricht schreiben...",
+  "commGlobalAnnouncements": "Globale Ankündigungen",
+  "commSendMessagesToAll": "An alle senden",
+  "homeGreetingMorning": "Guten Morgen,",
+  "homeGreetingAfternoon": "Guten Tag,",
+  "homeGreetingEvening": "Guten Abend,",
+  "homeMember": "Mitglied",
+  "homeRecentPlaylists": "Letzte Playlists",
+  "homeRecentlyPlayed": "Zuletzt gehört",
+  "homeSpeedDial": "Schnellzugriff",
+  "homeNoContent": "Kein Inhalt",
+  "homeRefresh": "Aktualisieren",
+  "homeLoadError": "Feed konnte nicht geladen werden.",
+  "homeRetry": "Erneut versuchen",
+  "importSuccess": "Spotify erfolgreich verbunden!",
+  "importFailed": "Verbindung fehlgeschlagen: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify verbinden",
+  "importSetupTitle": "Spotify-Einrichtung",
+  "importSetupDesc": "Verwende deinen eigenen Entwicklerschlüssel, um Playlists blitzschnell zu importieren:",
+  "importStep1": "Öffne das Spotify Developer Dashboard.",
+  "importStep2": "Melde dich an und klicke auf 'Create app'.",
+  "importStep3": "Gib deiner App einen Namen und eine Beschreibung.",
+  "importStep4": "Füge unter 'Redirect URIs' diesen genauen Link ein:",
+  "importRedirectCopied": "Redirect-URI kopiert!",
+  "importStep5": "Speichern, die 'Client ID' kopieren und unten einfügen.",
+  "importImportant": "Wichtig: Ein aktives Spotify Premium Abonnement wird benötigt.",
+  "importClientIdHint": "Füge deine Spotify Client ID hier ein...",
+  "importConnectButton": "Verbinden & Bibliothek laden",
+  "downloadingNoActive": "Keine aktiven Downloads",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "Downloads",
+  "downloadsStats": "{count} Titel • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "Keine Offline-Songs",
+  "downloadsNoOfflineDesc": "Deine heruntergeladenen Songs erscheinen hier",
+  "downloadsClearAllTitle": "Alles löschen?",
+  "downloadsClearAllDesc": "Dadurch werden {count} Songs gelöscht und {size} Speicherplatz freigegeben.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "Abbrechen",
+  "downloadsClearAll": "Alles löschen",
+  "downloadsSongsCount": "{count} Titel",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} Titel",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "Die Haupt-Download-Playlist kann nicht umbenannt werden.",
+  "downloadsRename": "Umbenennen",
+  "downloadsEditSongs": "Songs bearbeiten",
+  "downloadsDelete": "Löschen",
+  "downloadsRenamePlaylistTitle": "Playlist umbenennen",
+  "downloadsRenamePlaylistDesc": "Gib einen neuen Namen für die Playlist ein.",
+  "downloadsDeletePlaylistTitle": "Playlist löschen?",
+  "downloadsDeleteMasterDesc": "Bist du sicher? Du verlierst permanent alle heruntergeladenen Songs und Playlists.",
+  "downloadsDeletePlaylistDesc": "Bist du sicher, dass du '{name}' löschen möchtest? Dies kann nicht rückgängig gemacht werden.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "Speichern",
+  "downloadsNoSongs": "Diese Playlist hat keine Songs.",
+  "libraryTitle": "Bibliothek",
+  "libraryPauseAll": "Alle pausieren",
+  "libraryResumeAll": "Alle fortsetzen",
+  "libraryTabPlaylists": "Playlists",
+  "libraryTabDownloads": "Downloads",
+  "libraryTabDownloading": "Wird heruntergeladen",
+  "libraryImportedTask": "{name} importiert",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "Warten...",
+  "libraryImportFetching": "Playlist wird abgerufen...",
+  "libraryImportProcessed": "{processed}/{total} verarbeitet · {matched} Treffer",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "Wird gespeichert...",
+  "libraryImportDoneSongs": "{matched} Songs hinzugefügt · Tippe ×",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "Alle Songs hinzugefügt · Tippe ×",
+  "libraryAddButton": "Hinzufügen",
+  "librarySortRecent": "Zuletzt hinzugefügt",
+  "librarySortAlpha": "Alphabetisch",
+  "libraryEmptyTitle": "Deine Bibliothek ist leer.",
+  "libraryEmptyDesc": "Tippe auf 'Hinzufügen', um zu beginnen.",
+  "libraryRenameLikedError": "Die Playlist 'Lieblingssongs' kann nicht umbenannt werden.",
+  "libraryRename": "Umbenennen",
+  "libraryEditSongs": "Songs bearbeiten",
+  "libraryDeleteLikedError": "Die Playlist 'Lieblingssongs' kann nicht gelöscht werden.",
+  "libraryDelete": "Löschen",
+  "libraryEditSongsTitle": "Songs bearbeiten",
+  "libraryEditSongsCountSingle": "{count} Titel",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} Titel",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "Abbrechen",
+  "librarySave": "Speichern",
+  "libraryNoSongs": "Diese Playlist hat keine Songs.",
+  "libraryAddOptionsTitle": "Zur Bibliothek hinzufügen",
+  "libraryAddOptionsDesc": "Wie möchtest du deine Pulse-Bibliothek erweitern?",
+  "libraryImportPulse": "Von Pulse importieren",
+  "libraryImportPulseDesc": "Pulse-Playlist-URL einfügen",
+  "libraryImportYtm": "Von YT Music importieren",
+  "libraryImportYtmDesc": "Öffentlichen Link einfügen",
+  "libraryImportSpotify": "Von Spotify importieren",
+  "libraryImportSpotifyDesc": "Verbinde dein Spotify",
+  "libraryClose": "Schließen",
+  "libraryImportYtmFull": "Von YouTube Music importieren",
+  "libraryImportSpotifyFull": "Von Spotify importieren (≤100)",
+  "libraryImportYtmUrlDesc": "Füge den öffentlichen Link zu einer Playlist oder einem Album von YouTube Music hier ein",
+  "libraryImportSpotifyUrlDesc": "Füge den öffentlichen Link zu einer Spotify-Playlist hier ein",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse-Playlist konnte nicht importiert werden",
+  "importErrorPlaylist": "Importfehler",
+  "importErrorHighlyPopulated": "Die Playlist ist stark gefüllt, das kann eine Weile dauern.",
+  "libraryImportBtn": "Importieren",
+  "libraryCreateTitle": "Neue Playlist",
+  "libraryCreateDesc": "Wie soll deine neue Playlist heißen?",
+  "libraryCreateHint": "Z.B. Roadtrip",
+  "libraryCreateBtn": "Erstellen",
+  "libraryRenameTitle": "Playlist umbenennen",
+  "libraryRenameDesc": "Gib einen neuen Namen ein.",
+  "libraryRenameBtn": "Umbenennen",
+  "libraryDeleteTitle": "Playlist löschen?",
+  "libraryDeleteDesc": "Bist du sicher, dass du '{name}' löschen möchtest? Dies ist dauerhaft.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "Löschen",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "Neueste",
+  "librarySongsCount": "{count} Titel",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "Demnächst",
+  "loginErrName": "Bitte gib deinen Namen ein",
+  "loginErrEmail": "Bitte gib deine E-Mail ein",
+  "loginErrPassword": "Bitte gib dein Passwort ein",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "Spüre jeden Beat!",
+  "loginMadeWithHeartBy": "Mit ❤️ gemacht von: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "Dein Name",
+  "loginHintEmail": "E-Mail-Adresse",
+  "loginHintPassword": "Passwort",
+  "loginErrEmailReset": "Bitte gib eine E-Mail zum Zurücksetzen ein",
+  "loginResetSent": "Gesendet! Überprüfe deinen Posteingang.",
+  "loginForgotPwd": "Passwort vergessen?",
+  "loginBtnSignup": "Konto erstellen",
+  "loginBtnSignin": "Anmelden",
+  "loginToggleHaveAccount": "Hast du bereits ein Pulse-Konto? ",
+  "loginToggleNoAccount": "Noch kein Pulse-Konto? ",
+  "loginToggleSignin": "Anmelden",
+  "loginToggleSignup": "Registrieren",
+  "offlineStillOffline": "Immer noch offline. Bitte überprüfe deine Verbindung.",
+  "offlineTitle": "Du bist offline",
+  "offlineSubtitle": "Keine Internetverbindung.\nÜberprüfe dein Netzwerk und versuche es erneut.",
+  "offlineChecking": "Wird geprüft...",
+  "offlineRetry": "Erneut versuchen",
+  "offlineGoToDownloads": "Zu Downloads gehen",
+  "playerMadeWithHeartBy": "Mit ❤️ gemacht von: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "Für Songtext wischen",
+  "playerNoLyrics": "Kein Songtext verfügbar",
+  "playerUpNext": "Als nächstes",
+  "playerNoTracksInQueue": "Keine Titel in der Warteschlange",
+  "playerNoMusicPlaying": "Es wird keine Musik abgespielt",
+  "playerPickAVibe": "Wähle einen Song aus der Bibliothek",
+  "playerGoHome": "Zur Startseite gehen",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "Equalizer",
+  "playerEqCustom": "Benutzerdefiniert",
+  "playlistDownloads": "Downloads",
+  "playlistOffline": "Offline-Playlist",
+  "playlistDurationHours": "{hours} Std. {mins} Min.",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins} Min.",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "Auf Seite suchen",
+  "playlistSongsAndDuration": "{count} Titel • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "Neueste",
+  "playlistNoMatches": "Keine Treffer gefunden.",
+  "playlistNoTracks": "Diese Playlist hat keine Titel.",
+  "playlistNoSongsYet": "Noch keine Songs.",
+  "playlistSortRecentlyAdded": "Zuletzt hinzugefügt",
+  "playlistSortAlphabetical": "Alphabetisch",
+  "playlistDownloadingSongs": "Lade {count} {count, plural, =1{Titel} other{Titel}} herunter",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "Ansehen",
+  "playlistAllDownloaded": "Alles heruntergeladen",
+  "playlistShareText": "Hör dir '{name}' auf Pulse an!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "Aus Downloads entfernen",
+  "playlistRemoveFromPlaylist": "Aus Playlist entfernen",
+  "playlistLoadError": "Playlist konnte nicht geladen werden.",
+  "playlistGoBack": "← Zurück",
+  "profileNotLoggedIn": "Nicht angemeldet",
+  "profileSignIn": "Anmelden",
+  "profileDefaultUser": "Pulse-Nutzer",
+  "profileEditProfile": "Profil bearbeiten",
+  "profileTimeframeDay": "Tag",
+  "profileTimeframeWeek": "Woche",
+  "profileTimeframeMonth": "Monat",
+  "profileTimeframeYear": "Jahr",
+  "profileListeningTime": "Hörzeit",
+  "profileToday": "Heute",
+  "profileThisWeek": "Diese Woche",
+  "profileThisMonth": "Diesen Monat",
+  "profileThisYear": "Dieses Jahr",
+  "profileDailyAvg": "Tagesdurchschnitt",
+  "profilePerDay": "/Tag",
+  "profileLifetimeListening": "Insgesamt",
+  "profileTotalTimeListened": "Gesamte Hörzeit auf Pulse",
+  "profileYourTopSongs": "Deine Top-Songs",
+  "profileListeningHistoryEmpty": "Dein Hörverlauf wird hier angezeigt.",
+  "profilePlays": "{count} {count, plural, =1{Wiedergabe} other{Wiedergaben}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "Deine Top-Künstler",
+  "profileTopArtistsEmpty": "Deine Lieblingskünstler werden hier angezeigt.",
+  "profileArtistLabel": "Künstler",
+  "profileSignOut": "Abmelden",
+  "profileVersion": "Version {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "Mit ❤️ gemacht von: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "Profil bearbeiten",
+  "profileDisplayName": "Anzeigename",
+  "profileCancel": "Abbrechen",
+  "profileSave": "Speichern",
+  "profileChooseAvatar": "Avatar wählen",
+  "searchMicPermissionRequired": "Mikrofonberechtigung ist erforderlich",
+  "searchUnknownSong": "Unbekannter Song",
+  "searchUnknownArtist": "Unbekannter Künstler",
+  "searchNoSongDetected": "Es wurde kein Song erkannt.",
+  "searchError": "Fehler: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "Sprachsuche nicht verfügbar",
+  "searchHint": "Song, Künstler, Album...",
+  "searchRecentEmpty": "Deine letzten Suchen werden hier angezeigt",
+  "searchRecentSearches": "Letzte Suchen",
+  "searchClearAll": "Alles löschen",
+  "searchNoResultsFor": "Keine Ergebnisse für '{query}'",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "Versuche andere Suchbegriffe",
+  "searchTopResult": "Top-Ergebnis",
+  "searchSongsLabel": "Songs",
+  "searchArtistsLabel": "Künstler",
+  "searchAlbumsLabel": "Alben",
+  "searchPlaylistsLabel": "Playlists",
+  "searchArtistLabel": "Künstler",
+  "searchListening": "Ich höre...",
+  "searchSpeakNow": "Jetzt sprechen",
+  "searchCancel": "Abbrechen",
+  "searchIdentifying": "Wird identifiziert...",
+  "searchListeningForSong": "Höre auf Song...",
+  "settingsTitle": "Einstellungen",
+  "settingsStreamingQuality": "Streaming-Qualität",
+  "settingsQualityAutomatic": "Automatisch",
+  "settingsQualityLow": "Niedrig",
+  "settingsQualityNormal": "Normal",
+  "settingsQualityHigh": "Hoch",
+  "settingsDownloadQuality": "Download-Qualität",
+  "settingsPlayback": "Wiedergabe",
+  "settingsCrossfade": "Crossfade",
+  "settingsCrossfadeDesc": "Songs sanft überblenden",
+  "settingsDataUsage": "Datennutzung",
+  "settingsDataSaver": "Datensparmodus",
+  "settingsDataSaverDesc": "In Mobilfunknetzen mit geringerer Qualität streamen",
+  "settingsAppearance": "Erscheinungsbild",
+  "settingsLanguage": "Sprache",
+  "settingsCustomAccent": "Akzentfarbe",
+  "settingsSaturation": "Sättigung",
+  "settingsBrightness": "Helligkeit",
+  "settingsResetDefault": "Standard wiederherstellen",
+  "playlistSheetTitle": "Zur Playlist hinzufügen",
+  "playlistSheetNewPlaylist": "Neue Playlist",
+  "playlistSheetNoPlaylists": "Keine Playlists",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{Titel} other{Titel}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "Playlist-Name",
+  "playlistSheetCancel": "Abbrechen",
+  "playlistSheetAddedTo": "Zu {name} hinzugefügt",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "Erstellen fehlgeschlagen: Authentifizierungsfehler",
+  "playlistSheetCreateFail": "Erstellen fehlgeschlagen: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "Erstellen",
+  "appUpdateAvailable": "Update verfügbar",
+  "appUpdateDesc": "Version {version} ist da! Aktualisiere für neue Funktionen.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "Update herunterladen",
+  "navHome": "Start",
+  "navLibrary": "Bibliothek",
+  "navSearch": "Suchen",
+  "navSettings": "Einstellungen",
+  "navProfile": "Profil",
+  "artistSelect": "Wähle den Künstler",
+  "songActionQueue": "Zur Warteschlange",
+  "songActionPlaylist": "Zur Playlist",
+  "songActionFinding": "Suchen...",
+  "songActionAlbum": "Zum Album",
+  "songActionArtist": "Zum Künstler",
+  "songActionRemovePlaylist": "Aus Playlist entfernen",
+  "songActionRemoveDownload": "Aus Downloads entfernen",
+  "songActionDownloadChecking": "Prüfen...",
+  "songActionDownloading": "Herunterladen...",
+  "songActionDownloaded": "Heruntergeladen!",
+  "songActionDownloadAlready": "Bereits heruntergeladen",
+  "songActionDownloadFailed": "Download fehlgeschlagen",
+  "songActionDownload": "Herunterladen",
+  "songActionDownloadingSnack": "Wird heruntergeladen",
+  "songActionView": "Ansehen",
+  "spotifyImportTitle": "Von Spotify importieren",
+  "spotifyImportSubtitle": "Wähle die Playlist-Größe",
+  "spotifyChoiceSmallTitle": "100 Songs oder weniger",
+  "spotifyChoiceSmallDesc": "Füge einen öffentlichen Spotify-Link ein.",
+  "spotifyChoiceLargeTitle": "Mehr als 100 Songs",
+  "spotifyChoiceLargeDesc": "Verbinde deine eigene Spotify Developer App.",
+  "cancelButton": "Abbrechen",
+  "spotifyPlaylistsTitle": "Spotify Playlists",
+  "spotifyPlaylistsErrorMsg": "Fehler: {error}\nBitte überprüfe deine Client ID.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "Keine Playlists in deiner Bibliothek",
+  "spotifyPlaylistsTracks": "{count} Titel",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "Importieren",
+  "audioPlaybackFailed": "Wiedergabe fehlgeschlagen.",
+  "audioControlPrevious": "Zurück",
+  "audioControlPause": "Pause",
+  "audioControlPlay": "Abspielen",
+  "audioControlNext": "Weiter",
+  "audioControlUnlike": "Gefällt mir nicht mehr",
+  "audioControlLike": "Gefällt mir",
+  "spotifyRawResponseError": "Rohe Antwort: {data}\n\nFehler: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "Ungültige Client ID.",
+  "apiErrorBadRequest": "Ungültige Anfrage. Bitte überprüfe deine Daten.",
+  "apiErrorUnauthorized": "Nicht autorisiert. Bitte melde dich erneut an.",
+  "apiErrorForbidden": "Verboten. Du hast keinen Zugriff auf diese Ressource.",
+  "apiErrorNotFound": "Die angeforderte Ressource wurde nicht gefunden.",
+  "apiErrorEmailInUse": "Diese E-Mail-Adresse wird bereits verwendet.",
+  "apiErrorUserNotFound": "Kein Konto mit dieser E-Mail gefunden.",
+  "apiErrorWrongPassword": "Falsches Passwort.",
+  "apiErrorInvalidCredential": "Anmeldung fehlgeschlagen. Bitte überprüfe deine Daten.",
+  "apiErrorNetwork": "Netzwerkfehler. Bitte überprüfe deine Internetverbindung.",
+  "apiErrorSocketTimeout": "Verbindung abgelaufen. Bitte versuche es später.",
+  "apiErrorTooManyRequests": "Zu viele Anfragen. Bitte versuche es später.",
+  "apiErrorServerError": "Serverfehler. Bitte versuche es später.",
+  "apiErrorInvalidEmail": "Bitte gib eine gültige E-Mail-Adresse an.",
+  "apiErrorWeakPassword": "Das Passwort ist zu schwach. Verwende mindestens 6 Zeichen.",
+  "apiErrorTooManyAttempts": "Zu viele fehlgeschlagene Versuche. Bitte versuche es später."
+}

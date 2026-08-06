@@ -1,0 +1,574 @@
+{
+  "@@locale": "id",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "Tentang",
+  "artistPopular": "Populer",
+  "artistAlbums": "Album",
+  "artistSinglesAndEPs": "Single & EP",
+  "artistSubscribersCount": "{count} pelanggan",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "Putar Semua",
+  "artistLoadError": "Gagal memuat artis",
+  "artistGoBack": "Kembali",
+  "adminChatFailedToReply": "Gagal membalas: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "Obrolan Dukungan",
+  "adminChatError": "Kesalahan: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "Tidak ada riwayat pesan.",
+  "adminChatSupportYou": "Dukungan (Anda)",
+  "adminChatTypeReply": "Ketik balasan...",
+  "broadcastSuccess": "Pengumuman berhasil dikirim!",
+  "broadcastFailed": "Gagal mengirim: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "Pengumuman Global",
+  "broadcastSubtitle": "Dikirim ke semua pengguna",
+  "broadcastWarning": "Pesan ini akan dilihat oleh semua orang.",
+  "broadcastError": "Kesalahan: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "Tidak ada pengumuman global.",
+  "broadcastTypeMessage": "Ketik pengumuman...",
+  "commFailedToSend": "Gagal mengirim: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "Dasbor Admin",
+  "commAdminSupport": "Dukungan",
+  "commAlwaysHere": "Selalu siap membantu",
+  "commWelcomeTitle": "Halo! 👋 Saya Ashutosh Pathak",
+  "commWelcomeSubtitle": "Pembuat Pulse",
+  "commWelcomeBody1": "Semoga Anda menikmati pengalaman musik tanpa iklan. Musik harus tanpa batas.\n\nIni adalah ruang Anda untuk berbicara langsung dengan saya.\n\nJangan ragu untuk mengirim:",
+  "commBullet1": "Umpan balik Anda",
+  "commBullet2": "Laporan bug",
+  "commBullet3": "Ide fitur baru",
+  "commWelcomeBody2": "Saya membaca setiap pesan secara pribadi.\n\nPunya ide untuk aplikasi baru? Beri tahu saya! Jika memungkinkan, saya akan membuatnya.\n\nTerima kasih telah menjadi bagian dari ini. ❤️",
+  "commError": "Kesalahan: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "Belum ada pesan",
+  "commNoMessagesDesc": "Kirim pesan ke dukungan atau periksa lagi nanti.",
+  "commMessageSupportHint": "Ketik pesan...",
+  "commGlobalAnnouncements": "Pengumuman Global",
+  "commSendMessagesToAll": "Kirim ke Semua",
+  "homeGreetingMorning": "Selamat Pagi,",
+  "homeGreetingAfternoon": "Selamat Siang,",
+  "homeGreetingEvening": "Selamat Malam,",
+  "homeMember": "Anggota",
+  "homeRecentPlaylists": "Daftar Putar Terbaru",
+  "homeRecentlyPlayed": "Baru Diputar",
+  "homeSpeedDial": "Akses Cepat",
+  "homeNoContent": "Tidak ada konten",
+  "homeRefresh": "Segarkan",
+  "homeLoadError": "Gagal memuat feed.",
+  "homeRetry": "Coba Lagi",
+  "importSuccess": "Berhasil terhubung ke Spotify!",
+  "importFailed": "Gagal menghubungkan: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Hubungkan Spotify",
+  "importSetupTitle": "Pengaturan Spotify",
+  "importSetupDesc": "Gunakan kunci pengembang Anda sendiri untuk mengimpor daftar putar Anda dengan cepat:",
+  "importStep1": "Buka Spotify Developer Dashboard.",
+  "importStep2": "Masuk dan klik 'Create app'.",
+  "importStep3": "Beri nama dan deskripsi aplikasi Anda.",
+  "importStep4": "Di bawah 'Redirect URIs', rekatkan tautan tepat ini:",
+  "importRedirectCopied": "Redirect URI disalin!",
+  "importStep5": "Simpan, salin 'Client ID' dan rekatkan di bawah ini.",
+  "importImportant": "Penting: Diperlukan langganan Spotify Premium yang aktif.",
+  "importClientIdHint": "Rekatkan Spotify Client ID Anda di sini...",
+  "importConnectButton": "Hubungkan & Muat Pustaka",
+  "downloadingNoActive": "Tidak ada unduhan aktif",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "Unduhan",
+  "downloadsStats": "{count} lagu • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "Tidak ada lagu luring",
+  "downloadsNoOfflineDesc": "Lagu unduhan Anda akan muncul di sini",
+  "downloadsClearAllTitle": "Hapus Semua?",
+  "downloadsClearAllDesc": "Ini akan menghapus {count} lagu dan membebaskan {size} penyimpanan.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "Batal",
+  "downloadsClearAll": "Hapus Semua",
+  "downloadsSongsCount": "{count} lagu",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} lagu",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "Daftar putar unduhan utama tidak dapat diganti nama.",
+  "downloadsRename": "Ganti Nama",
+  "downloadsEditSongs": "Edit Lagu",
+  "downloadsDelete": "Hapus",
+  "downloadsRenamePlaylistTitle": "Ganti Nama Daftar Putar",
+  "downloadsRenamePlaylistDesc": "Masukkan nama baru untuk daftar putar.",
+  "downloadsDeletePlaylistTitle": "Hapus Daftar Putar?",
+  "downloadsDeleteMasterDesc": "Apakah Anda yakin? Anda akan kehilangan semua lagu dan daftar putar yang diunduh secara permanen.",
+  "downloadsDeletePlaylistDesc": "Apakah Anda yakin ingin menghapus '{name}'? Ini akan hilang selamanya.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "Simpan",
+  "downloadsNoSongs": "Daftar putar ini tidak memiliki lagu.",
+  "libraryTitle": "Koleksi",
+  "libraryPauseAll": "Jeda Semua",
+  "libraryResumeAll": "Lanjutkan Semua",
+  "libraryTabPlaylists": "Daftar Putar",
+  "libraryTabDownloads": "Unduhan",
+  "libraryTabDownloading": "Mengunduh",
+  "libraryImportedTask": "Mengimpor {name}",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "Menunggu...",
+  "libraryImportFetching": "Mengambil daftar putar...",
+  "libraryImportProcessed": "Diproses {processed}/{total} · Cocok {matched}",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "Menyimpan...",
+  "libraryImportDoneSongs": "{matched} lagu ditambahkan · ketuk × untuk tutup",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "Semua lagu ditambahkan · ketuk ×",
+  "libraryAddButton": "Tambah",
+  "librarySortRecent": "Baru Ditambahkan",
+  "librarySortAlpha": "Abjad",
+  "libraryEmptyTitle": "Koleksi Anda kosong.",
+  "libraryEmptyDesc": "Ketuk 'Tambah' untuk memulai.",
+  "libraryRenameLikedError": "Daftar Lagu yang Disukai tidak dapat diganti namanya.",
+  "libraryRename": "Ganti Nama",
+  "libraryEditSongs": "Edit Lagu",
+  "libraryDeleteLikedError": "Daftar Lagu yang Disukai tidak dapat dihapus.",
+  "libraryDelete": "Hapus",
+  "libraryEditSongsTitle": "Edit Lagu",
+  "libraryEditSongsCountSingle": "{count} lagu",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} lagu",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "Batal",
+  "librarySave": "Simpan",
+  "libraryNoSongs": "Daftar putar ini tidak memiliki lagu.",
+  "libraryAddOptionsTitle": "Tambah ke Koleksi",
+  "libraryAddOptionsDesc": "Pilih cara memperluas koleksi Pulse Anda",
+  "libraryImportPulse": "Impor dari Pulse",
+  "libraryImportPulseDesc": "Tempel URL daftar putar Pulse",
+  "libraryImportYtm": "Impor dari YT Music",
+  "libraryImportYtmDesc": "Tempel tautan publik",
+  "libraryImportSpotify": "Impor dari Spotify",
+  "libraryImportSpotifyDesc": "Hubungkan Spotify Anda",
+  "libraryClose": "Tutup",
+  "libraryImportYtmFull": "Impor dari YouTube Music",
+  "libraryImportSpotifyFull": "Impor dari Spotify (≤100)",
+  "libraryImportYtmUrlDesc": "Tempel tautan publik ke daftar putar atau album dari YouTube Music di sini",
+  "libraryImportSpotifyUrlDesc": "Tempel tautan publik ke daftar putar dari Spotify di sini",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Gagal mengimpor daftar putar Pulse",
+  "importErrorPlaylist": "Kesalahan Impor",
+  "importErrorHighlyPopulated": "Daftar putarnya besar, ini mungkin memakan waktu agak lama.",
+  "libraryImportBtn": "Impor",
+  "libraryCreateTitle": "Daftar Putar Baru",
+  "libraryCreateDesc": "Apa nama daftar putar baru Anda?",
+  "libraryCreateHint": "Misal: Perjalanan Jauh",
+  "libraryCreateBtn": "Buat",
+  "libraryRenameTitle": "Ganti Nama Daftar",
+  "libraryRenameDesc": "Masukkan nama baru.",
+  "libraryRenameBtn": "Ganti Nama",
+  "libraryDeleteTitle": "Hapus Daftar?",
+  "libraryDeleteDesc": "Apakah Anda yakin ingin menghapus '{name}'? Ini akan hilang selamanya.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "Hapus",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "Terbaru",
+  "librarySongsCount": "{count} lagu",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "Segera Hadir",
+  "loginErrName": "Silakan ketik nama Anda",
+  "loginErrEmail": "Silakan masukkan email Anda",
+  "loginErrPassword": "Silakan masukkan kata sandi Anda",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "Rasakan setiap ketukan!",
+  "loginMadeWithHeartBy": "Dibuat dengan ❤️ oleh: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "Nama Anda",
+  "loginHintEmail": "Alamat Email",
+  "loginHintPassword": "Kata Sandi",
+  "loginErrEmailReset": "Silakan masukkan email untuk mereset",
+  "loginResetSent": "Terkirim! Periksa kotak masuk Anda.",
+  "loginForgotPwd": "Lupa Kata Sandi?",
+  "loginBtnSignup": "Buat Akun",
+  "loginBtnSignin": "Masuk",
+  "loginToggleHaveAccount": "Sudah punya akun Pulse? ",
+  "loginToggleNoAccount": "Belum punya akun Pulse? ",
+  "loginToggleSignin": "Masuk",
+  "loginToggleSignup": "Daftar",
+  "offlineStillOffline": "Masih luring. Harap periksa koneksi Anda.",
+  "offlineTitle": "Anda Sedang Luring",
+  "offlineSubtitle": "Tidak ada koneksi internet.\nPeriksa jaringan Anda dan coba lagi.",
+  "offlineChecking": "Memeriksa...",
+  "offlineRetry": "Coba Lagi",
+  "offlineGoToDownloads": "Buka Unduhan",
+  "playerMadeWithHeartBy": "Dibuat dengan ❤️ oleh: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "Usap untuk Lirik",
+  "playerNoLyrics": "Lirik tidak tersedia",
+  "playerUpNext": "Selanjutnya",
+  "playerNoTracksInQueue": "Tidak ada lagu dalam antrean",
+  "playerNoMusicPlaying": "Tidak ada musik yang diputar",
+  "playerPickAVibe": "Pilih lagu dari koleksi",
+  "playerGoHome": "Ke Beranda",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "Ekualiser",
+  "playerEqCustom": "Kustom",
+  "playlistDownloads": "Unduhan",
+  "playlistOffline": "Daftar Luring",
+  "playlistDurationHours": "{hours}j {mins}m",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}m",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "Cari di halaman",
+  "playlistSongsAndDuration": "{count} lagu • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "Terbaru",
+  "playlistNoMatches": "Tidak ada yang cocok.",
+  "playlistNoTracks": "Daftar putar ini tidak memiliki lagu.",
+  "playlistNoSongsYet": "Belum ada lagu.",
+  "playlistSortRecentlyAdded": "Baru Ditambahkan",
+  "playlistSortAlphabetical": "Abjad",
+  "playlistDownloadingSongs": "Mengunduh {count} {count, plural, =1{lagu} other{lagu}}",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "Lihat",
+  "playlistAllDownloaded": "Semua terunduh",
+  "playlistShareText": "Dengarkan '{name}' di Pulse!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "Hapus dari Unduhan",
+  "playlistRemoveFromPlaylist": "Hapus dari Daftar Putar",
+  "playlistLoadError": "Gagal memuat.",
+  "playlistGoBack": "← Kembali",
+  "profileNotLoggedIn": "Belum Masuk",
+  "profileSignIn": "Masuk",
+  "profileDefaultUser": "Pengguna Pulse",
+  "profileEditProfile": "Edit Profil",
+  "profileTimeframeDay": "Hari",
+  "profileTimeframeWeek": "Minggu",
+  "profileTimeframeMonth": "Bulan",
+  "profileTimeframeYear": "Tahun",
+  "profileListeningTime": "Waktu Mendengar",
+  "profileToday": "Hari Ini",
+  "profileThisWeek": "Minggu Ini",
+  "profileThisMonth": "Bulan Ini",
+  "profileThisYear": "Tahun Ini",
+  "profileDailyAvg": "Rata-rata Harian",
+  "profilePerDay": "/hari",
+  "profileLifetimeListening": "Sepanjang Waktu",
+  "profileTotalTimeListened": "Total Waktu di Pulse",
+  "profileYourTopSongs": "Lagu Teratas Anda",
+  "profileListeningHistoryEmpty": "Riwayat pendengaran Anda akan muncul di sini.",
+  "profilePlays": "{count} {count, plural, =1{putaran} other{putaran}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "Artis Teratas Anda",
+  "profileTopArtistsEmpty": "Artis favorit Anda akan muncul di sini.",
+  "profileArtistLabel": "Artis",
+  "profileSignOut": "Keluar",
+  "profileVersion": "Versi {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "Dibuat dengan ❤️ oleh: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "Edit Profil",
+  "profileDisplayName": "Nama Tampilan",
+  "profileCancel": "Batal",
+  "profileSave": "Simpan",
+  "profileChooseAvatar": "Pilih Avatar",
+  "searchMicPermissionRequired": "Izin mikrofon diperlukan",
+  "searchUnknownSong": "Lagu Tidak Dikenal",
+  "searchUnknownArtist": "Artis Tidak Dikenal",
+  "searchNoSongDetected": "Tidak ada lagu yang terdeteksi.",
+  "searchError": "Kesalahan: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "Pencarian suara tidak tersedia",
+  "searchHint": "Lagu, Artis, Album...",
+  "searchRecentEmpty": "Pencarian terbaru Anda akan muncul di sini",
+  "searchRecentSearches": "Pencarian Terbaru",
+  "searchClearAll": "Hapus Semua",
+  "searchNoResultsFor": "Tidak ada hasil untuk '{query}'",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "Coba kata kunci yang berbeda",
+  "searchTopResult": "Hasil Teratas",
+  "searchSongsLabel": "Lagu",
+  "searchArtistsLabel": "Artis",
+  "searchAlbumsLabel": "Album",
+  "searchPlaylistsLabel": "Daftar Putar",
+  "searchArtistLabel": "Artis",
+  "searchListening": "Mendengarkan...",
+  "searchSpeakNow": "Bicara sekarang",
+  "searchCancel": "Batal",
+  "searchIdentifying": "Mengidentifikasi...",
+  "searchListeningForSong": "Mendengarkan lagu...",
+  "settingsTitle": "Pengaturan",
+  "settingsStreamingQuality": "Kualitas Streaming",
+  "settingsQualityAutomatic": "Otomatis",
+  "settingsQualityLow": "Rendah",
+  "settingsQualityNormal": "Normal",
+  "settingsQualityHigh": "Tinggi",
+  "settingsDownloadQuality": "Kualitas Unduhan",
+  "settingsPlayback": "Pemutaran",
+  "settingsCrossfade": "Transisi Lintas",
+  "settingsCrossfadeDesc": "Menyambungkan lagu dengan mulus",
+  "settingsDataUsage": "Penggunaan Data",
+  "settingsDataSaver": "Penghemat Data",
+  "settingsDataSaverDesc": "Streaming dengan kualitas lebih rendah",
+  "settingsAppearance": "Tampilan",
+  "settingsLanguage": "Bahasa",
+  "settingsCustomAccent": "Warna Aksen",
+  "settingsSaturation": "Saturasi",
+  "settingsBrightness": "Kecerahan",
+  "settingsResetDefault": "Kembalikan ke Default",
+  "playlistSheetTitle": "Tambah ke Daftar",
+  "playlistSheetNewPlaylist": "Daftar Putar Baru",
+  "playlistSheetNoPlaylists": "Tidak ada daftar",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{lagu} other{lagu}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "Nama Daftar Putar",
+  "playlistSheetCancel": "Batal",
+  "playlistSheetAddedTo": "Ditambahkan ke {name}",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "Gagal membuat: Kesalahan autentikasi",
+  "playlistSheetCreateFail": "Gagal membuat: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "Buat",
+  "appUpdateAvailable": "Pembaruan Tersedia",
+  "appUpdateDesc": "Versi {version} sudah ada! Perbarui sekarang.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "Unduh Pembaruan",
+  "navHome": "Beranda",
+  "navLibrary": "Koleksi",
+  "navSearch": "Cari",
+  "navSettings": "Pengaturan",
+  "navProfile": "Profil",
+  "artistSelect": "Pilih Artis",
+  "songActionQueue": "Tambah ke Antrean",
+  "songActionPlaylist": "Tambah ke Daftar Putar",
+  "songActionFinding": "Mencari...",
+  "songActionAlbum": "Pergi ke Album",
+  "songActionArtist": "Pergi ke Artis",
+  "songActionRemovePlaylist": "Hapus dari Daftar",
+  "songActionRemoveDownload": "Hapus dari Unduhan",
+  "songActionDownloadChecking": "Memeriksa...",
+  "songActionDownloading": "Mengunduh...",
+  "songActionDownloaded": "Terunduh!",
+  "songActionDownloadAlready": "Sudah diunduh",
+  "songActionDownloadFailed": "Gagal mengunduh",
+  "songActionDownload": "Unduh",
+  "songActionDownloadingSnack": "Mengunduh",
+  "songActionView": "Lihat",
+  "spotifyImportTitle": "Impor dari Spotify",
+  "spotifyImportSubtitle": "Pilih ukuran daftar putar",
+  "spotifyChoiceSmallTitle": "100 lagu atau kurang",
+  "spotifyChoiceSmallDesc": "Tempel tautan publik.",
+  "spotifyChoiceLargeTitle": "Lebih dari 100 lagu",
+  "spotifyChoiceLargeDesc": "Hubungkan Spotify Developer App Anda.",
+  "cancelButton": "Batal",
+  "spotifyPlaylistsTitle": "Daftar Putar Spotify",
+  "spotifyPlaylistsErrorMsg": "Kesalahan: {error}\nPeriksa Client ID Anda.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "Tidak ada daftar putar",
+  "spotifyPlaylistsTracks": "{count} lagu",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "Impor",
+  "audioPlaybackFailed": "Gagal memutar.",
+  "audioControlPrevious": "Sebelumnya",
+  "audioControlPause": "Jeda",
+  "audioControlPlay": "Putar",
+  "audioControlNext": "Selanjutnya",
+  "audioControlUnlike": "Batal Suka",
+  "audioControlLike": "Suka",
+  "spotifyRawResponseError": "Respons mentah: {data}\n\nKesalahan: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "Client ID tidak valid.",
+  "apiErrorBadRequest": "Permintaan buruk. Periksa data Anda.",
+  "apiErrorUnauthorized": "Tidak sah. Silakan masuk kembali.",
+  "apiErrorForbidden": "Dilarang. Anda tidak memiliki akses.",
+  "apiErrorNotFound": "Sumber daya tidak ditemukan.",
+  "apiErrorEmailInUse": "Alamat email ini sudah digunakan.",
+  "apiErrorUserNotFound": "Tidak ada akun dengan email ini.",
+  "apiErrorWrongPassword": "Kata sandi salah.",
+  "apiErrorInvalidCredential": "Gagal masuk. Periksa kredensial Anda.",
+  "apiErrorNetwork": "Kesalahan jaringan. Periksa koneksi Anda.",
+  "apiErrorSocketTimeout": "Waktu habis. Silakan coba lagi.",
+  "apiErrorTooManyRequests": "Terlalu banyak permintaan. Coba lagi nanti.",
+  "apiErrorServerError": "Kesalahan server. Coba lagi nanti.",
+  "apiErrorInvalidEmail": "Berikan alamat email yang valid.",
+  "apiErrorWeakPassword": "Kata sandi terlalu lemah. Gunakan minimal 6 karakter.",
+  "apiErrorTooManyAttempts": "Terlalu banyak percobaan gagal. Coba lagi nanti."
+}
