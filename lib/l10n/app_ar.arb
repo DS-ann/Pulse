@@ -1,0 +1,574 @@
+{
+  "@@locale": "ar",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "حول",
+  "artistPopular": "رائجة",
+  "artistAlbums": "ألبومات",
+  "artistSinglesAndEPs": "أغاني منفردة و EPs",
+  "artistSubscribersCount": "{count} مشترك",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "تشغيل الكل",
+  "artistLoadError": "تعذر تحميل الفنان",
+  "artistGoBack": "العودة",
+  "adminChatFailedToReply": "فشل الرد: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "دردشة الدعم",
+  "adminChatError": "خطأ: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "لا يوجد سجل رسائل.",
+  "adminChatSupportYou": "الدعم (أنت)",
+  "adminChatTypeReply": "اكتب رداً...",
+  "broadcastSuccess": "تم إرسال الإعلان بنجاح!",
+  "broadcastFailed": "فشل الإرسال: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "إعلان عام",
+  "broadcastSubtitle": "مرسل لجميع المستخدمين",
+  "broadcastWarning": "سيشاهد الجميع هذه الرسالة.",
+  "broadcastError": "خطأ: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "لا توجد إعلانات عامة.",
+  "broadcastTypeMessage": "اكتب رسالة الإعلان...",
+  "commFailedToSend": "فشل الإرسال: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "لوحة الإدارة",
+  "commAdminSupport": "الدعم",
+  "commAlwaysHere": "دائماً هنا للمساعدة",
+  "commWelcomeTitle": "مرحباً! 👋 أنا Ashutosh Pathak",
+  "commWelcomeSubtitle": "مطور Pulse",
+  "commWelcomeBody1": "أتمنى أن تستمتع بتجربة موسيقية خالية من الإعلانات. يجب أن تكون الموسيقى متاحة للجميع.\n\nهذه المساحة مخصصة للتواصل معي مباشرة.\n\nلا تتردد في مشاركة:",
+  "commBullet1": "ملاحظاتك",
+  "commBullet2": "الإبلاغ عن أخطاء",
+  "commBullet3": "اقتراح ميزات جديدة",
+  "commWelcomeBody2": "أقرأ كل رسالة شخصياً.\n\nهل لديك أفكار لتطبيق جديد؟ أخبرني! وسأحاول برمجته إن أمكن.\n\nشكراً لكونك جزءاً من هذا التطبيق. ❤️",
+  "commError": "خطأ: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "لا توجد رسائل بعد",
+  "commNoMessagesDesc": "أرسل رسالة للدعم أو تحقق لاحقاً.",
+  "commMessageSupportHint": "اكتب رسالة...",
+  "commGlobalAnnouncements": "إعلانات عامة",
+  "commSendMessagesToAll": "إرسال للجميع",
+  "homeGreetingMorning": "صباح الخير،",
+  "homeGreetingAfternoon": "طاب مساؤك،",
+  "homeGreetingEvening": "مساء الخير،",
+  "homeMember": "عضو",
+  "homeRecentPlaylists": "قوائم التشغيل الأخيرة",
+  "homeRecentlyPlayed": "تم تشغيلها مؤخراً",
+  "homeSpeedDial": "الوصول السريع",
+  "homeNoContent": "لا يوجد محتوى",
+  "homeRefresh": "تحديث",
+  "homeLoadError": "فشل في تحميل الخلاصة.",
+  "homeRetry": "إعادة المحاولة",
+  "importSuccess": "تم الاتصال بحساب Spotify بنجاح!",
+  "importFailed": "فشل الاتصال: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "الاتصال بحساب Spotify",
+  "importSetupTitle": "إعداد Spotify",
+  "importSetupDesc": "استخدم مفتاح المطور الخاص بك لاستيراد قوائم التشغيل بسرعة:",
+  "importStep1": "افتح لوحة تحكم مطوري Spotify.",
+  "importStep2": "قم بتسجيل الدخول وانقر على 'Create app'.",
+  "importStep3": "أدخل اسماً ووصفاً للتطبيق.",
+  "importStep4": "ضمن 'Redirect URIs'، انسخ هذا الرابط المحدد:",
+  "importRedirectCopied": "تم نسخ رابط إعادة التوجيه!",
+  "importStep5": "احفظ التغييرات، وانسخ 'Client ID' والصقه أدناه.",
+  "importImportant": "هام: يتطلب اشتراك Spotify Premium فعال.",
+  "importClientIdHint": "الصق Spotify Client ID هنا...",
+  "importConnectButton": "اتصال وتحميل المكتبة",
+  "downloadingNoActive": "لا يوجد تحميلات نشطة",
+  "downloadingMb": "{value} ميغابايت",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "التنزيلات",
+  "downloadsStats": "{count} أغنية • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "لا توجد أغاني محفوظة",
+  "downloadsNoOfflineDesc": "ستظهر الأغاني المحملة هنا",
+  "downloadsClearAllTitle": "مسح الكل؟",
+  "downloadsClearAllDesc": "سيؤدي هذا إلى حذف {count} أغنية وتحرير {size} من مساحة التخزين.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "إلغاء",
+  "downloadsClearAll": "مسح الكل",
+  "downloadsSongsCount": "{count} أغنية",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} أغنية",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "لا يمكن إعادة تسمية قائمة التنزيلات الرئيسية.",
+  "downloadsRename": "إعادة تسمية",
+  "downloadsEditSongs": "تعديل الأغاني",
+  "downloadsDelete": "حذف",
+  "downloadsRenamePlaylistTitle": "إعادة تسمية القائمة",
+  "downloadsRenamePlaylistDesc": "أدخل اسماً جديداً للقائمة.",
+  "downloadsDeletePlaylistTitle": "حذف القائمة؟",
+  "downloadsDeleteMasterDesc": "هل أنت متأكد؟ ستفقد كافة الأغاني والقوائم المحملة نهائياً.",
+  "downloadsDeletePlaylistDesc": "هل أنت متأكد من حذف '{name}'؟ لا يمكن التراجع عن هذا الإجراء.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "حفظ",
+  "downloadsNoSongs": "هذه القائمة لا تحتوي على أغاني.",
+  "libraryTitle": "المكتبة",
+  "libraryPauseAll": "إيقاف الكل",
+  "libraryResumeAll": "استئناف الكل",
+  "libraryTabPlaylists": "قوائم التشغيل",
+  "libraryTabDownloads": "التنزيلات",
+  "libraryTabDownloading": "جاري التحميل",
+  "libraryImportedTask": "تم استيراد {name}",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "في الانتظار...",
+  "libraryImportFetching": "جاري جلب القائمة...",
+  "libraryImportProcessed": "تمت معالجة {processed}/{total} · {matched} متطابقة",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "يتم الحفظ في المكتبة...",
+  "libraryImportDoneSongs": "أضيفت {matched} أغنية · انقر × للإغلاق",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "أضيفت كل الأغاني · انقر × للإغلاق",
+  "libraryAddButton": "إضافة",
+  "librarySortRecent": "أضيفت مؤخراً",
+  "librarySortAlpha": "أبجدياً",
+  "libraryEmptyTitle": "مكتبتك فارغة.",
+  "libraryEmptyDesc": "انقر على 'إضافة' لإنشاء نبضك الأول.",
+  "libraryRenameLikedError": "لا يمكن إعادة تسمية الأغاني المفضلة.",
+  "libraryRename": "إعادة التسمية",
+  "libraryEditSongs": "تعديل الأغاني",
+  "libraryDeleteLikedError": "لا يمكن حذف الأغاني المفضلة.",
+  "libraryDelete": "حذف",
+  "libraryEditSongsTitle": "تعديل الأغاني",
+  "libraryEditSongsCountSingle": "{count} أغنية",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} أغنية",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "إلغاء",
+  "librarySave": "حفظ",
+  "libraryNoSongs": "هذه القائمة لا تحتوي على أغاني.",
+  "libraryAddOptionsTitle": "أضف إلى المكتبة",
+  "libraryAddOptionsDesc": "اختر كيف تريد توسيع مكتبة Pulse الخاصة بك",
+  "libraryImportPulse": "استيراد من Pulse",
+  "libraryImportPulseDesc": "الصق رابط قائمة تشغيل Pulse",
+  "libraryImportYtm": "استيراد من YT Music",
+  "libraryImportYtmDesc": "الصق رابطاً عاماً",
+  "libraryImportSpotify": "استيراد من Spotify",
+  "libraryImportSpotifyDesc": "قم بربط حساب Spotify الخاص بك",
+  "libraryClose": "إغلاق",
+  "libraryImportYtmFull": "استيراد من YouTube Music",
+  "libraryImportSpotifyFull": "استيراد من Spotify (≤100 أغنية)",
+  "libraryImportYtmUrlDesc": "الصق الرابط العام لقائمة التشغيل أو الألبوم من YouTube Music هنا",
+  "libraryImportSpotifyUrlDesc": "الصق الرابط العام لقائمة التشغيل من Spotify هنا",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "فشل في استيراد قائمة تشغيل Pulse",
+  "importErrorPlaylist": "خطأ في استيراد القائمة",
+  "importErrorHighlyPopulated": "القائمة كبيرة الحجم وقد تستغرق بعض الوقت.",
+  "libraryImportBtn": "استيراد",
+  "libraryCreateTitle": "قائمة جديدة",
+  "libraryCreateDesc": "ماذا سيكون اسم قائمتك الجديدة؟",
+  "libraryCreateHint": "مثال: موسيقى الطريق",
+  "libraryCreateBtn": "إنشاء",
+  "libraryRenameTitle": "إعادة التسمية",
+  "libraryRenameDesc": "أدخل اسماً جديداً للقائمة.",
+  "libraryRenameBtn": "إعادة التسمية",
+  "libraryDeleteTitle": "حذف القائمة؟",
+  "libraryDeleteDesc": "هل أنت متأكد من حذف '{name}'؟ هذا الإجراء نهائي.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "حذف",
+  "librarySortLabelAlpha": "أ-ي",
+  "librarySortLabelRecent": "الأخيرة",
+  "librarySongsCount": "{count} أغنية",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "قريباً",
+  "loginErrName": "يرجى كتابة اسمك",
+  "loginErrEmail": "يرجى إدخال بريدك الإلكتروني",
+  "loginErrPassword": "يرجى إدخال كلمة المرور",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "اشعر بكل نبضة!",
+  "loginMadeWithHeartBy": "صُنع بـ ❤️ بواسطة: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "اسمك",
+  "loginHintEmail": "عنوان البريد الإلكتروني",
+  "loginHintPassword": "كلمة المرور",
+  "loginErrEmailReset": "يرجى إدخال بريد للاستعادة",
+  "loginResetSent": "تم الإرسال! تفقد صندوق الوارد.",
+  "loginForgotPwd": "نسيت كلمة المرور؟",
+  "loginBtnSignup": "إنشاء حساب",
+  "loginBtnSignin": "تسجيل الدخول",
+  "loginToggleHaveAccount": "هل لديك حساب؟ ",
+  "loginToggleNoAccount": "ليس لديك حساب؟ ",
+  "loginToggleSignin": "تسجيل الدخول",
+  "loginToggleSignup": "إنشاء حساب",
+  "offlineStillOffline": "لا تزال غير متصل. يرجى التحقق من الشبكة.",
+  "offlineTitle": "أنت غير متصل",
+  "offlineSubtitle": "لا يوجد اتصال بالإنترنت.\nتأكد من الشبكة وحاول مرة أخرى.",
+  "offlineChecking": "يتم التحقق...",
+  "offlineRetry": "إعادة المحاولة",
+  "offlineGoToDownloads": "اذهب للتنزيلات",
+  "playerMadeWithHeartBy": "صُنع بـ ❤️ بواسطة: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "اسحب للكلمات",
+  "playerNoLyrics": "لا توجد كلمات متاحة",
+  "playerUpNext": "التالي",
+  "playerNoTracksInQueue": "لا توجد مسارات في قائمة الانتظار",
+  "playerNoMusicPlaying": "لا توجد موسيقى قيد التشغيل",
+  "playerPickAVibe": "اختر أغنية من المكتبة",
+  "playerGoHome": "اذهب للرئيسية",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "المُعادل (Equalizer)",
+  "playerEqCustom": "مخصص",
+  "playlistDownloads": "التنزيلات",
+  "playlistOffline": "قائمة المحفوظات",
+  "playlistDurationHours": "{hours}س {mins}د",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}د",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "بحث في الصفحة",
+  "playlistSongsAndDuration": "{count} أغنية • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "أ-ي",
+  "playlistSortRecent": "الأخيرة",
+  "playlistNoMatches": "لا توجد نتائج مطابقة.",
+  "playlistNoTracks": "لا توجد مسارات هنا.",
+  "playlistNoSongsYet": "لا توجد أغاني بعد.",
+  "playlistSortRecentlyAdded": "أضيفت مؤخراً",
+  "playlistSortAlphabetical": "أبجدياً",
+  "playlistDownloadingSongs": "جاري تنزيل {count} {count, plural, =1{أغنية} other{أغنية}}",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "عرض",
+  "playlistAllDownloaded": "تم التنزيل بالكامل",
+  "playlistShareText": "استمع لـ '{name}' على Pulse!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "إزالة من التنزيلات",
+  "playlistRemoveFromPlaylist": "إزالة من القائمة",
+  "playlistLoadError": "تعذر التحميل.",
+  "playlistGoBack": "← رجوع",
+  "profileNotLoggedIn": "لم تقم بتسجيل الدخول",
+  "profileSignIn": "تسجيل الدخول",
+  "profileDefaultUser": "مستخدم Pulse",
+  "profileEditProfile": "تعديل الملف",
+  "profileTimeframeDay": "يوم",
+  "profileTimeframeWeek": "أسبوع",
+  "profileTimeframeMonth": "شهر",
+  "profileTimeframeYear": "سنة",
+  "profileListeningTime": "وقت الاستماع",
+  "profileToday": "اليوم",
+  "profileThisWeek": "هذا الأسبوع",
+  "profileThisMonth": "هذا الشهر",
+  "profileThisYear": "هذا العام",
+  "profileDailyAvg": "المتوسط اليومي",
+  "profilePerDay": "/يوم",
+  "profileLifetimeListening": "الإجمالي",
+  "profileTotalTimeListened": "إجمالي الاستماع على Pulse",
+  "profileYourTopSongs": "أكثر الأغاني استماعاً",
+  "profileListeningHistoryEmpty": "سيظهر سجل استماعك هنا.",
+  "profilePlays": "{count} {count, plural, =1{تشغيل} other{تشغيل}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "أكثر الفنانين استماعاً",
+  "profileTopArtistsEmpty": "سيظهر فنانوك المفضلون هنا.",
+  "profileArtistLabel": "فنان",
+  "profileSignOut": "تسجيل الخروج",
+  "profileVersion": "الإصدار {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "صُنع بـ ❤️ بواسطة: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "تعديل الملف الشخصي",
+  "profileDisplayName": "الاسم الظاهر",
+  "profileCancel": "إلغاء",
+  "profileSave": "حفظ",
+  "profileChooseAvatar": "اختر صورة",
+  "searchMicPermissionRequired": "إذن الميكروفون مطلوب",
+  "searchUnknownSong": "أغنية غير معروفة",
+  "searchUnknownArtist": "فنان غير معروف",
+  "searchNoSongDetected": "لم يتم التعرف على أي أغنية.",
+  "searchError": "خطأ: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "البحث الصوتي غير متاح",
+  "searchHint": "أغنية، فنان، ألبوم...",
+  "searchRecentEmpty": "ستظهر عمليات البحث الأخيرة هنا",
+  "searchRecentSearches": "عمليات البحث الأخيرة",
+  "searchClearAll": "مسح الكل",
+  "searchNoResultsFor": "لا توجد نتائج لـ '{query}'",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "حاول استخدام كلمات مفتاحية مختلفة",
+  "searchTopResult": "أفضل نتيجة",
+  "searchSongsLabel": "الأغاني",
+  "searchArtistsLabel": "الفنانون",
+  "searchAlbumsLabel": "الألبومات",
+  "searchPlaylistsLabel": "قوائم التشغيل",
+  "searchArtistLabel": "فنان",
+  "searchListening": "يستمع...",
+  "searchSpeakNow": "تحدث الآن",
+  "searchCancel": "إلغاء",
+  "searchIdentifying": "يتم التعرف...",
+  "searchListeningForSong": "نستمع للأغنية...",
+  "settingsTitle": "الإعدادات",
+  "settingsStreamingQuality": "جودة البث",
+  "settingsQualityAutomatic": "تلقائي",
+  "settingsQualityLow": "منخفضة",
+  "settingsQualityNormal": "عادية",
+  "settingsQualityHigh": "عالية",
+  "settingsDownloadQuality": "جودة التنزيل",
+  "settingsPlayback": "التشغيل",
+  "settingsCrossfade": "التلاشي المتقاطع",
+  "settingsCrossfadeDesc": "مزج الأغاني ببعضها",
+  "settingsDataUsage": "استخدام البيانات",
+  "settingsDataSaver": "موفر البيانات",
+  "settingsDataSaverDesc": "بث بجودة منخفضة على الشبكات الخلوية",
+  "settingsAppearance": "المظهر",
+  "settingsLanguage": "اللغة",
+  "settingsCustomAccent": "لون مميز",
+  "settingsSaturation": "التشبع",
+  "settingsBrightness": "السطوع",
+  "settingsResetDefault": "استعادة الافتراضي",
+  "playlistSheetTitle": "إضافة إلى القائمة",
+  "playlistSheetNewPlaylist": "قائمة جديدة",
+  "playlistSheetNoPlaylists": "لا توجد قوائم",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{أغنية} other{أغنية}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "اسم القائمة",
+  "playlistSheetCancel": "إلغاء",
+  "playlistSheetAddedTo": "أضيفت إلى {name}",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "فشل الإنشاء: خطأ في المصادقة",
+  "playlistSheetCreateFail": "فشل الإنشاء: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "إنشاء",
+  "appUpdateAvailable": "تحديث متوفر",
+  "appUpdateDesc": "الإصدار {version} متوفر الآن! قم بالتحديث.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "تنزيل التحديث",
+  "navHome": "الرئيسية",
+  "navLibrary": "المكتبة",
+  "navSearch": "بحث",
+  "navSettings": "الإعدادات",
+  "navProfile": "الملف",
+  "artistSelect": "اختر الفنان",
+  "songActionQueue": "أضف لقائمة الانتظار",
+  "songActionPlaylist": "أضف لقائمة تشغيل",
+  "songActionFinding": "جاري البحث...",
+  "songActionAlbum": "الذهاب للألبوم",
+  "songActionArtist": "الذهاب للفنان",
+  "songActionRemovePlaylist": "إزالة من القائمة",
+  "songActionRemoveDownload": "إزالة من التنزيلات",
+  "songActionDownloadChecking": "جاري التحقق...",
+  "songActionDownloading": "جاري التنزيل...",
+  "songActionDownloaded": "تم التنزيل!",
+  "songActionDownloadAlready": "تم تنزيلها مسبقاً",
+  "songActionDownloadFailed": "فشل التنزيل",
+  "songActionDownload": "تنزيل",
+  "songActionDownloadingSnack": "جاري التنزيل",
+  "songActionView": "عرض",
+  "spotifyImportTitle": "استيراد من Spotify",
+  "spotifyImportSubtitle": "اختر حجم القائمة",
+  "spotifyChoiceSmallTitle": "100 أغنية أو أقل",
+  "spotifyChoiceSmallDesc": "الصق الرابط العام لقائمة التشغيل.",
+  "spotifyChoiceLargeTitle": "أكثر من 100 أغنية",
+  "spotifyChoiceLargeDesc": "اربط حساب مطور Spotify الخاص بك.",
+  "cancelButton": "إلغاء",
+  "spotifyPlaylistsTitle": "قوائم Spotify",
+  "spotifyPlaylistsErrorMsg": "خطأ: {error}\nتحقق من Client ID.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "لا توجد قوائم في مكتبتك",
+  "spotifyPlaylistsTracks": "{count} مسار",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "استيراد",
+  "audioPlaybackFailed": "فشل التشغيل.",
+  "audioControlPrevious": "السابق",
+  "audioControlPause": "إيقاف مؤقت",
+  "audioControlPlay": "تشغيل",
+  "audioControlNext": "التالي",
+  "audioControlUnlike": "إلغاء الإعجاب",
+  "audioControlLike": "إعجاب",
+  "spotifyRawResponseError": "استجابة خام: {data}\n\nخطأ: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "معرف العميل (Client ID) غير صالح.",
+  "apiErrorBadRequest": "طلب سيء. يرجى التحقق من بياناتك.",
+  "apiErrorUnauthorized": "غير مصرح لك. يرجى تسجيل الدخول مرة أخرى.",
+  "apiErrorForbidden": "ممنوع. لا تملك صلاحية الوصول.",
+  "apiErrorNotFound": "المورد المطلوب غير موجود.",
+  "apiErrorEmailInUse": "البريد الإلكتروني هذا مستخدم مسبقاً.",
+  "apiErrorUserNotFound": "لا يوجد حساب بهذا البريد الإلكتروني.",
+  "apiErrorWrongPassword": "كلمة المرور غير صحيحة.",
+  "apiErrorInvalidCredential": "فشل تسجيل الدخول. يرجى التحقق من بياناتك.",
+  "apiErrorNetwork": "خطأ في الشبكة. يرجى التحقق من اتصالك بالإنترنت.",
+  "apiErrorSocketTimeout": "انتهت مهلة الاتصال. يرجى المحاولة لاحقاً.",
+  "apiErrorTooManyRequests": "طلبات كثيرة جداً. يرجى المحاولة لاحقاً.",
+  "apiErrorServerError": "حدث خطأ في الخادم. يرجى المحاولة لاحقاً.",
+  "apiErrorInvalidEmail": "يرجى تقديم عنوان بريد إلكتروني صالح.",
+  "apiErrorWeakPassword": "كلمة المرور ضعيفة جداً. استخدم 6 أحرف على الأقل.",
+  "apiErrorTooManyAttempts": "محاولات فشل كثيرة. يرجى المحاولة لاحقاً."
+}

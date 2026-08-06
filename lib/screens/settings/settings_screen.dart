@@ -448,6 +448,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     if (localeCode == 'ru') return 'Русский';
     if (localeCode == 'ja') return '日本語';
     if (localeCode == 'ko') return '한국어';
+    if (localeCode == 'pt') return 'Português';
+    if (localeCode == 'ar') return 'العربية';
+    if (localeCode == 'es') return 'Español';
     return 'English';
   }
 
@@ -501,6 +504,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           _languageItem(ctx, 'ru', 'Русский', settings.appLocale, accent),
                           _languageItem(ctx, 'ja', '日本語', settings.appLocale, accent),
                           _languageItem(ctx, 'ko', '한국어', settings.appLocale, accent),
+                          _languageItem(ctx, 'pt', 'Português', settings.appLocale, accent),
+                          _languageItem(ctx, 'ar', 'العربية', settings.appLocale, accent),
+                          _languageItem(ctx, 'es', 'Español', settings.appLocale, accent),
                           const SizedBox(height: 24),
                         ],
                       ),

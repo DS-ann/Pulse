@@ -6,9 +6,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_af.dart';
+import 'app_localizations_ar.dart';
 import 'app_localizations_as.dart';
 import 'app_localizations_bn.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
 import 'app_localizations_fr.dart';
 import 'app_localizations_gu.dart';
 import 'app_localizations_hi.dart';
@@ -21,6 +23,7 @@ import 'app_localizations_mr.dart';
 import 'app_localizations_ne.dart';
 import 'app_localizations_or.dart';
 import 'app_localizations_pa.dart';
+import 'app_localizations_pt.dart';
 import 'app_localizations_ru.dart';
 import 'app_localizations_sa.dart';
 import 'app_localizations_ta.dart';
@@ -114,9 +117,11 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('af'),
+    Locale('ar'),
     Locale('as'),
     Locale('bn'),
     Locale('en'),
+    Locale('es'),
     Locale('fr'),
     Locale('gu'),
     Locale('hi'),
@@ -129,6 +134,7 @@ abstract class AppLocalizations {
     Locale('ne'),
     Locale('or'),
     Locale('pa'),
+    Locale('pt'),
     Locale('ru'),
     Locale('sa'),
     Locale('ta'),
@@ -2267,9 +2273,11 @@ class _AppLocalizationsDelegate
   @override
   bool isSupported(Locale locale) => <String>[
     'af',
+    'ar',
     'as',
     'bn',
     'en',
+    'es',
     'fr',
     'gu',
     'hi',
@@ -2282,6 +2290,7 @@ class _AppLocalizationsDelegate
     'ne',
     'or',
     'pa',
+    'pt',
     'ru',
     'sa',
     'ta',
@@ -2298,12 +2307,16 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'af':
       return AppLocalizationsAf();
+    case 'ar':
+      return AppLocalizationsAr();
     case 'as':
       return AppLocalizationsAs();
     case 'bn':
       return AppLocalizationsBn();
     case 'en':
       return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
     case 'fr':
       return AppLocalizationsFr();
     case 'gu':
@@ -2328,6 +2341,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsOr();
     case 'pa':
       return AppLocalizationsPa();
+    case 'pt':
+      return AppLocalizationsPt();
     case 'ru':
       return AppLocalizationsRu();
     case 'sa':
