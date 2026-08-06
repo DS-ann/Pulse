@@ -444,6 +444,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     if (localeCode == 'gu') return 'ગુજરાતી';
     if (localeCode == 'ur') return 'اردو';
     if (localeCode == 'as') return 'অসমীয়া';
+    if (localeCode == 'fr') return 'Français';
     return 'English';
   }
 
@@ -493,6 +494,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           _languageItem(ctx, 'gu', 'ગુજરાતી', settings.appLocale, accent),
                           _languageItem(ctx, 'ur', 'اردو', settings.appLocale, accent),
                           _languageItem(ctx, 'as', 'অসমীয়া', settings.appLocale, accent),
+                          _languageItem(ctx, 'fr', 'Français', settings.appLocale, accent),
                           const SizedBox(height: 24),
                         ],
                       ),
