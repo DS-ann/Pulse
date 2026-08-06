@@ -191,8 +191,11 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(AppLocalizations.of(context)!.libraryTitle,
-                              style: Theme.of(context).textTheme.headlineLarge),
+                          Flexible(
+                            child: Text(AppLocalizations.of(context)!.libraryTitle,
+                                style: Theme.of(context).textTheme.headlineLarge,
+                                maxLines: 1, overflow: TextOverflow.ellipsis),
+                          ),
                           Row(
                             children: [
                               if (_currentIndex == 0 || _currentIndex == 1) ...[
@@ -248,12 +251,16 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                           size: 16, color: AppColors.textSecondary,
                                         ),
                                         const SizedBox(width: 8),
-                                        Text(
-                                          hasActive ? AppLocalizations.of(context)!.libraryPauseAll : AppLocalizations.of(context)!.libraryResumeAll,
-                                          style: const TextStyle(
-                                            fontSize: 13, 
-                                            fontWeight: FontWeight.w500,
-                                            color: AppColors.textSecondary,
+                                        Flexible(
+                                          child: Text(
+                                            hasActive ? AppLocalizations.of(context)!.libraryPauseAll : AppLocalizations.of(context)!.libraryResumeAll,
+                                            style: const TextStyle(
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.w500,
+                                              color: AppColors.textSecondary,
+                                            ),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
                                       ],
@@ -724,7 +731,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     child: Row(children: [
                       const Icon(LucideIcons.edit2, size: 17), const SizedBox(width: 14),
-                      Text(AppLocalizations.of(context)!.libraryRename, style: const TextStyle(fontSize: 15)),
+                      Flexible(child: Text(AppLocalizations.of(context)!.libraryRename, style: const TextStyle(fontSize: 15), maxLines: 1, overflow: TextOverflow.ellipsis)),
                     ]),
                   ),
                 ),
@@ -744,7 +751,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                     child: Row(children: [
                       const Icon(LucideIcons.listMusic, size: 17), const SizedBox(width: 14),
-                      Text(AppLocalizations.of(context)!.libraryEditSongs, style: const TextStyle(fontSize: 15)),
+                      Flexible(child: Text(AppLocalizations.of(context)!.libraryEditSongs, style: const TextStyle(fontSize: 15), maxLines: 1, overflow: TextOverflow.ellipsis)),
                     ]),
                   ),
                 ),
@@ -772,7 +779,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                     child: Row(children: [
                       const Icon(LucideIcons.trash2, size: 17, color: AppColors.danger),
                       const SizedBox(width: 14),
-                      Text(AppLocalizations.of(context)!.libraryDelete, style: const TextStyle(fontSize: 15, color: AppColors.danger)),
+                      Flexible(child: Text(AppLocalizations.of(context)!.libraryDelete, style: const TextStyle(fontSize: 15, color: AppColors.danger), maxLines: 1, overflow: TextOverflow.ellipsis)),
                     ]),
                   ),
                 ),
@@ -809,21 +816,27 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(AppLocalizations.of(context)!.libraryEditSongsTitle,
-                                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                              const SizedBox(height: 2),
-                              Text(
-                                _editSongsList.length == 1 
-                                    ? AppLocalizations.of(context)!.libraryEditSongsCountSingle('1')
-                                    : AppLocalizations.of(context)!.libraryEditSongsCountPlural(_editSongsList.length.toString()),
-                                style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
-                              ),
-                            ],
+                          Flexible(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(AppLocalizations.of(context)!.libraryEditSongsTitle,
+                                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                                    maxLines: 1, overflow: TextOverflow.ellipsis),
+                                const SizedBox(height: 2),
+                                Text(
+                                  _editSongsList.length == 1 
+                                      ? AppLocalizations.of(context)!.libraryEditSongsCountSingle('1')
+                                      : AppLocalizations.of(context)!.libraryEditSongsCountPlural(_editSongsList.length.toString()),
+                                  style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
+                                  maxLines: 1, overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
                           ),
+                          const SizedBox(width: 8),
                           Row(
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               TextButton(
                                 onPressed: () => setState(() => _showEditSongsModal = false),
@@ -1349,22 +1362,25 @@ class _SortButton extends StatelessWidget {
     final label = sortKey == 'alpha' ? AppLocalizations.of(context)!.librarySortLabelAlpha : AppLocalizations.of(context)!.librarySortLabelRecent;
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: AppColors.surface,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(LucideIcons.arrowUpDown, size: 16, color: AppColors.textSecondary),
-            const SizedBox(width: 8),
-            Text(label, style: const TextStyle(fontSize: 13, color: AppColors.textSecondary)),
-            const SizedBox(width: 4),
-            Icon(sortOrder == 'asc' ? LucideIcons.arrowUp : LucideIcons.arrowDown,
-                size: 14, color: AppColors.textSecondary),
-          ],
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 160),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: AppColors.surface,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(LucideIcons.arrowUpDown, size: 16, color: AppColors.textSecondary),
+              const SizedBox(width: 8),
+              Flexible(child: Text(label, style: const TextStyle(fontSize: 13, color: AppColors.textSecondary), maxLines: 1, overflow: TextOverflow.ellipsis)),
+              const SizedBox(width: 4),
+              Icon(sortOrder == 'asc' ? LucideIcons.arrowUp : LucideIcons.arrowDown,
+                  size: 14, color: AppColors.textSecondary),
+            ],
+          ),
         ),
       ),
     );
@@ -1385,9 +1401,12 @@ class _SortOption extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(label, style: TextStyle(
-                fontSize: 14, fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
-                color: isActive ? Theme.of(context).colorScheme.primary : AppColors.textPrimary)),
+            Flexible(
+              child: Text(label, style: TextStyle(
+                  fontSize: 14, fontWeight: isActive ? FontWeight.w700 : FontWeight.w500,
+                  color: isActive ? Theme.of(context).colorScheme.primary : AppColors.textPrimary),
+                maxLines: 1, overflow: TextOverflow.ellipsis),
+            ),
             if (isActive)
               Icon(sortOrder == 'asc' ? LucideIcons.arrowUp : LucideIcons.arrowDown,
                   size: 14, color: Theme.of(context).colorScheme.primary),

@@ -70,6 +70,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      FocusManager.instance.primaryFocus?.unfocus();
       final song = ref.read(audioProvider).currentSong;
       if (song != null) {
         _fetchLyricsIfNeeded(song);
@@ -133,6 +134,7 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
     );
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           // FIX 4: RepaintBoundary caches the blurred background as its own layer
@@ -223,13 +225,19 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text(AppLocalizations.of(context)!.playerMadeWithHeartBy,
-                                        style: TextStyle(
-                                            fontSize: 9, color: AppColors.textSecondary)),
-                                    Text(AppLocalizations.of(context)!.playerAuthorName,
-                                        style: TextStyle(
-                                            fontSize: 9, fontWeight: FontWeight.bold,
-                                            color: Theme.of(context).colorScheme.primary)),
+                                    Flexible(
+                                      child: Text(AppLocalizations.of(context)!.playerMadeWithHeartBy,
+                                          style: TextStyle(
+                                              fontSize: 9, color: AppColors.textSecondary),
+                                          maxLines: 1, overflow: TextOverflow.ellipsis),
+                                    ),
+                                    Flexible(
+                                      child: Text(AppLocalizations.of(context)!.playerAuthorName,
+                                          style: TextStyle(
+                                              fontSize: 9, fontWeight: FontWeight.bold,
+                                              color: Theme.of(context).colorScheme.primary),
+                                          maxLines: 1, overflow: TextOverflow.ellipsis),
+                                    ),
                                   ],
                                 ),
                               ),

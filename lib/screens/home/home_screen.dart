@@ -132,24 +132,28 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(_greeting(context),
-                style: const TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.w500,
-                    color: AppColors.textSecondary)),
-            const SizedBox(height: 2),
-            ShaderMask(
-              shaderCallback: (bounds) => LinearGradient(
-                colors: [accent, secondary],
-              ).createShader(bounds),
-              child: Text(firstName,
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(_greeting(context),
                   style: const TextStyle(
-                      fontSize: 28, fontWeight: FontWeight.w700,
-                      color: Colors.white)),
-            ),
-          ],
+                      fontSize: 16, fontWeight: FontWeight.w500,
+                      color: AppColors.textSecondary),
+                  maxLines: 1, overflow: TextOverflow.ellipsis),
+              const SizedBox(height: 2),
+              ShaderMask(
+                shaderCallback: (bounds) => LinearGradient(
+                  colors: [accent, secondary],
+                ).createShader(bounds),
+                child: Text(firstName,
+                    style: const TextStyle(
+                        fontSize: 28, fontWeight: FontWeight.w700,
+                        color: Colors.white),
+                    maxLines: 1, overflow: TextOverflow.ellipsis),
+              ),
+            ],
+          ),
         ),
         // Logo
         Image.asset('assets/logo.png', width: 44, height: 44),
@@ -287,10 +291,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(section.title,
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w700,
-                      color: AppColors.textPrimary, letterSpacing: -0.3)),
+              Flexible(
+                child: Text(section.title,
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w700,
+                        color: AppColors.textPrimary, letterSpacing: -0.3),
+                    maxLines: 1, overflow: TextOverflow.ellipsis),
+              ),
               if (hasChevron)
                 const Icon(LucideIcons.chevronRight, size: 20, color: AppColors.textSecondary),
             ],

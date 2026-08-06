@@ -249,23 +249,31 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      _isSignup
-                          ? AppLocalizations.of(context)!.loginToggleHaveAccount
-                          : AppLocalizations.of(context)!.loginToggleNoAccount,
-                      style: const TextStyle(
-                          fontSize: 13, color: AppColors.textSecondary),
-                    ),
-                    GestureDetector(
-                      onTap: () => setState(() {
-                        _isSignup = !_isSignup;
-                        _error = '';
-                      }),
+                    Flexible(
                       child: Text(
-                        _isSignup ? AppLocalizations.of(context)!.loginToggleSignin : AppLocalizations.of(context)!.loginToggleSignup,
-                        style: TextStyle(
-                            fontSize: 13, fontWeight: FontWeight.w700,
-                            color: accent),
+                        _isSignup
+                            ? AppLocalizations.of(context)!.loginToggleHaveAccount
+                            : AppLocalizations.of(context)!.loginToggleNoAccount,
+                        style: const TextStyle(
+                            fontSize: 13, color: AppColors.textSecondary),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Flexible(
+                      child: GestureDetector(
+                        onTap: () => setState(() {
+                          _isSignup = !_isSignup;
+                          _error = '';
+                        }),
+                        child: Text(
+                          _isSignup ? AppLocalizations.of(context)!.loginToggleSignin : AppLocalizations.of(context)!.loginToggleSignup,
+                          style: TextStyle(
+                              fontSize: 13, fontWeight: FontWeight.w700,
+                              color: accent),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ),
                   ],

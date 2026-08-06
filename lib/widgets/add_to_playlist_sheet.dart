@@ -50,8 +50,12 @@ class AddToPlaylistSheet extends ConsumerWidget {
                 children: [
                   Icon(LucideIcons.plusSquare, size: 20, color: accent),
                   const SizedBox(width: 10),
-                  Text(AppLocalizations.of(context)!.playlistSheetTitle,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                  Flexible(
+                    child: Text(AppLocalizations.of(context)!.playlistSheetTitle,
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis),
+                  ),
                 ],
               ),
             ),
@@ -81,12 +85,16 @@ class AddToPlaylistSheet extends ConsumerWidget {
                         child: Icon(LucideIcons.plus, color: accent),
                       ),
                       const SizedBox(width: 16),
-                      Text(
-                        AppLocalizations.of(context)!.playlistSheetNewPlaylist,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                      Flexible(
+                        child: Text(
+                          AppLocalizations.of(context)!.playlistSheetNewPlaylist,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.textPrimary,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],

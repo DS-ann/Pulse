@@ -466,8 +466,13 @@ class _ActionItem extends StatelessWidget {
               else
                 Icon(icon, size: 17, color: color),
               const SizedBox(width: 14),
-              Text(label, style: TextStyle(
-                  fontSize: 15, fontWeight: FontWeight.w500, color: color)),
+              Flexible(
+                child: Text(label, style: TextStyle(
+                    fontSize: 15, fontWeight: FontWeight.w500, color: color),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ],
           ),
         ),

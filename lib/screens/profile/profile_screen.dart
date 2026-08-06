@@ -239,9 +239,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           children: [
                             Icon(LucideIcons.clock, size: 14, color: accent),
                             const SizedBox(width: 6),
-                            Text(AppLocalizations.of(context)!.profileListeningTime,
-                                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
-                                    color: accent, letterSpacing: 1)),
+                            Flexible(
+                              child: Text(AppLocalizations.of(context)!.profileListeningTime,
+                                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
+                                      color: accent, letterSpacing: 1),
+                                  maxLines: 1, overflow: TextOverflow.ellipsis),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 8),
@@ -274,9 +277,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           children: [
                             Icon(LucideIcons.trendingUp, size: 14, color: accent),
                             const SizedBox(width: 6),
-                            Text(AppLocalizations.of(context)!.profileDailyAvg,
-                                style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
-                                    color: accent, letterSpacing: 1)),
+                            Flexible(
+                              child: Text(AppLocalizations.of(context)!.profileDailyAvg,
+                                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
+                                      color: accent, letterSpacing: 1),
+                                  maxLines: 1, overflow: TextOverflow.ellipsis),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 8),
@@ -307,9 +313,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     children: [
                       Icon(LucideIcons.headphones, size: 14, color: accent),
                       const SizedBox(width: 6),
-                      Text(AppLocalizations.of(context)!.profileLifetimeListening,
-                          style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
-                              color: accent, letterSpacing: 1)),
+                      Flexible(
+                        child: Text(AppLocalizations.of(context)!.profileLifetimeListening,
+                            style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,
+                                color: accent, letterSpacing: 1),
+                            maxLines: 1, overflow: TextOverflow.ellipsis),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 8),
@@ -329,8 +338,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               children: [
                 Icon(LucideIcons.playCircle, size: 18, color: accent.withValues(alpha: 0.9)),
                 const SizedBox(width: 8),
-                Text(AppLocalizations.of(context)!.profileYourTopSongs,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                Flexible(
+                  child: Text(AppLocalizations.of(context)!.profileYourTopSongs,
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                      maxLines: 1, overflow: TextOverflow.ellipsis),
+                ),
               ],
             ),
             const SizedBox(height: 12),
@@ -410,8 +422,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               children: [
                 Icon(LucideIcons.mic2, size: 18, color: accent.withValues(alpha: 0.9)),
                 const SizedBox(width: 8),
-                Text(AppLocalizations.of(context)!.profileYourTopArtists,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                Flexible(
+                  child: Text(AppLocalizations.of(context)!.profileYourTopArtists,
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                      maxLines: 1, overflow: TextOverflow.ellipsis),
+                ),
               ],
             ),
             const SizedBox(height: 12),
@@ -522,12 +537,18 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(AppLocalizations.of(context)!.profileMadeWithHeartBy,
-                              style: TextStyle(fontSize: 12,
-                                  color: AppColors.textSecondary)),
-                          Text(AppLocalizations.of(context)!.profileAuthorName,
-                              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold,
-                                  color: accent)),
+                          Flexible(
+                            child: Text(AppLocalizations.of(context)!.profileMadeWithHeartBy,
+                                style: TextStyle(fontSize: 12,
+                                    color: AppColors.textSecondary),
+                                maxLines: 1, overflow: TextOverflow.ellipsis),
+                          ),
+                          Flexible(
+                            child: Text(AppLocalizations.of(context)!.profileAuthorName,
+                                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold,
+                                    color: accent),
+                                maxLines: 1, overflow: TextOverflow.ellipsis),
+                          ),
                         ],
                       ),
                     ),
@@ -782,30 +803,39 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                TextButton(onPressed: () => ctx.pop(), child: Text(AppLocalizations.of(context)!.profileCancel)),
-                                const SizedBox(width: 12),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                Flexible(
+                                  child: TextButton(
+                                    onPressed: () => ctx.pop(),
+                                    child: Text(AppLocalizations.of(context)!.profileCancel,
+                                      maxLines: 1, overflow: TextOverflow.ellipsis),
                                   ),
-                                  onPressed: isSaving ? null : () async {
-                                    final name = _nameC.text.trim();
-                                    if (name.isNotEmpty) {
-                                      setStateSheet(() => isSaving = true);
-                                      await ref.read(authProvider.notifier).updateUserProfile(
-                                            displayName: name,
-                                            photoURL: selectedAvatar ?? '',
-                                          );
-                                      if (ctx.mounted) {
-                                        setStateSheet(() => isSaving = false);
-                                        ctx.pop();
+                                ),
+                                const SizedBox(width: 8),
+                                Flexible(
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                    ),
+                                    onPressed: isSaving ? null : () async {
+                                      final name = _nameC.text.trim();
+                                      if (name.isNotEmpty) {
+                                        setStateSheet(() => isSaving = true);
+                                        await ref.read(authProvider.notifier).updateUserProfile(
+                                              displayName: name,
+                                              photoURL: selectedAvatar ?? '',
+                                            );
+                                        if (ctx.mounted) {
+                                          setStateSheet(() => isSaving = false);
+                                          ctx.pop();
+                                        }
                                       }
-                                    }
-                                  },
-                                  child: isSaving
-                                      ? SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: accent))
-                                      : Text(AppLocalizations.of(context)!.profileSave),
+                                    },
+                                    child: isSaving
+                                        ? SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: accent))
+                                        : Text(AppLocalizations.of(context)!.profileSave,
+                                            maxLines: 1, overflow: TextOverflow.ellipsis),
+                                  ),
                                 ),
                               ],
                             ),

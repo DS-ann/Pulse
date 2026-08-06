@@ -99,9 +99,12 @@ class _EqualizerSheetState extends ConsumerState<EqualizerSheet> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  AppLocalizations.of(context)!.playerEqualizer,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context)!.playerEqualizer,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
+                    maxLines: 1, overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 Switch(
                   value: isEnabled,

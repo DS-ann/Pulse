@@ -115,17 +115,22 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(AppLocalizations.of(context)!.settingsCrossfade, style: const TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.w600)),
-                          const SizedBox(height: 2),
-                          Text(AppLocalizations.of(context)!.settingsCrossfadeDesc,
-                              style: TextStyle(fontSize: 11,
-                                  color: AppColors.textSecondary)),
-                        ],
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(AppLocalizations.of(context)!.settingsCrossfade, style: const TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.w600),
+                              maxLines: 1, overflow: TextOverflow.ellipsis),
+                            const SizedBox(height: 2),
+                            Text(AppLocalizations.of(context)!.settingsCrossfadeDesc,
+                                style: TextStyle(fontSize: 11,
+                                    color: AppColors.textSecondary),
+                              maxLines: 2, overflow: TextOverflow.ellipsis),
+                          ],
+                        ),
                       ),
+                      const SizedBox(width: 12),
                       Text('${settings.crossfadeDuration}s',
                           style: TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w700,
@@ -166,16 +171,20 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(AppLocalizations.of(context)!.settingsDataSaver, style: const TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.w600)),
-                      const SizedBox(height: 2),
-                      Text(AppLocalizations.of(context)!.settingsDataSaverDesc,
-                          style: TextStyle(fontSize: 11,
-                              color: AppColors.textSecondary)),
-                    ],
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(AppLocalizations.of(context)!.settingsDataSaver, style: const TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w600),
+                          maxLines: 1, overflow: TextOverflow.ellipsis),
+                        const SizedBox(height: 2),
+                        Text(AppLocalizations.of(context)!.settingsDataSaverDesc,
+                            style: TextStyle(fontSize: 11,
+                                color: AppColors.textSecondary),
+                          maxLines: 2, overflow: TextOverflow.ellipsis),
+                      ],
+                    ),
                   ),
                   Switch(
                     value: settings.dataSaverMode,
@@ -353,11 +362,17 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(AppLocalizations.of(context)!.profileMadeWithHeartBy,
-                              style: const TextStyle(fontSize: 11,
-                                  color: AppColors.textSecondary)),
-                          Text(AppLocalizations.of(context)!.profileAuthorName,
-                              style: TextStyle(fontSize: 11, color: accent)),
+                          Flexible(
+                            child: Text(AppLocalizations.of(context)!.profileMadeWithHeartBy,
+                                style: const TextStyle(fontSize: 11,
+                                    color: AppColors.textSecondary),
+                                maxLines: 1, overflow: TextOverflow.ellipsis),
+                          ),
+                          Flexible(
+                            child: Text(AppLocalizations.of(context)!.profileAuthorName,
+                                style: TextStyle(fontSize: 11, color: accent),
+                                maxLines: 1, overflow: TextOverflow.ellipsis),
+                          ),
                         ],
                       ),
                     ),
@@ -376,9 +391,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       children: [
         Icon(icon, size: 14, color: AppColors.textSecondary),
         const SizedBox(width: 6),
-        Text(label, style: const TextStyle(
-            fontSize: 12, fontWeight: FontWeight.w600,
-            color: AppColors.textSecondary, letterSpacing: 0.5)),
+        Flexible(
+          child: Text(label, style: const TextStyle(
+              fontSize: 12, fontWeight: FontWeight.w600,
+              color: AppColors.textSecondary, letterSpacing: 0.5),
+            maxLines: 1, overflow: TextOverflow.ellipsis),
+        ),
       ],
     );
   }
@@ -578,7 +596,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         SizedBox(
           width: 72,
           child: Text(label, style: const TextStyle(
-              fontSize: 11, color: AppColors.textSecondary)),
+              fontSize: 11, color: AppColors.textSecondary),
+            maxLines: 1, overflow: TextOverflow.ellipsis),
         ),
         Expanded(
           child: SliderTheme(
