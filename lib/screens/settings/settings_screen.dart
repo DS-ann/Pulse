@@ -454,6 +454,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     if (localeCode == 'zh') return '简体中文';
     if (localeCode == 'de') return 'Deutsch';
     if (localeCode == 'id') return 'Bahasa Indonesia';
+    if (localeCode == 'tr') return 'Türkçe';
+    if (localeCode == 'vi') return 'Tiếng Việt';
+    if (localeCode == 'it') return 'Italiano';
     return 'English';
   }
 
@@ -513,6 +516,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           _languageItem(ctx, 'zh', '简体中文', settings.appLocale, accent),
                           _languageItem(ctx, 'de', 'Deutsch', settings.appLocale, accent),
                           _languageItem(ctx, 'id', 'Bahasa Indonesia', settings.appLocale, accent),
+                          _languageItem(ctx, 'tr', 'Türkçe', settings.appLocale, accent),
+                          _languageItem(ctx, 'vi', 'Tiếng Việt', settings.appLocale, accent),
+                          _languageItem(ctx, 'it', 'Italiano', settings.appLocale, accent),
                           const SizedBox(height: 24),
                         ],
                       ),

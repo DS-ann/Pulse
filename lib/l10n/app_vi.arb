@@ -1,0 +1,574 @@
+{
+  "@@locale": "vi",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "Giới thiệu",
+  "artistPopular": "Phổ biến",
+  "artistAlbums": "Album",
+  "artistSinglesAndEPs": "Đĩa đơn & EP",
+  "artistSubscribersCount": "{count} người đăng ký",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "Phát tất cả",
+  "artistLoadError": "Không thể tải nghệ sĩ",
+  "artistGoBack": "Quay lại",
+  "adminChatFailedToReply": "Không thể trả lời: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "Trò chuyện Hỗ trợ",
+  "adminChatError": "Lỗi: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "Không có lịch sử trò chuyện.",
+  "adminChatSupportYou": "Hỗ trợ (Bạn)",
+  "adminChatTypeReply": "Nhập câu trả lời của bạn...",
+  "broadcastSuccess": "Thông báo đã được phát thành công!",
+  "broadcastFailed": "Không thể phát: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "Thông báo Chung",
+  "broadcastSubtitle": "Gửi cho tất cả người dùng",
+  "broadcastWarning": "Tin nhắn gửi ở đây sẽ hiển thị với mọi người.",
+  "broadcastError": "Lỗi: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "Không có thông báo nào trước đó.",
+  "broadcastTypeMessage": "Nhập thông báo chung...",
+  "commFailedToSend": "Không thể gửi: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "Bảng điều khiển Quản trị",
+  "commAdminSupport": "Hỗ trợ Quản trị",
+  "commAlwaysHere": "Luôn sẵn sàng giúp đỡ",
+  "commWelcomeTitle": "Chào bạn! 👋 Tôi là Ashutosh Pathak",
+  "commWelcomeSubtitle": "Nhà phát triển của Pulse",
+  "commWelcomeBody1": "Hy vọng bạn đang tận hưởng việc nghe những bản nhạc yêu thích mà không bị quảng cáo phiền nhiễu hay rào cản đăng ký. Dù sao thì âm nhạc cũng không nên bị chặn lại sau một bức tường phí chỉ vì ai đó trong phòng họp cần thêm một chiếc du thuyền.\n\nPhần này ở đây để chúng ta có thể kết nối trực tiếp.\n\nHãy thoải mái:",
+  "commBullet1": "Chia sẻ phản hồi của bạn",
+  "commBullet2": "Báo cáo lỗi",
+  "commBullet3": "Đề xuất các tính năng mới mà bạn muốn thấy",
+  "commWelcomeBody2": "Tôi đích thân đọc mọi tin nhắn và sẽ cố gắng hết sức để cải thiện ứng dụng dựa trên các đề xuất của bạn.\n\nCó ý tưởng về một ứng dụng chưa tồn tại hoặc một ứng dụng bị khóa đằng sau các gói đăng ký đắt tiền? Hãy cho tôi biết! Nếu có thể, tôi sẽ cố gắng xây dựng nó và cung cấp miễn phí cho mọi người.\n\nCảm ơn bạn đã sử dụng ứng dụng của tôi và đồng hành cùng tôi trên hành trình này. ❤️",
+  "commError": "Lỗi: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "Chưa có tin nhắn nào",
+  "commNoMessagesDesc": "Gửi tin nhắn cho nhóm hỗ trợ của chúng tôi hoặc kiểm tra lại sau để xem các thông báo.",
+  "commMessageSupportHint": "Nhắn tin cho bộ phận hỗ trợ...",
+  "commGlobalAnnouncements": "Thông báo Chung",
+  "commSendMessagesToAll": "Gửi tin nhắn cho tất cả người dùng",
+  "homeGreetingMorning": "Chào buổi sáng,",
+  "homeGreetingAfternoon": "Chào buổi chiều,",
+  "homeGreetingEvening": "Chào buổi tối,",
+  "homeMember": "Thành viên",
+  "homeRecentPlaylists": "Danh sách phát gần đây",
+  "homeRecentlyPlayed": "Đã phát gần đây",
+  "homeSpeedDial": "Truy cập nhanh",
+  "homeNoContent": "Không có nội dung nào",
+  "homeRefresh": "Làm mới",
+  "homeLoadError": "Không thể tải luồng nhạc.",
+  "homeRetry": "Thử lại",
+  "importSuccess": "Đã kết nối thành công với Spotify!",
+  "importFailed": "Không thể kết nối: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Kết nối Spotify",
+  "importSetupTitle": "Thiết lập Tích hợp Spotify",
+  "importSetupDesc": "Để vượt qua các giới hạn tỷ lệ nghiêm ngặt của Spotify và nhập tất cả danh sách phát của bạn ngay lập tức, bạn phải sử dụng khóa nhà phát triển miễn phí của riêng mình. Làm theo các bước đơn giản sau:",
+  "importStep1": "Mở Bảng điều khiển dành cho nhà phát triển của Spotify.",
+  "importStep2": "Đăng nhập và nhấp vào \"Create app\".",
+  "importStep3": "Điền vào Tên và Mô tả ứng dụng bất kỳ.",
+  "importStep4": "Trong \"Redirect URIs\", dán chính xác URL sau:",
+  "importRedirectCopied": "Đã sao chép URI chuyển hướng!",
+  "importStep5": "Lưu ứng dụng, sao chép \"Client ID\" của bạn từ cài đặt và dán nó vào bên dưới.",
+  "importImportant": "Quan trọng: Tài khoản Spotify được sử dụng để tạo ứng dụng dành cho nhà phát triển này phải có đăng ký Premium đang hoạt động.",
+  "importClientIdHint": "Dán Client ID Spotify của bạn vào đây...",
+  "importConnectButton": "Kết nối & Tải Thư viện",
+  "downloadingNoActive": "Không có bản tải xuống nào",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "Tải xuống",
+  "downloadsStats": "{count} bài hát • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "Chưa có bài hát ngoại tuyến nào",
+  "downloadsNoOfflineDesc": "Các bài hát bạn tải xuống sẽ xuất hiện ở đây",
+  "downloadsClearAllTitle": "Xóa tất cả các bản tải xuống?",
+  "downloadsClearAllDesc": "Thao tác này sẽ xóa {count} bài hát và giải phóng {size} bộ nhớ.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "Hủy",
+  "downloadsClearAll": "Xóa tất cả",
+  "downloadsSongsCount": "{count} bài hát",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} bài hát",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "Không thể đổi tên danh sách phát tải xuống chính.",
+  "downloadsRename": "Đổi tên",
+  "downloadsEditSongs": "Chỉnh sửa bài hát",
+  "downloadsDelete": "Xóa",
+  "downloadsRenamePlaylistTitle": "Đổi tên danh sách phát",
+  "downloadsRenamePlaylistDesc": "Nhập tên mới cho danh sách phát của bạn.",
+  "downloadsDeletePlaylistTitle": "Xóa danh sách phát?",
+  "downloadsDeleteMasterDesc": "Bạn có chắc chắn muốn xóa không? Bạn sẽ mất vĩnh viễn tất cả các bài hát và danh sách phát đã tải xuống.",
+  "downloadsDeletePlaylistDesc": "Bạn có chắc chắn muốn xóa \"{name}\"? Danh sách phát này sẽ bị mất vĩnh viễn.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "Lưu",
+  "downloadsNoSongs": "Không có bài hát nào trong danh sách phát này.",
+  "libraryTitle": "Thư viện",
+  "libraryPauseAll": "Tạm dừng tất cả",
+  "libraryResumeAll": "Tiếp tục tất cả",
+  "libraryTabPlaylists": "Danh sách phát",
+  "libraryTabDownloads": "Tải xuống",
+  "libraryTabDownloading": "Đang tải xuống",
+  "libraryImportedTask": "Đã nhập {name}",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "Đang chờ trong hàng đợi...",
+  "libraryImportFetching": "Đang lấy danh sách phát...",
+  "libraryImportProcessed": "Đã xử lý {processed}/{total} · {matched} trùng khớp",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "Đang lưu vào thư viện...",
+  "libraryImportDoneSongs": "Đã thêm {matched} bài hát · chạm vào × để đóng",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "Đã thêm tất cả bài hát · chạm vào × để đóng",
+  "libraryAddButton": "Thêm",
+  "librarySortRecent": "Đã thêm gần đây",
+  "librarySortAlpha": "Theo bảng chữ cái",
+  "libraryEmptyTitle": "Thư viện của bạn đang trống.",
+  "libraryEmptyDesc": "Nhấn \"Thêm\" để bắt đầu Pulse đầu tiên của bạn.",
+  "libraryRenameLikedError": "Không thể đổi tên danh sách Bài hát yêu thích.",
+  "libraryRename": "Đổi tên",
+  "libraryEditSongs": "Chỉnh sửa bài hát",
+  "libraryDeleteLikedError": "Không thể xóa danh sách Bài hát yêu thích.",
+  "libraryDelete": "Xóa",
+  "libraryEditSongsTitle": "Chỉnh sửa bài hát",
+  "libraryEditSongsCountSingle": "{count} bài hát",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} bài hát",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "Hủy",
+  "librarySave": "Lưu",
+  "libraryNoSongs": "Không có bài hát nào trong danh sách phát này.",
+  "libraryAddOptionsTitle": "Thêm vào Thư viện",
+  "libraryAddOptionsDesc": "Chọn cách bạn muốn mở rộng Pulse của mình",
+  "libraryImportPulse": "Nhập từ Pulse",
+  "libraryImportPulseDesc": "Dán URL danh sách phát Pulse",
+  "libraryImportYtm": "Nhập từ YT Music",
+  "libraryImportYtmDesc": "Dán URL danh sách phát CÔNG KHAI",
+  "libraryImportSpotify": "Nhập từ Spotify",
+  "libraryImportSpotifyDesc": "Kết nối Spotify của bạn",
+  "libraryClose": "Đóng",
+  "libraryImportYtmFull": "Nhập từ YouTube Music",
+  "libraryImportSpotifyFull": "Nhập từ Spotify (≤100)",
+  "libraryImportYtmUrlDesc": "Dán URL album hoặc danh sách phát YouTube Music công khai",
+  "libraryImportSpotifyUrlDesc": "Dán URL danh sách phát Spotify công khai vào bên dưới",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Không thể nhập danh sách phát Pulse",
+  "importErrorPlaylist": "Lỗi khi nhập danh sách phát",
+  "importErrorHighlyPopulated": "Danh sách phát có quá nhiều bài, có thể mất một lúc để tải.",
+  "libraryImportBtn": "Nhập",
+  "libraryCreateTitle": "Danh sách phát mới",
+  "libraryCreateDesc": "Chúng ta nên gọi danh sách phát mới của bạn là gì?",
+  "libraryCreateHint": "vd: Chuyến đi Đêm",
+  "libraryCreateBtn": "Tạo",
+  "libraryRenameTitle": "Đổi tên danh sách phát",
+  "libraryRenameDesc": "Nhập tên mới cho danh sách phát của bạn.",
+  "libraryRenameBtn": "Đổi tên",
+  "libraryDeleteTitle": "Xóa danh sách phát?",
+  "libraryDeleteDesc": "Bạn có chắc chắn muốn xóa \"{name}\"? Danh sách phát này sẽ bị mất vĩnh viễn.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "Xóa",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "Gần đây",
+  "librarySongsCount": "{count} Bài hát",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "Sắp ra mắt",
+  "loginErrName": "Vui lòng nhập tên của bạn",
+  "loginErrEmail": "Vui lòng nhập địa chỉ email của bạn",
+  "loginErrPassword": "Vui lòng nhập mật khẩu của bạn",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "Cảm nhận từng nhịp điệu!",
+  "loginMadeWithHeartBy": "Được tạo với ❤️ bởi ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "Tên của bạn",
+  "loginHintEmail": "Địa chỉ email",
+  "loginHintPassword": "Mật khẩu",
+  "loginErrEmailReset": "Vui lòng nhập email của bạn để đặt lại mật khẩu",
+  "loginResetSent": "Email đặt lại mật khẩu đã được gửi! Kiểm tra hộp thư đến của bạn.",
+  "loginForgotPwd": "Quên mật khẩu?",
+  "loginBtnSignup": "Tạo tài khoản",
+  "loginBtnSignin": "Đăng nhập",
+  "loginToggleHaveAccount": "Đã có tài khoản Pulse? ",
+  "loginToggleNoAccount": "Chưa có tài khoản Pulse? ",
+  "loginToggleSignin": "Đăng nhập",
+  "loginToggleSignup": "Đăng ký",
+  "offlineStillOffline": "Vẫn ngoại tuyến. Vui lòng kiểm tra kết nối của bạn.",
+  "offlineTitle": "Bạn đang ngoại tuyến",
+  "offlineSubtitle": "Không tìm thấy kết nối internet.\nKiểm tra mạng của bạn và thử lại.",
+  "offlineChecking": "Đang kiểm tra...",
+  "offlineRetry": "Thử lại",
+  "offlineGoToDownloads": "Đi tới Tải xuống",
+  "playerMadeWithHeartBy": "Được tạo với ❤️ bởi ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "Vuốt để xem lời bài hát",
+  "playerNoLyrics": "Không có lời bài hát",
+  "playerUpNext": "Tiếp theo",
+  "playerNoTracksInQueue": "Không có bài hát nào trong hàng đợi",
+  "playerNoMusicPlaying": "Không có nhạc nào đang phát",
+  "playerPickAVibe": "Chọn một giai điệu từ thư viện hoặc trang chủ của bạn",
+  "playerGoHome": "Về trang chủ",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "Bộ chỉnh âm",
+  "playerEqCustom": "Tùy chỉnh",
+  "playlistDownloads": "Tải xuống",
+  "playlistOffline": "Danh sách phát Ngoại tuyến",
+  "playlistDurationHours": "{hours}g {mins}p",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}p",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "Tìm trên trang này",
+  "playlistSongsAndDuration": "{count} bài hát • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "Gần đây",
+  "playlistNoMatches": "Không tìm thấy kết quả phù hợp.",
+  "playlistNoTracks": "Không có bài hát nào trong danh sách phát này.",
+  "playlistNoSongsYet": "Chưa có bài hát nào.",
+  "playlistSortRecentlyAdded": "Đã thêm gần đây",
+  "playlistSortAlphabetical": "Theo bảng chữ cái",
+  "playlistDownloadingSongs": "Đang tải xuống {count} {count, plural, =1{bài hát} other{bài hát}}",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "XEM",
+  "playlistAllDownloaded": "Tất cả các bài hát đã được tải xuống",
+  "playlistShareText": "Hãy xem \"{name}\" trên Pulse!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "Xóa khỏi Tải xuống",
+  "playlistRemoveFromPlaylist": "Xóa khỏi Danh sách phát",
+  "playlistLoadError": "Không thể tải danh sách phát này.",
+  "playlistGoBack": "← Quay lại",
+  "profileNotLoggedIn": "Chưa đăng nhập",
+  "profileSignIn": "Đăng nhập",
+  "profileDefaultUser": "Người dùng Pulse",
+  "profileEditProfile": "Sửa Hồ sơ",
+  "profileTimeframeDay": "Ngày",
+  "profileTimeframeWeek": "Tuần",
+  "profileTimeframeMonth": "Tháng",
+  "profileTimeframeYear": "Năm",
+  "profileListeningTime": "THỜI GIAN NGHE",
+  "profileToday": "Hôm nay",
+  "profileThisWeek": "Tuần này",
+  "profileThisMonth": "Tháng này",
+  "profileThisYear": "Năm nay",
+  "profileDailyAvg": "TB MỖI NGÀY",
+  "profilePerDay": "Mỗi ngày",
+  "profileLifetimeListening": "TỔNG THỜI GIAN NGHE",
+  "profileTotalTimeListened": "Tổng thời gian nghe nhạc trên Pulse",
+  "profileYourTopSongs": "Bài hát Hàng đầu của bạn",
+  "profileListeningHistoryEmpty": "Lịch sử nghe sẽ xuất hiện ở đây.",
+  "profilePlays": "{count} {count, plural, =1{lượt nghe} other{lượt nghe}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "Nghệ sĩ Hàng đầu của bạn",
+  "profileTopArtistsEmpty": "Các nghệ sĩ yêu thích của bạn sẽ xuất hiện ở đây.",
+  "profileArtistLabel": "Nghệ sĩ",
+  "profileSignOut": "Đăng xuất",
+  "profileVersion": "Phiên bản {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "Được tạo với ❤️ bởi ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "CHỈNH SỬA HỒ SƠ",
+  "profileDisplayName": "TÊN HIỂN THỊ",
+  "profileCancel": "Hủy",
+  "profileSave": "Lưu",
+  "profileChooseAvatar": "Chọn Ảnh đại diện",
+  "searchMicPermissionRequired": "Cần quyền truy cập micrô cho tính năng này",
+  "searchUnknownSong": "Bài hát không xác định",
+  "searchUnknownArtist": "Nghệ sĩ không xác định",
+  "searchNoSongDetected": "Không phát hiện thấy bài hát nào.",
+  "searchError": "Lỗi: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "Nhận dạng giọng nói không khả dụng",
+  "searchHint": "Bài hát, nghệ sĩ, album...",
+  "searchRecentEmpty": "Các tìm kiếm gần đây của bạn xuất hiện ở đây",
+  "searchRecentSearches": "Tìm kiếm Gần đây",
+  "searchClearAll": "Xóa tất cả",
+  "searchNoResultsFor": "Không có kết quả nào cho \"{query}\"",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "Hãy thử các từ khóa khác",
+  "searchTopResult": "Kết quả hàng đầu",
+  "searchSongsLabel": "Bài hát",
+  "searchArtistsLabel": "Nghệ sĩ",
+  "searchAlbumsLabel": "Album",
+  "searchPlaylistsLabel": "Danh sách phát",
+  "searchArtistLabel": "Nghệ sĩ",
+  "searchListening": "Đang nghe...",
+  "searchSpeakNow": "Nói ngay bây giờ để tìm kiếm",
+  "searchCancel": "Hủy",
+  "searchIdentifying": "Đang nhận dạng...",
+  "searchListeningForSong": "Đang nghe một bài hát...",
+  "settingsTitle": "Cài đặt",
+  "settingsStreamingQuality": "Chất lượng Phát trực tuyến",
+  "settingsQualityAutomatic": "Tự động",
+  "settingsQualityLow": "Thấp",
+  "settingsQualityNormal": "Bình thường",
+  "settingsQualityHigh": "Cao",
+  "settingsDownloadQuality": "Chất lượng Tải xuống",
+  "settingsPlayback": "Phát lại",
+  "settingsCrossfade": "Chuyển bài mượt mà",
+  "settingsCrossfadeDesc": "Làm mờ dần các bài hát để chuyển tiếp không bị ngắt quãng",
+  "settingsDataUsage": "Sử dụng Dữ liệu",
+  "settingsDataSaver": "Tiết kiệm Dữ liệu",
+  "settingsDataSaverDesc": "Phát trực tuyến ở chất lượng thấp hơn trên mạng di động",
+  "settingsAppearance": "Giao diện",
+  "settingsLanguage": "Ngôn ngữ",
+  "settingsCustomAccent": "Màu Nổi bật Tùy chỉnh",
+  "settingsSaturation": "Độ bão hòa",
+  "settingsBrightness": "Độ sáng",
+  "settingsResetDefault": "Đặt lại Mặc định",
+  "playlistSheetTitle": "Thêm vào Danh sách phát",
+  "playlistSheetNewPlaylist": "Danh sách phát mới",
+  "playlistSheetNoPlaylists": "Chưa có danh sách phát nào",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{bài hát} other{bài hát}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "Tên Danh sách phát",
+  "playlistSheetCancel": "Hủy",
+  "playlistSheetAddedTo": "Đã thêm vào {name}",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "Không thể tạo danh sách phát: Lỗi xác thực",
+  "playlistSheetCreateFail": "Không thể tạo danh sách phát: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "Tạo",
+  "appUpdateAvailable": "Có bản cập nhật",
+  "appUpdateDesc": "Phiên bản {version} đã ra mắt! Cập nhật ngay để nhận các tính năng mới nhất.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "Tải xuống Bản cập nhật",
+  "navHome": "Trang chủ",
+  "navLibrary": "Thư viện",
+  "navSearch": "Tìm kiếm",
+  "navSettings": "Cài đặt",
+  "navProfile": "Hồ sơ",
+  "artistSelect": "Chọn Nghệ sĩ",
+  "songActionQueue": "Thêm vào Hàng đợi",
+  "songActionPlaylist": "Thêm vào Danh sách phát",
+  "songActionFinding": "Đang tìm...",
+  "songActionAlbum": "Đến Album",
+  "songActionArtist": "Đến Nghệ sĩ",
+  "songActionRemovePlaylist": "Xóa khỏi Danh sách phát",
+  "songActionRemoveDownload": "Xóa khỏi Tải xuống",
+  "songActionDownloadChecking": "Đang kiểm tra...",
+  "songActionDownloading": "Đang tải xuống...",
+  "songActionDownloaded": "Đã tải xuống!",
+  "songActionDownloadAlready": "Đã tải xuống rồi",
+  "songActionDownloadFailed": "Tải xuống không thành công",
+  "songActionDownload": "Tải xuống",
+  "songActionDownloadingSnack": "Đang tải xuống",
+  "songActionView": "XEM",
+  "spotifyImportTitle": "Nhập từ Spotify",
+  "spotifyImportSubtitle": "Chọn kích thước danh sách phát của bạn",
+  "spotifyChoiceSmallTitle": "100 bài hát trở xuống",
+  "spotifyChoiceSmallDesc": "Dán URL danh sách phát Spotify công khai.",
+  "spotifyChoiceLargeTitle": "Hơn 100 bài hát",
+  "spotifyChoiceLargeDesc": "Kết nối Ứng dụng Nhà phát triển Spotify của riêng bạn để nhập các bản nhạc không giới hạn.",
+  "cancelButton": "Hủy",
+  "spotifyPlaylistsTitle": "Danh sách phát Spotify của bạn",
+  "spotifyPlaylistsErrorMsg": "Lỗi: {error}\nĐảm bảo Client ID của bạn hợp lệ.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "Không tìm thấy danh sách phát nào trong thư viện của bạn",
+  "spotifyPlaylistsTracks": "{count} bài hát",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "Nhập",
+  "audioPlaybackFailed": "Phát lại không thành công. Kiểm tra kết nối internet của bạn.",
+  "audioControlPrevious": "Trước",
+  "audioControlPause": "Tạm dừng",
+  "audioControlPlay": "Phát",
+  "audioControlNext": "Tiếp",
+  "audioControlUnlike": "Bỏ thích",
+  "audioControlLike": "Thích",
+  "spotifyRawResponseError": "Phản hồi thô: {data}\n\nDự phòng: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "Client hoặc client secret không hợp lệ.",
+  "apiErrorBadRequest": "Yêu cầu không hợp lệ. Vui lòng kiểm tra thông tin của bạn.",
+  "apiErrorUnauthorized": "Không được phép. Vui lòng đăng nhập lại.",
+  "apiErrorForbidden": "Bị cấm. Bạn không có quyền truy cập.",
+  "apiErrorNotFound": "Không tìm thấy tài nguyên.",
+  "apiErrorEmailInUse": "Địa chỉ email này đã được sử dụng.",
+  "apiErrorUserNotFound": "Không tìm thấy tài khoản nào với email này.",
+  "apiErrorWrongPassword": "Mật khẩu không chính xác.",
+  "apiErrorInvalidCredential": "Đăng nhập không thành công. Vui lòng kiểm tra thông tin đăng nhập của bạn.",
+  "apiErrorNetwork": "Lỗi mạng. Vui lòng kiểm tra kết nối của bạn.",
+  "apiErrorSocketTimeout": "Kết nối đã hết thời gian chờ. Vui lòng thử lại.",
+  "apiErrorTooManyRequests": "Quá nhiều yêu cầu. Vui lòng đợi một lát và thử lại.",
+  "apiErrorServerError": "Lỗi máy chủ. Vui lòng thử lại sau.",
+  "apiErrorInvalidEmail": "Vui lòng nhập một địa chỉ email hợp lệ.",
+  "apiErrorWeakPassword": "Mật khẩu quá yếu. Sử dụng ít nhất 6 ký tự.",
+  "apiErrorTooManyAttempts": "Quá nhiều nỗ lực thất bại. Vui lòng thử lại sau."
+}

@@ -1,0 +1,574 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "Hakkında",
+  "artistPopular": "Popüler",
+  "artistAlbums": "Albümler",
+  "artistSinglesAndEPs": "Tekliler & EP'ler",
+  "artistSubscribersCount": "{count} abone",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "Tümünü Çal",
+  "artistLoadError": "Sanatçı yüklenemedi",
+  "artistGoBack": "Geri Dön",
+  "adminChatFailedToReply": "Yanıtlanamadı: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "Destek Sohbeti",
+  "adminChatError": "Hata: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "Sohbet geçmişi yok.",
+  "adminChatSupportYou": "Destek (Sen)",
+  "adminChatTypeReply": "Yanıtınızı yazın...",
+  "broadcastSuccess": "Duyuru başarıyla yayınlandı!",
+  "broadcastFailed": "Yayınlanamadı: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "Genel Duyurular",
+  "broadcastSubtitle": "Tüm kullanıcılara gönderildi",
+  "broadcastWarning": "Buradan gönderilen mesajlar herkes tarafından görülecektir.",
+  "broadcastError": "Hata: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "Önceki duyuru yok.",
+  "broadcastTypeMessage": "Genel bir duyuru yazın...",
+  "commFailedToSend": "Gönderilemedi: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "Yönetici Paneli",
+  "commAdminSupport": "Yönetici Desteği",
+  "commAlwaysHere": "Her zaman yardıma hazır",
+  "commWelcomeTitle": "Selam! 👋 Ben Ashutosh Pathak",
+  "commWelcomeSubtitle": "Pulse Geliştiricisi",
+  "commWelcomeBody1": "Umarım rahatsız edici reklamlar veya abonelik engelleri olmadan en sevdiğin müziği dinlemekten keyif alıyorsundur. Sonuçta müzik, sırf birileri yeni bir yat alabilsin diye ödeme duvarının arkasında olmamalı.\n\nBu bölüm doğrudan iletişim kurabilmemiz için var.\n\nÇekinmeden şunları yapabilirsin:",
+  "commBullet1": "Geri bildirimini paylaş",
+  "commBullet2": "Hataları bildir",
+  "commBullet3": "Görmek istediğin yeni özellikleri öner",
+  "commWelcomeBody2": "Her mesajı şahsen okuyorum ve uygulamayı önerilerine göre geliştirmek için elimden geleni yapacağım.\n\nHenüz var olmayan veya pahalı aboneliklerin arkasına kilitlenmiş bir uygulama fikrin mi var? Bana ondan bahset! Mümkünse onu yapmaya ve herkesin kullanımına sunmaya çalışacağım.\n\nUygulamamı kullandığın ve bu yolculuğun bir parçası olduğun için teşekkürler. ❤️",
+  "commError": "Hata: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "Henüz mesaj yok",
+  "commNoMessagesDesc": "Destek ekibimize bir mesaj gönderin veya daha sonra duyurular için tekrar kontrol edin.",
+  "commMessageSupportHint": "Desteğe mesaj yaz...",
+  "commGlobalAnnouncements": "Genel Duyurular",
+  "commSendMessagesToAll": "Tüm kullanıcılara mesaj gönder",
+  "homeGreetingMorning": "Günaydın,",
+  "homeGreetingAfternoon": "İyi günler,",
+  "homeGreetingEvening": "İyi akşamlar,",
+  "homeMember": "Üye",
+  "homeRecentPlaylists": "Son Çalma Listeleri",
+  "homeRecentlyPlayed": "Son çalınanlar",
+  "homeSpeedDial": "Hızlı Erişim",
+  "homeNoContent": "İçerik bulunamadı",
+  "homeRefresh": "Yenile",
+  "homeLoadError": "Müzik akışı yüklenemedi.",
+  "homeRetry": "Tekrar Dene",
+  "importSuccess": "Spotify'a Başarıyla Bağlanıldı!",
+  "importFailed": "Bağlanılamadı: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify'ı Bağla",
+  "importSetupTitle": "Spotify Entegrasyonunu Kur",
+  "importSetupDesc": "Spotify'ın katı oran sınırlarını aşmak ve tüm çalma listelerinizi anında içe aktarmak için kendi ücretsiz geliştirici anahtarınızı kullanmalısınız. Şu basit adımları izleyin:",
+  "importStep1": "Spotify Geliştirici Paneli'ni açın.",
+  "importStep2": "Giriş yapın ve \"Create app\" seçeneğine tıklayın.",
+  "importStep3": "Herhangi bir Uygulama Adı ve Açıklaması girin.",
+  "importStep4": "\"Redirect URIs\" altında tam olarak şu URL'yi yapıştırın:",
+  "importRedirectCopied": "Yönlendirme URI Kopyalandı!",
+  "importStep5": "Uygulamayı kaydedin, ayarlardan \"Client ID\"nizi kopyalayın ve aşağıya yapıştırın.",
+  "importImportant": "Önemli: Bu geliştirici uygulamasını oluşturmak için kullanılan Spotify hesabının aktif bir Premium aboneliği olmalıdır.",
+  "importClientIdHint": "Spotify Client ID'nizi buraya yapıştırın...",
+  "importConnectButton": "Bağlan ve Kütüphaneyi Yükle",
+  "downloadingNoActive": "Aktif indirme yok",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "İndirilenler",
+  "downloadsStats": "{count} şarkı • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "Henüz çevrimdışı şarkı yok",
+  "downloadsNoOfflineDesc": "İndirdiğiniz şarkılar burada görünecek",
+  "downloadsClearAllTitle": "Tüm İndirilenleri Temizle?",
+  "downloadsClearAllDesc": "Bu işlem {count} şarkıyı silecek ve {size} alan boşaltacak.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "İptal",
+  "downloadsClearAll": "Tümünü Temizle",
+  "downloadsSongsCount": "{count} şarkı",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} şarkı",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "Ana indirilenler çalma listesi yeniden adlandırılamaz.",
+  "downloadsRename": "Yeniden Adlandır",
+  "downloadsEditSongs": "Şarkıları Düzenle",
+  "downloadsDelete": "Sil",
+  "downloadsRenamePlaylistTitle": "Çalma Listesini Yeniden Adlandır",
+  "downloadsRenamePlaylistDesc": "Çalma listeniz için yeni bir ad girin.",
+  "downloadsDeletePlaylistTitle": "Çalma Listesi Silinsin mi?",
+  "downloadsDeleteMasterDesc": "Bunu silmek istediğinizden emin misiniz? İndirilen tüm şarkıları ve çalma listelerini kalıcı olarak kaybedeceksiniz.",
+  "downloadsDeletePlaylistDesc": "\"{name}\" silinsin mi? Bu çalma listesi kalıcı olarak kaybolacak.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "Kaydet",
+  "downloadsNoSongs": "Bu çalma listesinde şarkı yok.",
+  "libraryTitle": "Kütüphane",
+  "libraryPauseAll": "Tümünü Duraklat",
+  "libraryResumeAll": "Tümünü Devam Ettir",
+  "libraryTabPlaylists": "Çalma Listeleri",
+  "libraryTabDownloads": "İndirilenler",
+  "libraryTabDownloading": "İndiriliyor",
+  "libraryImportedTask": "{name} içe aktarıldı",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "Sırada bekliyor...",
+  "libraryImportFetching": "Çalma listesi getiriliyor...",
+  "libraryImportProcessed": "{processed}/{total} işlendi · {matched} eşleşti",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "Kütüphaneye kaydediliyor...",
+  "libraryImportDoneSongs": "{matched} şarkı eklendi · kapatmak için ×'ya dokunun",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "Tüm şarkılar eklendi · kapatmak için ×'ya dokunun",
+  "libraryAddButton": "Ekle",
+  "librarySortRecent": "Son Eklenenler",
+  "librarySortAlpha": "Alfabetik",
+  "libraryEmptyTitle": "Kütüphaneniz boş.",
+  "libraryEmptyDesc": "İlk Pulse'unuzu başlatmak için \"Ekle\"ye dokunun.",
+  "libraryRenameLikedError": "Beğenilen Şarkılar listesi yeniden adlandırılamaz.",
+  "libraryRename": "Yeniden Adlandır",
+  "libraryEditSongs": "Şarkıları Düzenle",
+  "libraryDeleteLikedError": "Beğenilen Şarkılar listesi silinemez.",
+  "libraryDelete": "Sil",
+  "libraryEditSongsTitle": "Şarkıları Düzenle",
+  "libraryEditSongsCountSingle": "{count} şarkı",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} şarkı",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "İptal",
+  "librarySave": "Kaydet",
+  "libraryNoSongs": "Bu çalma listesinde şarkı yok.",
+  "libraryAddOptionsTitle": "Kütüphaneye Ekle",
+  "libraryAddOptionsDesc": "Pulse'unuzu nasıl genişletmek istediğinizi seçin",
+  "libraryImportPulse": "Pulse'dan İçe Aktar",
+  "libraryImportPulseDesc": "Pulse çalma listesi URL'si yapıştır",
+  "libraryImportYtm": "YT Music'ten İçe Aktar",
+  "libraryImportYtmDesc": "HERKESE AÇIK bir çalma listesi URL'si yapıştır",
+  "libraryImportSpotify": "Spotify'dan İçe Aktar",
+  "libraryImportSpotifyDesc": "Spotify hesabınızı bağlayın",
+  "libraryClose": "Kapat",
+  "libraryImportYtmFull": "YouTube Music'ten İçe Aktar",
+  "libraryImportSpotifyFull": "Spotify'dan İçe Aktar (≤100)",
+  "libraryImportYtmUrlDesc": "Herkese açık bir YouTube Music çalma listesi veya albüm URL'si yapıştırın",
+  "libraryImportSpotifyUrlDesc": "Herkese açık bir Spotify çalma listesi URL'sini aşağıya yapıştırın",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse çalma listesi içe aktarılamadı",
+  "importErrorPlaylist": "Çalma listesi içe aktarılırken hata oluştu",
+  "importErrorHighlyPopulated": "Çalma listesi çok kalabalık, getirilmesi biraz zaman alabilir.",
+  "libraryImportBtn": "İçe Aktar",
+  "libraryCreateTitle": "Yeni Çalma Listesi",
+  "libraryCreateDesc": "Yeni çalma listemize ne ad verelim?",
+  "libraryCreateHint": "örn. Gece Sürüşü",
+  "libraryCreateBtn": "Oluştur",
+  "libraryRenameTitle": "Çalma Listesini Yeniden Adlandır",
+  "libraryRenameDesc": "Çalma listeniz için yeni bir ad girin.",
+  "libraryRenameBtn": "Yeniden Adlandır",
+  "libraryDeleteTitle": "Çalma Listesi Silinsin mi?",
+  "libraryDeleteDesc": "\"{name}\" silinsin mi? Bu çalma listesi kalıcı olarak kaybolacak.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "Sil",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "Son",
+  "librarySongsCount": "{count} Şarkı",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "Yakında",
+  "loginErrName": "Lütfen adınızı girin",
+  "loginErrEmail": "Lütfen e-posta adresinizi girin",
+  "loginErrPassword": "Lütfen şifrenizi girin",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "Her Ritmi Hisset!",
+  "loginMadeWithHeartBy": "❤️ ile tasarlayan: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "Adınız",
+  "loginHintEmail": "E-posta adresi",
+  "loginHintPassword": "Şifre",
+  "loginErrEmailReset": "Şifreyi sıfırlamak için lütfen e-postanızı girin",
+  "loginResetSent": "Şifre sıfırlama e-postası gönderildi! Gelen kutunuzu kontrol edin.",
+  "loginForgotPwd": "Şifremi Unuttum?",
+  "loginBtnSignup": "Hesap Oluştur",
+  "loginBtnSignin": "Giriş Yap",
+  "loginToggleHaveAccount": "Zaten Pulse hesabın var mı? ",
+  "loginToggleNoAccount": "Pulse hesabın yok mu? ",
+  "loginToggleSignin": "Giriş Yap",
+  "loginToggleSignup": "Kayıt Ol",
+  "offlineStillOffline": "Hala çevrimdışı. Lütfen bağlantınızı kontrol edin.",
+  "offlineTitle": "Çevrimdışısınız",
+  "offlineSubtitle": "İnternet bağlantısı bulunamadı.\nAğınızı kontrol edip tekrar deneyin.",
+  "offlineChecking": "Kontrol ediliyor...",
+  "offlineRetry": "Tekrar Dene",
+  "offlineGoToDownloads": "İndirilenlere Git",
+  "playerMadeWithHeartBy": "❤️ ile tasarlayan: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "Şarkı sözleri için kaydır",
+  "playerNoLyrics": "Şarkı sözü bulunamadı",
+  "playerUpNext": "Sıradaki",
+  "playerNoTracksInQueue": "Sırada parça yok",
+  "playerNoMusicPlaying": "Çalan müzik yok",
+  "playerPickAVibe": "Kütüphanenden veya ana sayfadan bir ritim seç",
+  "playerGoHome": "Ana Sayfaya Git",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "Ekolayzır",
+  "playerEqCustom": "Özel",
+  "playlistDownloads": "İndirilenler",
+  "playlistOffline": "Çevrimdışı Liste",
+  "playlistDurationHours": "{hours}s {mins}dk",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}dk",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "Bu sayfada bul",
+  "playlistSongsAndDuration": "{count} şarkı • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "Son",
+  "playlistNoMatches": "Eşleşme bulunamadı.",
+  "playlistNoTracks": "Bu çalma listesinde parça yok.",
+  "playlistNoSongsYet": "Henüz şarkı yok.",
+  "playlistSortRecentlyAdded": "Son Eklenenler",
+  "playlistSortAlphabetical": "Alfabetik",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{şarkı} other{şarkı}} indiriliyor",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "GÖRÜNTÜLE",
+  "playlistAllDownloaded": "Tüm şarkılar zaten indirildi",
+  "playlistShareText": "Pulse'da \"{name}\"e göz at!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "İndirilenlerden Kaldır",
+  "playlistRemoveFromPlaylist": "Listeden Kaldır",
+  "playlistLoadError": "Bu çalma listesi yüklenemedi.",
+  "playlistGoBack": "← Geri dön",
+  "profileNotLoggedIn": "Giriş yapılmadı",
+  "profileSignIn": "Giriş Yap",
+  "profileDefaultUser": "Pulse Kullanıcısı",
+  "profileEditProfile": "Profili Düzenle",
+  "profileTimeframeDay": "Gün",
+  "profileTimeframeWeek": "Hafta",
+  "profileTimeframeMonth": "Ay",
+  "profileTimeframeYear": "Yıl",
+  "profileListeningTime": "DİNLEME SÜRESİ",
+  "profileToday": "Bugün",
+  "profileThisWeek": "Bu hafta",
+  "profileThisMonth": "Bu ay",
+  "profileThisYear": "Bu yıl",
+  "profileDailyAvg": "GÜNLÜK ORT.",
+  "profilePerDay": "Günlük",
+  "profileLifetimeListening": "TOPLAM DİNLEME",
+  "profileTotalTimeListened": "Pulse'da müzik dinlenen toplam süre",
+  "profileYourTopSongs": "En Çok Dinlediklerin",
+  "profileListeningHistoryEmpty": "Dinleme geçmişi burada görünecek.",
+  "profilePlays": "{count} {count, plural, =1{çalma} other{çalma}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "Favori Sanatçıların",
+  "profileTopArtistsEmpty": "Favori sanatçıların burada görünecek.",
+  "profileArtistLabel": "Sanatçı",
+  "profileSignOut": "Çıkış Yap",
+  "profileVersion": "Sürüm {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "❤️ ile tasarlayan: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "PROFİLİ DÜZENLE",
+  "profileDisplayName": "GÖRÜNEN AD",
+  "profileCancel": "İptal",
+  "profileSave": "Kaydet",
+  "profileChooseAvatar": "Avatar Seç",
+  "searchMicPermissionRequired": "Bu özellik için mikrofon izni gerekiyor",
+  "searchUnknownSong": "Bilinmeyen Şarkı",
+  "searchUnknownArtist": "Bilinmeyen Sanatçı",
+  "searchNoSongDetected": "Şarkı algılanmadı.",
+  "searchError": "Hata: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "Ses tanıma kullanılamıyor",
+  "searchHint": "Şarkılar, sanatçılar, albümler...",
+  "searchRecentEmpty": "Son aramaların burada görünür",
+  "searchRecentSearches": "Son Aramalar",
+  "searchClearAll": "Tümünü temizle",
+  "searchNoResultsFor": "\"{query}\" için sonuç yok",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "Farklı anahtar kelimeler deneyin",
+  "searchTopResult": "En iyi sonuç",
+  "searchSongsLabel": "Şarkılar",
+  "searchArtistsLabel": "Sanatçılar",
+  "searchAlbumsLabel": "Albümler",
+  "searchPlaylistsLabel": "Listeler",
+  "searchArtistLabel": "Sanatçı",
+  "searchListening": "Dinleniyor...",
+  "searchSpeakNow": "Aramak için şimdi konuşun",
+  "searchCancel": "İptal",
+  "searchIdentifying": "Tanımlanıyor...",
+  "searchListeningForSong": "Şarkı dinleniyor...",
+  "settingsTitle": "Ayarlar",
+  "settingsStreamingQuality": "Akış Kalitesi",
+  "settingsQualityAutomatic": "Otomatik",
+  "settingsQualityLow": "Düşük",
+  "settingsQualityNormal": "Normal",
+  "settingsQualityHigh": "Yüksek",
+  "settingsDownloadQuality": "İndirme Kalitesi",
+  "settingsPlayback": "Oynatma",
+  "settingsCrossfade": "Geçiş",
+  "settingsCrossfadeDesc": "Kusursuz geçişler için parçaları örtüştürün",
+  "settingsDataUsage": "Veri Kullanımı",
+  "settingsDataSaver": "Veri Tasarrufu",
+  "settingsDataSaverDesc": "Hücresel veride daha düşük kalitede dinle",
+  "settingsAppearance": "Görünüm",
+  "settingsLanguage": "Dil",
+  "settingsCustomAccent": "Özel Vurgu Rengi",
+  "settingsSaturation": "Doygunluk",
+  "settingsBrightness": "Parlaklık",
+  "settingsResetDefault": "Sıfırla",
+  "playlistSheetTitle": "Çalma Listesine Ekle",
+  "playlistSheetNewPlaylist": "Yeni Liste",
+  "playlistSheetNoPlaylists": "Henüz liste yok",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{şarkı} other{şarkı}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "Liste Adı",
+  "playlistSheetCancel": "İptal",
+  "playlistSheetAddedTo": "{name} listesine eklendi",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "Liste oluşturulamadı: Kimlik doğrulama hatası",
+  "playlistSheetCreateFail": "Liste oluşturulamadı: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "Oluştur",
+  "appUpdateAvailable": "Güncelleme Var",
+  "appUpdateDesc": "Sürüm {version} çıktı! En son özellikleri almak için şimdi güncelleyin.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "Güncellemeyi İndir",
+  "navHome": "Ana Sayfa",
+  "navLibrary": "Kütüphane",
+  "navSearch": "Ara",
+  "navSettings": "Ayarlar",
+  "navProfile": "Profil",
+  "artistSelect": "Sanatçı Seç",
+  "songActionQueue": "Sıraya Ekle",
+  "songActionPlaylist": "Listeye Ekle",
+  "songActionFinding": "Bulunuyor...",
+  "songActionAlbum": "Albüme Git",
+  "songActionArtist": "Sanatçıya Git",
+  "songActionRemovePlaylist": "Listeden Kaldır",
+  "songActionRemoveDownload": "İndirilenlerden Kaldır",
+  "songActionDownloadChecking": "Kontrol ediliyor...",
+  "songActionDownloading": "İndiriliyor...",
+  "songActionDownloaded": "İndirildi!",
+  "songActionDownloadAlready": "Zaten indirildi",
+  "songActionDownloadFailed": "İndirme başarısız",
+  "songActionDownload": "İndir",
+  "songActionDownloadingSnack": "İndiriliyor",
+  "songActionView": "GÖRÜNTÜLE",
+  "spotifyImportTitle": "Spotify'dan İçe Aktar",
+  "spotifyImportSubtitle": "Liste boyutunuzu seçin",
+  "spotifyChoiceSmallTitle": "100 veya daha az şarkı",
+  "spotifyChoiceSmallDesc": "Herkese açık bir Spotify liste URL'si yapıştırın.",
+  "spotifyChoiceLargeTitle": "100'den fazla şarkı",
+  "spotifyChoiceLargeDesc": "Sınırsız parça içe aktarmak için kendi Spotify Geliştirici Uygulamanızı bağlayın.",
+  "cancelButton": "İptal",
+  "spotifyPlaylistsTitle": "Spotify Listeleriniz",
+  "spotifyPlaylistsErrorMsg": "Hata: {error}\nClient ID'nizin geçerli olduğundan emin olun.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "Kütüphanenizde çalma listesi bulunamadı",
+  "spotifyPlaylistsTracks": "{count} parça",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "İçe Aktar",
+  "audioPlaybackFailed": "Oynatma başarısız. İnternet bağlantınızı kontrol edin.",
+  "audioControlPrevious": "Önceki",
+  "audioControlPause": "Duraklat",
+  "audioControlPlay": "Çal",
+  "audioControlNext": "Sonraki",
+  "audioControlUnlike": "Beğenmekten Vazgeç",
+  "audioControlLike": "Beğen",
+  "spotifyRawResponseError": "Ham yanıt: {data}\n\nYedek: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "Geçersiz istemci veya gizli anahtar.",
+  "apiErrorBadRequest": "Geçersiz İstek. Lütfen girdilerinizi kontrol edin.",
+  "apiErrorUnauthorized": "Yetkisiz. Lütfen tekrar giriş yapın.",
+  "apiErrorForbidden": "Yasak. Erişim izniniz yok.",
+  "apiErrorNotFound": "Kaynak bulunamadı.",
+  "apiErrorEmailInUse": "Bu e-posta adresi zaten kullanılıyor.",
+  "apiErrorUserNotFound": "Bu e-postayla eşleşen hesap bulunamadı.",
+  "apiErrorWrongPassword": "Yanlış şifre.",
+  "apiErrorInvalidCredential": "Giriş başarısız. Lütfen bilgilerinizi kontrol edin.",
+  "apiErrorNetwork": "Ağ hatası. Lütfen bağlantınızı kontrol edin.",
+  "apiErrorSocketTimeout": "Bağlantı zaman aşımına uğradı. Lütfen tekrar deneyin.",
+  "apiErrorTooManyRequests": "Çok fazla istek. Lütfen bir süre bekleyip tekrar deneyin.",
+  "apiErrorServerError": "Sunucu hatası. Lütfen daha sonra tekrar deneyin.",
+  "apiErrorInvalidEmail": "Lütfen geçerli bir e-posta adresi girin.",
+  "apiErrorWeakPassword": "Şifre çok zayıf. En az 6 karakter kullanın.",
+  "apiErrorTooManyAttempts": "Çok fazla başarısız deneme. Lütfen daha sonra tekrar deneyin."
+}
