@@ -1,8 +1,0 @@
-commWelcomeTitle
-commWelcomeBody2
-loginMadeWithHeartBy
-loginAuthorName
-playerMadeWithHeartBy
-playerAuthorName
-profileMadeWithHeartBy
-profileAuthorName
