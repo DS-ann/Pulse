@@ -1,0 +1,574 @@
+{
+  "@@locale": "ur",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "متعلق",
+  "artistPopular": "مقبول",
+  "artistAlbums": "البمز",
+  "artistSinglesAndEPs": "سنگلز اور EP",
+  "artistSubscribersCount": "{count} سبسکرائبرز",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "سب چلائیں",
+  "artistLoadError": "فنکار لوڈ نہیں ہو سکا",
+  "artistGoBack": "واپس جائیں",
+  "adminChatFailedToReply": "جواب دینے میں ناکام: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "سپورٹ چیٹ",
+  "adminChatError": "خرابی: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "کوئی پچھلی بات چیت نہیں ہے۔",
+  "adminChatSupportYou": "سپورٹ (آپ)",
+  "adminChatTypeReply": "اپنا جواب ٹائپ کریں...",
+  "broadcastSuccess": "اعلان کامیابی سے نشر ہو گیا!",
+  "broadcastFailed": "نشر کرنے میں ناکام: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "عالمی اعلان",
+  "broadcastSubtitle": "تمام صارفین کو بھیجا گیا",
+  "broadcastWarning": "یہاں بھیجا گیا پیغام ہر کوئی دیکھ سکے گا۔",
+  "broadcastError": "خرابی: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "کوئی پچھلا اعلان نہیں ہے۔",
+  "broadcastTypeMessage": "عالمی اعلان ٹائپ کریں...",
+  "commFailedToSend": "بھیجنے میں ناکام: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "ایڈمن ڈیش بورڈ",
+  "commAdminSupport": "ایڈمن سپورٹ",
+  "commAlwaysHere": "مدد کے لیے ہمیشہ حاضر ہیں",
+  "commWelcomeTitle": "ہیلو! 👋 میں آشوتوش پاٹھک ہوں",
+  "commWelcomeSubtitle": "Pulse کا ڈیولپر",
+  "commWelcomeBody1": "مجھے امید ہے کہ آپ اشتہارات یا سبسکرپشن کی رکاوٹوں کے بغیر اپنی پسندیدہ موسیقی سے لطف اندوز ہو رہے ہیں۔ موسیقی صرف امیروں تک محدود نہیں ہونی چاہیے۔\n\nیہ سیکشن ہمارے براہ راست رابطے کے لیے ہے۔\n\nآپ مجھے بتا سکتے ہیں:",
+  "commBullet1": "آپ کی رائے",
+  "commBullet2": "خرابی کی رپورٹیں",
+  "commBullet3": "نئے فیچرز کی تجاویز",
+  "commWelcomeBody2": "میں خود ہر پیغام پڑھتا ہوں اور آپ کی تجاویز سے ایپ کو مزید بہتر بناؤں گا۔\n\nکیا آپ کے پاس کسی ایسی ایپ کا آئیڈیا ہے جو سبسکرپشن کے پیچھے چھپی ہو؟ مجھے بتائیں! اگر ممکن ہوا تو میں اسے سب کے لیے بناؤں گا۔\n\nاس سفر میں ساتھ رہنے کے لیے شکریہ۔ ❤️",
+  "commError": "خرابی: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "ابھی تک کوئی پیغام نہیں",
+  "commNoMessagesDesc": "ہماری سپورٹ ٹیم کو پیغام بھیجیں یا بعد میں دوبارہ چیک کریں۔",
+  "commMessageSupportHint": "سپورٹ ٹیم کو لکھیں...",
+  "commGlobalAnnouncements": "عالمی اعلانات",
+  "commSendMessagesToAll": "سب کو پیغام بھیجیں",
+  "homeGreetingMorning": "صبح بخیر،",
+  "homeGreetingAfternoon": "دوپہر بخیر،",
+  "homeGreetingEvening": "شام بخیر،",
+  "homeMember": "رکن",
+  "homeRecentPlaylists": "حالیہ پلے لسٹس",
+  "homeRecentlyPlayed": "حال ہی میں چلائے گئے",
+  "homeSpeedDial": "اسپیڈ ڈائل",
+  "homeNoContent": "کوئی مواد نہیں",
+  "homeRefresh": "ریفریش",
+  "homeLoadError": "موسیقی لوڈ نہیں ہو سکی۔",
+  "homeRetry": "دوبارہ کوشش کریں",
+  "importSuccess": "Spotify کامیابی کے ساتھ منسلک ہو گیا!",
+  "importFailed": "منسلک کرنے میں ناکام: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify منسلک کریں",
+  "importSetupTitle": "Spotify سیٹ اپ",
+  "importSetupDesc": "Spotify کی پابندیوں کو دور کر کے اپنی پلے لسٹس جلدی امپورٹ کرنے کے لیے اپنی ڈیولپر کی (key) استعمال کریں۔ ان مراحل پر عمل کریں:",
+  "importStep1": "Spotify Developer Dashboard کھولیں۔",
+  "importStep2": "لاگ ان کریں اور \"Create app\" پر کلک کریں۔",
+  "importStep3": "ایپ کا نام اور تفصیل دیں۔",
+  "importStep4": "\"Redirect URIs\" کے نیچے یہ مخصوص URL پیسٹ کریں:",
+  "importRedirectCopied": "ری ڈائریکٹ URI کاپی ہو گیا!",
+  "importStep5": "ایپ محفوظ کریں، سیٹنگز سے اپنی \"Client ID\" کاپی کریں اور نیچے پیسٹ کریں۔",
+  "importImportant": "اہم: اس ڈیولپر ایپ کو بنانے کے لیے استعمال ہونے والے Spotify اکاؤنٹ میں فعال پریمیم سبسکرپشن ہونا ضروری ہے۔",
+  "importClientIdHint": "اپنی Spotify Client ID یہاں پیسٹ کریں...",
+  "importConnectButton": "منسلک کریں اور لائبریری لوڈ کریں",
+  "downloadingNoActive": "کوئی فعال ڈاؤن لوڈ نہیں ہے",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "ڈاؤن لوڈز",
+  "downloadsStats": "{count} گانے • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "کوئی آف لائن گانے نہیں ہیں",
+  "downloadsNoOfflineDesc": "آپ کے ڈاؤن لوڈ کردہ گانے یہاں ظاہر ہوں گے",
+  "downloadsClearAllTitle": "سب کچھ صاف کریں؟",
+  "downloadsClearAllDesc": "یہ {count} گانوں کو ڈیلیٹ کر دے گا اور {size} اسٹوریج خالی کر دے گا۔",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "منسوخ کریں",
+  "downloadsClearAll": "سب صاف کریں",
+  "downloadsSongsCount": "{count} گانے",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} گانا",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "مین ڈاؤن لوڈ پلے لسٹ کا نام نہیں بدلا جا سکتا۔",
+  "downloadsRename": "نام تبدیل کریں",
+  "downloadsEditSongs": "گانے ایڈٹ کریں",
+  "downloadsDelete": "ڈیلیٹ کریں",
+  "downloadsRenamePlaylistTitle": "پلے لسٹ کا نام تبدیل کریں",
+  "downloadsRenamePlaylistDesc": "پلے لسٹ کا نیا نام لکھیں۔",
+  "downloadsDeletePlaylistTitle": "پلے لسٹ ڈیلیٹ کریں؟",
+  "downloadsDeleteMasterDesc": "کیا آپ کو یقین ہے؟ آپ اپنے تمام ڈاؤن لوڈ کردہ گانے اور پلے لسٹس ہمیشہ کے لیے کھو دیں گے۔",
+  "downloadsDeletePlaylistDesc": "کیا آپ واقعی \"{name}\" کو ڈیلیٹ کرنا چاہتے ہیں؟ یہ پلے لسٹ ہمیشہ کے لیے ختم ہو جائے گی۔",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "محفوظ کریں",
+  "downloadsNoSongs": "اس پلے لسٹ میں کوئی گانے نہیں ہیں۔",
+  "libraryTitle": "لائبریری",
+  "libraryPauseAll": "سب روکیں",
+  "libraryResumeAll": "سب دوبارہ شروع کریں",
+  "libraryTabPlaylists": "پلے لسٹس",
+  "libraryTabDownloads": "ڈاؤن لوڈز",
+  "libraryTabDownloading": "ڈاؤن لوڈ ہو رہا ہے",
+  "libraryImportedTask": "{name} امپورٹ ہو گیا",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "انتظار کر رہا ہے...",
+  "libraryImportFetching": "پلے لسٹ لا رہا ہے...",
+  "libraryImportProcessed": "{processed}/{total} پروسیس ہو گئے · {matched} ملے",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "لائبریری میں محفوظ کر رہا ہے...",
+  "libraryImportDoneSongs": "{matched} گانے شامل کیے گئے · بند کرنے کے لیے × دبائیں",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "تمام گانے شامل کر دیے گئے · بند کرنے کے لیے × دبائیں",
+  "libraryAddButton": "شامل کریں",
+  "librarySortRecent": "حال ہی میں شامل کیے گئے",
+  "librarySortAlpha": "حروف تہجی کے لحاظ سے",
+  "libraryEmptyTitle": "آپ کی لائبریری خالی ہے۔",
+  "libraryEmptyDesc": "اپنی پہلی Pulse شروع کرنے کے لیے \"شامل کریں\" پر کلک کریں۔",
+  "libraryRenameLikedError": "Liked Songs پلے لسٹ کا نام نہیں بدلا جا سکتا۔",
+  "libraryRename": "نام تبدیل کریں",
+  "libraryEditSongs": "گانے ایڈٹ کریں",
+  "libraryDeleteLikedError": "Liked Songs پلے لسٹ کو ڈیلیٹ نہیں کیا جا سکتا۔",
+  "libraryDelete": "ڈیلیٹ کریں",
+  "libraryEditSongsTitle": "گانے ایڈٹ کریں",
+  "libraryEditSongsCountSingle": "{count} گانا",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} گانے",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "منسوخ کریں",
+  "librarySave": "محفوظ کریں",
+  "libraryNoSongs": "اس پلے لسٹ میں کوئی گانے نہیں ہیں۔",
+  "libraryAddOptionsTitle": "لائبریری میں شامل کریں",
+  "libraryAddOptionsDesc": "اپنی Pulse لائبریری کو بڑھانے کا طریقہ منتخب کریں",
+  "libraryImportPulse": "Pulse سے امپورٹ کریں",
+  "libraryImportPulseDesc": "Pulse پلے لسٹ کا URL پیسٹ کریں",
+  "libraryImportYtm": "YT Music سے امپورٹ کریں",
+  "libraryImportYtmDesc": "پبلک پلے لسٹ کا URL پیسٹ کریں",
+  "libraryImportSpotify": "Spotify سے امپورٹ کریں",
+  "libraryImportSpotifyDesc": "اپنا Spotify منسلک کریں",
+  "libraryClose": "بند کریں",
+  "libraryImportYtmFull": "YouTube Music سے امپورٹ کریں",
+  "libraryImportSpotifyFull": "Spotify سے امپورٹ کریں (≤100)",
+  "libraryImportYtmUrlDesc": "پبلک YouTube Music پلے لسٹ یا البم کا URL پیسٹ کریں",
+  "libraryImportSpotifyUrlDesc": "نیچے پبلک Spotify پلے لسٹ کا URL پیسٹ کریں",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse پلے لسٹ امپورٹ نہیں کی جا سکی",
+  "importErrorPlaylist": "پلے لسٹ امپورٹ کرنے میں خرابی",
+  "importErrorHighlyPopulated": "پلے لسٹ بہت بڑی ہے، لانے میں کچھ وقت لگ سکتا ہے۔",
+  "libraryImportBtn": "امپورٹ کریں",
+  "libraryCreateTitle": "نئی پلے لسٹ",
+  "libraryCreateDesc": "آپ اپنی نئی پلے لسٹ کا کیا نام رکھنا چاہیں گے؟",
+  "libraryCreateHint": "مثال کے طور پر: Midnight Rides",
+  "libraryCreateBtn": "بنائیں",
+  "libraryRenameTitle": "پلے لسٹ کا نام تبدیل کریں",
+  "libraryRenameDesc": "پلے لسٹ کا نیا نام لکھیں۔",
+  "libraryRenameBtn": "نام تبدیل کریں",
+  "libraryDeleteTitle": "پلے لسٹ ڈیلیٹ کریں؟",
+  "libraryDeleteDesc": "کیا آپ واقعی \"{name}\" کو ڈیلیٹ کرنا چاہتے ہیں؟ یہ پلے لسٹ ہمیشہ کے لیے ختم ہو جائے گی۔",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "ڈیلیٹ کریں",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "حالیہ",
+  "librarySongsCount": "{count} گانے",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "جلد آرہا ہے",
+  "loginErrName": "براہ کرم اپنا نام درج کریں",
+  "loginErrEmail": "براہ کرم اپنا ای میل درج کریں",
+  "loginErrPassword": "براہ کرم اپنا پاس ورڈ درج کریں",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "ہر بیٹ کو محسوس کریں!",
+  "loginMadeWithHeartBy": "محبت سے بنایا ہے: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "آپ کا نام",
+  "loginHintEmail": "ای میل ایڈریس",
+  "loginHintPassword": "پاس ورڈ",
+  "loginErrEmailReset": "پاس ورڈ ری سیٹ کرنے کے لیے ای میل درج کریں",
+  "loginResetSent": "ری سیٹ ای میل بھیج دی گئی! اپنا ان باکس چیک کریں۔",
+  "loginForgotPwd": "پاس ورڈ بھول گئے؟",
+  "loginBtnSignup": "اکاؤنٹ بنائیں",
+  "loginBtnSignin": "سائن ان کریں",
+  "loginToggleHaveAccount": "کیا آپ کا پہلے سے Pulse اکاؤنٹ ہے؟ ",
+  "loginToggleNoAccount": "کیا آپ کا Pulse اکاؤنٹ نہیں ہے؟ ",
+  "loginToggleSignin": "سائن ان کریں",
+  "loginToggleSignup": "سائن اپ کریں",
+  "offlineStillOffline": "ابھی تک آف لائن ہیں۔ کنکشن چیک کریں۔",
+  "offlineTitle": "آپ آف لائن ہیں",
+  "offlineSubtitle": "کوئی انٹرنیٹ کنکشن نہیں ہے۔\nاپنا نیٹ ورک چیک کریں اور دوبارہ کوشش کریں۔",
+  "offlineChecking": "چیک کر رہا ہے...",
+  "offlineRetry": "دوبارہ کوشش کریں",
+  "offlineGoToDownloads": "ڈاؤن لوڈز پر جائیں",
+  "playerMadeWithHeartBy": "محبت سے بنایا ہے: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "لیرکس کے لیے سوائپ کریں",
+  "playerNoLyrics": "کوئی لیرکس دستیاب نہیں ہیں",
+  "playerUpNext": "اگلا",
+  "playerNoTracksInQueue": "قطار میں کوئی گانے نہیں ہیں",
+  "playerNoMusicPlaying": "کوئی موسیقی نہیں چل رہی ہے",
+  "playerPickAVibe": "اپنی لائبریری یا ہوم سے ایک گانا منتخب کریں",
+  "playerGoHome": "ہوم پر جائیں",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "ایکوئلائزر",
+  "playerEqCustom": "اپنی مرضی کے مطابق",
+  "playlistDownloads": "ڈاؤن لوڈز",
+  "playlistOffline": "آف لائن پلے لسٹ",
+  "playlistDurationHours": "{hours}گھنٹے {mins}منٹ",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}منٹ",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "اس صفحے پر تلاش کریں",
+  "playlistSongsAndDuration": "{count} گانے • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "حالیہ",
+  "playlistNoMatches": "کچھ نہیں ملا۔",
+  "playlistNoTracks": "اس پلے لسٹ میں کوئی گانے نہیں ہیں۔",
+  "playlistNoSongsYet": "ابھی تک کوئی گانے نہیں ہیں۔",
+  "playlistSortRecentlyAdded": "حال ہی میں شامل کیے گئے",
+  "playlistSortAlphabetical": "حروف تہجی کے لحاظ سے",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{گانا} other{گانے}} ڈاؤن لوڈ ہو رہے ہیں",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "دیکھیں",
+  "playlistAllDownloaded": "تمام گانے پہلے ہی ڈاؤن لوڈ ہو چکے ہیں",
+  "playlistShareText": "Pulse پر \"{name}\" سنیں!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "ڈاؤن لوڈز سے ہٹائیں",
+  "playlistRemoveFromPlaylist": "پلے لسٹ سے ہٹائیں",
+  "playlistLoadError": "یہ پلے لسٹ لوڈ نہیں کی جا سکی۔",
+  "playlistGoBack": "← واپس جائیں",
+  "profileNotLoggedIn": "لاگ ان نہیں ہیں",
+  "profileSignIn": "سائن ان کریں",
+  "profileDefaultUser": "Pulse صارف",
+  "profileEditProfile": "پروفائل ایڈٹ کریں",
+  "profileTimeframeDay": "دن",
+  "profileTimeframeWeek": "ہفتہ",
+  "profileTimeframeMonth": "مہینہ",
+  "profileTimeframeYear": "سال",
+  "profileListeningTime": "سننے کا وقت",
+  "profileToday": "آج",
+  "profileThisWeek": "اس ہفتے",
+  "profileThisMonth": "اس مہینے",
+  "profileThisYear": "اس سال",
+  "profileDailyAvg": "روزانہ کی اوسط",
+  "profilePerDay": "فی دن",
+  "profileLifetimeListening": "سننے کا کل وقت",
+  "profileTotalTimeListened": "Pulse پر موسیقی سننے کا کل وقت",
+  "profileYourTopSongs": "آپ کے پسندیدہ گانے",
+  "profileListeningHistoryEmpty": "آپ کے سننے کی ہسٹری یہاں ظاہر ہوگی۔",
+  "profilePlays": "{count} بار چلایا گیا",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "آپ کے پسندیدہ فنکار",
+  "profileTopArtistsEmpty": "آپ کے پسندیدہ فنکار یہاں ظاہر ہوں گے۔",
+  "profileArtistLabel": "فنکار",
+  "profileSignOut": "سائن آؤٹ کریں",
+  "profileVersion": "ورژن {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "محبت سے بنایا ہے: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "پروفائل ایڈٹ کریں",
+  "profileDisplayName": "ڈسپلے کا نام",
+  "profileCancel": "منسوخ کریں",
+  "profileSave": "محفوظ کریں",
+  "profileChooseAvatar": "اوتار منتخب کریں",
+  "searchMicPermissionRequired": "اس فیچر کے لیے مائیکروفون کی اجازت درکار ہے",
+  "searchUnknownSong": "نامعلوم گانا",
+  "searchUnknownArtist": "نامعلوم فنکار",
+  "searchNoSongDetected": "کوئی گانا نہیں ملا۔",
+  "searchError": "خرابی: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "وائس سرچ دستیاب نہیں ہے",
+  "searchHint": "گانے، فنکار، البمز...",
+  "searchRecentEmpty": "آپ کی حالیہ تلاشیں یہاں ظاہر ہوں گی",
+  "searchRecentSearches": "حالیہ تلاشیں",
+  "searchClearAll": "سب صاف کریں",
+  "searchNoResultsFor": "\"{query}\" کے لیے کوئی نتائج نہیں ہیں",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "مختلف الفاظ کے ساتھ کوشش کریں",
+  "searchTopResult": "ٹاپ رزلٹ",
+  "searchSongsLabel": "گانے",
+  "searchArtistsLabel": "فنکار",
+  "searchAlbumsLabel": "البمز",
+  "searchPlaylistsLabel": "پلے لسٹس",
+  "searchArtistLabel": "فنکار",
+  "searchListening": "سن رہا ہے...",
+  "searchSpeakNow": "تلاش کرنے کے لیے اب بولیں",
+  "searchCancel": "منسوخ کریں",
+  "searchIdentifying": "پہچان رہا ہے...",
+  "searchListeningForSong": "گانے کے لیے سن رہا ہے...",
+  "settingsTitle": "سیٹنگز",
+  "settingsStreamingQuality": "سٹریمنگ کوالٹی",
+  "settingsQualityAutomatic": "خودکار",
+  "settingsQualityLow": "کم",
+  "settingsQualityNormal": "نارمل",
+  "settingsQualityHigh": "زیادہ",
+  "settingsDownloadQuality": "ڈاؤن لوڈ کوالٹی",
+  "settingsPlayback": "پلے بیک",
+  "settingsCrossfade": "کراس فیڈ",
+  "settingsCrossfadeDesc": "آسان منتقلی کے لیے گانوں کو اوورلیپ کریں",
+  "settingsDataUsage": "ڈیٹا کا استعمال",
+  "settingsDataSaver": "ڈیٹا سیور",
+  "settingsDataSaverDesc": "موبائل ڈیٹا پر کم کوالٹی میں اسٹریم کریں",
+  "settingsAppearance": "ظاہری شکل",
+  "settingsLanguage": "زبان",
+  "settingsCustomAccent": "کسٹم ایکسنٹ",
+  "settingsSaturation": "سیچوریشن",
+  "settingsBrightness": "برائٹنس",
+  "settingsResetDefault": "ڈیفالٹ پر ری سیٹ کریں",
+  "playlistSheetTitle": "پلے لسٹ میں شامل کریں",
+  "playlistSheetNewPlaylist": "نئی پلے لسٹ",
+  "playlistSheetNoPlaylists": "کوئی پلے لسٹس نہیں ہیں",
+  "playlistSheetSongsCount": "{count} گانے",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "پلے لسٹ کا نام",
+  "playlistSheetCancel": "منسوخ کریں",
+  "playlistSheetAddedTo": "{name} میں شامل کر دیا گیا",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "بنانے میں ناکام: تصدیق کی خرابی",
+  "playlistSheetCreateFail": "بنانے میں ناکام: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "بنائیں",
+  "appUpdateAvailable": "اپ ڈیٹ دستیاب ہے",
+  "appUpdateDesc": "ورژن {version} آ گیا ہے! نئے فیچرز کے لیے اپ ڈیٹ کریں۔",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "اپ ڈیٹ ڈاؤن لوڈ کریں",
+  "navHome": "ہوم",
+  "navLibrary": "لائبریری",
+  "navSearch": "تلاش",
+  "navSettings": "سیٹنگز",
+  "navProfile": "پروفائل",
+  "artistSelect": "فنکار منتخب کریں",
+  "songActionQueue": "قطار میں شامل کریں",
+  "songActionPlaylist": "پلے لسٹ میں شامل کریں",
+  "songActionFinding": "تلاش کر رہا ہے...",
+  "songActionAlbum": "البم پر جائیں",
+  "songActionArtist": "فنکار پر جائیں",
+  "songActionRemovePlaylist": "پلے لسٹ سے ہٹائیں",
+  "songActionRemoveDownload": "ڈاؤن لوڈز سے ہٹائیں",
+  "songActionDownloadChecking": "چیک کر رہا ہے...",
+  "songActionDownloading": "ڈاؤن لوڈ ہو رہا ہے...",
+  "songActionDownloaded": "ڈاؤن لوڈ ہو گیا!",
+  "songActionDownloadAlready": "پہلے ہی ڈاؤن لوڈ کیا جا چکا ہے",
+  "songActionDownloadFailed": "ڈاؤن لوڈ ناکام ہو گیا",
+  "songActionDownload": "ڈاؤن لوڈ",
+  "songActionDownloadingSnack": "ڈاؤن لوڈ ہو رہا ہے",
+  "songActionView": "دیکھیں",
+  "spotifyImportTitle": "Spotify سے امپورٹ کریں",
+  "spotifyImportSubtitle": "پلے لسٹ کا سائز منتخب کریں",
+  "spotifyChoiceSmallTitle": "100 گانے یا اس سے کم",
+  "spotifyChoiceSmallDesc": "پبلک Spotify پلے لسٹ کا URL پیسٹ کریں۔",
+  "spotifyChoiceLargeTitle": "100 سے زیادہ گانے",
+  "spotifyChoiceLargeDesc": "لامحدود ٹریکس امپورٹ کرنے کے لیے اپنی Spotify Developer App منسلک کریں۔",
+  "cancelButton": "منسوخ کریں",
+  "spotifyPlaylistsTitle": "آپ کی Spotify پلے لسٹس",
+  "spotifyPlaylistsErrorMsg": "خرابی: {error}\nچیک کریں کہ کیا آپ کی Client ID درست ہے۔",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "آپ کی لائبریری میں کوئی پلے لسٹس نہیں ہیں",
+  "spotifyPlaylistsTracks": "{count} ٹریکس",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "امپورٹ",
+  "audioPlaybackFailed": "پلے بیک ناکام ہو گیا۔ انٹرنیٹ کنکشن چیک کریں۔",
+  "audioControlPrevious": "پچھلا",
+  "audioControlPause": "پاز",
+  "audioControlPlay": "پلے",
+  "audioControlNext": "اگلا",
+  "audioControlUnlike": "ان لائک",
+  "audioControlLike": "لائک",
+  "spotifyRawResponseError": "اصلی جواب: {data}\n\nفال بیک: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "غلط کلائنٹ یا کلائنٹ سیکرٹ۔",
+  "apiErrorBadRequest": "خراب درخواست۔ براہ کرم اپنا ان پٹ چیک کریں۔",
+  "apiErrorUnauthorized": "غیر مجاز۔ براہ کرم دوبارہ لاگ ان کریں۔",
+  "apiErrorForbidden": "ممنوع۔ آپ کو رسائی حاصل نہیں ہے۔",
+  "apiErrorNotFound": "وسیلہ نہیں ملا۔",
+  "apiErrorEmailInUse": "یہ ای میل ایڈریس پہلے ہی استعمال میں ہے۔",
+  "apiErrorUserNotFound": "اس ای میل سے منسلک کوئی اکاؤنٹ نہیں ملا۔",
+  "apiErrorWrongPassword": "غلط پاس ورڈ۔",
+  "apiErrorInvalidCredential": "لاگ ان ناکام ہو گیا۔ اپنی معلومات چیک کریں۔",
+  "apiErrorNetwork": "نیٹ ورک کی خرابی۔ اپنا کنکشن چیک کریں۔",
+  "apiErrorSocketTimeout": "کنکشن ٹائم آؤٹ ہو گیا۔ دوبارہ کوشش کریں۔",
+  "apiErrorTooManyRequests": "بہت زیادہ درخواستیں۔ تھوڑی دیر بعد دوبارہ کوشش کریں۔",
+  "apiErrorServerError": "سرور کی خرابی۔ تھوڑی دیر بعد دوبارہ کوشش کریں۔",
+  "apiErrorInvalidEmail": "براہ کرم ایک درست ای میل ایڈریس درج کریں۔",
+  "apiErrorWeakPassword": "پاس ورڈ بہت کمزور ہے۔ کم از کم 6 حروف استعمال کریں۔",
+  "apiErrorTooManyAttempts": "بہت زیادہ ناکام کوششیں۔ بعد میں دوبارہ کوشش کریں۔"
+}

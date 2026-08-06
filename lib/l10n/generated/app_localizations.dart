@@ -6,8 +6,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_af.dart';
+import 'app_localizations_as.dart';
 import 'app_localizations_bn.dart';
 import 'app_localizations_en.dart';
+import 'app_localizations_gu.dart';
 import 'app_localizations_hi.dart';
 import 'app_localizations_kn.dart';
 import 'app_localizations_mai.dart';
@@ -19,6 +21,7 @@ import 'app_localizations_pa.dart';
 import 'app_localizations_sa.dart';
 import 'app_localizations_ta.dart';
 import 'app_localizations_te.dart';
+import 'app_localizations_ur.dart';
 
 // ignore_for_file: type=lint
 
@@ -107,8 +110,10 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('af'),
+    Locale('as'),
     Locale('bn'),
     Locale('en'),
+    Locale('gu'),
     Locale('hi'),
     Locale('kn'),
     Locale('mai'),
@@ -120,6 +125,7 @@ abstract class AppLocalizations {
     Locale('sa'),
     Locale('ta'),
     Locale('te'),
+    Locale('ur'),
   ];
 
   /// The title of the application
@@ -2253,8 +2259,10 @@ class _AppLocalizationsDelegate
   @override
   bool isSupported(Locale locale) => <String>[
     'af',
+    'as',
     'bn',
     'en',
+    'gu',
     'hi',
     'kn',
     'mai',
@@ -2266,6 +2274,7 @@ class _AppLocalizationsDelegate
     'sa',
     'ta',
     'te',
+    'ur',
   ].contains(locale.languageCode);
 
   @override
@@ -2277,10 +2286,14 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'af':
       return AppLocalizationsAf();
+    case 'as':
+      return AppLocalizationsAs();
     case 'bn':
       return AppLocalizationsBn();
     case 'en':
       return AppLocalizationsEn();
+    case 'gu':
+      return AppLocalizationsGu();
     case 'hi':
       return AppLocalizationsHi();
     case 'kn':
@@ -2303,6 +2316,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsTa();
     case 'te':
       return AppLocalizationsTe();
+    case 'ur':
+      return AppLocalizationsUr();
   }
 
   throw FlutterError(

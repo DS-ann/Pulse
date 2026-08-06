@@ -1,0 +1,574 @@
+{
+  "@@locale": "as",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "বিষয়ে",
+  "artistPopular": "জনপ্ৰিয়",
+  "artistAlbums": "এলবাম",
+  "artistSinglesAndEPs": "ছিংগলচ আৰু EP",
+  "artistSubscribersCount": "{count} চাবস্ক্ৰাইবাৰ",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "সকলো বজাওক",
+  "artistLoadError": "শিল্পী ল'ড কৰিব পৰা নগ'ল",
+  "artistGoBack": "উভতি যাওক",
+  "adminChatFailedToReply": "উত্তৰ দিব পৰা নগ'ল: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "চাপোৰ্ট চেট",
+  "adminChatError": "ভুল: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "কোনো আগতীয়া বাৰ্তালাপ নাই।",
+  "adminChatSupportYou": "চাপোৰ্ট (আপুনি)",
+  "adminChatTypeReply": "আপোনাৰ উত্তৰ লিখক...",
+  "broadcastSuccess": "ঘোষণা সফলতাৰে প্ৰেৰণ কৰা হ'ল!",
+  "broadcastFailed": "প্ৰেৰণ কৰিব পৰা নগ'ল: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "গ্ল'বেল ঘোষণা",
+  "broadcastSubtitle": "সকলো ব্যৱহাৰকাৰীলৈ প্ৰেৰণ কৰা হ'ল",
+  "broadcastWarning": "ইয়াত প্ৰেৰণ কৰা বাৰ্তা সকলোৱে দেখিবলৈ পাব।",
+  "broadcastError": "ভুল: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "কোনো আগতীয়া ঘোষণা নাই।",
+  "broadcastTypeMessage": "এটা গ্ল'বেল ঘোষণা লিখক...",
+  "commFailedToSend": "প্ৰেৰণ কৰিব পৰা নগ'ল: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "এডমিন ডেশ্ববৰ্ড",
+  "commAdminSupport": "এডমিন চাপোৰ্ট",
+  "commAlwaysHere": "সহায় কৰিবলৈ সদায় সাজু",
+  "commWelcomeTitle": "নমস্কাৰ! 👋 মই আশুতোষ পাঠক",
+  "commWelcomeSubtitle": "Pulse ৰ ডেভেলপাৰ",
+  "commWelcomeBody1": "মই আশা কৰোঁ আপুনি কোনো বিজ্ঞাপন বা চাবস্ক্ৰিপচনৰ বাধা নোহোৱাকৈ আপোনাৰ প্ৰিয় সংগীত উপভোগ কৰি আছে। সংগীত কেৱল ধনী লোকৰ বাবে সীমাবদ্ধ হ'ব নালাগে।\n\nএই অংশটো আমাৰ পোনপটীয়া যোগাযোগৰ বাবে।\n\nআপুনি মোক জনাব পাৰে:",
+  "commBullet1": "আপোনাৰ মতামত",
+  "commBullet2": "ভুলৰ ৰিপ'ৰ্ট",
+  "commBullet3": "নতুন ফিচাৰৰ পৰামৰ্শ",
+  "commWelcomeBody2": "মই নিজে প্ৰতিটো বাৰ্তা পঢ়ো আৰু আপোনাৰ পৰামৰ্শৰে এপটো অধিক উন্নত কৰিম।\n\nআপোনাৰ ওচৰত এনে কোনো এপৰ ধাৰণা আছে নেকি যিটো চাবস্ক্ৰিপচনৰ আঁৰত লুকুৱাই থোৱা আছে? মোক জনাওক! সম্ভৱ হ'লে মই সেয়া সকলোৰে বাবে নিৰ্মাণ কৰিম।\n\nএই যাত্ৰাত সংগী হোৱাৰ বাবে ধন্যবাদ। ❤️",
+  "commError": "ভুল: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "এতিয়ালৈকে কোনো বাৰ্তা নাই",
+  "commNoMessagesDesc": "আমাৰ চাপোৰ্ট টীমলৈ বাৰ্তা পঠাওক বা পিছত আকৌ চাওক।",
+  "commMessageSupportHint": "চাপোৰ্ট টীমলৈ লিখক...",
+  "commGlobalAnnouncements": "গ্ল'বেল ঘোষণাসমূহ",
+  "commSendMessagesToAll": "সকলোলৈ বাৰ্তা পঠাওক",
+  "homeGreetingMorning": "সুপ্ৰভাত,",
+  "homeGreetingAfternoon": "শুভ অপৰাহ্ন,",
+  "homeGreetingEvening": "শুভ সন্ধ্যা,",
+  "homeMember": "সদস্য",
+  "homeRecentPlaylists": "সাম্প্ৰতিক প্লেলিষ্টসমূহ",
+  "homeRecentlyPlayed": "শেহতীয়াকৈ বজোৱা",
+  "homeSpeedDial": "স্পীড ডায়েল",
+  "homeNoContent": "কোনো সমল নাই",
+  "homeRefresh": "ৰিফ্ৰেছ",
+  "homeLoadError": "মিউজিক ফিড ল'ড কৰিব পৰা নগ'ল।",
+  "homeRetry": "পুনৰ চেষ্টা কৰক",
+  "importSuccess": "Spotify সফলতাৰে সংযোগ কৰা হ'ল!",
+  "importFailed": "সংযোগ কৰিব পৰা নগ'ল: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify সংযোগ কৰক",
+  "importSetupTitle": "Spotify ছেটআপ",
+  "importSetupDesc": "Spotify ৰ সীমাবন্ধতাসমূহ অতিক্ৰম কৰি আপোনাৰ প্লেলিষ্টসমূহ দ্ৰুতভাৱে ইম্প'ৰ্ট কৰিবলৈ আপোনাৰ নিজৰ ডেভেলপাৰ কী ব্যৱহাৰ কৰক। এই পদক্ষেপসমূহ অনুসৰণ কৰক:",
+  "importStep1": "Spotify Developer Dashboard খোলক।",
+  "importStep2": "লগ ইন কৰক আৰু \"Create app\" ত ক্লিক কৰক।",
+  "importStep3": "এপৰ এটা নাম আৰু বিৱৰণ দিয়ক।",
+  "importStep4": "\"Redirect URIs\" ৰ তলত এই নিৰ্দিষ্ট URL পেষ্ট কৰক:",
+  "importRedirectCopied": "ৰিডাইৰেক্ট URI কপি কৰা হ'ল!",
+  "importStep5": "এপ ছেভ কৰক, ছেটিংছৰ পৰা আপোনাৰ \"Client ID\" কপি কৰক আৰু তলত পেষ্ট কৰক।",
+  "importImportant": "গুৰুত্বপূৰ্ণ: এই ডেভেলপাৰ এপটো নিৰ্মাণ কৰিবলৈ ব্যৱহাৰ কৰা Spotify একাউন্টত এক্টিভ প্ৰিমিয়াম চাবস্ক্ৰিপচন থাকিব লাগিব।",
+  "importClientIdHint": "আপোনাৰ Spotify Client ID ইয়াত পেষ্ট কৰক...",
+  "importConnectButton": "সংযোগ কৰক আৰু লাইব্ৰেৰী ল'ড কৰক",
+  "downloadingNoActive": "কোনো সক্ৰিয় ডাউনলোড নাই",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "ডাউনলোডসমূহ",
+  "downloadsStats": "{count} টা গান • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "কোনো অফলাইন গান নাই",
+  "downloadsNoOfflineDesc": "আপুনি ডাউনলোড কৰা গানসমূহ ইয়াত দেখা যাব",
+  "downloadsClearAllTitle": "সকলো ক্লিয়াৰ কৰিব নেকি?",
+  "downloadsClearAllDesc": "ই {count} টা গান মচি পেলাব আৰু {size} ষ্ট'ৰেজ খালী কৰিব।",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "বাতিল কৰক",
+  "downloadsClearAll": "সকলো ক্লিয়াৰ",
+  "downloadsSongsCount": "{count} টা গান",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} টা গান",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "মূল ডাউনলোড প্লেলিষ্টৰ নাম সলনি কৰিব নোৱাৰি।",
+  "downloadsRename": "নাম সলনি কৰক",
+  "downloadsEditSongs": "গানসমূহ সম্পাদনা কৰক",
+  "downloadsDelete": "মচি পেলাওক",
+  "downloadsRenamePlaylistTitle": "প্লেলিষ্টৰ নাম সলনি কৰক",
+  "downloadsRenamePlaylistDesc": "প্লেলিষ্টৰ বাবে এটা নতুন নাম লিখক।",
+  "downloadsDeletePlaylistTitle": "প্লেলিষ্ট মচি পেলাব নেকি?",
+  "downloadsDeleteMasterDesc": "আপুনি নিশ্চিতনে? আপুনি সকলো ডাউনলোড কৰা গান আৰু প্লেলিষ্ট চিৰদিনৰ বাবে হেৰুৱাব।",
+  "downloadsDeletePlaylistDesc": "আপুনি নিশ্চিতনে যে আপুনি \"{name}\" মচি পেলাব বিচাৰে? এই প্লেলিষ্টটো চিৰদিনৰ বাবে হেৰাই যাব।",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "ছেভ কৰক",
+  "downloadsNoSongs": "এই প্লেলিষ্টত কোনো গান নাই।",
+  "libraryTitle": "লাইব্ৰেৰী",
+  "libraryPauseAll": "সকলো পজ কৰক",
+  "libraryResumeAll": "সকলো পুনৰ আৰম্ভ কৰক",
+  "libraryTabPlaylists": "প্লেলিষ্টসমূহ",
+  "libraryTabDownloads": "ডাউনলোডসমূহ",
+  "libraryTabDownloading": "ডাউনলোড হৈ আছে",
+  "libraryImportedTask": "{name} ইম্প'ৰ্ট কৰা হ'ল",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "অপেক্ষা কৰি আছে...",
+  "libraryImportFetching": "প্লেলিষ্ট আনি আছে...",
+  "libraryImportProcessed": "{processed}/{total} প্ৰক্ৰিয়া কৰা হ'ল · {matched} মিল পালে",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "লাইব্ৰেৰীত ছেভ কৰি আছে...",
+  "libraryImportDoneSongs": "{matched} টা গান যোগ কৰা হ'ল · বন্ধ কৰিবলৈ × টিপক",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "সকলো গান যোগ কৰা হ'ল · বন্ধ কৰিবলৈ × টিপক",
+  "libraryAddButton": "যোগ কৰক",
+  "librarySortRecent": "শেহতীয়াকৈ যোগ কৰা",
+  "librarySortAlpha": "বৰ্ণানুক্ৰমিক",
+  "libraryEmptyTitle": "আপোনাৰ লাইব্ৰেৰী খালী।",
+  "libraryEmptyDesc": "আপোনাৰ প্ৰথম Pulse আৰম্ভ কৰিবলৈ \"যোগ কৰক\" টিপক।",
+  "libraryRenameLikedError": "Liked Songs প্লেলিষ্টৰ নাম সলনি কৰিব নোৱাৰি।",
+  "libraryRename": "নাম সলনি কৰক",
+  "libraryEditSongs": "গানসমূহ সম্পাদনা কৰক",
+  "libraryDeleteLikedError": "Liked Songs প্লেলিষ্ট মচি পেলাব নোৱাৰি।",
+  "libraryDelete": "মচি পেলাওক",
+  "libraryEditSongsTitle": "গানসমূহ সম্পাদনা কৰক",
+  "libraryEditSongsCountSingle": "{count} টা গান",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} টা গান",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "বাতিল কৰক",
+  "librarySave": "ছেভ কৰক",
+  "libraryNoSongs": "এই প্লেলিষ্টত কোনো গান নাই।",
+  "libraryAddOptionsTitle": "লাইব্ৰেৰীত যোগ কৰক",
+  "libraryAddOptionsDesc": "আপোনাৰ Pulse লাইব্ৰেৰী কেনেকৈ বঢ়াব বাছনি কৰক",
+  "libraryImportPulse": "Pulse ৰ পৰা ইম্প'ৰ্ট কৰক",
+  "libraryImportPulseDesc": "এটা Pulse প্লেলিষ্টৰ URL পেষ্ট কৰক",
+  "libraryImportYtm": "YT Music ৰ পৰা ইম্প'ৰ্ট কৰক",
+  "libraryImportYtmDesc": "এটা পাব্লিক প্লেলিষ্টৰ URL পেষ্ট কৰক",
+  "libraryImportSpotify": "Spotify ৰ পৰা ইম্প'ৰ্ট কৰক",
+  "libraryImportSpotifyDesc": "আপোনাৰ Spotify সংযোগ কৰক",
+  "libraryClose": "বন্ধ কৰক",
+  "libraryImportYtmFull": "YouTube Music ৰ পৰা ইম্প'ৰ্ট কৰক",
+  "libraryImportSpotifyFull": "Spotify ৰ পৰা ইম্প'ৰ্ট কৰক (≤100)",
+  "libraryImportYtmUrlDesc": "এটা পাব্লিক YouTube Music প্লেলিষ্ট বা এলবামৰ URL পেষ্ট কৰক",
+  "libraryImportSpotifyUrlDesc": "এটা পাব্লিক Spotify প্লেলিষ্টৰ URL তলত পেষ্ট কৰক",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse প্লেলিষ্ট ইম্প'ৰ্ট কৰিব পৰা নগ'ল",
+  "importErrorPlaylist": "প্লেলিষ্ট ইম্প'ৰ্ট কৰাত ভুল",
+  "importErrorHighlyPopulated": "প্লেলিষ্টটো বহুত ডাঙৰ, আনিবলৈ কিছু সময় লাগিব পাৰে।",
+  "libraryImportBtn": "ইম্প'ৰ্ট কৰক",
+  "libraryCreateTitle": "নতুন প্লেলিষ্ট",
+  "libraryCreateDesc": "আপোনাৰ নতুন প্লেলিষ্টৰ নাম কি থ'ব বিচাৰে?",
+  "libraryCreateHint": "যেনে- Midnight Rides",
+  "libraryCreateBtn": "নিৰ্মাণ কৰক",
+  "libraryRenameTitle": "প্লেলিষ্টৰ নাম সলনি কৰক",
+  "libraryRenameDesc": "প্লেলিষ্টৰ বাবে এটা নতুন নাম লিখক।",
+  "libraryRenameBtn": "নাম সলনি কৰক",
+  "libraryDeleteTitle": "প্লেলিষ্ট মচি পেলাব নেকি?",
+  "libraryDeleteDesc": "আপুনি নিশ্চিতনে যে আপুনি \"{name}\" মচি পেলাব বিচাৰে? এই প্লেলিষ্টটো চিৰদিনৰ বাবে হেৰাই যাব।",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "মচি পেলাওক",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "শেহতীয়া",
+  "librarySongsCount": "{count} টা গান",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "অতি সোনকালেই আহি আছে",
+  "loginErrName": "অনুগ্ৰহ কৰি আপোনাৰ নাম দিয়ক",
+  "loginErrEmail": "অনুগ্ৰহ কৰি আপোনাৰ ইমেইল দিয়ক",
+  "loginErrPassword": "অনুগ্ৰহ কৰি আপোনাৰ পাছৱৰ্ড দিয়ক",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "প্ৰতিটো বিট অনুভৱ কৰক!",
+  "loginMadeWithHeartBy": "মৰমেৰে নিৰ্মাণ কৰা হৈছে: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "আপোনাৰ নাম",
+  "loginHintEmail": "ইমেইল ঠিকনা",
+  "loginHintPassword": "পাছৱৰ্ড",
+  "loginErrEmailReset": "পাছৱৰ্ড ৰিছেট কৰিবলৈ ইমেইল দিয়ক",
+  "loginResetSent": "ৰিছেট ইমেইল পঠোৱা হ'ল! ইনবক্স চাওক।",
+  "loginForgotPwd": "পাছৱৰ্ড পাহৰিছে নেকি?",
+  "loginBtnSignup": "একাউন্ট নিৰ্মাণ কৰক",
+  "loginBtnSignin": "চাইন ইন কৰক",
+  "loginToggleHaveAccount": "আগৰে পৰা Pulse একাউন্ট আছে নেকি? ",
+  "loginToggleNoAccount": "Pulse একাউন্ট নাই নেকি? ",
+  "loginToggleSignin": "চাইন ইন কৰক",
+  "loginToggleSignup": "চাইন আপ কৰক",
+  "offlineStillOffline": "এতিয়াও অফলাইন। সংযোগ পৰীক্ষা কৰক।",
+  "offlineTitle": "আপুনি অফলাইন আছে",
+  "offlineSubtitle": "কোনো ইণ্টাৰনেট সংযোগ নাই।\nনেটৱৰ্ক পৰীক্ষা কৰক আৰু পুনৰ চেষ্টা কৰক।",
+  "offlineChecking": "পৰীক্ষা কৰি আছে...",
+  "offlineRetry": "পুনৰ চেষ্টা কৰক",
+  "offlineGoToDownloads": "ডাউনলোডসমূহলৈ যাওক",
+  "playerMadeWithHeartBy": "মৰমেৰে নিৰ্মাণ কৰা হৈছে: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "লিৰিক্সৰ বাবে স্বাইপ কৰক",
+  "playerNoLyrics": "কোনো লিৰিক্স উপলব্ধ নাই",
+  "playerUpNext": "পৰৱৰ্তী",
+  "playerNoTracksInQueue": "শাৰীত কোনো গান নাই",
+  "playerNoMusicPlaying": "কোনো সংগীত বাজি থকা নাই",
+  "playerPickAVibe": "আপোনাৰ লাইব্ৰেৰী বা হোমৰ পৰা এটা গান বাছনি কৰক",
+  "playerGoHome": "হোমলৈ যাওক",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "ইকুৱালাইজাৰ",
+  "playerEqCustom": "কাষ্টম",
+  "playlistDownloads": "ডাউনলোডসমূহ",
+  "playlistOffline": "অফলাইন প্লেলিষ্ট",
+  "playlistDurationHours": "{hours}ঘ {mins}মি",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}মি",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "এই পৃষ্ঠাত বিচাৰক",
+  "playlistSongsAndDuration": "{count} টা গান • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "শেহতীয়া",
+  "playlistNoMatches": "একো পোৱা নগ'ল।",
+  "playlistNoTracks": "এই প্লেলিষ্টত কোনো গান নাই।",
+  "playlistNoSongsYet": "এতিয়ালৈকে কোনো গান নাই।",
+  "playlistSortRecentlyAdded": "শেহতীয়াকৈ যোগ কৰা",
+  "playlistSortAlphabetical": "বৰ্ণানুক্ৰমিক",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{টা গান} other{টা গান}} ডাউনলোড হৈ আছে",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "চাওক",
+  "playlistAllDownloaded": "সকলো গান আগতেই ডাউনলোড কৰা হৈছে",
+  "playlistShareText": "Pulse ত \"{name}\" শুনক!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "ডাউনলোডৰ পৰা আঁতৰাওক",
+  "playlistRemoveFromPlaylist": "প্লেলিষ্টৰ পৰা আঁতৰাওক",
+  "playlistLoadError": "এই প্লেলিষ্ট ল'ড কৰিব পৰা নগ'ল।",
+  "playlistGoBack": "← উভতি যাওক",
+  "profileNotLoggedIn": "লগ ইন কৰা নাই",
+  "profileSignIn": "চাইন ইন কৰক",
+  "profileDefaultUser": "Pulse ব্যৱহাৰকাৰী",
+  "profileEditProfile": "প্ৰফাইল সম্পাদনা",
+  "profileTimeframeDay": "দিন",
+  "profileTimeframeWeek": "সপ্তাহ",
+  "profileTimeframeMonth": "মাহ",
+  "profileTimeframeYear": "বছৰ",
+  "profileListeningTime": "শুনাৰ সময়",
+  "profileToday": "আজি",
+  "profileThisWeek": "এই সপ্তাহত",
+  "profileThisMonth": "এই মাহত",
+  "profileThisYear": "এই বছৰত",
+  "profileDailyAvg": "দৈনিক গড়",
+  "profilePerDay": "প্ৰতিদিনে",
+  "profileLifetimeListening": "মুঠ শুনাৰ সময়",
+  "profileTotalTimeListened": "Pulse ত সংগীত শুনাৰ মুঠ সময়",
+  "profileYourTopSongs": "আপোনাৰ প্ৰিয় গানসমূহ",
+  "profileListeningHistoryEmpty": "আপোনাৰ শুনাৰ হিষ্ট্ৰী ইয়াত দেখা যাব।",
+  "profilePlays": "{count} বাৰ বজোৱা হৈছে",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "আপোনাৰ প্ৰিয় শিল্পীসমূহ",
+  "profileTopArtistsEmpty": "আপোনাৰ প্ৰিয় শিল্পীসমূহ ইয়াত দেখা যাব।",
+  "profileArtistLabel": "শিল্পী",
+  "profileSignOut": "চাইন আউট কৰক",
+  "profileVersion": "ভাৰ্ছন {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "মৰমেৰে নিৰ্মাণ কৰা হৈছে: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "প্ৰফাইল সম্পাদনা",
+  "profileDisplayName": "প্ৰদৰ্শন নাম",
+  "profileCancel": "বাতিল কৰক",
+  "profileSave": "ছেভ কৰক",
+  "profileChooseAvatar": "অৱতাৰ বাছনি কৰক",
+  "searchMicPermissionRequired": "এই ফিচাৰৰ বাবে মাইক্ৰ'ফোনৰ অনুমতি প্ৰয়োজন",
+  "searchUnknownSong": "অজ্ঞাত গান",
+  "searchUnknownArtist": "অজ্ঞাত শিল্পী",
+  "searchNoSongDetected": "কোনো গান পোৱা নগ'ল।",
+  "searchError": "ভুল: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "ভইচ ছাৰ্চ উপলব্ধ নাই",
+  "searchHint": "গান, শিল্পী, এলবাম...",
+  "searchRecentEmpty": "আপোনাৰ শেহতীয়া ছাৰ্চ ইয়াত দেখা যাব",
+  "searchRecentSearches": "শেহতীয়া ছাৰ্চ",
+  "searchClearAll": "সকলো ক্লিয়াৰ",
+  "searchNoResultsFor": "\"{query}\" ৰ বাবে কোনো ফলাফল নাই",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "বেলেগ শব্দৰে চেষ্টা কৰক",
+  "searchTopResult": "টপ ৰিজাল্ট",
+  "searchSongsLabel": "গানসমূহ",
+  "searchArtistsLabel": "শিল্পীসমূহ",
+  "searchAlbumsLabel": "এলবামসমূহ",
+  "searchPlaylistsLabel": "প্লেলিষ্টসমূহ",
+  "searchArtistLabel": "শিল্পী",
+  "searchListening": "শুনি আছে...",
+  "searchSpeakNow": "ছাৰ্চ কৰিবলৈ এতিয়া কওক",
+  "searchCancel": "বাতিল কৰক",
+  "searchIdentifying": "চিনাক্ত কৰি আছে...",
+  "searchListeningForSong": "গানৰ বাবে শুনি আছে...",
+  "settingsTitle": "ছেটিংছ",
+  "settingsStreamingQuality": "ষ্ট্ৰীমিং কোৱালিটি",
+  "settingsQualityAutomatic": "অটোমেটিক",
+  "settingsQualityLow": "নিম্ন",
+  "settingsQualityNormal": "সাধাৰণ",
+  "settingsQualityHigh": "উচ্চ",
+  "settingsDownloadQuality": "ডাউনলোড কোৱালিটি",
+  "settingsPlayback": "প্লেবেক",
+  "settingsCrossfade": "ক্ৰছফেড",
+  "settingsCrossfadeDesc": "স্মুথ ট্ৰেনজিচনৰ বাবে গানসমূহ অভাৰলেপ কৰক",
+  "settingsDataUsage": "ডেটা ব্যৱহাৰ",
+  "settingsDataSaver": "ডেটা চেভাৰ",
+  "settingsDataSaverDesc": "ম'বাইল ডেটাত নিম্ন কোৱালিটিত ষ্ট্ৰীম কৰক",
+  "settingsAppearance": "এপিয়াৰেন্স",
+  "settingsLanguage": "ভাষা",
+  "settingsCustomAccent": "কাষ্টম এক্সেন্ট",
+  "settingsSaturation": "চেচুৰেচন",
+  "settingsBrightness": "ব্ৰাইটনেছ",
+  "settingsResetDefault": "ডিফল্টলৈ ৰিছেট কৰক",
+  "playlistSheetTitle": "প্লেলিষ্টত যোগ কৰক",
+  "playlistSheetNewPlaylist": "নতুন প্লেলিষ্ট",
+  "playlistSheetNoPlaylists": "কোনো প্লেলিষ্ট নাই",
+  "playlistSheetSongsCount": "{count} টা গান",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "প্লেলিষ্টৰ নাম",
+  "playlistSheetCancel": "বাতিল কৰক",
+  "playlistSheetAddedTo": "{name} ত যোগ কৰা হ'ল",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "নিৰ্মাণ কৰিব পৰা নগ'ল: অথেনটিকেচনৰ ভুল",
+  "playlistSheetCreateFail": "নিৰ্মাণ কৰিব পৰা নগ'ল: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "নিৰ্মাণ কৰক",
+  "appUpdateAvailable": "আপডেট উপলব্ধ",
+  "appUpdateDesc": "ভাৰ্ছন {version} আহি গৈছে! নতুন ফিচাৰৰ বাবে আপডেট কৰক।",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "আপডেট ডাউনলোড কৰক",
+  "navHome": "হোম",
+  "navLibrary": "লাইব্ৰেৰী",
+  "navSearch": "ছাৰ্চ",
+  "navSettings": "ছেটিংছ",
+  "navProfile": "প্ৰফাইল",
+  "artistSelect": "শিল্পী বাছনি কৰক",
+  "songActionQueue": "শাৰীত যোগ কৰক",
+  "songActionPlaylist": "প্লেলিষ্টত যোগ কৰক",
+  "songActionFinding": "বিচাৰি আছে...",
+  "songActionAlbum": "এলবামলৈ যাওক",
+  "songActionArtist": "শিল্পীলৈ যাওক",
+  "songActionRemovePlaylist": "প্লেলিষ্টৰ পৰা আঁতৰাওক",
+  "songActionRemoveDownload": "ডাউনলোডৰ পৰা আঁতৰাওক",
+  "songActionDownloadChecking": "পৰীক্ষা কৰি আছে...",
+  "songActionDownloading": "ডাউনলোড হৈ আছে...",
+  "songActionDownloaded": "ডাউনলোড হ'ল!",
+  "songActionDownloadAlready": "আগতেই ডাউনলোড কৰা হৈছে",
+  "songActionDownloadFailed": "ডাউনলোড বিফল হ'ল",
+  "songActionDownload": "ডাউনলোড",
+  "songActionDownloadingSnack": "ডাউনলোড হৈ আছে",
+  "songActionView": "চাওক",
+  "spotifyImportTitle": "Spotify ৰ পৰা ইম্প'ৰ্ট কৰক",
+  "spotifyImportSubtitle": "প্লেলিষ্টৰ আকাৰ বাছনি কৰক",
+  "spotifyChoiceSmallTitle": "১০০ টা গান বা তাতকৈ কম",
+  "spotifyChoiceSmallDesc": "এটা পাব্লিক Spotify প্লেলিষ্টৰ URL পেষ্ট কৰক।",
+  "spotifyChoiceLargeTitle": "১০০ টাতকৈ বেছি গান",
+  "spotifyChoiceLargeDesc": "অসীমিত ট্ৰেকসমূহ ইম্প'ৰ্ট কৰিবলৈ আপোনাৰ নিজৰ Spotify Developer App সংযোগ কৰক।",
+  "cancelButton": "বাতিল কৰক",
+  "spotifyPlaylistsTitle": "আপোনাৰ Spotify প্লেলিষ্টসমূহ",
+  "spotifyPlaylistsErrorMsg": "ভুল: {error}\nআপোনাৰ Client ID শুদ্ধ হয় নে নহয় পৰীক্ষা কৰক।",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "আপোনাৰ লাইব্ৰেৰীত কোনো প্লেলিষ্ট নাই",
+  "spotifyPlaylistsTracks": "{count} ট্ৰেক",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "ইম্প'ৰ্ট",
+  "audioPlaybackFailed": "প্লেবেক বিফল হ'ল। ইণ্টাৰনেট সংযোগ পৰীক্ষা কৰক।",
+  "audioControlPrevious": "পূৰ্বৱৰ্তী",
+  "audioControlPause": "পজ",
+  "audioControlPlay": "প্লে",
+  "audioControlNext": "পৰৱৰ্তী",
+  "audioControlUnlike": "আনলাইক",
+  "audioControlLike": "লাইক",
+  "spotifyRawResponseError": "মূল সঁহাৰি: {data}\n\nফলবেক: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "ভুল ক্লায়েন্ট বা ক্লায়েন্ট চিক্ৰেট।",
+  "apiErrorBadRequest": "বেয়া অনুৰোধ। অনুগ্ৰহ কৰি আপোনাৰ ইনপুট পৰীক্ষা কৰক।",
+  "apiErrorUnauthorized": "অনুমোদনহীন। অনুগ্ৰহ কৰি পুনৰ লগ ইন কৰক।",
+  "apiErrorForbidden": "নিষিদ্ধ। আপোনাৰ প্ৰৱেশাধিকাৰ নাই।",
+  "apiErrorNotFound": "সম্পদ পোৱা নগ'ল।",
+  "apiErrorEmailInUse": "এই ইমেইল ঠিকনাটো ইতিমধ্যে ব্যৱহাৰ কৰা হৈছে।",
+  "apiErrorUserNotFound": "এই ইমেইলৰ সৈতে জড়িত কোনো একাউন্ট পোৱা নগ'ল।",
+  "apiErrorWrongPassword": "ভুল পাছৱৰ্ড।",
+  "apiErrorInvalidCredential": "লগ ইন বিফল হ'ল। আপোনাৰ তথ্য পৰীক্ষা কৰক।",
+  "apiErrorNetwork": "নেটৱৰ্কৰ ভুল। আপোনাৰ সংযোগ পৰীক্ষা কৰক।",
+  "apiErrorSocketTimeout": "সংযোগৰ সময় উকলি গ'ল। পুনৰ চেষ্টা কৰক।",
+  "apiErrorTooManyRequests": "অত্যাধিক অনুৰোধ। কিছু সময় পাছত পুনৰ চেষ্টা কৰক।",
+  "apiErrorServerError": "চাৰ্ভাৰৰ ভুল। কিছু সময় পাছত পুনৰ চেষ্টা কৰক।",
+  "apiErrorInvalidEmail": "অনুগ্ৰহ কৰি এটা বৈধ ইমেইল ঠিকনা দিয়ক।",
+  "apiErrorWeakPassword": "পাছৱৰ্ড অতি দুৰ্বল। কমেও ৬ টা আখৰ ব্যৱহাৰ কৰক।",
+  "apiErrorTooManyAttempts": "অত্যাধিক বিফল প্ৰচেষ্টা। পিছত পুনৰ চেষ্টা কৰক।"
+}
