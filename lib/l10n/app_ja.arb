@@ -1,0 +1,574 @@
+{
+  "@@locale": "ja",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "概要",
+  "artistPopular": "人気の曲",
+  "artistAlbums": "アルバム",
+  "artistSinglesAndEPs": "シングルとEP",
+  "artistSubscribersCount": "登録者 {count} 人",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "すべて再生",
+  "artistLoadError": "アーティストを読み込めませんでした",
+  "artistGoBack": "戻る",
+  "adminChatFailedToReply": "返信に失敗しました: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "サポートチャット",
+  "adminChatError": "エラー: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "メッセージ履歴がありません。",
+  "adminChatSupportYou": "サポート (あなた)",
+  "adminChatTypeReply": "返信を入力...",
+  "broadcastSuccess": "お知らせを送信しました",
+  "broadcastFailed": "送信に失敗しました: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "全体へのメッセージ",
+  "broadcastSubtitle": "全ユーザーへ送信",
+  "broadcastWarning": "このメッセージは全員に表示されます。",
+  "broadcastError": "エラー: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "お知らせはありません。",
+  "broadcastTypeMessage": "メッセージを入力...",
+  "commFailedToSend": "送信に失敗しました: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "管理者ダッシュボード",
+  "commAdminSupport": "サポート",
+  "commAlwaysHere": "いつでもサポートします",
+  "commWelcomeTitle": "こんにちは！👋 開発者の Ashutosh Pathak です",
+  "commWelcomeSubtitle": "Pulse クリエイター",
+  "commWelcomeBody1": "広告なしの音楽体験を楽しんでいただければ幸いです。音楽は誰にでも開かれているべきです。\n\nここは私と直接やり取りできるスペースです。\n\nお気軽にどうぞ:",
+  "commBullet1": "フィードバック",
+  "commBullet2": "バグの報告",
+  "commBullet3": "新機能の提案",
+  "commWelcomeBody2": "すべてのメッセージを読んでいます。\n\nもし新しいアプリのアイデアがあれば教えてください！可能なら作ってみます。\n\nPulseをご利用いただきありがとうございます。❤️",
+  "commError": "エラー: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "まだメッセージはありません",
+  "commNoMessagesDesc": "サポートチームにメッセージを送ってみましょう。",
+  "commMessageSupportHint": "メッセージを入力...",
+  "commGlobalAnnouncements": "お知らせ",
+  "commSendMessagesToAll": "全員に送信",
+  "homeGreetingMorning": "おはようございます",
+  "homeGreetingAfternoon": "こんにちは",
+  "homeGreetingEvening": "こんばんは",
+  "homeMember": "メンバー",
+  "homeRecentPlaylists": "最近のプレイリスト",
+  "homeRecentlyPlayed": "最近再生した曲",
+  "homeSpeedDial": "クイックアクセス",
+  "homeNoContent": "コンテンツがありません",
+  "homeRefresh": "更新",
+  "homeLoadError": "読み込みに失敗しました。",
+  "homeRetry": "再試行",
+  "importSuccess": "Spotifyに接続しました",
+  "importFailed": "接続に失敗しました: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify 接続",
+  "importSetupTitle": "Spotify の設定",
+  "importSetupDesc": "ご自身の開発者キーを使用してプレイリストを高速インポートします:",
+  "importStep1": "Spotify Developer Dashboard を開きます。",
+  "importStep2": "ログインして「Create app」をクリックします。",
+  "importStep3": "アプリ名と説明を入力します。",
+  "importStep4": "「Redirect URIs」に以下の URL を貼り付けます:",
+  "importRedirectCopied": "URLをコピーしました！",
+  "importStep5": "保存後、「Client ID」をコピーして以下に貼り付けます。",
+  "importImportant": "重要: 有効な Spotify Premium サブスクリプションが必要です。",
+  "importClientIdHint": "Client ID を入力...",
+  "importConnectButton": "接続してライブラリを読み込む",
+  "downloadingNoActive": "ダウンロード中の曲はありません",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "ダウンロード",
+  "downloadsStats": "{count} 曲 • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "オフラインの曲がありません",
+  "downloadsNoOfflineDesc": "ダウンロードした曲がここに表示されます",
+  "downloadsClearAllTitle": "すべてクリアしますか？",
+  "downloadsClearAllDesc": "{count} 曲が削除され、{size} のストレージが解放されます。",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "キャンセル",
+  "downloadsClearAll": "すべてクリア",
+  "downloadsSongsCount": "{count} 曲",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} 曲",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "メインのダウンロードプレイリストは名前を変更できません。",
+  "downloadsRename": "名前を変更",
+  "downloadsEditSongs": "曲を編集",
+  "downloadsDelete": "削除",
+  "downloadsRenamePlaylistTitle": "名前を変更",
+  "downloadsRenamePlaylistDesc": "プレイリストの新しい名前を入力してください。",
+  "downloadsDeletePlaylistTitle": "プレイリストを削除しますか？",
+  "downloadsDeleteMasterDesc": "本当に削除しますか？ ダウンロードしたすべての曲とプレイリストが完全に失われます。",
+  "downloadsDeletePlaylistDesc": "本当に「{name}」を削除しますか？ この操作は元に戻せません。",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "保存",
+  "downloadsNoSongs": "このプレイリストには曲がありません。",
+  "libraryTitle": "ライブラリ",
+  "libraryPauseAll": "すべて一時停止",
+  "libraryResumeAll": "すべて再開",
+  "libraryTabPlaylists": "プレイリスト",
+  "libraryTabDownloads": "ダウンロード",
+  "libraryTabDownloading": "ダウンロード中",
+  "libraryImportedTask": "{name} をインポートしました",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "待機中...",
+  "libraryImportFetching": "プレイリストを取得中...",
+  "libraryImportProcessed": "{processed}/{total} 件処理 · {matched} 件一致",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "保存中...",
+  "libraryImportDoneSongs": "{matched} 曲追加 · ×で閉じる",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "すべての曲を追加しました · ×で閉じる",
+  "libraryAddButton": "追加",
+  "librarySortRecent": "最近追加した順",
+  "librarySortAlpha": "アルファベット順",
+  "libraryEmptyTitle": "ライブラリは空です。",
+  "libraryEmptyDesc": "「追加」を押して始めましょう。",
+  "libraryRenameLikedError": "「お気に入りの曲」は名前を変更できません。",
+  "libraryRename": "名前を変更",
+  "libraryEditSongs": "曲を編集",
+  "libraryDeleteLikedError": "「お気に入りの曲」は削除できません。",
+  "libraryDelete": "削除",
+  "libraryEditSongsTitle": "曲を編集",
+  "libraryEditSongsCountSingle": "{count} 曲",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} 曲",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "キャンセル",
+  "librarySave": "保存",
+  "libraryNoSongs": "このプレイリストには曲がありません。",
+  "libraryAddOptionsTitle": "ライブラリに追加",
+  "libraryAddOptionsDesc": "どこから追加しますか？",
+  "libraryImportPulse": "Pulse から",
+  "libraryImportPulseDesc": "Pulse の URL を貼り付け",
+  "libraryImportYtm": "YT Music から",
+  "libraryImportYtmDesc": "公開 URL を貼り付け",
+  "libraryImportSpotify": "Spotify から",
+  "libraryImportSpotifyDesc": "Spotify を接続",
+  "libraryClose": "閉じる",
+  "libraryImportYtmFull": "YouTube Music からインポート",
+  "libraryImportSpotifyFull": "Spotify からインポート (100曲まで)",
+  "libraryImportYtmUrlDesc": "YouTube Music の公開プレイリスト URL を貼り付けます",
+  "libraryImportSpotifyUrlDesc": "Spotify の公開プレイリスト URL を貼り付けます",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse プレイリストをインポートできませんでした",
+  "importErrorPlaylist": "インポート エラー",
+  "importErrorHighlyPopulated": "プレイリストが大きいため、時間がかかる場合があります。",
+  "libraryImportBtn": "インポート",
+  "libraryCreateTitle": "新しいプレイリスト",
+  "libraryCreateDesc": "プレイリスト名を入力してください",
+  "libraryCreateHint": "例: ドライブ用",
+  "libraryCreateBtn": "作成",
+  "libraryRenameTitle": "名前を変更",
+  "libraryRenameDesc": "新しい名前を入力してください。",
+  "libraryRenameBtn": "保存",
+  "libraryDeleteTitle": "プレイリストを削除しますか？",
+  "libraryDeleteDesc": "本当に「{name}」を削除しますか？ この操作は元に戻せません。",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "削除",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "最近",
+  "librarySongsCount": "{count} 曲",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "近日公開",
+  "loginErrName": "名前を入力してください",
+  "loginErrEmail": "メールアドレスを入力してください",
+  "loginErrPassword": "パスワードを入力してください",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "音楽を体感しよう！",
+  "loginMadeWithHeartBy": "心を込めて作成しました: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "名前",
+  "loginHintEmail": "メールアドレス",
+  "loginHintPassword": "パスワード",
+  "loginErrEmailReset": "リセット用のメールアドレスを入力してください",
+  "loginResetSent": "送信しました。受信トレイを確認してください。",
+  "loginForgotPwd": "パスワードを忘れた場合",
+  "loginBtnSignup": "アカウント作成",
+  "loginBtnSignin": "ログイン",
+  "loginToggleHaveAccount": "すでにアカウントをお持ちですか？ ",
+  "loginToggleNoAccount": "アカウントをお持ちでないですか？ ",
+  "loginToggleSignin": "ログイン",
+  "loginToggleSignup": "登録",
+  "offlineStillOffline": "まだオフラインです。接続を確認してください。",
+  "offlineTitle": "オフラインです",
+  "offlineSubtitle": "インターネット接続がありません。\nネットワークを確認してもう一度お試しください。",
+  "offlineChecking": "確認中...",
+  "offlineRetry": "再試行",
+  "offlineGoToDownloads": "ダウンロードへ移動",
+  "playerMadeWithHeartBy": "心を込めて作成しました: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "スワイプして歌詞を表示",
+  "playerNoLyrics": "歌詞はありません",
+  "playerUpNext": "次へ",
+  "playerNoTracksInQueue": "キューに曲がありません",
+  "playerNoMusicPlaying": "再生していません",
+  "playerPickAVibe": "曲を選んでください",
+  "playerGoHome": "ホームへ",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "イコライザー",
+  "playerEqCustom": "カスタム",
+  "playlistDownloads": "ダウンロード",
+  "playlistOffline": "オフライン",
+  "playlistDurationHours": "{hours}時間 {mins}分",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}分",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "ページ内検索",
+  "playlistSongsAndDuration": "{count} 曲 • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "最近",
+  "playlistNoMatches": "見つかりませんでした。",
+  "playlistNoTracks": "このプレイリストには曲がありません。",
+  "playlistNoSongsYet": "まだ曲がありません。",
+  "playlistSortRecentlyAdded": "最近追加した順",
+  "playlistSortAlphabetical": "アルファベット順",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{曲} other{曲}} をダウンロード中",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "表示",
+  "playlistAllDownloaded": "すべてダウンロード済み",
+  "playlistShareText": "Pulseで「{name}」を聴いてみて！\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "ダウンロードから削除",
+  "playlistRemoveFromPlaylist": "プレイリストから削除",
+  "playlistLoadError": "読み込めませんでした。",
+  "playlistGoBack": "← 戻る",
+  "profileNotLoggedIn": "未ログイン",
+  "profileSignIn": "ログイン",
+  "profileDefaultUser": "Pulse ユーザー",
+  "profileEditProfile": "編集",
+  "profileTimeframeDay": "日",
+  "profileTimeframeWeek": "週",
+  "profileTimeframeMonth": "月",
+  "profileTimeframeYear": "年",
+  "profileListeningTime": "再生時間",
+  "profileToday": "今日",
+  "profileThisWeek": "今週",
+  "profileThisMonth": "今月",
+  "profileThisYear": "今年",
+  "profileDailyAvg": "1日平均",
+  "profilePerDay": "/日",
+  "profileLifetimeListening": "合計",
+  "profileTotalTimeListened": "Pulseでの総再生時間",
+  "profileYourTopSongs": "トップソング",
+  "profileListeningHistoryEmpty": "履歴がここに表示されます。",
+  "profilePlays": "{count} {count, plural, =1{回再生} other{回再生}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "トップアーティスト",
+  "profileTopArtistsEmpty": "お気に入りのアーティストがここに表示されます。",
+  "profileArtistLabel": "アーティスト",
+  "profileSignOut": "ログアウト",
+  "profileVersion": "バージョン {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "心を込めて作成しました: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "プロフィール",
+  "profileDisplayName": "表示名",
+  "profileCancel": "キャンセル",
+  "profileSave": "保存",
+  "profileChooseAvatar": "アバターを選択",
+  "searchMicPermissionRequired": "マイクの許可が必要です",
+  "searchUnknownSong": "不明な曲",
+  "searchUnknownArtist": "不明なアーティスト",
+  "searchNoSongDetected": "曲を認識できませんでした。",
+  "searchError": "エラー: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "音声検索は利用できません",
+  "searchHint": "曲名、アーティスト、アルバム...",
+  "searchRecentEmpty": "検索履歴がここに表示されます",
+  "searchRecentSearches": "最近の検索",
+  "searchClearAll": "すべてクリア",
+  "searchNoResultsFor": "「{query}」の結果はありません",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "別のキーワードをお試しください",
+  "searchTopResult": "トップ結果",
+  "searchSongsLabel": "曲",
+  "searchArtistsLabel": "アーティスト",
+  "searchAlbumsLabel": "アルバム",
+  "searchPlaylistsLabel": "プレイリスト",
+  "searchArtistLabel": "アーティスト",
+  "searchListening": "聞いています...",
+  "searchSpeakNow": "お話しください",
+  "searchCancel": "キャンセル",
+  "searchIdentifying": "認識中...",
+  "searchListeningForSong": "曲を特定中...",
+  "settingsTitle": "設定",
+  "settingsStreamingQuality": "ストリーミング品質",
+  "settingsQualityAutomatic": "自動",
+  "settingsQualityLow": "低",
+  "settingsQualityNormal": "標準",
+  "settingsQualityHigh": "高",
+  "settingsDownloadQuality": "ダウンロード品質",
+  "settingsPlayback": "再生",
+  "settingsCrossfade": "クロスフェード",
+  "settingsCrossfadeDesc": "曲間のスムーズな切り替え",
+  "settingsDataUsage": "データ使用",
+  "settingsDataSaver": "データセーバー",
+  "settingsDataSaverDesc": "モバイル通信時に低音質で再生",
+  "settingsAppearance": "表示",
+  "settingsLanguage": "言語",
+  "settingsCustomAccent": "アクセントカラー",
+  "settingsSaturation": "彩度",
+  "settingsBrightness": "明るさ",
+  "settingsResetDefault": "デフォルトに戻す",
+  "playlistSheetTitle": "プレイリストに追加",
+  "playlistSheetNewPlaylist": "新しいプレイリスト",
+  "playlistSheetNoPlaylists": "プレイリストがありません",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{曲} other{曲}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "プレイリスト名",
+  "playlistSheetCancel": "キャンセル",
+  "playlistSheetAddedTo": "{name} に追加しました",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "エラー: 認証に失敗しました",
+  "playlistSheetCreateFail": "エラー: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "作成",
+  "appUpdateAvailable": "アップデート可能",
+  "appUpdateDesc": "バージョン {version} が利用可能です！",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "ダウンロード",
+  "navHome": "ホーム",
+  "navLibrary": "ライブラリ",
+  "navSearch": "検索",
+  "navSettings": "設定",
+  "navProfile": "プロフィール",
+  "artistSelect": "アーティストを選択",
+  "songActionQueue": "キューに追加",
+  "songActionPlaylist": "プレイリストに追加",
+  "songActionFinding": "検索中...",
+  "songActionAlbum": "アルバムへ移動",
+  "songActionArtist": "アーティストへ移動",
+  "songActionRemovePlaylist": "プレイリストから削除",
+  "songActionRemoveDownload": "ダウンロードから削除",
+  "songActionDownloadChecking": "確認中...",
+  "songActionDownloading": "ダウンロード中...",
+  "songActionDownloaded": "完了！",
+  "songActionDownloadAlready": "ダウンロード済み",
+  "songActionDownloadFailed": "失敗しました",
+  "songActionDownload": "ダウンロード",
+  "songActionDownloadingSnack": "ダウンロード中",
+  "songActionView": "表示",
+  "spotifyImportTitle": "Spotify からインポート",
+  "spotifyImportSubtitle": "プレイリストのサイズを選択",
+  "spotifyChoiceSmallTitle": "100曲以下",
+  "spotifyChoiceSmallDesc": "公開 URL を貼り付けます。",
+  "spotifyChoiceLargeTitle": "100曲以上",
+  "spotifyChoiceLargeDesc": "Spotify Developer キーを使用します。",
+  "cancelButton": "キャンセル",
+  "spotifyPlaylistsTitle": "Spotify プレイリスト",
+  "spotifyPlaylistsErrorMsg": "エラー: {error}\nClient ID を確認してください。",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "プレイリストがありません",
+  "spotifyPlaylistsTracks": "{count} 曲",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "インポート",
+  "audioPlaybackFailed": "再生できませんでした。",
+  "audioControlPrevious": "前へ",
+  "audioControlPause": "一時停止",
+  "audioControlPlay": "再生",
+  "audioControlNext": "次へ",
+  "audioControlUnlike": "いいねを取り消す",
+  "audioControlLike": "いいね",
+  "spotifyRawResponseError": "レスポンス: {data}\n\nエラー: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "Client ID が無効です。",
+  "apiErrorBadRequest": "リクエストが無効です。",
+  "apiErrorUnauthorized": "認証されていません。再ログインしてください。",
+  "apiErrorForbidden": "アクセスが拒否されました。",
+  "apiErrorNotFound": "見つかりません。",
+  "apiErrorEmailInUse": "このメールはすでに使用されています。",
+  "apiErrorUserNotFound": "アカウントが見つかりません。",
+  "apiErrorWrongPassword": "パスワードが間違っています。",
+  "apiErrorInvalidCredential": "ログイン情報が間違っています。",
+  "apiErrorNetwork": "ネットワークエラーです。",
+  "apiErrorSocketTimeout": "タイムアウトしました。",
+  "apiErrorTooManyRequests": "リクエストが多すぎます。",
+  "apiErrorServerError": "サーバーエラーです。",
+  "apiErrorInvalidEmail": "有効なメールアドレスを入力してください。",
+  "apiErrorWeakPassword": "パスワードが弱すぎます。",
+  "apiErrorTooManyAttempts": "ログイン試行回数が多すぎます。"
+}

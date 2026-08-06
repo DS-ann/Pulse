@@ -6,7 +6,7 @@ class FallbackMaterialLocalizationDelegate extends LocalizationsDelegate<Materia
   const FallbackMaterialLocalizationDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['mai', 'sa', 'mr', 'pa', 'ne', 'bn', 'te', 'ta', 'kn', 'or', 'ml', 'gu', 'ur', 'as', 'fr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => ['mai', 'sa', 'mr', 'pa', 'ne', 'bn', 'te', 'ta', 'kn', 'or', 'ml', 'gu', 'ur', 'as', 'fr', 'ru', 'ja', 'ko'].contains(locale.languageCode);
 
   @override
   Future<MaterialLocalizations> load(Locale locale) async {
@@ -21,7 +21,7 @@ class FallbackCupertinoLocalizationDelegate extends LocalizationsDelegate<Cupert
   const FallbackCupertinoLocalizationDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['mai', 'sa', 'mr', 'pa', 'ne', 'bn', 'te', 'ta', 'kn', 'or', 'ml', 'gu', 'ur', 'as', 'fr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => ['mai', 'sa', 'mr', 'pa', 'ne', 'bn', 'te', 'ta', 'kn', 'or', 'ml', 'gu', 'ur', 'as', 'fr', 'ru', 'ja', 'ko'].contains(locale.languageCode);
 
   @override
   Future<CupertinoLocalizations> load(Locale locale) async {
@@ -36,7 +36,7 @@ class FallbackWidgetsLocalizationDelegate extends LocalizationsDelegate<WidgetsL
   const FallbackWidgetsLocalizationDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['mai', 'sa', 'mr', 'pa', 'ne', 'bn', 'te', 'ta', 'kn', 'or', 'ml', 'gu', 'ur', 'as', 'fr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => ['mai', 'sa', 'mr', 'pa', 'ne', 'bn', 'te', 'ta', 'kn', 'or', 'ml', 'gu', 'ur', 'as', 'fr', 'ru', 'ja', 'ko'].contains(locale.languageCode);
 
   @override
   Future<WidgetsLocalizations> load(Locale locale) async {

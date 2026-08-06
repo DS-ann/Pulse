@@ -1,0 +1,574 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "Об исполнителе",
+  "artistPopular": "Популярное",
+  "artistAlbums": "Альбомы",
+  "artistSinglesAndEPs": "Синглы и EP",
+  "artistSubscribersCount": "{count} подписчиков",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "Играть всё",
+  "artistLoadError": "Ошибка загрузки исполнителя",
+  "artistGoBack": "Назад",
+  "adminChatFailedToReply": "Ошибка ответа: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "Чат поддержки",
+  "adminChatError": "Ошибка: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "Нет истории сообщений.",
+  "adminChatSupportYou": "Поддержка (Вы)",
+  "adminChatTypeReply": "Введите ответ...",
+  "broadcastSuccess": "Объявление успешно отправлено!",
+  "broadcastFailed": "Ошибка отправки: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "Глобальное объявление",
+  "broadcastSubtitle": "Отправлено всем пользователям",
+  "broadcastWarning": "Это сообщение увидят все.",
+  "broadcastError": "Ошибка: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "Нет глобальных объявлений.",
+  "broadcastTypeMessage": "Введите объявление...",
+  "commFailedToSend": "Ошибка отправки: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "Панель админа",
+  "commAdminSupport": "Поддержка",
+  "commAlwaysHere": "Всегда готовы помочь",
+  "commWelcomeTitle": "Привет! 👋 Я Ashutosh Pathak",
+  "commWelcomeSubtitle": "Создатель Pulse",
+  "commWelcomeBody1": "Надеюсь, вы наслаждаетесь музыкой без рекламы. Музыка должна быть доступна каждому.\n\nЭто пространство для прямого общения.\n\nВы можете присылать:",
+  "commBullet1": "Ваши отзывы",
+  "commBullet2": "Сообщения об ошибках",
+  "commBullet3": "Идеи новых функций",
+  "commWelcomeBody2": "Я читаю каждое сообщение.\n\nЕсть идеи для новых приложений? Дайте знать! По возможности я их создам.\n\nСпасибо, что вы с нами. ❤️",
+  "commError": "Ошибка: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "Пока нет сообщений",
+  "commNoMessagesDesc": "Напишите в поддержку или проверьте позже.",
+  "commMessageSupportHint": "Напишите нам...",
+  "commGlobalAnnouncements": "Объявления",
+  "commSendMessagesToAll": "Отправить всем",
+  "homeGreetingMorning": "Доброе утро,",
+  "homeGreetingAfternoon": "Добрый день,",
+  "homeGreetingEvening": "Добрый вечер,",
+  "homeMember": "Пользователь",
+  "homeRecentPlaylists": "Недавние плейлисты",
+  "homeRecentlyPlayed": "Недавно прослушанные",
+  "homeSpeedDial": "Быстрый набор",
+  "homeNoContent": "Нет контента",
+  "homeRefresh": "Обновить",
+  "homeLoadError": "Ошибка загрузки ленты.",
+  "homeRetry": "Повторить",
+  "importSuccess": "Spotify успешно подключен!",
+  "importFailed": "Ошибка подключения: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Подключить Spotify",
+  "importSetupTitle": "Настройка Spotify",
+  "importSetupDesc": "Используйте свой ключ разработчика для быстрого импорта плейлистов:",
+  "importStep1": "Откройте панель Spotify Developer.",
+  "importStep2": "Войдите и нажмите «Create app».",
+  "importStep3": "Укажите имя и описание.",
+  "importStep4": "В поле «Redirect URIs» вставьте эту ссылку:",
+  "importRedirectCopied": "URI скопирован!",
+  "importStep5": "Сохраните, скопируйте «Client ID» и вставьте ниже.",
+  "importImportant": "Важно: Требуется активная подписка Spotify Premium.",
+  "importClientIdHint": "Вставьте Spotify Client ID...",
+  "importConnectButton": "Подключить и загрузить библиотеку",
+  "downloadingNoActive": "Нет активных загрузок",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "Загрузки",
+  "downloadsStats": "{count} треков • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "Нет треков офлайн",
+  "downloadsNoOfflineDesc": "Скачанные треки появятся здесь",
+  "downloadsClearAllTitle": "Удалить все?",
+  "downloadsClearAllDesc": "Будет удалено {count} треков и освобождено {size} места.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "Отмена",
+  "downloadsClearAll": "Очистить",
+  "downloadsSongsCount": "{count} треков",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count} трек",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "Нельзя переименовать главный плейлист загрузок.",
+  "downloadsRename": "Переименовать",
+  "downloadsEditSongs": "Изменить треки",
+  "downloadsDelete": "Удалить",
+  "downloadsRenamePlaylistTitle": "Переименовать",
+  "downloadsRenamePlaylistDesc": "Введите новое имя плейлиста.",
+  "downloadsDeletePlaylistTitle": "Удалить плейлист?",
+  "downloadsDeleteMasterDesc": "Уверены? Вы навсегда потеряете все скачанные треки.",
+  "downloadsDeletePlaylistDesc": "Точно удалить «{name}»? Плейлист будет утерян.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "Сохранить",
+  "downloadsNoSongs": "В этом плейлисте нет треков.",
+  "libraryTitle": "Медиатека",
+  "libraryPauseAll": "Пауза",
+  "libraryResumeAll": "Продолжить",
+  "libraryTabPlaylists": "Плейлисты",
+  "libraryTabDownloads": "Загрузки",
+  "libraryTabDownloading": "Загружается",
+  "libraryImportedTask": "{name} импортировано",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "В ожидании...",
+  "libraryImportFetching": "Загрузка плейлиста...",
+  "libraryImportProcessed": "Обработано {processed}/{total} · {matched} найдено",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "Сохранение...",
+  "libraryImportDoneSongs": "{matched} треков добавлено · нажмите ×",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "Все треки добавлены · нажмите ×",
+  "libraryAddButton": "Добавить",
+  "librarySortRecent": "Недавние",
+  "librarySortAlpha": "По алфавиту",
+  "libraryEmptyTitle": "Медиатека пуста.",
+  "libraryEmptyDesc": "Нажмите «Добавить», чтобы начать работу с Pulse.",
+  "libraryRenameLikedError": "Плейлист любимых треков нельзя переименовать.",
+  "libraryRename": "Переименовать",
+  "libraryEditSongs": "Изменить треки",
+  "libraryDeleteLikedError": "Нельзя удалить любимые треки.",
+  "libraryDelete": "Удалить",
+  "libraryEditSongsTitle": "Изменить треки",
+  "libraryEditSongsCountSingle": "{count} трек",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count} треков",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "Отмена",
+  "librarySave": "Сохранить",
+  "libraryNoSongs": "В этом плейлисте нет треков.",
+  "libraryAddOptionsTitle": "Добавить в медиатеку",
+  "libraryAddOptionsDesc": "Откуда загрузить музыку?",
+  "libraryImportPulse": "Из Pulse",
+  "libraryImportPulseDesc": "Вставьте URL плейлиста",
+  "libraryImportYtm": "Из YT Music",
+  "libraryImportYtmDesc": "Вставьте URL публичного плейлиста",
+  "libraryImportSpotify": "Из Spotify",
+  "libraryImportSpotifyDesc": "Подключите Spotify",
+  "libraryClose": "Закрыть",
+  "libraryImportYtmFull": "Импорт из YouTube Music",
+  "libraryImportSpotifyFull": "Импорт из Spotify (≤100)",
+  "libraryImportYtmUrlDesc": "Вставьте ссылку на публичный плейлист YouTube Music",
+  "libraryImportSpotifyUrlDesc": "Вставьте ссылку на публичный плейлист Spotify",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Ошибка импорта Pulse плейлиста",
+  "importErrorPlaylist": "Ошибка импорта",
+  "importErrorHighlyPopulated": "Плейлист слишком большой, это займёт время.",
+  "libraryImportBtn": "Импорт",
+  "libraryCreateTitle": "Новый плейлист",
+  "libraryCreateDesc": "Как назовем плейлист?",
+  "libraryCreateHint": "Например: Избранное",
+  "libraryCreateBtn": "Создать",
+  "libraryRenameTitle": "Переименовать",
+  "libraryRenameDesc": "Введите новое имя.",
+  "libraryRenameBtn": "Сохранить",
+  "libraryDeleteTitle": "Удалить плейлист?",
+  "libraryDeleteDesc": "Точно удалить «{name}»? Это необратимо.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "Удалить",
+  "librarySortLabelAlpha": "А-Я",
+  "librarySortLabelRecent": "Недавние",
+  "librarySongsCount": "{count} треков",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "Скоро",
+  "loginErrName": "Введите имя",
+  "loginErrEmail": "Введите email",
+  "loginErrPassword": "Введите пароль",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "Почувствуй каждый бит!",
+  "loginMadeWithHeartBy": "Создано с ❤️: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "Имя",
+  "loginHintEmail": "Email адрес",
+  "loginHintPassword": "Пароль",
+  "loginErrEmailReset": "Введите email для сброса",
+  "loginResetSent": "Письмо отправлено! Проверьте почту.",
+  "loginForgotPwd": "Забыли пароль?",
+  "loginBtnSignup": "Создать аккаунт",
+  "loginBtnSignin": "Войти",
+  "loginToggleHaveAccount": "Уже есть аккаунт? ",
+  "loginToggleNoAccount": "Нет аккаунта? ",
+  "loginToggleSignin": "Войти",
+  "loginToggleSignup": "Регистрация",
+  "offlineStillOffline": "Всё ещё офлайн. Проверьте соединение.",
+  "offlineTitle": "Вы офлайн",
+  "offlineSubtitle": "Нет подключения к интернету.\nПроверьте сеть и повторите попытку.",
+  "offlineChecking": "Проверка...",
+  "offlineRetry": "Повторить",
+  "offlineGoToDownloads": "Перейти к загрузкам",
+  "playerMadeWithHeartBy": "Создано с ❤️: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "Свайп для текста песни",
+  "playerNoLyrics": "Текст не найден",
+  "playerUpNext": "Далее",
+  "playerNoTracksInQueue": "Очередь пуста",
+  "playerNoMusicPlaying": "Ничего не играет",
+  "playerPickAVibe": "Выберите трек из медиатеки",
+  "playerGoHome": "На главную",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "Эквалайзер",
+  "playerEqCustom": "Вручную",
+  "playlistDownloads": "Загрузки",
+  "playlistOffline": "Офлайн-плейлист",
+  "playlistDurationHours": "{hours}ч {mins}м",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}м",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "Найти на странице",
+  "playlistSongsAndDuration": "{count} треков • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "А-Я",
+  "playlistSortRecent": "Недавние",
+  "playlistNoMatches": "Ничего не найдено.",
+  "playlistNoTracks": "В плейлисте нет треков.",
+  "playlistNoSongsYet": "Пока нет треков.",
+  "playlistSortRecentlyAdded": "Недавние",
+  "playlistSortAlphabetical": "По алфавиту",
+  "playlistDownloadingSongs": "Загружается {count} {count, plural, =1{трек} other{треков}}",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "Смотреть",
+  "playlistAllDownloaded": "Всё загружено",
+  "playlistShareText": "Слушайте «{name}» в Pulse!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "Удалить из загрузок",
+  "playlistRemoveFromPlaylist": "Удалить из плейлиста",
+  "playlistLoadError": "Ошибка загрузки плейлиста.",
+  "playlistGoBack": "← Назад",
+  "profileNotLoggedIn": "Не в сети",
+  "profileSignIn": "Войти",
+  "profileDefaultUser": "Пользователь Pulse",
+  "profileEditProfile": "Редактировать",
+  "profileTimeframeDay": "День",
+  "profileTimeframeWeek": "Неделя",
+  "profileTimeframeMonth": "Месяц",
+  "profileTimeframeYear": "Год",
+  "profileListeningTime": "Время",
+  "profileToday": "Сегодня",
+  "profileThisWeek": "За неделю",
+  "profileThisMonth": "За месяц",
+  "profileThisYear": "За год",
+  "profileDailyAvg": "В среднем за день",
+  "profilePerDay": "/день",
+  "profileLifetimeListening": "Всего",
+  "profileTotalTimeListened": "Общее время в Pulse",
+  "profileYourTopSongs": "Топ треков",
+  "profileListeningHistoryEmpty": "Здесь будет история.",
+  "profilePlays": "{count} {count, plural, =1{прослушивание} other{прослушиваний}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "Топ артистов",
+  "profileTopArtistsEmpty": "Здесь будут любимые артисты.",
+  "profileArtistLabel": "Артист",
+  "profileSignOut": "Выйти",
+  "profileVersion": "Версия {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "Создано с ❤️: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "Профиль",
+  "profileDisplayName": "Имя пользователя",
+  "profileCancel": "Отмена",
+  "profileSave": "Сохранить",
+  "profileChooseAvatar": "Выбрать аватар",
+  "searchMicPermissionRequired": "Нужен доступ к микрофону",
+  "searchUnknownSong": "Неизвестный трек",
+  "searchUnknownArtist": "Неизвестный артист",
+  "searchNoSongDetected": "Песня не распознана.",
+  "searchError": "Ошибка: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "Голосовой поиск недоступен",
+  "searchHint": "Трек, артист, альбом...",
+  "searchRecentEmpty": "Ваши запросы появятся здесь",
+  "searchRecentSearches": "Недавние поиски",
+  "searchClearAll": "Очистить всё",
+  "searchNoResultsFor": "Нет результатов для «{query}»",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "Попробуйте другие слова",
+  "searchTopResult": "Лучший результат",
+  "searchSongsLabel": "Треки",
+  "searchArtistsLabel": "Артисты",
+  "searchAlbumsLabel": "Альбомы",
+  "searchPlaylistsLabel": "Плейлисты",
+  "searchArtistLabel": "Артист",
+  "searchListening": "Слушаю...",
+  "searchSpeakNow": "Говорите",
+  "searchCancel": "Отмена",
+  "searchIdentifying": "Распознавание...",
+  "searchListeningForSong": "Определение трека...",
+  "settingsTitle": "Настройки",
+  "settingsStreamingQuality": "Качество аудио",
+  "settingsQualityAutomatic": "Авто",
+  "settingsQualityLow": "Низкое",
+  "settingsQualityNormal": "Обычное",
+  "settingsQualityHigh": "Высокое",
+  "settingsDownloadQuality": "Качество загрузки",
+  "settingsPlayback": "Воспроизведение",
+  "settingsCrossfade": "Плавный переход",
+  "settingsCrossfadeDesc": "Наложение треков для плавности",
+  "settingsDataUsage": "Передача данных",
+  "settingsDataSaver": "Экономия трафика",
+  "settingsDataSaverDesc": "Низкое качество при мобильном интернете",
+  "settingsAppearance": "Оформление",
+  "settingsLanguage": "Язык",
+  "settingsCustomAccent": "Цвет акцента",
+  "settingsSaturation": "Насыщенность",
+  "settingsBrightness": "Яркость",
+  "settingsResetDefault": "Сбросить по умолчанию",
+  "playlistSheetTitle": "Добавить в плейлист",
+  "playlistSheetNewPlaylist": "Новый плейлист",
+  "playlistSheetNoPlaylists": "Нет плейлистов",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{трек} other{треков}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "Название плейлиста",
+  "playlistSheetCancel": "Отмена",
+  "playlistSheetAddedTo": "Добавлено в {name}",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "Ошибка авторизации",
+  "playlistSheetCreateFail": "Ошибка создания: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "Создать",
+  "appUpdateAvailable": "Доступно обновление",
+  "appUpdateDesc": "Версия {version} уже здесь! Обновитесь для новых функций.",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "Скачать",
+  "navHome": "Главная",
+  "navLibrary": "Медиатека",
+  "navSearch": "Поиск",
+  "navSettings": "Настройки",
+  "navProfile": "Профиль",
+  "artistSelect": "Выберите артиста",
+  "songActionQueue": "В очередь",
+  "songActionPlaylist": "В плейлист",
+  "songActionFinding": "Поиск...",
+  "songActionAlbum": "Перейти к альбому",
+  "songActionArtist": "К артисту",
+  "songActionRemovePlaylist": "Удалить из плейлиста",
+  "songActionRemoveDownload": "Удалить из загрузок",
+  "songActionDownloadChecking": "Проверка...",
+  "songActionDownloading": "Загружается...",
+  "songActionDownloaded": "Скачано!",
+  "songActionDownloadAlready": "Уже загружено",
+  "songActionDownloadFailed": "Ошибка загрузки",
+  "songActionDownload": "Скачать",
+  "songActionDownloadingSnack": "Загрузка",
+  "songActionView": "Смотреть",
+  "spotifyImportTitle": "Импорт из Spotify",
+  "spotifyImportSubtitle": "Выберите размер плейлиста",
+  "spotifyChoiceSmallTitle": "100 треков или меньше",
+  "spotifyChoiceSmallDesc": "Вставьте публичный URL.",
+  "spotifyChoiceLargeTitle": "Более 100 треков",
+  "spotifyChoiceLargeDesc": "Подключите свой ключ Spotify Developer.",
+  "cancelButton": "Отмена",
+  "spotifyPlaylistsTitle": "Плейлисты Spotify",
+  "spotifyPlaylistsErrorMsg": "Ошибка: {error}\nПроверьте ваш Client ID.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "В медиатеке нет плейлистов",
+  "spotifyPlaylistsTracks": "{count} треков",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "Импорт",
+  "audioPlaybackFailed": "Ошибка воспроизведения.",
+  "audioControlPrevious": "Предыдущий",
+  "audioControlPause": "Пауза",
+  "audioControlPlay": "Играть",
+  "audioControlNext": "Следующий",
+  "audioControlUnlike": "Убрать лайк",
+  "audioControlLike": "Лайк",
+  "spotifyRawResponseError": "Ответ: {data}\n\nОшибка: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "Неверный Client ID.",
+  "apiErrorBadRequest": "Неверный запрос.",
+  "apiErrorUnauthorized": "Ошибка авторизации. Войдите снова.",
+  "apiErrorForbidden": "Отказано в доступе.",
+  "apiErrorNotFound": "Не найдено.",
+  "apiErrorEmailInUse": "Этот email уже используется.",
+  "apiErrorUserNotFound": "Аккаунт не найден.",
+  "apiErrorWrongPassword": "Неверный пароль.",
+  "apiErrorInvalidCredential": "Ошибка входа. Проверьте данные.",
+  "apiErrorNetwork": "Ошибка сети.",
+  "apiErrorSocketTimeout": "Время ожидания истекло.",
+  "apiErrorTooManyRequests": "Слишком много запросов.",
+  "apiErrorServerError": "Ошибка сервера.",
+  "apiErrorInvalidEmail": "Введите верный email.",
+  "apiErrorWeakPassword": "Слишком простой пароль.",
+  "apiErrorTooManyAttempts": "Слишком много попыток входа."
+}

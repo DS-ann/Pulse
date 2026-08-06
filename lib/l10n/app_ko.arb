@@ -1,0 +1,574 @@
+{
+  "@@locale": "ko",
+  "appTitle": "Pulse",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "artistAbout": "정보",
+  "artistPopular": "인기 곡",
+  "artistAlbums": "앨범",
+  "artistSinglesAndEPs": "싱글 및 EP",
+  "artistSubscribersCount": "구독자 {count}명",
+  "@artistSubscribersCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "artistPlayAll": "모두 재생",
+  "artistLoadError": "아티스트를 불러올 수 없습니다",
+  "artistGoBack": "뒤로 가기",
+  "adminChatFailedToReply": "답장 실패: {error}",
+  "@adminChatFailedToReply": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatSupportChat": "지원 채팅",
+  "adminChatError": "오류: {error}",
+  "@adminChatError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "adminChatNoHistory": "메시지 기록이 없습니다.",
+  "adminChatSupportYou": "지원 (나)",
+  "adminChatTypeReply": "답장 입력...",
+  "broadcastSuccess": "공지가 성공적으로 전송되었습니다!",
+  "broadcastFailed": "전송 실패: {error}",
+  "@broadcastFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastTitle": "전체 공지",
+  "broadcastSubtitle": "모든 사용자에게 전송됨",
+  "broadcastWarning": "이 메시지는 모든 사람에게 표시됩니다.",
+  "broadcastError": "오류: {error}",
+  "@broadcastError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "broadcastNoHistory": "전체 공지가 없습니다.",
+  "broadcastTypeMessage": "메시지를 입력하세요...",
+  "commFailedToSend": "전송 실패: {error}",
+  "@commFailedToSend": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commAdminDashboard": "관리자 대시보드",
+  "commAdminSupport": "지원",
+  "commAlwaysHere": "언제든 도와드리겠습니다",
+  "commWelcomeTitle": "안녕하세요! 👋 개발자 Ashutosh Pathak입니다",
+  "commWelcomeSubtitle": "Pulse 크리에이터",
+  "commWelcomeBody1": "광고 없는 음악 감상을 즐기고 계시길 바랍니다. 음악은 누구에게나 열려 있어야 합니다.\n\n이곳은 저와 직접 소통할 수 있는 공간입니다.\n\n언제든지 보내주세요:",
+  "commBullet1": "피드백",
+  "commBullet2": "버그 신고",
+  "commBullet3": "새로운 기능 제안",
+  "commWelcomeBody2": "보내주신 메시지는 모두 직접 읽어봅니다.\n\n새로운 앱 아이디어가 있다면 알려주세요! 가능하면 만들어 보겠습니다.\n\nPulse를 이용해 주셔서 감사합니다. ❤️",
+  "commError": "오류: {error}",
+  "@commError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "commNoMessages": "아직 메시지가 없습니다",
+  "commNoMessagesDesc": "지원팀에 메시지를 보내보세요.",
+  "commMessageSupportHint": "메시지 입력...",
+  "commGlobalAnnouncements": "전체 공지",
+  "commSendMessagesToAll": "모두에게 전송",
+  "homeGreetingMorning": "좋은 아침입니다,",
+  "homeGreetingAfternoon": "안녕하세요,",
+  "homeGreetingEvening": "좋은 저녁입니다,",
+  "homeMember": "회원",
+  "homeRecentPlaylists": "최근 플레이리스트",
+  "homeRecentlyPlayed": "최근 재생한 곡",
+  "homeSpeedDial": "빠른 실행",
+  "homeNoContent": "콘텐츠가 없습니다",
+  "homeRefresh": "새로고침",
+  "homeLoadError": "피드를 불러오지 못했습니다.",
+  "homeRetry": "다시 시도",
+  "importSuccess": "Spotify에 연결되었습니다!",
+  "importFailed": "연결 실패: {error}",
+  "@importFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "importTitle": "Spotify 연결",
+  "importSetupTitle": "Spotify 설정",
+  "importSetupDesc": "개발자 키를 사용하여 플레이리스트를 빠르게 가져옵니다:",
+  "importStep1": "Spotify Developer Dashboard를 엽니다.",
+  "importStep2": "로그인 후 'Create app'을 클릭합니다.",
+  "importStep3": "앱 이름과 설명을 입력합니다.",
+  "importStep4": "'Redirect URIs'에 다음 URL을 붙여넣습니다:",
+  "importRedirectCopied": "URL이 복사되었습니다!",
+  "importStep5": "저장 후 'Client ID'를 복사하여 아래에 붙여넣습니다.",
+  "importImportant": "중요: 활성화된 Spotify Premium 구독이 필요합니다.",
+  "importClientIdHint": "Client ID 입력...",
+  "importConnectButton": "연결 및 라이브러리 불러오기",
+  "downloadingNoActive": "다운로드 중인 곡이 없습니다",
+  "downloadingMb": "{value} MB",
+  "@downloadingMb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "downloadsPlaylistName": "다운로드",
+  "downloadsStats": "{count}곡 • {size}",
+  "@downloadsStats": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsNoOffline": "오프라인 곡이 없습니다",
+  "downloadsNoOfflineDesc": "다운로드한 곡이 여기에 표시됩니다",
+  "downloadsClearAllTitle": "모두 지우시겠습니까?",
+  "downloadsClearAllDesc": "{count}곡이 삭제되고 {size}의 저장 공간이 확보됩니다.",
+  "@downloadsClearAllDesc": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "size": { "type": "String" }
+    }
+  },
+  "downloadsCancel": "취소",
+  "downloadsClearAll": "모두 지우기",
+  "downloadsSongsCount": "{count}곡",
+  "@downloadsSongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsSongCountSingle": "{count}곡",
+  "@downloadsSongCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "downloadsCannotRenameMaster": "기본 다운로드 플레이리스트는 이름을 변경할 수 없습니다.",
+  "downloadsRename": "이름 변경",
+  "downloadsEditSongs": "곡 편집",
+  "downloadsDelete": "삭제",
+  "downloadsRenamePlaylistTitle": "이름 변경",
+  "downloadsRenamePlaylistDesc": "플레이리스트의 새 이름을 입력하세요.",
+  "downloadsDeletePlaylistTitle": "플레이리스트 삭제?",
+  "downloadsDeleteMasterDesc": "정말 삭제하시겠습니까? 다운로드한 모든 곡과 플레이리스트가 영구적으로 손실됩니다.",
+  "downloadsDeletePlaylistDesc": "정말 '{name}'을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.",
+  "@downloadsDeletePlaylistDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "downloadsSave": "저장",
+  "downloadsNoSongs": "이 플레이리스트에는 곡이 없습니다.",
+  "libraryTitle": "라이브러리",
+  "libraryPauseAll": "모두 일시 정지",
+  "libraryResumeAll": "모두 다시 시작",
+  "libraryTabPlaylists": "플레이리스트",
+  "libraryTabDownloads": "다운로드",
+  "libraryTabDownloading": "다운로드 중",
+  "libraryImportedTask": "{name} 가져옴",
+  "@libraryImportedTask": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryImportWaiting": "대기 중...",
+  "libraryImportFetching": "플레이리스트 가져오는 중...",
+  "libraryImportProcessed": "{processed}/{total} 처리됨 · {matched} 일치",
+  "@libraryImportProcessed": {
+    "placeholders": {
+      "processed": { "type": "String" },
+      "total": { "type": "String" },
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportSaving": "저장 중...",
+  "libraryImportDoneSongs": "{matched}곡 추가됨 · ×를 눌러 닫기",
+  "@libraryImportDoneSongs": {
+    "placeholders": {
+      "matched": { "type": "String" }
+    }
+  },
+  "libraryImportDoneAll": "모든 곡이 추가됨 · ×를 눌러 닫기",
+  "libraryAddButton": "추가",
+  "librarySortRecent": "최근 추가순",
+  "librarySortAlpha": "알파벳순",
+  "libraryEmptyTitle": "라이브러리가 비어 있습니다.",
+  "libraryEmptyDesc": "'추가'를 눌러 시작하세요.",
+  "libraryRenameLikedError": "'좋아요 표시한 곡'은 이름을 변경할 수 없습니다.",
+  "libraryRename": "이름 변경",
+  "libraryEditSongs": "곡 편집",
+  "libraryDeleteLikedError": "'좋아요 표시한 곡'은 삭제할 수 없습니다.",
+  "libraryDelete": "삭제",
+  "libraryEditSongsTitle": "곡 편집",
+  "libraryEditSongsCountSingle": "{count}곡",
+  "@libraryEditSongsCountSingle": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryEditSongsCountPlural": "{count}곡",
+  "@libraryEditSongsCountPlural": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryCancel": "취소",
+  "librarySave": "저장",
+  "libraryNoSongs": "이 플레이리스트에는 곡이 없습니다.",
+  "libraryAddOptionsTitle": "라이브러리에 추가",
+  "libraryAddOptionsDesc": "어디에서 가져올까요?",
+  "libraryImportPulse": "Pulse에서",
+  "libraryImportPulseDesc": "Pulse URL 붙여넣기",
+  "libraryImportYtm": "YT Music에서",
+  "libraryImportYtmDesc": "공개 URL 붙여넣기",
+  "libraryImportSpotify": "Spotify에서",
+  "libraryImportSpotifyDesc": "Spotify 연결",
+  "libraryClose": "닫기",
+  "libraryImportYtmFull": "YouTube Music에서 가져오기",
+  "libraryImportSpotifyFull": "Spotify에서 가져오기 (최대 100곡)",
+  "libraryImportYtmUrlDesc": "YouTube Music의 공개 플레이리스트 URL을 붙여넣으세요",
+  "libraryImportSpotifyUrlDesc": "Spotify의 공개 플레이리스트 URL을 붙여넣으세요",
+  "libraryImportPulseHint": "https://pulse.app/playlist/...",
+  "libraryImportYtmHint": "https://music.youtube.com/playlist?list=...",
+  "libraryImportSpotifyHint": "https://open.spotify.com/playlist/...",
+  "libraryImportFailed": "Pulse 플레이리스트를 가져오지 못했습니다",
+  "importErrorPlaylist": "가져오기 오류",
+  "importErrorHighlyPopulated": "플레이리스트가 커서 시간이 걸릴 수 있습니다.",
+  "libraryImportBtn": "가져오기",
+  "libraryCreateTitle": "새 플레이리스트",
+  "libraryCreateDesc": "플레이리스트 이름을 입력하세요",
+  "libraryCreateHint": "예: 드라이브 음악",
+  "libraryCreateBtn": "만들기",
+  "libraryRenameTitle": "이름 변경",
+  "libraryRenameDesc": "새로운 이름을 입력하세요.",
+  "libraryRenameBtn": "저장",
+  "libraryDeleteTitle": "플레이리스트 삭제?",
+  "libraryDeleteDesc": "정말 '{name}'을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.",
+  "@libraryDeleteDesc": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "libraryDeleteBtn": "삭제",
+  "librarySortLabelAlpha": "A-Z",
+  "librarySortLabelRecent": "최근",
+  "librarySongsCount": "{count}곡",
+  "@librarySongsCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "libraryComingSoon": "출시 예정",
+  "loginErrName": "이름을 입력하세요",
+  "loginErrEmail": "이메일을 입력하세요",
+  "loginErrPassword": "비밀번호를 입력하세요",
+  "loginAppName": "PULSE",
+  "loginSubtitle": "음악을 느껴보세요!",
+  "loginMadeWithHeartBy": "정성을 담아 제작함: ",
+  "loginAuthorName": "Ashutosh Pathak",
+  "loginHintName": "이름",
+  "loginHintEmail": "이메일 주소",
+  "loginHintPassword": "비밀번호",
+  "loginErrEmailReset": "재설정할 이메일을 입력하세요",
+  "loginResetSent": "전송 완료! 받은 편지함을 확인하세요.",
+  "loginForgotPwd": "비밀번호를 잊으셨나요?",
+  "loginBtnSignup": "계정 만들기",
+  "loginBtnSignin": "로그인",
+  "loginToggleHaveAccount": "이미 계정이 있으신가요? ",
+  "loginToggleNoAccount": "계정이 없으신가요? ",
+  "loginToggleSignin": "로그인",
+  "loginToggleSignup": "가입하기",
+  "offlineStillOffline": "여전히 오프라인 상태입니다. 연결을 확인하세요.",
+  "offlineTitle": "오프라인 상태입니다",
+  "offlineSubtitle": "인터넷 연결이 없습니다.\n네트워크를 확인하고 다시 시도하세요.",
+  "offlineChecking": "확인 중...",
+  "offlineRetry": "다시 시도",
+  "offlineGoToDownloads": "다운로드로 이동",
+  "playerMadeWithHeartBy": "정성을 담아 제작함: ",
+  "playerAuthorName": "Ashutosh Pathak",
+  "playerSwipeForLyrics": "스와이프하여 가사 보기",
+  "playerNoLyrics": "가사가 없습니다",
+  "playerUpNext": "다음 곡",
+  "playerNoTracksInQueue": "대기열에 곡이 없습니다",
+  "playerNoMusicPlaying": "재생 중인 곡이 없습니다",
+  "playerPickAVibe": "곡을 선택하세요",
+  "playerGoHome": "홈으로 가기",
+  "playerAppName": "PULSE",
+  "playerEqualizer": "이퀄라이저",
+  "playerEqCustom": "사용자 지정",
+  "playlistDownloads": "다운로드",
+  "playlistOffline": "오프라인",
+  "playlistDurationHours": "{hours}시간 {mins}분",
+  "@playlistDurationHours": {
+    "placeholders": {
+      "hours": { "type": "String" },
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistDurationMins": "{mins}분",
+  "@playlistDurationMins": {
+    "placeholders": {
+      "mins": { "type": "String" }
+    }
+  },
+  "playlistFindOnPage": "페이지에서 찾기",
+  "playlistSongsAndDuration": "{count}곡 • {duration}",
+  "@playlistSongsAndDuration": {
+    "placeholders": {
+      "count": { "type": "String" },
+      "duration": { "type": "String" }
+    }
+  },
+  "playlistSortAlpha": "A-Z",
+  "playlistSortRecent": "최근",
+  "playlistNoMatches": "결과가 없습니다.",
+  "playlistNoTracks": "이 플레이리스트에는 곡이 없습니다.",
+  "playlistNoSongsYet": "아직 곡이 없습니다.",
+  "playlistSortRecentlyAdded": "최근 추가순",
+  "playlistSortAlphabetical": "알파벳순",
+  "playlistDownloadingSongs": "{count} {count, plural, =1{곡} other{곡}} 다운로드 중",
+  "@playlistDownloadingSongs": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistView": "보기",
+  "playlistAllDownloaded": "모두 다운로드됨",
+  "playlistShareText": "Pulse에서 '{name}'을(를) 들어보세요!\n{url}",
+  "@playlistShareText": {
+    "placeholders": {
+      "name": { "type": "String" },
+      "url": { "type": "String" }
+    }
+  },
+  "playlistRemoveFromDownloads": "다운로드에서 삭제",
+  "playlistRemoveFromPlaylist": "플레이리스트에서 삭제",
+  "playlistLoadError": "불러오지 못했습니다.",
+  "playlistGoBack": "← 뒤로 가기",
+  "profileNotLoggedIn": "로그인되지 않음",
+  "profileSignIn": "로그인",
+  "profileDefaultUser": "Pulse 사용자",
+  "profileEditProfile": "프로필 편집",
+  "profileTimeframeDay": "일",
+  "profileTimeframeWeek": "주",
+  "profileTimeframeMonth": "월",
+  "profileTimeframeYear": "년",
+  "profileListeningTime": "재생 시간",
+  "profileToday": "오늘",
+  "profileThisWeek": "이번 주",
+  "profileThisMonth": "이번 달",
+  "profileThisYear": "올해",
+  "profileDailyAvg": "일일 평균",
+  "profilePerDay": "/일",
+  "profileLifetimeListening": "전체",
+  "profileTotalTimeListened": "Pulse 총 청취 시간",
+  "profileYourTopSongs": "인기 곡",
+  "profileListeningHistoryEmpty": "여기에 기록이 표시됩니다.",
+  "profilePlays": "{count} {count, plural, =1{회 재생} other{회 재생}}",
+  "@profilePlays": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "profileYourTopArtists": "인기 아티스트",
+  "profileTopArtistsEmpty": "즐겨찾는 아티스트가 여기에 표시됩니다.",
+  "profileArtistLabel": "아티스트",
+  "profileSignOut": "로그아웃",
+  "profileVersion": "버전 {version}",
+  "@profileVersion": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "profileMadeWithHeartBy": "정성을 담아 제작함: ",
+  "profileAuthorName": "Ashutosh Pathak",
+  "profileEditProfileHeader": "프로필 편집",
+  "profileDisplayName": "표시 이름",
+  "profileCancel": "취소",
+  "profileSave": "저장",
+  "profileChooseAvatar": "아바타 선택",
+  "searchMicPermissionRequired": "마이크 권한이 필요합니다",
+  "searchUnknownSong": "알 수 없는 곡",
+  "searchUnknownArtist": "알 수 없는 아티스트",
+  "searchNoSongDetected": "곡을 인식할 수 없습니다.",
+  "searchError": "오류: {message}",
+  "@searchError": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "searchSpeechNotAvailable": "음성 검색을 사용할 수 없습니다",
+  "searchHint": "곡, 아티스트, 앨범...",
+  "searchRecentEmpty": "검색 기록이 여기에 표시됩니다",
+  "searchRecentSearches": "최근 검색",
+  "searchClearAll": "모두 지우기",
+  "searchNoResultsFor": "'{query}'에 대한 결과가 없습니다",
+  "@searchNoResultsFor": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchTryDifferentKeywords": "다른 검색어를 시도해 보세요",
+  "searchTopResult": "최고 결과",
+  "searchSongsLabel": "곡",
+  "searchArtistsLabel": "아티스트",
+  "searchAlbumsLabel": "앨범",
+  "searchPlaylistsLabel": "플레이리스트",
+  "searchArtistLabel": "아티스트",
+  "searchListening": "듣고 있습니다...",
+  "searchSpeakNow": "말씀해 주세요",
+  "searchCancel": "취소",
+  "searchIdentifying": "인식 중...",
+  "searchListeningForSong": "곡을 찾는 중...",
+  "settingsTitle": "설정",
+  "settingsStreamingQuality": "스트리밍 품질",
+  "settingsQualityAutomatic": "자동",
+  "settingsQualityLow": "낮음",
+  "settingsQualityNormal": "보통",
+  "settingsQualityHigh": "높음",
+  "settingsDownloadQuality": "다운로드 품질",
+  "settingsPlayback": "재생",
+  "settingsCrossfade": "크로스페이드",
+  "settingsCrossfadeDesc": "곡 사이를 부드럽게 전환합니다",
+  "settingsDataUsage": "데이터 사용량",
+  "settingsDataSaver": "데이터 절약",
+  "settingsDataSaverDesc": "모바일 네트워크에서 낮은 품질로 재생",
+  "settingsAppearance": "화면 설정",
+  "settingsLanguage": "언어",
+  "settingsCustomAccent": "강조 색상",
+  "settingsSaturation": "채도",
+  "settingsBrightness": "밝기",
+  "settingsResetDefault": "기본값으로 초기화",
+  "playlistSheetTitle": "플레이리스트에 추가",
+  "playlistSheetNewPlaylist": "새 플레이리스트",
+  "playlistSheetNoPlaylists": "플레이리스트가 없습니다",
+  "playlistSheetSongsCount": "{count} {count, plural, =1{곡} other{곡}}",
+  "@playlistSheetSongsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "playlistSheetNameHint": "플레이리스트 이름",
+  "playlistSheetCancel": "취소",
+  "playlistSheetAddedTo": "{name}에 추가됨",
+  "@playlistSheetAddedTo": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "playlistSheetCreateFailAuth": "오류: 인증 실패",
+  "playlistSheetCreateFail": "오류: {error}",
+  "@playlistSheetCreateFail": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "playlistSheetCreate": "만들기",
+  "appUpdateAvailable": "업데이트 가능",
+  "appUpdateDesc": "버전 {version}이 출시되었습니다!",
+  "@appUpdateDesc": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "appUpdateDownload": "다운로드",
+  "navHome": "홈",
+  "navLibrary": "라이브러리",
+  "navSearch": "검색",
+  "navSettings": "설정",
+  "navProfile": "프로필",
+  "artistSelect": "아티스트 선택",
+  "songActionQueue": "대기열에 추가",
+  "songActionPlaylist": "플레이리스트에 추가",
+  "songActionFinding": "검색 중...",
+  "songActionAlbum": "앨범으로 이동",
+  "songActionArtist": "아티스트로 이동",
+  "songActionRemovePlaylist": "플레이리스트에서 삭제",
+  "songActionRemoveDownload": "다운로드에서 삭제",
+  "songActionDownloadChecking": "확인 중...",
+  "songActionDownloading": "다운로드 중...",
+  "songActionDownloaded": "완료!",
+  "songActionDownloadAlready": "이미 다운로드됨",
+  "songActionDownloadFailed": "다운로드 실패",
+  "songActionDownload": "다운로드",
+  "songActionDownloadingSnack": "다운로드 중",
+  "songActionView": "보기",
+  "spotifyImportTitle": "Spotify에서 가져오기",
+  "spotifyImportSubtitle": "플레이리스트 크기 선택",
+  "spotifyChoiceSmallTitle": "100곡 이하",
+  "spotifyChoiceSmallDesc": "공개 URL을 붙여넣으세요.",
+  "spotifyChoiceLargeTitle": "100곡 이상",
+  "spotifyChoiceLargeDesc": "Spotify Developer 키를 연결합니다.",
+  "cancelButton": "취소",
+  "spotifyPlaylistsTitle": "Spotify 플레이리스트",
+  "spotifyPlaylistsErrorMsg": "오류: {error}\nClient ID를 확인하세요.",
+  "@spotifyPlaylistsErrorMsg": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsEmpty": "플레이리스트가 없습니다",
+  "spotifyPlaylistsTracks": "{count}곡",
+  "@spotifyPlaylistsTracks": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "spotifyPlaylistsImport": "가져오기",
+  "audioPlaybackFailed": "재생할 수 없습니다.",
+  "audioControlPrevious": "이전",
+  "audioControlPause": "일시 정지",
+  "audioControlPlay": "재생",
+  "audioControlNext": "다음",
+  "audioControlUnlike": "좋아요 취소",
+  "audioControlLike": "좋아요",
+  "spotifyRawResponseError": "응답: {data}\n\n오류: {error}",
+  "@spotifyRawResponseError": {
+    "placeholders": {
+      "data": { "type": "String" },
+      "error": { "type": "String" }
+    }
+  },
+  "apiErrorInvalidClient": "Client ID가 잘못되었습니다.",
+  "apiErrorBadRequest": "잘못된 요청입니다.",
+  "apiErrorUnauthorized": "권한이 없습니다. 다시 로그인하세요.",
+  "apiErrorForbidden": "접근이 거부되었습니다.",
+  "apiErrorNotFound": "찾을 수 없습니다.",
+  "apiErrorEmailInUse": "이미 사용 중인 이메일입니다.",
+  "apiErrorUserNotFound": "계정을 찾을 수 없습니다.",
+  "apiErrorWrongPassword": "비밀번호가 잘못되었습니다.",
+  "apiErrorInvalidCredential": "로그인 정보가 올바르지 않습니다.",
+  "apiErrorNetwork": "네트워크 오류입니다.",
+  "apiErrorSocketTimeout": "시간 초과되었습니다.",
+  "apiErrorTooManyRequests": "요청이 너무 많습니다.",
+  "apiErrorServerError": "서버 오류입니다.",
+  "apiErrorInvalidEmail": "올바른 이메일 주소를 입력하세요.",
+  "apiErrorWeakPassword": "비밀번호가 너무 약합니다.",
+  "apiErrorTooManyAttempts": "로그인 시도가 너무 많습니다."
+}
