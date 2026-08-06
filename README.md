@@ -41,7 +41,7 @@ The name "Pulse" reflects its core philosophy: an alive, dynamic, and responsive
 - 🎧 **Premium Listening Experience** — Stream high-quality audio uninterrupted in the background without any ads.
 - 🔄 **Cross-device Syncing** — Sign in with your Gmail account to securely sync your liked songs, custom playlists, recently played history, and listening stats across all your devices using Firebase.
 - ✨ **Uncompromised Aesthetics** — Built with modern design principles: glassmorphism, dynamic accent colors, smooth micro-animations, and a completely clutter-free environment.
-
+- 🌐 **Global Support** — Fully localized and translated into 30 different languages to serve users worldwide.
 ## 📸 Screenshots
 
 <p align="center">
