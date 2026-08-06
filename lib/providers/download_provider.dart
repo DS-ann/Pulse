@@ -15,6 +15,7 @@ import 'playlist_provider.dart';
 import 'settings_provider.dart';
 import '../services/stream_extractor.dart';
 import '../core/utils/error_mapper.dart';
+import '../services/wakelock_manager.dart';
 
 // ── Download State ──────────────────────────────────────────────────────────
 
@@ -373,6 +374,7 @@ class DownloadNotifier extends Notifier<DownloadState> {
       final updated = Map<String, DownloadProgress>.from(state.activeDownloads);
       updated[videoId] = active.copyWith(isPaused: true);
       state = state.copyWith(activeDownloads: updated);
+      _updateWakelock(updated);
     }
   }
 
@@ -443,6 +445,7 @@ class DownloadNotifier extends Notifier<DownloadState> {
     }
     await _db.clearAll();
     state = const DownloadState();
+    WakelockManager().setDownloading(false);
   }
 
   Future<List<Song>> getAllDownloadedSongs() => _db.getAllTracks();
@@ -466,12 +469,14 @@ class DownloadNotifier extends Notifier<DownloadState> {
       error: clearError ? null : existing?.error,
     );
     state = state.copyWith(activeDownloads: updated);
+    _updateWakelock(updated);
   }
 
   void _markComplete(String videoId) {
     final updated = Map<String, DownloadProgress>.from(state.activeDownloads);
     updated.remove(videoId);
     state = state.copyWith(activeDownloads: updated);
+    _updateWakelock(updated);
   }
 
   void _markError(String videoId, String error) {
@@ -485,6 +490,12 @@ class DownloadNotifier extends Notifier<DownloadState> {
       error: error,
     );
     state = state.copyWith(activeDownloads: updated);
+    _updateWakelock(updated);
+  }
+
+  void _updateWakelock(Map<String, DownloadProgress> activeDownloads) {
+    final isDownloading = activeDownloads.values.any((d) => d.progress < 1.0 && !d.isPaused && d.error == null);
+    WakelockManager().setDownloading(isDownloading);
   }
 }
 

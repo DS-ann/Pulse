@@ -3,7 +3,8 @@ import 'package:flutter/material.dart' show SnackBar, Text, Colors, debugPrint, 
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_kit/media_kit.dart';
-import 'package:wakelock_plus/wakelock_plus.dart';
+
+import '../services/wakelock_manager.dart';
 import '../data/api/music_api.dart';
 import '../data/models/song.dart';
 import '../core/utils/thumbnail_utils.dart';
@@ -259,11 +260,7 @@ class AudioNotifier extends Notifier<AudioState> {
       );
 
       // Wake lock management
-      if (playing) {
-        WakelockPlus.enable();
-      } else {
-        WakelockPlus.disable();
-      }
+      WakelockManager().setPlaying(playing);
     });
 
     _bufferingSub = player.stream.buffering.listen((buffering) {
@@ -1083,7 +1080,7 @@ class AudioNotifier extends Notifier<AudioState> {
     _bufferingSub?.cancel();
     _crossfadeEngine.dispose();
     _handler.dispose();
-    WakelockPlus.disable();
+    WakelockManager().setPlaying(false);
   }
 }
 

@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:audio_service/audio_service.dart';
 import 'package:media_kit/media_kit.dart';
-import 'package:wakelock_plus/wakelock_plus.dart';
+import 'wakelock_manager.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/widgets.dart' show Locale;
 import 'package:pulse/l10n/generated/app_localizations.dart';
@@ -226,7 +226,7 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
   @override
   Future<void> onTaskRemoved() async {
     try {
-      await WakelockPlus.disable();
+      await WakelockManager().disableAll();
     } catch (_) {}
     
     if (!playbackState.value.playing) {

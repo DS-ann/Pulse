@@ -323,7 +323,7 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
 
   Widget _buildGridView(AudioState audio) {
     return GridView.builder(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 140),
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 180),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3, childAspectRatio: 0.75,
         crossAxisSpacing: 12, mainAxisSpacing: 12,

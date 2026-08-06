@@ -664,7 +664,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
 
   Widget _buildListView(List<Playlist> playlists) {
     return ListView.builder(
-      padding: const EdgeInsets.only(bottom: 140),
+      padding: const EdgeInsets.only(bottom: 180),
       itemCount: playlists.length,
       itemBuilder: (context, i) => _PlaylistListTile(
         playlist: playlists[i],
@@ -676,7 +676,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
 
   Widget _buildGridView(List<Playlist> playlists) {
     return GridView.builder(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 140),
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 180),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3, childAspectRatio: 0.75,
         crossAxisSpacing: 12, mainAxisSpacing: 12,
