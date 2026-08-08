@@ -1030,6 +1030,10 @@ class AudioNotifier extends Notifier<AudioState> {
     final current = state.currentSong;
     if (current == null) return;
     
+    // Ignore rapid Duration.zero updates during track transitions
+    // if we already know the song has a valid length.
+    if (duration == Duration.zero && current.duration > 0) return;
+    
     Uri? artUri;
     if (current.thumbnail.isNotEmpty) {
       if (!current.thumbnail.startsWith('http')) {
