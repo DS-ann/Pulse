@@ -331,7 +331,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   void _handlePlay(Song song) {
     if (song.isPlayable) {
-      ref.read(audioProvider.notifier).playSong(song, clearQueue: true);
+      ref.read(audioProvider.notifier).playSong(song, clearQueue: true, isManual: true);
     } else {
       final id = song.playlistId ?? song.browseId ?? song.id;
       if (id.isNotEmpty) context.push('/playlist/$id');

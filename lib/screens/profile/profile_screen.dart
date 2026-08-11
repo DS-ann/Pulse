@@ -366,7 +366,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           onTap: () {
                             try {
                               final songObj = Song.fromJson(s);
-                              ref.read(audioProvider.notifier).playSong(songObj, clearQueue: true);
+                              ref.read(audioProvider.notifier).playSong(songObj, clearQueue: true, isManual: true);
                             } catch (e) {
                               debugPrint('Failed to play top song: $e');
                             }

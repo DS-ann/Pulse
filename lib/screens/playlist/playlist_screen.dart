@@ -346,10 +346,10 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
                         if (isShuffled) {
                           // Pick a random starting song
                           final shuffled = [...songsToRender]..shuffle();
-                          notifier.playSong(shuffled.first, contextPlaylistId: widget.playlistId);
+                          notifier.playSong(shuffled.first, contextPlaylistId: widget.playlistId, isManual: true);
                           notifier.replaceQueue(shuffled.skip(1).toList());
                         } else {
-                          notifier.playSong(songsToRender.first, contextPlaylistId: widget.playlistId);
+                          notifier.playSong(songsToRender.first, contextPlaylistId: widget.playlistId, isManual: true);
                           notifier.replaceQueue(songsToRender.skip(1).toList());
                         }
                       },
@@ -414,7 +414,7 @@ class _PlaylistScreenState extends ConsumerState<PlaylistScreen> {
                                 index: i,
                                 onTap: () {
                                   final notifier = ref.read(audioProvider.notifier);
-                                  notifier.playSong(songWithThumb, contextPlaylistId: widget.playlistId);
+                                  notifier.playSong(songWithThumb, contextPlaylistId: widget.playlistId, isManual: true);
                                   notifier.replaceQueue(
                                       songsToRender.sublist(i + 1));
                                 },

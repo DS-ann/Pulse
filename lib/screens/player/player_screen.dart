@@ -19,7 +19,9 @@ import '../../providers/audio_provider.dart' as ap show RepeatMode;
 import '../../providers/playlist_provider.dart';
 import '../../providers/download_provider.dart';
 import '../../providers/settings_provider.dart';
+import '../../providers/sleep_timer_provider.dart';
 import 'widgets/equalizer_sheet.dart';
+import 'widgets/sleep_timer_sheet.dart';
 import '../../widgets/glass_container.dart';
 import '../../widgets/song_action_sheet.dart';
 import '../../widgets/song_tile.dart';
@@ -120,6 +122,15 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
       }
     });
 
+    ref.listen(sleepTimerProvider, (prev, next) {
+      if (next.isExpired && (prev == null || !prev.isExpired)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Sleep timer ended'), duration: Duration(seconds: 3)),
+        );
+        ref.read(sleepTimerProvider.notifier).clearExpired();
+      }
+    });
+
     final thumb = ThumbnailUtils.getHighRes(song.thumbnail, size: 800);
     // Use a tiny image for the blur to reduce GPU math during transition
     final blurThumb = ThumbnailUtils.getHighRes(song.thumbnail, size: 120);
@@ -201,14 +212,18 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                   },
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Stack(
+                      alignment: Alignment.center,
                       children: [
-                        IconButton(
-                          onPressed: () => ref.read(playerOverlayProvider.notifier).state = false,
-                          icon: const Icon(LucideIcons.chevronDown, size: 28),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: IconButton(
+                            onPressed: () => ref.read(playerOverlayProvider.notifier).state = false,
+                            icon: const Icon(LucideIcons.chevronDown, size: 28),
+                          ),
                         ),
                         Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(AppLocalizations.of(context)!.playerAppName,
                                 style: TextStyle(
@@ -244,26 +259,53 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                             ),
                           ],
                         ),
-                        Builder(
-                          builder: (context) {
-                            final isEnabled = ref.watch(settingsProvider).equalizerEnabled;
-                            return IconButton(
-                              onPressed: () {
-                                // Hide keyboard if it was open on the underlying screen
-                                FocusManager.instance.primaryFocus?.unfocus();
-                                showModalBottomSheet(useRootNavigator: true, 
-                                  context: context,
-                                  backgroundColor: Colors.transparent,
-                                  builder: (context) => const EqualizerSheet(),
-                                );
-                              },
-                              icon: Icon(
-                                LucideIcons.sliders, 
-                                size: 22,
-                                color: isEnabled ? Theme.of(context).colorScheme.primary : AppColors.textPrimary,
-                              ),
-                            );
-                          }
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Builder(
+                            builder: (context) {
+                              final isEnabled = ref.watch(settingsProvider).equalizerEnabled;
+                              final timerState = ref.watch(sleepTimerProvider);
+                              final isTimerActive = timerState.isActive;
+                              
+                              return Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      FocusManager.instance.primaryFocus?.unfocus();
+                                      showModalBottomSheet(
+                                        useRootNavigator: true, 
+                                        context: context,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (context) => const SleepTimerSheet(),
+                                      );
+                                    },
+                                    icon: Icon(
+                                      LucideIcons.moon,
+                                      size: 22,
+                                      color: isTimerActive ? Theme.of(context).colorScheme.primary : AppColors.textPrimary,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      // Hide keyboard if it was open on the underlying screen
+                                      FocusManager.instance.primaryFocus?.unfocus();
+                                      showModalBottomSheet(useRootNavigator: true, 
+                                        context: context,
+                                        backgroundColor: Colors.transparent,
+                                        builder: (context) => const EqualizerSheet(),
+                                      );
+                                    },
+                                    icon: Icon(
+                                      LucideIcons.sliders, 
+                                      size: 22,
+                                      color: isEnabled ? Theme.of(context).colorScheme.primary : AppColors.textPrimary,
+                                    ),
+                                  ),
+                                ],
+                              );
+                            }
+                          ),
                         ),
                       ],
                     ),

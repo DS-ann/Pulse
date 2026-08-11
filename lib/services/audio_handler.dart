@@ -46,6 +46,9 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
   /// Callback invoked when user presses Like in the notification.
   void Function()? onLikePressed;
 
+  /// Callback to check if sleep timer has expired, blocking play requests if true.
+  bool Function()? isSleepTimerExpired;
+
   /// Whether the current song is liked — controls filled vs outline heart icon.
   bool _isLiked = false;
 
@@ -186,6 +189,8 @@ class PulseAudioHandler extends BaseAudioHandler with SeekHandler {
 
   @override
   Future<void> play() async {
+    if (isSleepTimerExpired?.call() ?? false) return;
+    
     if (_session != null) {
       await _session!.setActive(true);
     }

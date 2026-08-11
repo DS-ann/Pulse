@@ -56,7 +56,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
   void _playAll() {
     if (_artist == null || _artist!.topSongs.isEmpty) return;
     final notifier = ref.read(audioProvider.notifier);
-    notifier.playSong(_artist!.topSongs.first, clearQueue: true);
+    notifier.playSong(_artist!.topSongs.first, clearQueue: true, isManual: true);
     for (int i = 1; i < _artist!.topSongs.length; i++) {
       notifier.addToQueue(_artist!.topSongs[i]);
     }
@@ -272,7 +272,7 @@ class _ArtistScreenState extends ConsumerState<ArtistScreen> {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () => ref.read(audioProvider.notifier).playSong(song, clearQueue: true),
+        onTap: () => ref.read(audioProvider.notifier).playSong(song, clearQueue: true, isManual: true),
         borderRadius: BorderRadius.circular(8),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 6),

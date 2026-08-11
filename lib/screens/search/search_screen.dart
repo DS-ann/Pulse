@@ -101,7 +101,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       return;
     }
     if (item.isPlayable) {
-      ref.read(audioProvider.notifier).playSong(item, clearQueue: true);
+      ref.read(audioProvider.notifier).playSong(item, clearQueue: true, isManual: true);
       // Add to search history (mirrors PWA setHistory behavior)
       ref.read(searchProvider.notifier).addToHistory(item);
     } else if (item.browseId != null) {

@@ -17,6 +17,7 @@ import 'download_provider.dart';
 import 'settings_provider.dart';
 import 'playlist_provider.dart';
 import 'package:pulse/l10n/generated/app_localizations.dart';
+import 'sleep_timer_provider.dart';
 
 // ── Audio State ─────────────────────────────────────────────────────────────
 
@@ -155,6 +156,7 @@ class AudioNotifier extends Notifier<AudioState> {
   void initialize(PulseAudioHandler handler) {
     _handler = handler;
     _isInitialized = true;
+    _handler.isSleepTimerExpired = () => ref.read(sleepTimerProvider).isExpired;
     
     _crossfadeEngine = CrossfadeEngine(
       primaryPlayer: _handler.primaryPlayer,
@@ -284,7 +286,9 @@ class AudioNotifier extends Notifier<AudioState> {
       // If native LoopMode.one fails (common with offline files on some Android devices), 
       // this fallback will manually restart the song.
       _crossfadeEngine.primaryPlayer.seek(Duration.zero);
-      _crossfadeEngine.primaryPlayer.play();
+      if (!ref.read(sleepTimerProvider).isExpired) {
+        _crossfadeEngine.primaryPlayer.play();
+      }
     } else {
       playNext();
     }
@@ -293,7 +297,11 @@ class AudioNotifier extends Notifier<AudioState> {
   // ── Core play function ─────────────────────────────────────────────────────
   // Port of `playSong()` from AudioContext.jsx (lines 636-770).
 
-  Future<void> playSong(Song song, {String? offlineFilePath, bool clearQueue = false, String? contextPlaylistId, bool isPrev = false}) async {
+  Future<void> playSong(Song song, {String? offlineFilePath, bool clearQueue = false, String? contextPlaylistId, bool isPrev = false, bool isManual = false}) async {
+    if (isManual && ref.read(sleepTimerProvider).isExpired) {
+      ref.read(sleepTimerProvider.notifier).cancelTimer();
+    }
+
     // Normalize (mirrors lines 638-643)
     final normalizedSong = song.copyWith(
       id: song.videoId.isNotEmpty ? song.videoId : song.id,
@@ -394,7 +402,9 @@ class AudioNotifier extends Notifier<AudioState> {
         _handler.setPrimaryPlayer(newPrimary);
         // Player is already loaded — just play
         newPrimary.setVolume(100.0);
-        await newPrimary.play();
+        if (!ref.read(sleepTimerProvider).isExpired) {
+          await newPrimary.play();
+        }
         if (isStale()) return;
         // Sync real duration now that player is active
         state = state.copyWith(
@@ -424,7 +434,7 @@ class AudioNotifier extends Notifier<AudioState> {
       // ── OFFLINE PATH (mirrors lines 708-713) ──
       if (offlineFilePath != null) {
         await player.setVolume(100.0);
-        await player.open(Media(offlineFilePath));
+        await player.open(Media(offlineFilePath), play: !ref.read(sleepTimerProvider).isExpired);
         if (isStale()) return;
         return;
       }
@@ -440,7 +450,7 @@ class AudioNotifier extends Notifier<AudioState> {
           if (isStale()) return;
           if (localPath != null) {
             await player.setVolume(100.0);
-            await player.open(Media(localPath));
+            await player.open(Media(localPath), play: !ref.read(sleepTimerProvider).isExpired);
             if (isStale()) return;
             return;
           }
@@ -468,10 +478,13 @@ class AudioNotifier extends Notifier<AudioState> {
       if (isStale()) return;
 
       await player.setVolume(100.0);
-      await player.open(Media(
-        streamUrl,
-        httpHeaders: const {},
-      ));
+      await player.open(
+        Media(
+          streamUrl,
+          httpHeaders: const {},
+        ),
+        play: !ref.read(sleepTimerProvider).isExpired,
+      );
 
       if (isStale()) return;
       _consecutiveFailures = 0; // Reset on success
@@ -604,7 +617,7 @@ class AudioNotifier extends Notifier<AudioState> {
       queue: updatedQueue,
     );
 
-    playSong(selectedSong);
+    playSong(selectedSong, isManual: true);
   }
 
   /// Replace the entire queue.
@@ -732,12 +745,23 @@ class AudioNotifier extends Notifier<AudioState> {
 
   void togglePlay() {
     if (state.currentSong == null) return;
+    
+    if (ref.read(sleepTimerProvider).isExpired) {
+      ref.read(sleepTimerProvider.notifier).cancelTimer();
+    }
+    
     final player = _crossfadeEngine.primaryPlayer;
     if (player.state.playing) {
       player.pause();
     } else {
       player.play();
     }
+  }
+
+  void pause() {
+    if (state.currentSong == null) return;
+    _crossfadeEngine.cancelCrossfade();
+    _crossfadeEngine.primaryPlayer.pause();
   }
 
   void seek(Duration position) {

@@ -129,7 +129,7 @@ class DownloadingScreen extends ConsumerWidget {
                     icon: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        (download.isPaused || download.error != null) ? LucideIcons.play : LucideIcons.pause,
+                        (download.isPaused || download.error != null) ? Icons.play_arrow : Icons.pause,
                         color: AppColors.textPrimary,
                       ),
                     ),
@@ -144,7 +144,7 @@ class DownloadingScreen extends ConsumerWidget {
                     icon: const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Icon(
-                        LucideIcons.x,
+                        Icons.close,
                         color: AppColors.danger,
                       ),
                     ),

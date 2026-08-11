@@ -247,7 +247,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Icon(
-                                          hasActive ? LucideIcons.pause : LucideIcons.play,
+                                          hasActive ? Icons.pause : Icons.play_arrow,
                                           size: 16, color: AppColors.textSecondary,
                                         ),
                                         const SizedBox(width: 8),
