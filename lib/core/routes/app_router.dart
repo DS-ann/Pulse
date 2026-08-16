@@ -14,6 +14,7 @@ import '../../screens/communication/communication_screen.dart';
 import '../../screens/communication/admin_chat_screen.dart';
 import '../../screens/communication/broadcast_chat_screen.dart';
 import '../../widgets/app_scaffold.dart';
+import '../../widgets/player_aware_pop_scope.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/auth_provider.dart';
 
@@ -112,68 +113,90 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
 
       // ── Main shell (with bottom nav + mini player) ──
-      ShellRoute(
-        navigatorKey: _shellNavigatorKey,
-        observers: [
-          FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
-        ],
-        builder: (context, state, child) => AppScaffold(child: child),
-        routes: [
-          GoRoute(
-            name: 'Home',
-            path: '/',
-            builder: (context, state) => const HomeScreen(),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) => AppScaffold(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: 'Home',
+                path: '/',
+                builder: (context, state) => const HomeScreen(),
+              ),
+            ],
           ),
-          GoRoute(
-            name: 'Library',
-            path: '/library',
-            builder: (context, state) => const PlaylistsScreen(),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: 'Library',
+                path: '/library',
+                builder: (context, state) => const PlaylistsScreen(),
+              ),
+              GoRoute(
+                name: 'Downloads',
+                path: '/downloads',
+                builder: (context, state) => const PlaylistsScreen(initialTabIndex: 1),
+              ),
+              GoRoute(
+                name: 'Downloading',
+                path: '/downloading',
+                builder: (context, state) => const PlaylistsScreen(initialTabIndex: 2),
+              ),
+              GoRoute(
+                name: 'Playlist',
+                path: '/playlist/:id',
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: PlayerAwarePopScope(
+                    child: PlaylistScreen(playlistId: state.pathParameters['id']!),
+                  ),
+                ),
+              ),
+              GoRoute(
+                name: 'Artist',
+                path: '/artist/:id',
+                pageBuilder: (context, state) => MaterialPage(
+                  key: state.pageKey,
+                  child: PlayerAwarePopScope(
+                    child: ArtistScreen(browseId: state.pathParameters['id']!),
+                  ),
+                ),
+              ),
+            ],
           ),
-          GoRoute(
-            name: 'Search',
-            path: '/search',
-            builder: (context, state) => SearchScreen(initialQuery: state.uri.queryParameters['q']),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: 'Search',
+                path: '/search',
+                builder: (context, state) => SearchScreen(initialQuery: state.uri.queryParameters['q']),
+              ),
+            ],
           ),
-          GoRoute(
-            name: 'Settings',
-            path: '/settings',
-            builder: (context, state) => const SettingsScreen(),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: 'Settings',
+                path: '/settings',
+                builder: (context, state) => const SettingsScreen(),
+              ),
+              GoRoute(
+                name: 'Import',
+                path: '/import',
+                builder: (context, state) => const PlayerAwarePopScope(
+                  child: ImportScreen(),
+                ),
+              ),
+            ],
           ),
-          GoRoute(
-            name: 'Profile',
-            path: '/profile',
-            builder: (context, state) => const ProfileScreen(),
-          ),
-          GoRoute(
-            name: 'Downloads',
-            path: '/downloads',
-            builder: (context, state) => const PlaylistsScreen(initialTabIndex: 1),
-          ),
-          GoRoute(
-            name: 'Downloading',
-            path: '/downloading',
-            builder: (context, state) => const PlaylistsScreen(initialTabIndex: 2),
-          ),
-          GoRoute(
-            name: 'Playlist',
-            path: '/playlist/:id',
-            pageBuilder: (context, state) => MaterialPage(
-              key: state.pageKey,
-              child: PlaylistScreen(playlistId: state.pathParameters['id']!),
-            ),
-          ),
-          GoRoute(
-            name: 'Artist',
-            path: '/artist/:id',
-            pageBuilder: (context, state) => MaterialPage(
-              key: state.pageKey,
-              child: ArtistScreen(browseId: state.pathParameters['id']!),
-            ),
-          ),
-          GoRoute(
-            name: 'Import',
-            path: '/import',
-            builder: (context, state) => const ImportScreen(),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: 'Profile',
+                path: '/profile',
+                builder: (context, state) => const ProfileScreen(),
+              ),
+            ],
           ),
         ],
       ),

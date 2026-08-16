@@ -23,9 +23,9 @@ import 'package:pulse/l10n/generated/app_localizations.dart';
 /// Equivalent to Layout.jsx in the React app.
 /// Includes a connectivity monitor that swaps to OfflineScreen when offline.
 class AppScaffold extends ConsumerStatefulWidget {
-  final Widget child;
+  final StatefulNavigationShell navigationShell;
 
-  const AppScaffold({super.key, required this.child});
+  const AppScaffold({super.key, required this.navigationShell});
 
   @override
   ConsumerState<AppScaffold> createState() => _AppScaffoldState();
@@ -184,21 +184,9 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
     super.dispose();
   }
 
-  int _lastKnownIndex = 0;
-
-  int _calculateSelectedIndex(BuildContext context) {
-    final location = GoRouterState.of(context).uri.toString();
-    if (location == '/') return _lastKnownIndex = 0;
-    if (location.startsWith('/library') || location.startsWith('/downloads') || location.startsWith('/downloading')) return _lastKnownIndex = 1;
-    if (location.startsWith('/search')) return _lastKnownIndex = 2;
-    if (location.startsWith('/settings')) return _lastKnownIndex = 3;
-    if (location.startsWith('/profile')) return _lastKnownIndex = 4;
-    return _lastKnownIndex;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final currentIndex = _calculateSelectedIndex(context);
+    final currentIndex = widget.navigationShell.currentIndex;
 
     final location = GoRouterState.of(context).uri.toString();
     // Show offline screen when no connectivity, unless on offline-capable pages
@@ -263,7 +251,7 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
       bottomNavigationBar: SizedBox(
         height: bottomNavHeight + (audio.currentSong != null ? miniPlayerHeight : 0),
       ),
-      body: widget.child,
+      body: widget.navigationShell,
     );
 
     // The bottom navigation bar widget
@@ -293,32 +281,32 @@ class _AppScaffoldState extends ConsumerState<AppScaffold> {
                 icon: LucideIcons.home,
                 label: AppLocalizations.of(context)!.navHome,
                 isActive: currentIndex == 0,
-                onTap: () => context.go('/'),
+                onTap: () => widget.navigationShell.goBranch(0, initialLocation: currentIndex == 0),
               ),
               _NavItem(
                 icon: LucideIcons.library,
                 label: AppLocalizations.of(context)!.navLibrary,
                 isActive: currentIndex == 1,
-                onTap: () => context.go('/library'),
+                onTap: () => widget.navigationShell.goBranch(1, initialLocation: currentIndex == 1),
               ),
               _NavItem(
                 icon: LucideIcons.search,
                 label: AppLocalizations.of(context)!.navSearch,
                 isActive: currentIndex == 2,
-                onTap: () => context.go('/search'),
+                onTap: () => widget.navigationShell.goBranch(2, initialLocation: currentIndex == 2),
               ),
               _NavItem(
                 icon: LucideIcons.settings,
                 label: AppLocalizations.of(context)!.navSettings,
                 isActive: currentIndex == 3,
-                onTap: () => context.go('/settings'),
+                onTap: () => widget.navigationShell.goBranch(3, initialLocation: currentIndex == 3),
               ),
               _NavItem(
                 icon: LucideIcons.user,
                 customIcon: profileIcon != null ? _ProfileBadge(child: profileIcon) : null,
                 label: AppLocalizations.of(context)!.navProfile,
                 isActive: currentIndex == 4,
-                onTap: () => context.go('/profile'),
+                onTap: () => widget.navigationShell.goBranch(4, initialLocation: currentIndex == 4),
               ),
             ],
           ),
